@@ -1,0 +1,343 @@
+﻿@using RjamSoft.Tamil.Grammar.Parser
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<ul id="seyyulbar">
+    <li>
+        <h2>செய்யுள் உள்ளிடவும்</h2>
+        <ul>
+            <li id="seyyul" class="k-state-active">
+                <form id="prosodyForm" class="form-horizontal" action="/api/Prosody" method="POST">
+                    <br />
+                    <div class="control-group">
+                        <div class="controls">
+                            <textarea id="ProsodyText" rows="8" class="field span12"></textarea>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <button type="submit" class="btn">பகுத்திடுக</button>
+                        </div>
+                    </div>
+                </form>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<ul id="seyyulResult">
+    <li>
+        பகுத்தல் முடிவு
+
+        <div id="tabstrip">
+            <ul>
+                <li class="k-state-active">
+                    எழுத்து
+                </li>
+                <li>
+                    அசை-சீர்
+                </li>
+                <li>
+                    தளை
+                </li>
+                <li>
+                    அடி
+                </li>
+                <li>
+                    மோனை
+                </li>
+                <li>
+                    எதுகை
+
+                </li>
+            </ul>
+            <div>
+                எழுத்து
+            </div>
+            <div>
+                அசை-சீர்
+            </div>
+            <div>
+                தளை
+            </div>
+            <div>
+                அடி
+            </div>
+            <div>
+                மோனை
+            </div>
+            <div>
+                எதுகை
+            </div>
+        </div>
+    </li>
+</ul>
+
+<script type="text/x-kendo-template" id="ezhuthuTemplate">
+    <h3 class="k-widget k-header">எழுத்துகள் எண்ணிக்கை: #= uyirEzhuthugal + meyEzhuthugal + uyirMeyEzhuthugal + aydhaEzhuthu #</h3>
+    <br />
+    உயிரெழுத்துக்கள்: #= uyirEzhuthugal #
+    <br />
+    <br />
+    மெய்யெழுத்துக்கள்: #= meyEzhuthugal #
+    <br />
+    <br />
+    உயிர்மெய்யெழுத்துக்கள்: #= uyirMeyEzhuthugal #
+    <br />
+    <br />
+    ஆய்த எழுத்து: #= aydhaEzhuthu #
+    <br />
+    <br />
+    குறில் எழுத்துக்கள்: #= kurilEzhuthugal #
+    <br />
+    <br />
+    நெடில் எழுத்துக்கள்: #= nedilEzhuthugal #
+    <br />
+    <br />
+    <h3 class="k-widget k-header">மாத்திரை எண்ணிக்கை: #= totalMathiraiCount #</h3>
+    <br />
+    # var mathiraiInSeer = ""; #
+    # for (var l=0; l < mathiraiCount.length; l++) { #
+    # $.each(mathiraiCount[l], function(mathiraiKey, mathiraiValue) { #
+    # mathiraiInSeer = mathiraiInSeer + '<ruby><span class="uiTrant">' + mathiraiKey + '</span><rt>' + mathiraiValue + '</rt></ruby>  '; #
+    # }) #
+    # mathiraiInSeer += '<br />'; #
+    # } #
+    #= mathiraiInSeer #
+</script>
+
+<script type="text/x-kendo-template" id="seerTemplate">
+    <h3 class="k-widget k-header">#= paaVagai #</h3>
+    <br />
+    <table border="0" cellspacing="15">
+        <tbody>
+
+            # $.each(parseTree, function(adiKey, adiValue) { #
+            # var paaAsaiInAdi = ""; var asigalInAdi = "";	var vaippaduInAdi = ""; #
+            # $.each(adiValue, function(seerKey, seerValue) { #
+            # paaAsaiInAdi = paaAsaiInAdi + '<td>' #
+            # asigalInAdi = asigalInAdi + '<td>'#
+            # vaippaduInAdi = vaippaduInAdi + '<td>'#
+            # $.each(seerValue, function(asaiKey, asaiValue) { #
+            # $.each(asaiValue, function(key, value) { #
+            # if(key != "meta" && key != "smeta") { #
+            # if(key == "நேர்") { #
+            # paaAsaiInAdi = paaAsaiInAdi + '<span class="nerasai">' + value + '</span>' #
+            # asigalInAdi = asigalInAdi + '<span class="nerasai"> ' + key #
+                # } else if(key == "நிரை") { #
+                # paaAsaiInAdi = paaAsaiInAdi + '<span class="niryasai">' + value + '</span>' #
+                # asigalInAdi = asigalInAdi + '<span class="niryasai"> ' + key #
+                    # } #
+                    # } else { #
+                    # if(key == "meta") { #
+                    # paaAsaiInAdi = paaAsaiInAdi + '</td>' #
+        # asigalInAdi = asigalInAdi + '</td>'  #
+        # vaippaduInAdi = vaippaduInAdi + value + '</td>' #
+        # } #
+        # }	#
+        # }) #
+        # }) #
+        # }) #
+        # console.log("\r\n" + paaAsaiInAdi); console.log("\r\n" + asigalInAdi); console.log("\r\n" + vaippaduInAdi); #
+        <tr>
+            #= paaAsaiInAdi #
+        </tr>
+        <tr>
+            #= asigalInAdi #
+        </tr>
+        <tr>
+            #= vaippaduInAdi #
+        </tr>
+        #}) #
+        </tbody>
+    </table>
+</script>
+
+<script type="text/x-kendo-template" id="thalaiTemplate">
+    <br />
+    <table border=0 cellspacing=10>
+        <tr>
+            <th>சீர்கள்</th>
+            <th>வாய்ப்பாடு - அசை&nbsp;</th>
+            <th>தளை</th>
+        </tr>
+        # for (var i = 0; i < wordBond.length; i++) { #
+        <tr>
+            <td> <span class="talaiseer"> #= wordBond[i]["word1"] # - #= wordBond[i]["word2"] # </span></td>
+            <td> <span class="talaiasai"> #= wordBond[i]["class1"] # - #= wordBond[i]["class2"] # </span></td>
+            <td> <span class="talainame"> #= wordBond[i]["bond"] # </span></td>
+        </tr>
+        # } #
+    </table>
+</script>
+
+<script type="text/x-kendo-template" id="adiTemplate">
+    <h2 class="k-widget k-header">அடிகள் எண்ணிக்கை: #= adigal.length #</h2>
+    <br />
+    # for (var i = 0; i < adigal.length; i++) { #
+    #= adigal[i] # |
+    <span class="adi   "> #= adiVagaigal[i] # </span>
+    <br />
+    <br />
+    # } #
+</script>
+
+<script type="text/x-kendo-template" id="monaiTemplate">
+    <h2 class="k-widget k-header">சீர் மோனை</h2>
+
+    # for (var i = 0; i < adigal.length; i++) { #
+    <br />
+    அடி #= i + 1 # |  #= adigal[i] #
+    <br />
+    # if(seerMonaiWithinAdi[i][1] == "இல்லை") { #
+    மோனை #= seerMonaiWithinAdi[i][1] #
+    <br />
+    #} else { #
+    <span class="todaiword"> #=seerMonaiWithinAdi[i][2] # </span> | #= seerMonaiWithinAdi[i][1] #  மோனை
+    # } #
+    <br />
+    # } #
+    <h2 class="k-widget k-header">அடி மோனை</h2>
+    <br />
+    # var output = ""; for (var i = 0; i < matchingAdiMonai.length; i++) { #
+    # var monaiCount = 0 #
+    # $.each(matchingAdiMonai[i], function(key, value) { #
+    # output = output + ((parseInt(key,10) + 1 ) + ' ' + value + '  '); monaiCount++; #
+    # }) #
+    # if(monaiCount > 1) { #
+    #= output #
+    # } #
+    # output = "" #
+    # } #
+    <br />
+</script>
+
+<script type="text/x-kendo-template" id="ethukaiTemplate">
+    <h2 class="k-widget k-header">சீர் எதுகை</h2>
+
+    # for (var i = 0; i < adigal.length; i++) { #
+    <br />
+    அடி #= i + 1 # |  #= adigal[i] #
+    <br />
+    # if(seerEthukaiWithinAdi[i][1] == "இல்லை") { #
+    எதுகை #= seerEthukaiWithinAdi[i][1] #
+    <br />
+    #} else { #
+    <span class="todaiword"> #= seerEthukaiWithinAdi[i][2] # </span>| #= seerEthukaiWithinAdi[i][1] #   எதுகை
+    <br />
+    # } #
+    # } #
+    <h2 class="k-widget k-header">அடி எதுகை</h2>
+    <br />
+    # var output = ""; for (var i = 0; i < matchingAdiEthukai.length; i++) { #
+    # var ethukaiCount = 0 #
+    # $.each(matchingAdiEthukai[i], function(key, value) { #
+    # output = output + ((parseInt(key,10) + 1 ) + ' ' + value + '  '); ethukaiCount++; #
+    # }) #
+    # if(ethukaiCount > 1) { #
+    #= output #
+    # } #
+    # output = "" #
+    # } #
+    <br />
+</script>
+<script>
+    $(document).ready(function () {
+
+        // event handler for select
+        var onSelect = function (e) {
+            // access the selected item via e.item (HTMLElement)
+            var item = e.sender.select();
+
+            if (item.hasClass("k-state-active")) {
+                e.sender.collapse(item);
+            } else {
+                e.sender.expand(item);
+            }
+        };
+
+        var tabStrip = $("#tabstrip").kendoTabStrip({
+            animation: {
+                open: {
+                    effects: "fadeIn"
+                }
+            }
+        }).data("kendoTabStrip");
+
+        var seyyulPanelBar = $("#seyyulbar").kendoPanelBar({
+            expandMode: "single",
+            select: onSelect
+        }).data("kendoPanelBar");
+
+        var seyyulResultPanelBar = $("#seyyulResult").kendoPanelBar({
+            expandMode: "single",
+            select: onSelect
+        }).data("kendoPanelBar");
+
+        //var item = panelBar.select();
+        seyyulPanelBar.expand($(".k-first"), true);
+
+        $("#prosodyForm").submit(function () {
+            var data = '{"ProsodyText" : "' + $("#ProsodyText").val() + '"}';
+            $.ajax({
+                url: '/api/Prosody',
+                data: data,
+                contentType: 'application/json; charset=utf8',
+                type: 'POST',
+                async: false,
+                success: function (data) {
+                    seyyulResultPanelBar.expand($(".k-first"), true);
+                    tabStrip.select(0);
+
+                    var ezhuthuTemplate = kendo.template($("#ezhuthuTemplate").html());
+
+                    $("#tabstrip-1").html(ezhuthuTemplate({
+                        uyirEzhuthugal: data["LetterCount"]["@TamilLanguageConstants.Vowel"],
+                        meyEzhuthugal: data["LetterCount"]["@TamilLanguageConstants.Consonant"],
+                        uyirMeyEzhuthugal: data["LetterCount"]["@TamilLanguageConstants.ConsonantVowel"],
+                        aydhaEzhuthu: data["LetterCount"]["@TamilLanguageConstants.Aytham"],
+                        kurilEzhuthugal: data["LetterCount"]["@TamilLanguageConstants.Kuril"],
+                        nedilEzhuthugal: data["LetterCount"]["@TamilLanguageConstants.Nedil"],
+                        mathiraiCount: data["MathiraiCount"],
+                        totalMathiraiCount: data["TotalMathiraiCount"]
+                    }));
+
+                    var seerTemplate = kendo.template($("#seerTemplate").html());
+                    $("#tabstrip-2").html(seerTemplate({
+                        paaVagai: data["MetreType"],
+                        parseTree: data["ParseTree"]
+                    }));
+
+                    var thalaiTemplate = kendo.template($("#thalaiTemplate").html());
+                    $("#tabstrip-3").html(thalaiTemplate({
+                        wordBond: data["WordBond"]
+                    }));
+                    var adiTemplate = kendo.template($("#adiTemplate").html());
+                    $("#tabstrip-4").html(adiTemplate({
+                        adigal: data["Lines"],
+                        adiVagaigal: data["LineClass"]
+                    }));
+                    var monaiTemplate = kendo.template($("#monaiTemplate").html());
+                    $("#tabstrip-5").html(monaiTemplate({
+                        adigal: data["Lines"],
+                        seerMonaiWithinAdi: data["SeerMonaiWithinAdi"],
+                        matchingAdiMonai: data["MatchingAdiMonai"]
+                    }));
+                    var ethukaiTemplate = kendo.template($("#ethukaiTemplate").html());
+                    $("#tabstrip-6").html(ethukaiTemplate({
+                        adigal: data["Lines"],
+                        seerEthukaiWithinAdi: data["SeerEthukaiWithinAdi"],
+                        matchingAdiEthukai: data["MatchingAdiEthukai"]
+                    }));
+                },
+                error: function (data) {
+                    alert('error');
+                }
+            });
+            return false;
+        });
+    });
+</script>
+
+

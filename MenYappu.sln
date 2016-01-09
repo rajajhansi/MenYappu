@@ -1,0 +1,71 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tamil.Grammar.Prosody.Parser", "Tamil.Grammar.Prosody.Parser\Tamil.Grammar.Prosody.Parser.csproj", "{8154E335-1B53-4940-914E-A5E4A6612E0D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{5F4756D0-22B1-4F0C-9B9F-933758276D6A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{8B8097AA-7514-491C-8DC6-55C523CA4ABE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{489B3C15-51BA-4985-9C7B-C35369336AB8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tamil.Grammar.Prosody.Parser.Tests", "Tamil.Grammar.Prosody.Parser.Tests\Tamil.Grammar.Prosody.Parser.Tests.csproj", "{54460D3F-3C68-4D50-95AC-43710B3E06A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tamil.Grammar.Prosody.Parser.Web", "Tamil.Grammar.Prosody.Parser.Web\Tamil.Grammar.Prosody.Parser.Web.csproj", "{7F1453D2-A019-4334-9DE2-89AAAFC190E1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8154E335-1B53-4940-914E-A5E4A6612E0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8154E335-1B53-4940-914E-A5E4A6612E0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8154E335-1B53-4940-914E-A5E4A6612E0D}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{8154E335-1B53-4940-914E-A5E4A6612E0D}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{8154E335-1B53-4940-914E-A5E4A6612E0D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8154E335-1B53-4940-914E-A5E4A6612E0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8154E335-1B53-4940-914E-A5E4A6612E0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8154E335-1B53-4940-914E-A5E4A6612E0D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{8154E335-1B53-4940-914E-A5E4A6612E0D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{8154E335-1B53-4940-914E-A5E4A6612E0D}.Release|x86.ActiveCfg = Release|Any CPU
+		{54460D3F-3C68-4D50-95AC-43710B3E06A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54460D3F-3C68-4D50-95AC-43710B3E06A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54460D3F-3C68-4D50-95AC-43710B3E06A2}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{54460D3F-3C68-4D50-95AC-43710B3E06A2}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{54460D3F-3C68-4D50-95AC-43710B3E06A2}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{54460D3F-3C68-4D50-95AC-43710B3E06A2}.Debug|x86.Build.0 = Debug|Any CPU
+		{54460D3F-3C68-4D50-95AC-43710B3E06A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54460D3F-3C68-4D50-95AC-43710B3E06A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54460D3F-3C68-4D50-95AC-43710B3E06A2}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{54460D3F-3C68-4D50-95AC-43710B3E06A2}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{54460D3F-3C68-4D50-95AC-43710B3E06A2}.Release|x86.ActiveCfg = Release|Any CPU
+		{54460D3F-3C68-4D50-95AC-43710B3E06A2}.Release|x86.Build.0 = Release|Any CPU
+		{7F1453D2-A019-4334-9DE2-89AAAFC190E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F1453D2-A019-4334-9DE2-89AAAFC190E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F1453D2-A019-4334-9DE2-89AAAFC190E1}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{7F1453D2-A019-4334-9DE2-89AAAFC190E1}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{7F1453D2-A019-4334-9DE2-89AAAFC190E1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7F1453D2-A019-4334-9DE2-89AAAFC190E1}.Debug|x86.Build.0 = Debug|Any CPU
+		{7F1453D2-A019-4334-9DE2-89AAAFC190E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F1453D2-A019-4334-9DE2-89AAAFC190E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F1453D2-A019-4334-9DE2-89AAAFC190E1}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{7F1453D2-A019-4334-9DE2-89AAAFC190E1}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{7F1453D2-A019-4334-9DE2-89AAAFC190E1}.Release|x86.ActiveCfg = Release|Any CPU
+		{7F1453D2-A019-4334-9DE2-89AAAFC190E1}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8154E335-1B53-4940-914E-A5E4A6612E0D} = {5F4756D0-22B1-4F0C-9B9F-933758276D6A}
+		{54460D3F-3C68-4D50-95AC-43710B3E06A2} = {8B8097AA-7514-491C-8DC6-55C523CA4ABE}
+		{7F1453D2-A019-4334-9DE2-89AAAFC190E1} = {489B3C15-51BA-4985-9C7B-C35369336AB8}
+	EndGlobalSection
+EndGlobal
