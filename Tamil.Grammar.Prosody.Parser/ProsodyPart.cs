@@ -12,6 +12,7 @@ namespace Tamil.Grammar.Prosody.Parser
         public Dictionary<string, int> LetterCount { get; set; }
         public List<Dictionary<string, double>> MathiraiCount { get; set; }
         public double TotalMathiraiCount { get; set; }
+        public string VenLastSyllable { get; set; }
         public Dictionary<string, Dictionary<string, Dictionary<string, Dictionary<string, string>>>> ParseTree { get; set; }
         public List<Dictionary<string, string>> WordBond { get; set; }
         public List<string> Lines { get; set; }

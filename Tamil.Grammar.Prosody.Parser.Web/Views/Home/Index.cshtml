@@ -122,35 +122,38 @@
             # $.each(seerValue, function(asaiKey, asaiValue) { #
             # $.each(asaiValue, function(key, value) { #
             # if(key != "meta" && key != "smeta") { #
-            # if(key == "நேர்") { #
+            # if(new RegExp("^நேர்").test(key)) {  #
             # paaAsaiInAdi = paaAsaiInAdi + '<span class="nerasai">' + value + '</span>' #
-            # asigalInAdi = asigalInAdi + '<span class="nerasai"> ' + key #
-                # } else if(key == "நிரை") { #
+            # asigalInAdi = asigalInAdi + '<span class="nerasai">' + key #
+            # } else if(new RegExp("^நிரை").test(key)) { #
                 # paaAsaiInAdi = paaAsaiInAdi + '<span class="niryasai">' + value + '</span>' #
-                # asigalInAdi = asigalInAdi + '<span class="niryasai"> ' + key #
-                    # } #
-                    # } else { #
+                # asigalInAdi = asigalInAdi + '<span class="niryasai">' + key #
+            # } else if( key == "பு") { #                
+                # var spanClass = new RegExp("^நேர்").test(venLastSyllable) ? "nerasai" : "niryasai"; #
+                # paaAsaiInAdi = paaAsaiInAdi + '<span class="' + spanClass + '">' + value + '</span>' #
+            # } #
+                # } else { #
                     # if(key == "meta") { #
-                    # paaAsaiInAdi = paaAsaiInAdi + '</td>' #
-        # asigalInAdi = asigalInAdi + '</td>'  #
-        # vaippaduInAdi = vaippaduInAdi + value + '</td>' #
-        # } #
-        # }	#
-        # }) #
-        # }) #
-        # }) #
-        # console.log("\r\n" + paaAsaiInAdi); console.log("\r\n" + asigalInAdi); console.log("\r\n" + vaippaduInAdi); #
-        <tr>
-            #= paaAsaiInAdi #
-        </tr>
-        <tr>
-            #= asigalInAdi #
-        </tr>
-        <tr>
-            #= vaippaduInAdi #
-        </tr>
-        #}) #
-        </tbody>
+                        # paaAsaiInAdi = paaAsaiInAdi + '</td>' #
+                        # asigalInAdi = asigalInAdi + '</td>'  #
+                        # vaippaduInAdi = vaippaduInAdi + value + '</td>' #
+                    # } #
+                # }	#
+                # }) #
+                # }) #
+                # }) #
+                # console.log("\r\n" + paaAsaiInAdi); console.log("\r\n" + asigalInAdi); console.log("\r\n" + vaippaduInAdi); #
+                <tr>
+                    #= paaAsaiInAdi #
+                </tr>
+                <tr>
+                    #= asigalInAdi #
+                </tr>
+                <tr>
+                    #= vaippaduInAdi #
+                </tr>
+                #}) #
+                </tbody>
     </table>
 </script>
 
@@ -306,7 +309,8 @@
                     var seerTemplate = kendo.template($("#seerTemplate").html());
                     $("#tabstrip-2").html(seerTemplate({
                         paaVagai: data["MetreType"],
-                        parseTree: data["ParseTree"]
+                        parseTree: data["ParseTree"],
+                        venLastSyllable: data["VenLastSyllable"]
                     }));
 
                     var thalaiTemplate = kendo.template($("#thalaiTemplate").html());

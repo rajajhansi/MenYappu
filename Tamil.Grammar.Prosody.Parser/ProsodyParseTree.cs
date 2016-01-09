@@ -127,13 +127,15 @@ namespace RjamSoft.Tamil.Grammar.Parser
 	        // Singla ASai - Exceptions
 
             {"nE_r" , "mA"},
-            {"nirY" , "viLa_m"}
-            
-            //{"nE_r" , "nAL"},
-            //{"nirY" , "malar"},
-            //{"nirYpu", "kAcu"},
-            //{"nE_rpu", "piRa_ppu"}
+            {"nirY" , "viLa_m"}            
+        };
 
+        public Dictionary<string, string> VenpaWordClass = new Dictionary<string, string>
+        {
+            {"nE_r" , "nAL"},
+            {"nirY" , "malar"},
+            {"nirYpu", "kAcu"},
+            {"nE_rpu", "piRa_ppu"}
         };
 
         public Dictionary<string, string> TamilWordType = new Dictionary<string, string> 
@@ -191,12 +193,14 @@ namespace RjamSoft.Tamil.Grammar.Parser
 	        // ஓரசைச்சீர்
             {"நேர்" , "மா"},
             {"நிரை" , "விளம்"}
+        };
 
-            //{"நேர்" , "நாள்"},
-            //{"நிரை" , "மலர்"},
-            //{"நேர்பு", "காசு"},
-            //{"நிரைபு", "பிறப்பு"}
-
+        public Dictionary<string, string> VenpaTamilWordClass = new Dictionary<string, string>
+        {
+            {"நேர்", "நாள்"},
+            {"நிரை", "மலர்"},
+            {"நேர்பு", "காசு"},
+            {"நிரைபு", "பிறப்பு"}
         };
 
         private bool WordBondClassCheck;
@@ -251,6 +255,7 @@ namespace RjamSoft.Tamil.Grammar.Parser
                     LetterCount = this.LetterCount,
                     MathiraiCount = MathiraiCount,
                     TotalMathiraiCount = TotalMathiraiCount,
+                    VenLastSyllable = VenLastSyllable,
                     ParseTree = this.ParseTreeRoot,
                     WordBond = this.WordBond,
                     Lines = this.InputSourceText.Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList<string>(),
@@ -1000,7 +1005,17 @@ namespace RjamSoft.Tamil.Grammar.Parser
                 TamilLanguageConstants.VallinaKutriyalugaraEzhuthukal.IndexOf(
                 LastWord["acY-2"].Values.ElementAt(0).Substring(LastWord["acY-2"].Values.ElementAt(0).Length - 2)) >= 0)
             {
-                VenLastSyllable = LastWord["acY-1"].Keys.ElementAt(0) + "pu";
+                VenLastSyllable = LastWord["acY-1"].Keys.ElementAt(0) + "பு";
+                
+                // Preserve the penultimate and last syllable before changing it to "pu" in "Nerpu"
+                var penultimateAsai = LastWord["acY-1"].Values.ElementAt(0);
+                var asai = LastWord["acY-2"].Values.ElementAt(0);
+                LastWord["acY-1"].Remove(LastWord["acY-1"].Keys.ElementAt(0));
+                LastWord["acY-2"].Remove(LastWord["acY-2"].Keys.ElementAt(0));
+                LastWord["acY-2"].Add(VenLastSyllable, penultimateAsai);
+                LastWord["acY-2"].Add("பு", asai);
+                LastWord["meta"].Remove("meta");
+                LastWord["meta"].Add("meta", VenpaTamilWordClass[VenLastSyllable]);
                 FinalSyllableClassCheck = true;
             }
 
