@@ -6,5 +6,4 @@ The tool is developed using ASP.NET MVC, C# and JavaScript. The UI is developed 
 
 In Phase 1, I'm planning to focus mainly on parsing the poems in veNpA meter. The books I used to learn Tamil Prosody are:
 1. கவி பாடலாம் – கி.வா.ஜகந்நாதன்
-
 2. கவிதை இயற்றிக் கலக்கு – பேராசிரியர் பசுபதி
