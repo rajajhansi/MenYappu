@@ -225,21 +225,25 @@ namespace RjamSoft.Tamil.Grammar.Parser
             this.ParseTreeRoot = GetTextSyllablePattern(ProsodyText);;
             //this.TamilParseTreeRoot = GetTamilTextSyllablePattern(tamilProsodyText);
             GetThodai(ProsodyText, CheckEthukai);
-            this.AdiThodaiWithThodaiType["_etukY"] = this.AdiThodai;
-            this.MatchingAdiThodaigalWithThodaiType["_etukY"] = this.MatchingAdiThodaigal;
-            this.SeerThodaiWithinAdiWithThodaiType["_etukY"] = this.SeerThodaiWithinAdi;            
+            this.AdiThodaiWithThodaiType["_etukY"] = new Dictionary<int, string>(this.AdiThodai);
+            this.MatchingAdiThodaigalWithThodaiType["_etukY"] = new List<Dictionary<int, string>>(this.MatchingAdiThodaigal);
+            this.SeerThodaiWithinAdiWithThodaiType["_etukY"] = new Dictionary<int, List<string>>(this.SeerThodaiWithinAdi);            
             //GetThodai(tamilProsodyText, CheckTamilEthukai);
             //this.AdiThodaiWithThodaiType["எதுகை"] = this.AdiThodai;
             //this.MatchingAdiThodaigalWithThodaiType["எதுகை"] = this.MatchingAdiThodaigal;
             //this.SeerThodaiWithinAdiWithThodaiType["எதுகை"] = this.SeerThodaiWithinAdi;
             GetThodai(ProsodyText, CheckMonai);
-            this.AdiThodaiWithThodaiType["mOVY"] = this.AdiThodai;
-            this.MatchingAdiThodaigalWithThodaiType["mOVY"] = this.MatchingAdiThodaigal;
-            this.SeerThodaiWithinAdiWithThodaiType["mOVY"] = this.SeerThodaiWithinAdi;
+            this.AdiThodaiWithThodaiType["mOVY"] = new Dictionary<int, string>(AdiThodai);
+            this.MatchingAdiThodaigalWithThodaiType["mOVY"] = new List<Dictionary<int, string>>(this.MatchingAdiThodaigal);
+            this.SeerThodaiWithinAdiWithThodaiType["mOVY"] = new Dictionary<int, List<string>>(this.SeerThodaiWithinAdi);
             //GetThodai(tamilProsodyText, CheckTamilMonai);
             //this.AdiThodaiWithThodaiType["மோனை"] = this.AdiThodai;
             //this.MatchingAdiThodaigalWithThodaiType["மோனை"] = this.MatchingAdiThodaigal;
             //this.SeerThodaiWithinAdiWithThodaiType["மோனை"] = this.SeerThodaiWithinAdi;
+            GetThodai(ProsodyText, CheckIyaipu);
+            this.AdiThodaiWithThodaiType["_iyYpu"] = new Dictionary<int, string>(AdiThodai);
+            this.MatchingAdiThodaigalWithThodaiType["_iyYpu"] = new List<Dictionary<int, string>>(this.MatchingAdiThodaigal);
+            this.SeerThodaiWithinAdiWithThodaiType["_iyYpu"] = new Dictionary<int, List<string>>(this.SeerThodaiWithinAdi);
             this.VikalpaCount = GetVikalpaCount();
             this.WordBond = GetWordBond(this.ParseTreeRoot);
             //this.TamilWordBond = GetTamilWordBond(this.TamilParseTreeRoot);
@@ -263,7 +267,9 @@ namespace RjamSoft.Tamil.Grammar.Parser
                     MatchingAdiEthukai = this.MatchingAdiThodaigalWithThodaiType["_etukY"],
                     SeerEthukaiWithinAdi = this.SeerThodaiWithinAdiWithThodaiType["_etukY"],
                     MatchingAdiMonai = this.MatchingAdiThodaigalWithThodaiType["mOVY"],
-                    SeerMonaiWithinAdi = this.SeerThodaiWithinAdiWithThodaiType["mOVY"]
+                    SeerMonaiWithinAdi = this.SeerThodaiWithinAdiWithThodaiType["mOVY"],
+                    MatchingAdiIyaipu = this.MatchingAdiThodaigalWithThodaiType["_iyYpu"],
+                    SeerIyaipuWithinAdi = this.SeerThodaiWithinAdiWithThodaiType["_iyYpu"]
                 };
         }
 
@@ -720,7 +726,7 @@ namespace RjamSoft.Tamil.Grammar.Parser
             {
                 foreach (var monaiConsonant in MonaiConsonants)
                 {
-                    if (monaiConsonant.Value.IndexOf(FirstWord.Substring(0, 1)) > 0 && monaiConsonant.Value.IndexOf(SecondWord.Substring(0, 1)) > 0)
+                    if (monaiConsonant.Value.IndexOf(FirstWord.Substring(0, 1)) >= 0 && monaiConsonant.Value.IndexOf(SecondWord.Substring(0, 1)) >= 0)
                     {
                         MonaiFirstLetter = true;
                     }                 
@@ -813,6 +819,10 @@ namespace RjamSoft.Tamil.Grammar.Parser
             return (VowelLengthCheck && EthukaiLetterCheck);
         }
 
+        public bool CheckIyaipu(string FirstWord, string SecondWord)
+        {
+            return (FirstWord.Substring(FirstWord.Length - 2) == SecondWord.Substring(SecondWord.Length - 2));
+        }
         public bool CheckThaniChol(string SourceText, int LineIndex, bool RhymeCheck)
         {
             SourceText = SourceText.Replace("--", "-");

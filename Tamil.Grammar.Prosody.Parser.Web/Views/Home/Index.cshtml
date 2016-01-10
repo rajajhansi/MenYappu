@@ -49,7 +49,9 @@
                 </li>
                 <li>
                     எதுகை
-
+                </li>
+                <li>
+                    இயைபு
                 </li>
             </ul>
             <div>
@@ -69,6 +71,9 @@
             </div>
             <div>
                 எதுகை
+            </div>
+            <div>
+                இயைபு
             </div>
         </div>
     </li>
@@ -245,6 +250,37 @@
     # } #
     <br />
 </script>
+
+<script type="text/x-kendo-template" id="iyaipuTemplate">
+    <h2 class="k-widget k-header">சீர் இயைபு</h2>
+
+    # for (var i = 0; i < adigal.length; i++) { #
+    <br />
+    அடி #= i + 1 # |  #= adigal[i] #
+    <br />
+    # if(seerIyaipuWithinAdi[i][1] == "இல்லை") { #
+    இயைபு #= seerIyaipuWithinAdi[i][1] #
+    <br />
+    #} else { #
+    <span class="todaiword"> #= seerIyaipuWithinAdi[i][2] # </span>| #= seerIyaipuWithinAdi[i][1] #   இயைபு
+    <br />
+    # } #
+    # } #
+    <h2 class="k-widget k-header">அடி இயைபு</h2>
+    <br />
+    # var output = ""; for (var i = 0; i < matchingAdiIyaipu.length; i++) { #
+    # var iyaipuCount = 0 #
+    # $.each(matchingAdiIyaipu[i], function(key, value) { #
+    # output = output + ((parseInt(key,10) + 1 ) + ' ' + value + '  '); iyaipuCount++; #
+    # }) #
+    # if(iyaipuCount > 1) { #
+    #= output #
+    # } #
+    # output = "" #
+    # } #
+    <br />
+</script>
+
 <script>
     $(document).ready(function () {
 
@@ -333,6 +369,12 @@
                         adigal: data["Lines"],
                         seerEthukaiWithinAdi: data["SeerEthukaiWithinAdi"],
                         matchingAdiEthukai: data["MatchingAdiEthukai"]
+                    }));
+                    var iyaipuTemplate = kendo.template($("#iyaipuTemplate").html());
+                    $("#tabstrip-7").html(iyaipuTemplate({
+                        adigal: data["Lines"],
+                        seerIyaipuWithinAdi: data["SeerIyaipuWithinAdi"],
+                        matchingAdiIyaipu: data["MatchingAdiIyaipu"]
                     }));
                 },
                 error: function (data) {

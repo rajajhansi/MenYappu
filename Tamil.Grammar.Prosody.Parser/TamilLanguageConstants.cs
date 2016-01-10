@@ -279,7 +279,11 @@ namespace RjamSoft.Tamil.Grammar.Parser
                                                                               { "111", "கூழை"},
                                                                               { "1101", "மேற்கதுவாய்"},                                                                              
                                                                               { "1011", "கீழ்க்கதுவாய்"},
-                                                                              { "1111", "முற்று"}
+                                                                              { "1111", "முற்று"},
+                                                                              { "0011", "கடையிணை"},
+                                                                              { "0101", "பின்"},
+                                                                              { "0111", "கடைக்கூழை"},
+                                                                              { "0110", "இடைப்புணர்"}
                                                                           };
 
         public static Dictionary<string, string> PunarchiPaguPadugal = new Dictionary<string, string>

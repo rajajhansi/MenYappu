@@ -21,5 +21,7 @@ namespace Tamil.Grammar.Prosody.Parser
         public Dictionary<int, List<string>> SeerEthukaiWithinAdi { get; set; }
         public List<Dictionary<int, string>> MatchingAdiMonai { get; set; }
         public Dictionary<int, List<string>> SeerMonaiWithinAdi { get; set; }
+        public List<Dictionary<int, string>> MatchingAdiIyaipu { get; set; }
+        public Dictionary<int, List<string>> SeerIyaipuWithinAdi { get; set; }
     }
 }
