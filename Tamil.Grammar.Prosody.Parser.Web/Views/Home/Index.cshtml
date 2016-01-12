@@ -198,14 +198,23 @@
     <br />
     அடி #= i + 1 # |  #= adigal[i] #
     <br />
-    # if(seerMonaiWithinAdi[i][1] == "இல்லை") { #
-    மோனை #= seerMonaiWithinAdi[i][1] #
+    # if(seerMonaiWithinAdi[i][1][0] == "இல்லை") { #
+    மோனை #= seerMonaiWithinAdi[i][1][0] #
     <br />
     #} else { #
-    <span class="todaiword"> #=seerMonaiWithinAdi[i][2] # </span> | #= seerMonaiWithinAdi[i][1] #  மோனை
-    # } #
-    <br />
-    # } #
+        # for(var s = 0; s < seerMonaiWithinAdi[i][2].length; s++) { #
+            # if( stringStartsWith(seerMonaiWithinAdi[i][2][s], "~")) { #
+                <span class="todaiword"> #=seerMonaiWithinAdi[i][2][s].substring(1)# </span> 
+            # } else if(!isNaN(parseInt(seerMonaiWithinAdi[i][2][s]))) { #
+                <span class="todaiindex"> #=seerMonaiWithinAdi[i][2][s]# </span>
+            # } else { #  
+                <span> #=seerMonaiWithinAdi[i][2][s]# </span>  
+           # } #   
+         # } #
+         | <span class="todaipattern"> #= seerMonaiWithinAdi[i][1][0] #  மோனை </span>
+        # } #
+        <br />
+        # } #
     <h2 class="k-widget k-header">அடி மோனை</h2>
     <br />
     # var output = ""; for (var i = 0; i < matchingAdiMonai.length; i++) { #
@@ -228,14 +237,23 @@
     <br />
     அடி #= i + 1 # |  #= adigal[i] #
     <br />
-    # if(seerEthukaiWithinAdi[i][1] == "இல்லை") { #
-    எதுகை #= seerEthukaiWithinAdi[i][1] #
+    # if(seerEthukaiWithinAdi[i][1][0] == "இல்லை") { #
+    எதுகை #= seerEthukaiWithinAdi[i][1][0] #
     <br />
     #} else { #
-    <span class="todaiword"> #= seerEthukaiWithinAdi[i][2] # </span>| #= seerEthukaiWithinAdi[i][1] #   எதுகை
-    <br />
-    # } #
-    # } #
+        # for(var s = 0; s < seerEthukaiWithinAdi[i][2].length; s++) { #
+            # if( stringStartsWith(seerEthukaiWithinAdi[i][2][s], "~")) { #
+                <span class="todaiword"> #=seerEthukaiWithinAdi[i][2][s].substring(1)# </span> 
+            # } else if(!isNaN(parseInt(seerEthukaiWithinAdi[i][2][s]))) { #
+                <span class="todaiindex"> #=seerEthukaiWithinAdi[i][2][s]# </span>
+            # } else { #  
+                <span> #=seerEthukaiWithinAdi[i][2][s]# </span>  
+           # } #   
+         # } #
+         | <span class="todaipattern"> #= seerEthukaiWithinAdi[i][1][0] #  எதுகை </span>
+        # } #
+        <br />
+        # } #
     <h2 class="k-widget k-header">அடி எதுகை</h2>
     <br />
     # var output = ""; for (var i = 0; i < matchingAdiEthukai.length; i++) { #
@@ -258,14 +276,23 @@
     <br />
     அடி #= i + 1 # |  #= adigal[i] #
     <br />
-    # if(seerIyaipuWithinAdi[i][1] == "இல்லை") { #
-    இயைபு #= seerIyaipuWithinAdi[i][1] #
+    # if(seerIyaipuWithinAdi[i][1][0] == "இல்லை") { #
+    இயைபு #= seerIyaipuWithinAdi[i][1][0] #
     <br />
     #} else { #
-    <span class="todaiword"> #= seerIyaipuWithinAdi[i][2] # </span>| #= seerIyaipuWithinAdi[i][1] #   இயைபு
-    <br />
-    # } #
-    # } #
+        # for(var s = 0; s < seerIyaipuWithinAdi[i][2].length; s++) { #
+            # if( stringStartsWith(seerIyaipuWithinAdi[i][2][s], "~")) { #
+                <span class="todaiword"> #=seerIyaipuWithinAdi[i][2][s].substring(1)# </span> 
+            # } else if(!isNaN(parseInt(seerIyaipuWithinAdi[i][2][s]))) { #
+                <span class="todaiindex"> #=seerIyaipuWithinAdi[i][2][s]# </span>
+            # } else { #  
+                <span> #=seerIyaipuWithinAdi[i][2][s]# </span>  
+           # } #   
+         # } #
+         | <span class="todaipattern"> #= seerIyaipuWithinAdi[i][1][0] #  எதுகை </span>
+        # } #
+        <br />
+        # } #
     <h2 class="k-widget k-header">அடி இயைபு</h2>
     <br />
     # var output = ""; for (var i = 0; i < matchingAdiIyaipu.length; i++) { #
@@ -282,6 +309,9 @@
 </script>
 
 <script>
+    function stringStartsWith(string, prefix) {
+        return string.slice(0, prefix.length) === prefix;
+    }
     $(document).ready(function () {
 
         // event handler for select

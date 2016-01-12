@@ -188,7 +188,14 @@ namespace RjamSoft.Tamil.Grammar.Parser
             //    new Dictionary<string, string> { { "viLa_m", "nirY"} }
             //};
             public static int TodaiMonai = 0;
-            public static int TodaiEthukai = 1;
+            public static int TodaiEthukai = 1;            
         }
+
+        public static Dictionary<string, int> ThodaiTypeDictionary = new Dictionary<string, int>
+            {
+                {"CheckMonai", 0},
+                {"CheckEthukai", 1},
+                {"CheckIyaipu", 2}
+            };
     }
 }

@@ -47,6 +47,7 @@
     <Compile Include="StringExtensionMethods.cs" />
     <Compile Include="TamilLanguageConstants.cs" />
     <Compile Include="TamilPaa.cs" />
+    <Compile Include="ThodaiProcessor.cs" />
     <Compile Include="Transliterator.cs" />
   </ItemGroup>
   <ItemGroup>

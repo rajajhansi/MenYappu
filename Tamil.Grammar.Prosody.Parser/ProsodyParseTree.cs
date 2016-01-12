@@ -53,11 +53,11 @@ namespace RjamSoft.Tamil.Grammar.Parser
 	    public int VikalpaCount;
         public Dictionary<int, string> AdiThodai = new Dictionary<int, string>();
         public List<Dictionary<int, string>> MatchingAdiThodaigal = new List<Dictionary<int, string>>();
-        public Dictionary<int, List<string>> SeerThodaiWithinAdi = new Dictionary<int, List<string>>();
+        public Dictionary<int, List<List<string>>> SeerThodaiWithinAdi = new Dictionary<int, List<List<string>>>();
 
         public Dictionary<string, Dictionary<int, string>> AdiThodaiWithThodaiType = new Dictionary<string, Dictionary<int, string>>();
         public Dictionary<string, List<Dictionary<int, string>>> MatchingAdiThodaigalWithThodaiType = new Dictionary<string, List<Dictionary<int, string>>>();
-        public Dictionary<string, Dictionary<int, List<string>>> SeerThodaiWithinAdiWithThodaiType = new Dictionary<string, Dictionary<int, List<string>>>();
+        public Dictionary<string, Dictionary<int, List<List<string>>>> SeerThodaiWithinAdiWithThodaiType = new Dictionary<string, Dictionary<int, List<List<string>>>>();
 	    public string Lang;
 
         public List<string> TamilLineType = new List<string> { "", "தனிச்சொல்", "குறளடி", "சிந்தடி", "அளவடி", "நெடிலடி", "அறுசீர்க் கழிநெடிலடி", "எழுசீர்க் கழிநெடிலடி", "எண்சீர்க் கழிநெடிலடி", "ஒன்பதின்சீர்க் கழிநெடிலடி", "பதின்சீர்க் கழிநெடிலடி", "பதினொறு சீர்க் கழிநெடிலடி", "பன்னிரு சீர்க் கழிநெடிலடி", "பதின்மூன்று சீர்க் கழிநெடிலடி", "பதினான்கு சீர்க் கழிநெடிலடி", "பதினைந்து சீர்க் கழிநெடிலடி", "பதினாறு சீர்க் கழிநெடிலடி", "பதினேழு சீர்க் கழிநெடிலடி", "பதினெட்டு சீர்க் கழிநெடிலடி", "பத்தொன்பது சீர்க் கழிநெடிலடி", "இருபது சீர்க் கழிநெடிலடி", "இருபத்தோரு சீர்க் கழிநெடிலடி", "இருபத்தி இரண்டு சீர்க் கழிநெடிலடி", "இருபத்து மூன்று சீர்க் கழிநெடிலடி", "இருபத்து நான்கு சீர்க் கழிநெடிலடி" };
@@ -227,7 +227,7 @@ namespace RjamSoft.Tamil.Grammar.Parser
             GetThodai(ProsodyText, CheckEthukai);
             this.AdiThodaiWithThodaiType["_etukY"] = new Dictionary<int, string>(this.AdiThodai);
             this.MatchingAdiThodaigalWithThodaiType["_etukY"] = new List<Dictionary<int, string>>(this.MatchingAdiThodaigal);
-            this.SeerThodaiWithinAdiWithThodaiType["_etukY"] = new Dictionary<int, List<string>>(this.SeerThodaiWithinAdi);            
+            this.SeerThodaiWithinAdiWithThodaiType["_etukY"] = new Dictionary<int, List<List<string>>>(this.SeerThodaiWithinAdi);            
             //GetThodai(tamilProsodyText, CheckTamilEthukai);
             //this.AdiThodaiWithThodaiType["எதுகை"] = this.AdiThodai;
             //this.MatchingAdiThodaigalWithThodaiType["எதுகை"] = this.MatchingAdiThodaigal;
@@ -235,7 +235,7 @@ namespace RjamSoft.Tamil.Grammar.Parser
             GetThodai(ProsodyText, CheckMonai);
             this.AdiThodaiWithThodaiType["mOVY"] = new Dictionary<int, string>(AdiThodai);
             this.MatchingAdiThodaigalWithThodaiType["mOVY"] = new List<Dictionary<int, string>>(this.MatchingAdiThodaigal);
-            this.SeerThodaiWithinAdiWithThodaiType["mOVY"] = new Dictionary<int, List<string>>(this.SeerThodaiWithinAdi);
+            this.SeerThodaiWithinAdiWithThodaiType["mOVY"] = new Dictionary<int, List<List<string>>>(this.SeerThodaiWithinAdi);
             //GetThodai(tamilProsodyText, CheckTamilMonai);
             //this.AdiThodaiWithThodaiType["மோனை"] = this.AdiThodai;
             //this.MatchingAdiThodaigalWithThodaiType["மோனை"] = this.MatchingAdiThodaigal;
@@ -243,7 +243,7 @@ namespace RjamSoft.Tamil.Grammar.Parser
             GetThodai(ProsodyText, CheckIyaipu);
             this.AdiThodaiWithThodaiType["_iyYpu"] = new Dictionary<int, string>(AdiThodai);
             this.MatchingAdiThodaigalWithThodaiType["_iyYpu"] = new List<Dictionary<int, string>>(this.MatchingAdiThodaigal);
-            this.SeerThodaiWithinAdiWithThodaiType["_iyYpu"] = new Dictionary<int, List<string>>(this.SeerThodaiWithinAdi);
+            this.SeerThodaiWithinAdiWithThodaiType["_iyYpu"] = new Dictionary<int, List<List<string>>>(this.SeerThodaiWithinAdi);
             this.VikalpaCount = GetVikalpaCount();
             this.WordBond = GetWordBond(this.ParseTreeRoot);
             //this.TamilWordBond = GetTamilWordBond(this.TamilParseTreeRoot);
@@ -511,9 +511,59 @@ namespace RjamSoft.Tamil.Grammar.Parser
         /**
          * Calculates the Thodai of a prosody text
          **/
-        public void GetThodai(string prosodyText, int thodaiVagai)
+        //public void GetThodai(string prosodyText, int thodaiVagai)
+        //{
+        //    var CheckEthukaiOrMonaiFunc = this.ThodaiCalculators[thodaiVagai];
+        //    //Dictionary<int, string> AdiThodai = new Dictionary<int, string>();
+        //    //Dictionary<int, List<string>> SeerThodaiWithinAdi = new Dictionary<int, List<string>>();
+        //    AdiThodai.Clear();
+        //    SeerThodaiWithinAdi.Clear();
+        //    MatchingAdiThodaigal.Clear();
+        //    prosodyText = RemovePunctuation(prosodyText);
+        //    var adigal = prosodyText.Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
+        //    var mudhalSeerInMudhalAdi = adigal[0].Split(" ".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[0];
+        //    //AdiThodai[0] = mudhalSeerInMudhalAdi;
+        //    for (var adiIndex = 0; adiIndex < adigal.Count; adiIndex++)
+        //    {
+        //        int seerThodaiInAdiMask = 1;
+        //        var seerThodaiInAdi = new StringBuilder();
+        //        var seergal = adigal[adiIndex].Split(" ".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+        //        seerThodaiInAdi.Append("1 ").Append(Transliterator.Latin2Tamil(seergal[0])).Append(' ');
+        //        for (var seerIndex = 1; seerIndex < seergal.Length; seerIndex++)
+        //        {
+        //            if (CheckEthukaiOrMonaiFunc(seergal[0], seergal[seerIndex]))
+        //            {
+        //                seerThodaiInAdiMask |= (1 << seerIndex);
+        //                seerThodaiInAdi.Append(seerIndex + 1).Append(' ').Append(Transliterator.Latin2Tamil(seergal[seerIndex])).Append(' ');
+        //            }
+        //        }
+        //        SeerThodaiWithinAdi[adiIndex] = new List<string>
+        //                                            {
+        //                                                Convert.ToString(seerThodaiInAdiMask, 2),
+        //                                                TamilLanguageConstants.TodaiVagaigalTamil[Convert.ToString(seerThodaiInAdiMask, 2)],                                                        
+        //                                                seerThodaiInAdi.ToString()
+        //                                            };
+        //    }
+        //    CalculateAdiThodai(adigal, 0, CheckEthukaiOrMonaiFunc);
+        //    //var nextEthugai = mudhalSeerInMudhalAdi;            
+        //    //for (var adiIndex = 1; adiIndex < adigal.Count - 1; adiIndex++)
+        //    //{
+        //    //    var mudhalSeerInNextAdi = adigal[adiIndex + 1].Split(" ".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[0];
+        //    //    if (CheckTamilEthukai(mudhalSeerInMudhalAdi, mudhalSeerInNextAdi))
+        //    //    {
+        //    //        AdiThodai[adiIndex + 1] = mudhalSeerInNextAdi;
+        //    //        adigal[adiIndex] = string.Empty;
+        //    //    }
+        //    //    else
+        //    //    {
+        //    //        nextEthugai = mudhalSeerInNextAdi;
+        //    //    }
+        //    //}
+        //}
+
+        
+        public void GetThodai(string prosodyText, Func<string, string, bool> CheckThodaiFunc )
         {
-            var CheckEthukaiOrMonaiFunc = this.ThodaiCalculators[thodaiVagai];
             //Dictionary<int, string> AdiThodai = new Dictionary<int, string>();
             //Dictionary<int, List<string>> SeerThodaiWithinAdi = new Dictionary<int, List<string>>();
             AdiThodai.Clear();
@@ -522,77 +572,54 @@ namespace RjamSoft.Tamil.Grammar.Parser
             prosodyText = RemovePunctuation(prosodyText);
             var adigal = prosodyText.Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
             var mudhalSeerInMudhalAdi = adigal[0].Split(" ".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[0];
-            //AdiThodai[0] = mudhalSeerInMudhalAdi;
+            
             for (var adiIndex = 0; adiIndex < adigal.Count; adiIndex++)
             {
-                int seerThodaiInAdiMask = 1;
+                var seerThodaiInAdiMask = 0;
                 var seerThodaiInAdi = new StringBuilder();
                 var seergal = adigal[adiIndex].Split(" ".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
-                seerThodaiInAdi.Append("1 ").Append(Transliterator.Latin2Tamil(seergal[0])).Append(' ');
-                for (var seerIndex = 1; seerIndex < seergal.Length; seerIndex++)
+                var hasFoundThodaiInAdi = false;
+                for (var startingSeerIndex = 0; startingSeerIndex < seergal.Length; startingSeerIndex++)
                 {
-                    if (CheckEthukaiOrMonaiFunc(seergal[0], seergal[seerIndex]))
+                    if (hasFoundThodaiInAdi)
                     {
-                        seerThodaiInAdiMask |= (1 << seerIndex);
-                        seerThodaiInAdi.Append(seerIndex + 1).Append(' ').Append(Transliterator.Latin2Tamil(seergal[seerIndex])).Append(' ');
+                        break;
+                    }
+                    seerThodaiInAdiMask = 8 >> startingSeerIndex;
+                    seerThodaiInAdi = new StringBuilder();
+                    seerThodaiInAdi.Append(startingSeerIndex + 1)
+                                .Append(' ')
+                                .Append(/*Transliterator.Latin2Tamil(*/seergal[startingSeerIndex]/*)*/)
+                                .Append(' ');
+                    //seerThodaiInAdi.Append("1 ").Append(Transliterator.Latin2Tamil(seergal[0])).Append(' ');
+                    for (var seerIndex = startingSeerIndex + 1; seerIndex < seergal.Length; seerIndex++)
+                    {
+                        if (CheckThodaiFunc(seergal[startingSeerIndex], seergal[seerIndex]))
+                        {
+                            hasFoundThodaiInAdi = true;
+                            seerThodaiInAdiMask |= (8 >> seerIndex);
+                            seerThodaiInAdi.Append(seerIndex + 1)
+                                .Append(' ')
+                                .Append(/*Transliterator.Latin2Tamil(*/seergal[seerIndex]/*)*/)
+                                .Append(' ');
+                        }
                     }
                 }
-                SeerThodaiWithinAdi[adiIndex] = new List<string>
+                seerThodaiInAdiMask = (hasFoundThodaiInAdi) ? seerThodaiInAdiMask : 8;
+                var seerThodaiInAdiMaskString =
+                    ThodaiProcessor.CalcSeerThodaiInAdiMaskFuncDictionary[CheckThodaiFunc.Method.Name](seerThodaiInAdiMask);
+                SeerThodaiWithinAdi[adiIndex] = new List<List<string>>
                                                     {
-                                                        Convert.ToString(seerThodaiInAdiMask, 2),
-                                                        TamilLanguageConstants.TodaiVagaigalTamil[Convert.ToString(seerThodaiInAdiMask, 2)],                                                        
-                                                        seerThodaiInAdi.ToString()
+                                                        new List<string> { seerThodaiInAdiMaskString },
+                                                         //TamilLanguageConstants.TodaiVagaigalTamil[String.Format("{0:D4}", Convert.ToString(seerThodaiInAdiMask, 2))],
+                                                        new List<string>{ TamilLanguageConstants.TodaiVagaigalTamil[seerThodaiInAdiMaskString]},
+                                                        //seerThodaiInAdi.ToString()
+                                                        ThodaiProcessor.GetThodaiForDisplay(seerThodaiInAdi.ToString(), ProsodyGrammarConstants.ThodaiTypeDictionary[CheckThodaiFunc.Method.Name])
                                                     };
+                var thodaisInTamil = ThodaiProcessor.GetThodaiForDisplay(seerThodaiInAdi.ToString(), ProsodyGrammarConstants.ThodaiTypeDictionary[CheckThodaiFunc.Method.Name]);
+
             }
-            CalculateAdiThodai(adigal, 0, CheckEthukaiOrMonaiFunc);
-            //var nextEthugai = mudhalSeerInMudhalAdi;            
-            //for (var adiIndex = 1; adiIndex < adigal.Count - 1; adiIndex++)
-            //{
-            //    var mudhalSeerInNextAdi = adigal[adiIndex + 1].Split(" ".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[0];
-            //    if (CheckTamilEthukai(mudhalSeerInMudhalAdi, mudhalSeerInNextAdi))
-            //    {
-            //        AdiThodai[adiIndex + 1] = mudhalSeerInNextAdi;
-            //        adigal[adiIndex] = string.Empty;
-            //    }
-            //    else
-            //    {
-            //        nextEthugai = mudhalSeerInNextAdi;
-            //    }
-            //}
-        }
-        public void GetThodai(string prosodyText, Func<string, string, bool> CheckEthukaiOrMonaiFunc )
-        {
-            //Dictionary<int, string> AdiThodai = new Dictionary<int, string>();
-            //Dictionary<int, List<string>> SeerThodaiWithinAdi = new Dictionary<int, List<string>>();
-            AdiThodai.Clear();
-            SeerThodaiWithinAdi.Clear();
-            MatchingAdiThodaigal.Clear();
-            prosodyText = RemovePunctuation(prosodyText);
-            var adigal = prosodyText.Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
-            var mudhalSeerInMudhalAdi = adigal[0].Split(" ".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[0];
-            //AdiThodai[0] = mudhalSeerInMudhalAdi;
-            for (var adiIndex = 0; adiIndex < adigal.Count; adiIndex++)
-            {
-                int seerThodaiInAdiMask = 1;
-                var seerThodaiInAdi = new StringBuilder();                
-                var seergal = adigal[adiIndex].Split(" ".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
-                seerThodaiInAdi.Append("1 ").Append(Transliterator.Latin2Tamil(seergal[0])).Append(' ');
-                for (var seerIndex = 1; seerIndex < seergal.Length; seerIndex++)
-                {
-                    if (CheckEthukaiOrMonaiFunc(seergal[0], seergal[seerIndex]))
-                    {
-                        seerThodaiInAdiMask |= ( 1 << seerIndex);
-                        seerThodaiInAdi.Append(seerIndex +1).Append(' ').Append(Transliterator.Latin2Tamil(seergal[seerIndex])).Append(' ');
-                    }
-                }
-                SeerThodaiWithinAdi[adiIndex] = new List<string>
-                                                    {
-                                                        Convert.ToString(seerThodaiInAdiMask, 2),
-                                                        TamilLanguageConstants.TodaiVagaigalTamil[Convert.ToString(seerThodaiInAdiMask, 2)],                                                        
-                                                        seerThodaiInAdi.ToString()
-                                                    };
-            }
-            CalculateAdiThodai(adigal, 0, CheckEthukaiOrMonaiFunc);
+            CalculateAdiThodai(adigal, 0, CheckThodaiFunc);
             //var nextEthugai = mudhalSeerInMudhalAdi;            
             //for (var adiIndex = 1; adiIndex < adigal.Count - 1; adiIndex++)
             //{
