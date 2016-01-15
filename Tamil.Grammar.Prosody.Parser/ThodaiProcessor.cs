@@ -82,5 +82,24 @@ namespace Tamil.Grammar.Prosody.Parser
                 new String(CalcSeerThodaiInAdiMask(seerThodaiInAdiMask).Reverse().ToArray())
                 );
         }
+
+        public static readonly Dictionary<string, Func<string, string>> SeerWithinAdiFuncDictionary = new Dictionary
+            <string, Func<string, string>>
+        {
+            {"CheckMonai", GetSeerWithinAdi},
+            {"CheckEthukai", GetSeerWithinAdi},
+            {"CheckIyaipu", GetSeerWithinAdiForIyaipu}
+        };
+
+        private static string GetSeerWithinAdi(string adi)
+        {
+            return adi.Split(" ".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[0];
+        }
+
+        private static string GetSeerWithinAdiForIyaipu(string adi)
+        {
+            var seergal = adi.Split(" ".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+            return seergal[seergal.Length - 1];
+        }
     }
 }

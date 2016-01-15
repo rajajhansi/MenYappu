@@ -75,8 +75,148 @@ namespace RjamSoft.Tamil.Grammar.Parser
                             {"DisAllowedSeergal", new List<string>{"கருவிளங்கனி","கூவிளங்கனி","தேமா","புளிமா"}}
                         };
 
-        } 
+        }
 
+        public static List<string> TamilLineType = new List<string> { "", "தனிச்சொல்", "குறளடி", "சிந்தடி", "அளவடி", "நெடிலடி", "அறுசீர்க் கழிநெடிலடி", "எழுசீர்க் கழிநெடிலடி", "எண்சீர்க் கழிநெடிலடி", "ஒன்பதின்சீர்க் கழிநெடிலடி", "பதின்சீர்க் கழிநெடிலடி", "பதினொறு சீர்க் கழிநெடிலடி", "பன்னிரு சீர்க் கழிநெடிலடி", "பதின்மூன்று சீர்க் கழிநெடிலடி", "பதினான்கு சீர்க் கழிநெடிலடி", "பதினைந்து சீர்க் கழிநெடிலடி", "பதினாறு சீர்க் கழிநெடிலடி", "பதினேழு சீர்க் கழிநெடிலடி", "பதினெட்டு சீர்க் கழிநெடிலடி", "பத்தொன்பது சீர்க் கழிநெடிலடி", "இருபது சீர்க் கழிநெடிலடி", "இருபத்தோரு சீர்க் கழிநெடிலடி", "இருபத்தி இரண்டு சீர்க் கழிநெடிலடி", "இருபத்து மூன்று சீர்க் கழிநெடிலடி", "இருபத்து நான்கு சீர்க் கழிநெடிலடி" };
+        public static List<string> LineType = new List<string> { "", "taVi_cco_l", "kuRaLaTi", "ci_ntaTi", "_aLavaTi", "neTilaTi", "_aRucI_r_k kaZineTilaTi", "_eZucI_r_k kaZineTilaTi", "_e_NcI_r_k kaZineTilaTi", "_o_Vpati_ncI_r_k kaZineTilaTi", "pati_VcI_r_k kaZineTilaTi", "patiVoru cI_r_k kaZineTilaTi", "pa_VViru cI_r_k kaZineTilaTi", "patimU_VRu cI_r_k kaZineTilaTi", "patiVA_Vku cI_r_k kaZineTilaTi", "patiVY_ntu cI_r_k kaZineTilaTi", "patiVARu cI_r_k kaZineTilaTi", "patiVEZu cI_r_k kaZineTilaTi", "patiVe_TTu cI_r_k kaZineTilaTi", "pa_tto_Vpatu cI_r_k kaZineTilaTi", "_irupatu cI_r_k kaZineTilaTi", "_irupa_ttoru cI_r_k kaZineTilaTi", "_irupa_ttu _ira_NTu cI_r_k kaZineTilaTi", "_irupa_ttu mU_VRu cI_r_k kaZineTilaTi", "_irupa_ttu nA_Vku cI_r_k kaZineTilaTi" };
+
+        public static List<string> SyllableTypes = new List<string> { "nE_r", "nirY" };
+        public static List<string> TamilSyllableTypes = new List<string> { "நேர்", "நிரை" };
+
+        /**
+        * Reference Array for getting the Word Type
+        * @var String Array
+        */
+        public static Dictionary<string, string> WordType = new Dictionary<string, string>
+        {
+
+	        // Two Asais
+
+            { "nE_rnE_r" , "tEmA"},
+            {"nirYnE_r" , "puLimA"},
+            {"nE_rnirY" , "kUviLa_m"},
+            {"nirYnirY" , "karuviLa_m"},
+
+	        // Three Asais - Kay seers
+
+            {"nE_rnE_rnE_r" , "tEmA_GkA_y"},
+            {"nirYnE_rnE_r" , "puLimA_GkA_y"},
+            {"nE_rnirYnE_r" , "kUviLa_GkA_y"},
+            {"nirYnirYnE_r" , "karuviLa_GkA_y"},
+
+	        // Three Asais - Kani seers
+
+            {"nE_rnE_rnirY" , "tEmA_GkaVi"},
+            {"nirYnE_rnirY" , "puLimA_GkaVi"},
+            {"nE_rnirYnirY" , "kUviLa_GkaVi"},
+            {"nirYnirYnirY" , "karuviLa_GkaVi"},
+
+	        // Four Asais - Tanpuu seers
+
+            {"nE_rnE_rnE_rnE_r" , "tEmA_nta_NpU"},
+            {"nirYnE_rnE_rnE_r" , "puLimA_nta_NpU"},
+            {"nE_rnirYnE_rnE_r" , "kUviLa_nta_NpU"},
+            {"nirYnirYnE_rnE_r" , "karuviLa_nta_NpU"},
+    
+            // Four Asais - naRumpU seers
+
+            {"nE_rnE_rnirYnE_r" , "tEmAnaRu_mpU"},
+            {"nirYnE_rnirYnE_r" , "puLimAnaRu_mpU"},
+            {"nE_rnirYnirYnE_r" , "kUviLanaRu_mpU"},
+            {"nirYnirYnirYnE_r" , "karuviLanaRu_mpU"},
+    
+	        // Four Asais - naRunizhal
+
+            {"nE_rnE_rnirYnirY" , "tEmAnaRuniZa_l"},
+            {"nirYnE_rnirYnirY" , "puLimAnaRuniZa_l"},
+            {"nE_rnirYnirYnirY" , "kUviLanaRuniZa_l"},
+            {"nirYnirYnirYnirY" , "karuviLanaRuniZa_l"},
+
+	        // Four Asais- Tannizhal
+
+            {"nE_rnE_rnE_rnirY" , "tEmA_nta_NNiZa_l"},
+            {"nirYnE_rnE_rnirY" , "puLimA_nta_NNiZa_l"},
+            {"nE_rnirYnE_rnirY" , "kUviLa_nta_NNiZa_l"},
+            {"nirYnirYnE_rnirY" , "karuviLa_nta_NNiZa_l"},
+
+	        // Singla ASai - Exceptions
+
+            {"nE_r" , "mA"},
+            {"nirY" , "viLa_m"}
+        };
+
+        public static Dictionary<string, string> VenpaWordClass = new Dictionary<string, string>
+        {
+            {"nE_r" , "nAL"},
+            {"nirY" , "malar"},
+            {"nirYpu", "kAcu"},
+            {"nE_rpu", "piRa_ppu"}
+        };
+
+        public static Dictionary<string, string> TamilWordType = new Dictionary<string, string>
+        {
+
+	        // ஈரசைச்சீர்
+
+            {"நேர்நேர்" , "தேமா"},
+            {"நிரைநேர்" , "புளிமா"},
+            {"நேர்நிரை" , "கூவிளம்"},
+            {"நிரைநிரை" , "கருவிளம்"},
+
+	        // மூவசைச் சீர்  - காய்ச்சீர்
+
+            {"நேர்நேர்நேர்" , "தேமாங்காய்"},
+            {"நிரைநேர்நேர்" , "புளிமாங்காய்"},
+            {"நேர்நிரைநேர்" , "கூவிளங்காய்"},
+            {"நிரைநிரைநேர்" , "கருவிளங்காய்"},
+
+	        // மூவசைச்சீர் - கனிச்சீர்
+
+            {"நேர்நேர்நிரை" , "தேமாங்கனி"},
+            {"நிரைநேர்நிரை" , "புளிமாங்கனி"},
+            {"நேர்நிரைநிரை" , "கூவிளங்கனி"},
+            {"நிரைநிரைநிரை" , "கருவிளங்கனி"},
+
+	        // நாலசைச்சீர் - பூச்சீர் - தண்பூ
+
+            {"நேர்நேர்நேர்நேர்" , "தேமாந்தண்பூ"},
+            {"நிரைநேர்நேர்நேர்" , "புளிமாந்தண்பூ"},
+            {"நேர்நிரைநேர்நேர்" , "கூவிளந்தண்பூ"},
+            {"நிரைநிரைநேர்நேர்" , "கருவிளந்தண்பூ"},
+    
+            // நாலசைச்சீர் - பூச்சீர் - நறும்பூச்சீர்
+
+            {"நேர்நேர்நிரைநேர்" , "தேமாநறும்பூ"},
+            {"நிரைநேர்நிரைநேர்" , "புளிமாநறும்பூ"},
+            {"நேர்நிரைநிரைநேர்" , "கூவிளநறும்பூ"},
+            {"நிரைநிரைநிரைநேர்" , "கருவிளநறும்பூ"},
+    
+	        // நாலசைச்சீர் - நிழல் சீர் - நறுநிழல்
+
+            {"நேர்நேர்நிரைநிரை" , "தேமாநறுநிழல்"},
+            {"நிரைநேர்நிரைநிரை" , "புளிமாநறுநிழல்"},
+            {"நேர்நிரைநிரைநிரை" , "கூவிளநறுநிழல்"},
+            {"நிரைநிரைநிரைநிரை" , "கருவிளநறுநிழல்"},
+
+	        // நாலசைச்சீர் - நிழல் சீர் - தண்ணிழல்
+
+            {"நேர்நேர்நேர்நிரை" , "தேமாந்தண்ணிழல்"},
+            {"நிரைநேர்நேர்நிரை" , "புளிமாந்தண்ணிழல்"},
+            {"நேர்நிரைநேர்நிரை" , "கூவிளந்தண்ணிழல்"},
+            {"நிரைநிரைநேர்நிரை" , "கருவிளந்தண்ணிழல்"},
+
+	        // ஓரசைச்சீர்
+            {"நேர்" , "மா"},
+            {"நிரை" , "விளம்"}
+        };
+
+        public static Dictionary<string, string> VenpaTamilWordClass = new Dictionary<string, string>
+        {
+            {"நேர்", "நாள்"},
+            {"நிரை", "மலர்"},
+            {"நேர்பு", "காசு"},
+            {"நிரைபு", "பிறப்பு"}
+        };
         public class Thalaigal
         {
 

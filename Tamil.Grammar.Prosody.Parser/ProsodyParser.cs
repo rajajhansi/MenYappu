@@ -7,7 +7,7 @@ using Tamil.Grammar.Prosody.Parser;
 
 namespace RjamSoft.Tamil.Grammar.Parser
 {
-    public class ProsodyParseTree
+    public class ProsodyParser
     {        
         /**
 	     * The Root of the Parse Tree
@@ -60,159 +60,29 @@ namespace RjamSoft.Tamil.Grammar.Parser
         public Dictionary<string, Dictionary<int, List<List<string>>>> SeerThodaiWithinAdiWithThodaiType = new Dictionary<string, Dictionary<int, List<List<string>>>>();
 	    public string Lang;
 
-        public List<string> TamilLineType = new List<string> { "", "தனிச்சொல்", "குறளடி", "சிந்தடி", "அளவடி", "நெடிலடி", "அறுசீர்க் கழிநெடிலடி", "எழுசீர்க் கழிநெடிலடி", "எண்சீர்க் கழிநெடிலடி", "ஒன்பதின்சீர்க் கழிநெடிலடி", "பதின்சீர்க் கழிநெடிலடி", "பதினொறு சீர்க் கழிநெடிலடி", "பன்னிரு சீர்க் கழிநெடிலடி", "பதின்மூன்று சீர்க் கழிநெடிலடி", "பதினான்கு சீர்க் கழிநெடிலடி", "பதினைந்து சீர்க் கழிநெடிலடி", "பதினாறு சீர்க் கழிநெடிலடி", "பதினேழு சீர்க் கழிநெடிலடி", "பதினெட்டு சீர்க் கழிநெடிலடி", "பத்தொன்பது சீர்க் கழிநெடிலடி", "இருபது சீர்க் கழிநெடிலடி", "இருபத்தோரு சீர்க் கழிநெடிலடி", "இருபத்தி இரண்டு சீர்க் கழிநெடிலடி", "இருபத்து மூன்று சீர்க் கழிநெடிலடி", "இருபத்து நான்கு சீர்க் கழிநெடிலடி" };
-        public List<string> LineType = new List<string> { "", "taVi_cco_l", "kuRaLaTi", "ci_ntaTi", "_aLavaTi", "neTilaTi", "_aRucI_r_k kaZineTilaTi", "_eZucI_r_k kaZineTilaTi", "_e_NcI_r_k kaZineTilaTi", "_o_Vpati_ncI_r_k kaZineTilaTi", "pati_VcI_r_k kaZineTilaTi", "patiVoru cI_r_k kaZineTilaTi", "pa_VViru cI_r_k kaZineTilaTi", "patimU_VRu cI_r_k kaZineTilaTi", "patiVA_Vku cI_r_k kaZineTilaTi", "patiVY_ntu cI_r_k kaZineTilaTi", "patiVARu cI_r_k kaZineTilaTi", "patiVEZu cI_r_k kaZineTilaTi", "patiVe_TTu cI_r_k kaZineTilaTi", "pa_tto_Vpatu cI_r_k kaZineTilaTi", "_irupatu cI_r_k kaZineTilaTi", "_irupa_ttoru cI_r_k kaZineTilaTi", "_irupa_ttu _ira_NTu cI_r_k kaZineTilaTi", "_irupa_ttu mU_VRu cI_r_k kaZineTilaTi", "_irupa_ttu nA_Vku cI_r_k kaZineTilaTi" };
-
-        public List<string> SyllableTypes = new List<string> { "nE_r", "nirY" };
-        public List<string> TamilSyllableTypes = new List<string> { "நேர்", "நிரை" };
+        
       
         public Func<string, string, bool>[] ThodaiCalculators; 
 
-     /**
-	 * Reference Array for getting the Word Type
-	 * @var String Array
-	 */
-	    public Dictionary<string, string> WordType = new Dictionary<string,string> 
-        {
-
-	        // Two Asais
-
-            { "nE_rnE_r" , "tEmA"},
-            {"nirYnE_r" , "puLimA"},
-            {"nE_rnirY" , "kUviLa_m"},
-            {"nirYnirY" , "karuviLa_m"},
-
-	        // Three Asais - Kay seers
-
-            {"nE_rnE_rnE_r" , "tEmA_GkA_y"},
-            {"nirYnE_rnE_r" , "puLimA_GkA_y"},
-            {"nE_rnirYnE_r" , "kUviLa_GkA_y"},
-            {"nirYnirYnE_r" , "karuviLa_GkA_y"},
-
-	        // Three Asais - Kani seers
-
-            {"nE_rnE_rnirY" , "tEmA_GkaVi"},
-            {"nirYnE_rnirY" , "puLimA_GkaVi"},
-            {"nE_rnirYnirY" , "kUviLa_GkaVi"},
-            {"nirYnirYnirY" , "karuviLa_GkaVi"},
-
-	        // Four Asais - Tanpuu seers
-
-            {"nE_rnE_rnE_rnE_r" , "tEmA_nta_NpU"},
-            {"nirYnE_rnE_rnE_r" , "puLimA_nta_NpU"},
-            {"nE_rnirYnE_rnE_r" , "kUviLa_nta_NpU"},
-            {"nirYnirYnE_rnE_r" , "karuviLa_nta_NpU"},
-    
-            // Four Asais - naRumpU seers
-
-            {"nE_rnE_rnirYnE_r" , "tEmAnaRu_mpU"},
-            {"nirYnE_rnirYnE_r" , "puLimAnaRu_mpU"},
-            {"nE_rnirYnirYnE_r" , "kUviLanaRu_mpU"},
-            {"nirYnirYnirYnE_r" , "karuviLanaRu_mpU"},
-    
-	        // Four Asais - naRunizhal
-
-            {"nE_rnE_rnirYnirY" , "tEmAnaRuniZa_l"},
-            {"nirYnE_rnirYnirY" , "puLimAnaRuniZa_l"},
-            {"nE_rnirYnirYnirY" , "kUviLanaRuniZa_l"},
-            {"nirYnirYnirYnirY" , "karuviLanaRuniZa_l"},
-
-	        // Four Asais- Tannizhal
-
-            {"nE_rnE_rnE_rnirY" , "tEmA_nta_NNiZa_l"},
-            {"nirYnE_rnE_rnirY" , "puLimA_nta_NNiZa_l"},
-            {"nE_rnirYnE_rnirY" , "kUviLa_nta_NNiZa_l"},
-            {"nirYnirYnE_rnirY" , "karuviLa_nta_NNiZa_l"},
-
-	        // Singla ASai - Exceptions
-
-            {"nE_r" , "mA"},
-            {"nirY" , "viLa_m"}            
-        };
-
-        public Dictionary<string, string> VenpaWordClass = new Dictionary<string, string>
-        {
-            {"nE_r" , "nAL"},
-            {"nirY" , "malar"},
-            {"nirYpu", "kAcu"},
-            {"nE_rpu", "piRa_ppu"}
-        };
-
-        public Dictionary<string, string> TamilWordType = new Dictionary<string, string> 
-        {
-
-	        // ஈரசைச்சீர்
-
-            {"நேர்நேர்" , "தேமா"},
-            {"நிரைநேர்" , "புளிமா"},
-            {"நேர்நிரை" , "கூவிளம்"},
-            {"நிரைநிரை" , "கருவிளம்"},
-
-	        // மூவசைச் சீர்  - காய்ச்சீர்
-
-            {"நேர்நேர்நேர்" , "தேமாங்காய்"},
-            {"நிரைநேர்நேர்" , "புளிமாங்காய்"},
-            {"நேர்நிரைநேர்" , "கூவிளங்காய்"},
-            {"நிரைநிரைநேர்" , "கருவிளங்காய்"},
-
-	        // மூவசைச்சீர் - கனிச்சீர்
-
-            {"நேர்நேர்நிரை" , "தேமாங்கனி"},
-            {"நிரைநேர்நிரை" , "புளிமாங்கனி"},
-            {"நேர்நிரைநிரை" , "கூவிளங்கனி"},
-            {"நிரைநிரைநிரை" , "கருவிளங்கனி"},
-
-	        // நாலசைச்சீர் - பூச்சீர் - தண்பூ
-
-            {"நேர்நேர்நேர்நேர்" , "தேமாந்தண்பூ"},
-            {"நிரைநேர்நேர்நேர்" , "புளிமாந்தண்பூ"},
-            {"நேர்நிரைநேர்நேர்" , "கூவிளந்தண்பூ"},
-            {"நிரைநிரைநேர்நேர்" , "கருவிளந்தண்பூ"},
-    
-            // நாலசைச்சீர் - பூச்சீர் - நறும்பூச்சீர்
-
-            {"நேர்நேர்நிரைநேர்" , "தேமாநறும்பூ"},
-            {"நிரைநேர்நிரைநேர்" , "புளிமாநறும்பூ"},
-            {"நேர்நிரைநிரைநேர்" , "கூவிளநறும்பூ"},
-            {"நிரைநிரைநிரைநேர்" , "கருவிளநறும்பூ"},
-    
-	        // நாலசைச்சீர் - நிழல் சீர் - நறுநிழல்
-
-            {"நேர்நேர்நிரைநிரை" , "தேமாநறுநிழல்"},
-            {"நிரைநேர்நிரைநிரை" , "புளிமாநறுநிழல்"},
-            {"நேர்நிரைநிரைநிரை" , "கூவிளநறுநிழல்"},
-            {"நிரைநிரைநிரைநிரை" , "கருவிளநறுநிழல்"},
-
-	        // நாலசைச்சீர் - நிழல் சீர் - தண்ணிழல்
-
-            {"நேர்நேர்நேர்நிரை" , "தேமாந்தண்ணிழல்"},
-            {"நிரைநேர்நேர்நிரை" , "புளிமாந்தண்ணிழல்"},
-            {"நேர்நிரைநேர்நிரை" , "கூவிளந்தண்ணிழல்"},
-            {"நிரைநிரைநேர்நிரை" , "கருவிளந்தண்ணிழல்"},
-
-	        // ஓரசைச்சீர்
-            {"நேர்" , "மா"},
-            {"நிரை" , "விளம்"}
-        };
-
-        public Dictionary<string, string> VenpaTamilWordClass = new Dictionary<string, string>
-        {
-            {"நேர்", "நாள்"},
-            {"நிரை", "மலர்"},
-            {"நேர்பு", "காசு"},
-            {"நிரைபு", "பிறப்பு"}
-        };
+        
 
         private bool WordBondClassCheck;
         private bool FinalSyllableClassCheck;
         private bool ThaniCholExists;
-
-        public ProsodyParseTree(string prosodyText)
+        public Dictionary<string, List<string>> VenpaError = new Dictionary<string, List<string>>
+        {
+            { "word", new List<string> { "ஈற்றடியின் ஈற்றுச்சீரைத் தவிர்த்து ஈரசைச்சீர்களும் காய்ச்சீர்களும் மட்டுமே பயின்று வருதல் வேண்டும்" } },
+            { "bond", new List<string> { "வெண்டளைகள் மட்டுமே பயின்று வருதல் வேண்டும்" } },
+            { "line", new List<string> { "ஈற்றடி மூன்று சீர்களும் ஏனைய அடிகள் நான்கு சீர்களும் கொண்டிருத்தல் வேண்டும்" } },
+            { "final", new List<string> { "ஈற்றடியின் ஈற்றுச்சீர் நாள், மலர், காசு, பிறப்பு ஆகியவற்றுள் இருத்தல் வேண்டும்" } }
+        };
+        public ProsodyParser(string prosodyText)
         {            
             this.InputSourceText = prosodyText;
             this.ThodaiCalculators = new Func<string, string, bool>[] {CheckMonai, CheckEthukai};
             ;
         }
+        
 
         public ProsodyPart Parse()
         {
@@ -355,7 +225,7 @@ namespace RjamSoft.Tamil.Grammar.Parser
 
                     if (WordPattern.Length > 0)
                     {
-                        Syllable["சீர்வகை"] = new Dictionary<string, string> { { "சீர்வகை", TamilWordType[WordPattern.ToString()] } };
+                        Syllable["சீர்வகை"] = new Dictionary<string, string> { { "சீர்வகை", ProsodyGrammarConstants.TamilWordType[WordPattern.ToString()] } };
                     }
                     else
                     {
@@ -384,9 +254,7 @@ namespace RjamSoft.Tamil.Grammar.Parser
             {
                 lines[i] = Regex.Replace(lines[i], @"\s$", "");
             }
-            Dictionary<string, Dictionary<string, Dictionary<string, Dictionary<string, string>>>> LineList =
-                new Dictionary<string, Dictionary<string, Dictionary<string, Dictionary<string, string>>>>();
-            var LineCount = 1;
+          
             foreach (var line in lines)
             {
                 Dictionary<string, double> mathiraiCountForEachSeer = new Dictionary<string, double>();
@@ -468,7 +336,7 @@ namespace RjamSoft.Tamil.Grammar.Parser
 
                     if (WordPattern.Length > 0)
                     {
-                        Syllable["meta"] = new Dictionary<string, string>{ {"meta", TamilWordType[WordPattern.ToString()] }};
+                        Syllable["meta"] = new Dictionary<string, string>{ {"meta", ProsodyGrammarConstants.TamilWordType[WordPattern.ToString()] }};
                     }
                     else
                     {
@@ -507,60 +375,6 @@ namespace RjamSoft.Tamil.Grammar.Parser
             }
             return VikalpaCount;
         }
-        
-        /**
-         * Calculates the Thodai of a prosody text
-         **/
-        //public void GetThodai(string prosodyText, int thodaiVagai)
-        //{
-        //    var CheckEthukaiOrMonaiFunc = this.ThodaiCalculators[thodaiVagai];
-        //    //Dictionary<int, string> AdiThodai = new Dictionary<int, string>();
-        //    //Dictionary<int, List<string>> SeerThodaiWithinAdi = new Dictionary<int, List<string>>();
-        //    AdiThodai.Clear();
-        //    SeerThodaiWithinAdi.Clear();
-        //    MatchingAdiThodaigal.Clear();
-        //    prosodyText = RemovePunctuation(prosodyText);
-        //    var adigal = prosodyText.Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
-        //    var mudhalSeerInMudhalAdi = adigal[0].Split(" ".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[0];
-        //    //AdiThodai[0] = mudhalSeerInMudhalAdi;
-        //    for (var adiIndex = 0; adiIndex < adigal.Count; adiIndex++)
-        //    {
-        //        int seerThodaiInAdiMask = 1;
-        //        var seerThodaiInAdi = new StringBuilder();
-        //        var seergal = adigal[adiIndex].Split(" ".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
-        //        seerThodaiInAdi.Append("1 ").Append(Transliterator.Latin2Tamil(seergal[0])).Append(' ');
-        //        for (var seerIndex = 1; seerIndex < seergal.Length; seerIndex++)
-        //        {
-        //            if (CheckEthukaiOrMonaiFunc(seergal[0], seergal[seerIndex]))
-        //            {
-        //                seerThodaiInAdiMask |= (1 << seerIndex);
-        //                seerThodaiInAdi.Append(seerIndex + 1).Append(' ').Append(Transliterator.Latin2Tamil(seergal[seerIndex])).Append(' ');
-        //            }
-        //        }
-        //        SeerThodaiWithinAdi[adiIndex] = new List<string>
-        //                                            {
-        //                                                Convert.ToString(seerThodaiInAdiMask, 2),
-        //                                                TamilLanguageConstants.TodaiVagaigalTamil[Convert.ToString(seerThodaiInAdiMask, 2)],                                                        
-        //                                                seerThodaiInAdi.ToString()
-        //                                            };
-        //    }
-        //    CalculateAdiThodai(adigal, 0, CheckEthukaiOrMonaiFunc);
-        //    //var nextEthugai = mudhalSeerInMudhalAdi;            
-        //    //for (var adiIndex = 1; adiIndex < adigal.Count - 1; adiIndex++)
-        //    //{
-        //    //    var mudhalSeerInNextAdi = adigal[adiIndex + 1].Split(" ".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[0];
-        //    //    if (CheckTamilEthukai(mudhalSeerInMudhalAdi, mudhalSeerInNextAdi))
-        //    //    {
-        //    //        AdiThodai[adiIndex + 1] = mudhalSeerInNextAdi;
-        //    //        adigal[adiIndex] = string.Empty;
-        //    //    }
-        //    //    else
-        //    //    {
-        //    //        nextEthugai = mudhalSeerInNextAdi;
-        //    //    }
-        //    //}
-        //}
-
         
         public void GetThodai(string prosodyText, Func<string, string, bool> CheckThodaiFunc )
         {
@@ -610,42 +424,24 @@ namespace RjamSoft.Tamil.Grammar.Parser
                     ThodaiProcessor.CalcSeerThodaiInAdiMaskFuncDictionary[CheckThodaiFunc.Method.Name](seerThodaiInAdiMask);
                 SeerThodaiWithinAdi[adiIndex] = new List<List<string>>
                                                     {
-                                                        new List<string> { seerThodaiInAdiMaskString },
-                                                         //TamilLanguageConstants.TodaiVagaigalTamil[String.Format("{0:D4}", Convert.ToString(seerThodaiInAdiMask, 2))],
-                                                        new List<string>{ TamilLanguageConstants.TodaiVagaigalTamil[seerThodaiInAdiMaskString]},
-                                                        //seerThodaiInAdi.ToString()
+                                                        new List<string> { seerThodaiInAdiMaskString },                                                        
+                                                        new List<string>{ TamilLanguageConstants.TodaiVagaigalTamil[seerThodaiInAdiMaskString]},                                                        
                                                         ThodaiProcessor.GetThodaiForDisplay(seerThodaiInAdi.ToString(), ProsodyGrammarConstants.ThodaiTypeDictionary[CheckThodaiFunc.Method.Name])
                                                     };
-                var thodaisInTamil = ThodaiProcessor.GetThodaiForDisplay(seerThodaiInAdi.ToString(), ProsodyGrammarConstants.ThodaiTypeDictionary[CheckThodaiFunc.Method.Name]);
-
             }
-            CalculateAdiThodai(adigal, 0, CheckThodaiFunc);
-            //var nextEthugai = mudhalSeerInMudhalAdi;            
-            //for (var adiIndex = 1; adiIndex < adigal.Count - 1; adiIndex++)
-            //{
-            //    var mudhalSeerInNextAdi = adigal[adiIndex + 1].Split(" ".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[0];
-            //    if (CheckTamilEthukai(mudhalSeerInMudhalAdi, mudhalSeerInNextAdi))
-            //    {
-            //        AdiThodai[adiIndex + 1] = mudhalSeerInNextAdi;
-            //        adigal[adiIndex] = string.Empty;
-            //    }
-            //    else
-            //    {
-            //        nextEthugai = mudhalSeerInNextAdi;
-            //    }
-            //}
+            CalculateAdiThodai(adigal, 0, CheckThodaiFunc);            
         }
 
         private bool CheckIfAllAdigalAreVisited(List<string> adigal)
         {
             return adigal.Where(a => !string.IsNullOrEmpty(a)).ToArray().Length == 0;
         }
-        private void CalculateAdiThodai(List<string> adigal, int startIndex, Func<string, string, bool> CheckEthukaiOrMonaiFunc)
+        private void CalculateAdiThodai(List<string> adigal, int startIndex, Func<string, string, bool> CheckThodaiFunc)
         {
             if (CheckIfAllAdigalAreVisited(adigal))
                 return;
-            var mudhalSeerInMudhalAdi = adigal[startIndex].Split(" ".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[0];
-            AdiThodai[startIndex] = Transliterator.Latin2Tamil(mudhalSeerInMudhalAdi);
+            var seerInMudhalAdi = ThodaiProcessor.SeerWithinAdiFuncDictionary[CheckThodaiFunc.Method.Name](adigal[startIndex]);
+            AdiThodai[startIndex] = Transliterator.Latin2Tamil(seerInMudhalAdi);
             adigal[startIndex] = string.Empty;
             bool foundNewEthukaiOrMonai = false;
             for (var adiIndex = startIndex + 1; adiIndex < adigal.Count; adiIndex++)
@@ -653,11 +449,11 @@ namespace RjamSoft.Tamil.Grammar.Parser
                 // Check to make sure that the adi is not already visited and cleared out by the previous ethukai/monai match
                 if (!string.IsNullOrEmpty(adigal[adiIndex]))
                 {
-                    var mudhalSeerInNextAdi =
-                        adigal[adiIndex].Split(" ".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[0];
-                    if (CheckEthukaiOrMonaiFunc(mudhalSeerInMudhalAdi, mudhalSeerInNextAdi))
+                    var seerInNextAdi =
+                        ThodaiProcessor.SeerWithinAdiFuncDictionary[CheckThodaiFunc.Method.Name](adigal[adiIndex]);
+                    if (CheckThodaiFunc(seerInMudhalAdi, seerInNextAdi))
                     {
-                        AdiThodai[adiIndex] = Transliterator.Latin2Tamil(mudhalSeerInNextAdi);
+                        AdiThodai[adiIndex] = Transliterator.Latin2Tamil(seerInNextAdi);
                         adigal[adiIndex] = string.Empty;
                     }
                     else
@@ -672,7 +468,7 @@ namespace RjamSoft.Tamil.Grammar.Parser
             }
             MatchingAdiThodaigal.Add(AdiThodai);
             AdiThodai = new Dictionary<int, string>();
-            CalculateAdiThodai(adigal, startIndex, CheckEthukaiOrMonaiFunc);
+            CalculateAdiThodai(adigal, startIndex, CheckThodaiFunc);
         }
         /**
          * Calculates the number of Vikalpa (Adi Etukai) in the Text
@@ -720,11 +516,8 @@ namespace RjamSoft.Tamil.Grammar.Parser
 
         public string GetMetreType()
         {
-            var Venpaa = CheckVenpaa();
-
-            MetreType = Venpaa;
-
-            return MetreType;
+            MetreType = CheckVenpaa();
+            return (MetreType ?? "எந்த பா வகையும் பொருந்தவில்லை");
         }
 
         public bool CheckMonai(string FirstWord, string SecondWord)
@@ -848,7 +641,10 @@ namespace RjamSoft.Tamil.Grammar.Parser
 
         public bool CheckIyaipu(string FirstWord, string SecondWord)
         {
-            return (FirstWord.Substring(FirstWord.Length - 2) == SecondWord.Substring(SecondWord.Length - 2));
+            return (
+                (FirstWord == SecondWord) ||
+                (FirstWord.Substring(FirstWord.Length - 2) == SecondWord.Substring(SecondWord.Length - 2))
+           );
         }
         public bool CheckThaniChol(string SourceText, int LineIndex, bool RhymeCheck)
         {
@@ -955,11 +751,11 @@ namespace RjamSoft.Tamil.Grammar.Parser
         }
         public List<string> GetLineClass(Dictionary<string, Dictionary<string, Dictionary<string, Dictionary<string, string>>>> root)
         {
-            return GetLineClassHelper(root, "smeta", TamilLineType);
+            return GetLineClassHelper(root, "smeta", ProsodyGrammarConstants.TamilLineType);
         }
         public List<string> GetTamilLineClass(Dictionary<string, Dictionary<string, Dictionary<string, Dictionary<string, string>>>> root)
         {
-            return GetLineClassHelper(root, "அடிவகை", TamilLineType);
+            return GetLineClassHelper(root, "அடிவகை", ProsodyGrammarConstants.TamilLineType);
         }
 
         private List<string> GetLineClassHelper(Dictionary<string, Dictionary<string, Dictionary<string, Dictionary<string, string>>>> root, string key, List<string> lineTypes)
@@ -987,7 +783,7 @@ namespace RjamSoft.Tamil.Grammar.Parser
             Dictionary<string, Dictionary<string, Dictionary<string, string>>> LastLine =
                 new Dictionary<string, Dictionary<string, Dictionary<string, string>>>();
             // Check for allowed Seers, Line Count
-
+            HashSet<string> wrongWordClassList = new HashSet<string>();
             foreach (var line in root)
             {
                 foreach (var seer in line.Value)
@@ -1005,6 +801,7 @@ namespace RjamSoft.Tamil.Grammar.Parser
                                         a => a == asai.Value) != asai.Value)
                                 {
                                     WordClassCheck = false;
+                                    wrongWordClassList.Add(asai.Value);
                                 }
                             }
                         }
@@ -1052,10 +849,11 @@ namespace RjamSoft.Tamil.Grammar.Parser
                 LastWord["acY-2"].Add(VenLastSyllable, penultimateAsai);
                 LastWord["acY-2"].Add("பு", asai);
                 LastWord["meta"].Remove("meta");
-                LastWord["meta"].Add("meta", VenpaTamilWordClass[VenLastSyllable]);
+                LastWord["meta"].Add("meta", ProsodyGrammarConstants.VenpaTamilWordClass[VenLastSyllable]);
                 FinalSyllableClassCheck = true;
             }
 
+            HashSet<string> wrongBondsList = new HashSet<string>();
             // Check for Metre Specific Thalais 
             WordBondClassCheck = true;
             foreach (var bond in WordBond)
@@ -1063,74 +861,90 @@ namespace RjamSoft.Tamil.Grammar.Parser
                 if (!bond["bond"].Contains("வெண்டளை"))
                 {
                     WordBondClassCheck = false;
-                    break;
+                    wrongBondsList.Add(bond["bond"]);
                 }
             }
 
-            // Classify the Metre
+            MetreType = null;
+
+            // Classify and log the venpa errors
+            foreach (var key in VenpaError.Keys)
+            {
+                if (VenpaError[key].Count > 1)
+                {
+                    for (var i = 1; i < VenpaError[key].Count; i++)
+                    {
+                        VenpaError[key][i] = string.Empty;
+                    }
+                }
+            }
+
+            if (!WordClassCheck)
+            {
+                var wrongWordClasses = string.Join(", ", wrongWordClassList);
+                VenpaError["word"].Add(wrongWordClasses + " ஆகிய வாய்பாடு(கள்) பயின்றுள்ளது(ன)");
+            }
+            if (!WordBondClassCheck)
+            {
+                var wrongBonds = string.Join(", ", wrongBondsList);
+                VenpaError["bond"].Add("பாவினுள் வெண்டளை அல்லாத " + wrongBonds +
+                    " பயின்று வந்துள்ளது(ன)");
+            }
+            if (!LineClassCheck)
+            {
+                VenpaError["line"].Add("பொருந்தவில்லை");
+            }
+            if (!FinalSyllableClassCheck)
+            {
+                VenpaError["final"].Add("பொருந்தவில்லை");
+            }
+            // Classify the Metre      
             if (WordBondClassCheck && FinalSyllableClassCheck && LineClassCheck && WordClassCheck)
             {
                 ThaniCholExists = CheckThaniChol(ProsodyText, 2, true);
-            }
-            var MetreTypeTemplate = "{0} விகற்ப {1} வெண்பா";
-            var VikalpaType = "";
-            var AdiOrOsaiType = (ThaniCholExists ? "நேரிசை" : "இன்னிசை");
-            switch (VikalpaCount)
-            {
-                case 1:
-                    VikalpaType = "ஒரு";
-                    break;
-                case 2:
-                    VikalpaType = "இரு";
-                    break;
-                default:
-                    VikalpaType = "பல";
-                    break;
+                var MetreTypeTemplate = "{0} விகற்ப {1} வெண்பா";
+                var VikalpaType = "";
+                var AdiOrOsaiType = (ThaniCholExists ? "நேரிசை" : "இன்னிசை");
+                switch (VikalpaCount)
+                {
+                    case 1:
+                        VikalpaType = "ஒரு";
+                        break;
+                    case 2:
+                        VikalpaType = "இரு";
+                        break;
+                    default:
+                        VikalpaType = "பல";
+                        break;
 
-            }
-            switch (TotalLines)
-            {
-                case 2:
-                    AdiOrOsaiType = "குறள்";
-                    break;
-                case 3:
-                    AdiOrOsaiType += "ச் சிந்தியல்";
-                    break;                               
-            }
-            if(TotalLines <5 )
-            {
-                MetreType = string.Format(MetreTypeTemplate, VikalpaType, AdiOrOsaiType);
-            }
-            else if (TotalLines > 4 && TotalLines <= 12)
-            {
-                MetreType = string.Format(MetreTypeTemplate, VikalpaType, "பஃறொடை");
-            }
-            else if (TotalLines > 12)
-            {
-                MetreType = string.Format(MetreTypeTemplate, VikalpaType, "கலி");
+                }
+                switch (TotalLines)
+                {
+                    case 2:
+                        AdiOrOsaiType = "குறள்";
+                        break;
+                    case 3:
+                        AdiOrOsaiType += "ச் சிந்தியல்";
+                        break;
+                }
+                if (TotalLines < 5)
+                {
+                    MetreType = string.Format(MetreTypeTemplate, VikalpaType, AdiOrOsaiType);
+                }
+                else if (TotalLines > 4 && TotalLines <= 12)
+                {
+                    MetreType = string.Format(MetreTypeTemplate, VikalpaType, "பஃறொடை");
+                }
+                else if (TotalLines > 12)
+                {
+                    MetreType = string.Format(MetreTypeTemplate, VikalpaType, "கலி");
+                }
+
             }
 
             return MetreType;
         }
-        /*
-        private string RemovePunctuation(string text)
-        {
-            //var punctuations = new string[] {"-", "!", ";", "?", ".", "(", ",", "'", ":", "\"", "_", ")", "[", "]"};
-
-            Regex regex = new Regex(
-               "[\\p{P}]",
-             RegexOptions.IgnoreCase
-             | RegexOptions.CultureInvariant
-             | RegexOptions.IgnorePatternWhitespace
-             | RegexOptions.Compiled
-             );
-
-            text = regex.Replace(text, "");
-            text = Regex.Replace(text, "  *", "  ");
-
-            return text;
-        }
-         * */
+        
         private string  RemovePunctuation(string text)
         {
             List<string> punctuations = new List<string> {"-","!",";","?",".","(",",","\'",":","\"","–",")","[","]"};

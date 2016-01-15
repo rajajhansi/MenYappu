@@ -202,16 +202,19 @@
     மோனை #= seerMonaiWithinAdi[i][1][0] #
     <br />
     #} else { #
+        # var allMonais = ''; #
         # for(var s = 0; s < seerMonaiWithinAdi[i][2].length; s++) { #
+            # console.log("|" + seerMonaiWithinAdi[i][2][s] + "|") #
             # if( stringStartsWith(seerMonaiWithinAdi[i][2][s], "~")) { #
-                <span class="todaiword"> #=seerMonaiWithinAdi[i][2][s].substring(1)# </span> 
+                # allMonais += '<span class="todaiword">' + seerMonaiWithinAdi[i][2][s].substring(1) + '</span>' # 
             # } else if(!isNaN(parseInt(seerMonaiWithinAdi[i][2][s]))) { #
-                <span class="todaiindex"> #=seerMonaiWithinAdi[i][2][s]# </span>
+                # allMonais += '<span class="todaiindex">' + seerMonaiWithinAdi[i][2][s] + '</span>' #
             # } else { #  
-                <span> #=seerMonaiWithinAdi[i][2][s]# </span>  
-           # } #   
+                # allMonais += '<span>' + seerMonaiWithinAdi[i][2][s] + '</span>  ' #
+           # } #
          # } #
-         | <span class="todaipattern"> #= seerMonaiWithinAdi[i][1][0] #  மோனை </span>
+         #= allMonais #
+         | <span class="todaipattern">#=seerMonaiWithinAdi[i][1][0]#  மோனை </span>
         # } #
         <br />
         # } #
@@ -289,7 +292,7 @@
                 <span> #=seerIyaipuWithinAdi[i][2][s]# </span>  
            # } #   
          # } #
-         | <span class="todaipattern"> #= seerIyaipuWithinAdi[i][1][0] #  எதுகை </span>
+         | <span class="todaipattern"> #= seerIyaipuWithinAdi[i][1][0] #  இயைபு </span>
         # } #
         <br />
         # } #

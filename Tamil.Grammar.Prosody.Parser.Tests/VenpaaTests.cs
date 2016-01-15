@@ -15,7 +15,7 @@ namespace RjamSoft.Tamil.Grammar.Parser.Tests
             var kural = @"முற்ற உணர்ந்தானை ஏத்தி மொழிகுவன்
 குற்றமொன்று இல்லா அறம்";
 
-            var prosodyParser = new ProsodyParseTree(kural);
+            var prosodyParser = new ProsodyParser(kural);
             prosodyParser.Parse();
 
             Assert.AreEqual("ஒரு விகற்ப குறள் வெண்பா", prosodyParser.MetreType);
@@ -27,7 +27,7 @@ namespace RjamSoft.Tamil.Grammar.Parser.Tests
             var kural = @"நற்காட்சி நன்ஞானம் நல்லொழுக்கம் இம்மூன்றும்
 தொக்க அறச்சொல் பொருள்";
 
-            var prosodyParser = new ProsodyParseTree(kural);
+            var prosodyParser = new ProsodyParser(kural);
             prosodyParser.Parse();
 
             Assert.AreEqual("இரு விகற்ப குறள் வெண்பா", prosodyParser.MetreType);
@@ -40,7 +40,7 @@ namespace RjamSoft.Tamil.Grammar.Parser.Tests
 தேர்விலைஊ ழல்அரசி யல்வாதி ஆள்வதற்கே
 தீர்வதுகற் றோர்நாடாள் தல்";
 
-            var prosodyParser = new ProsodyParseTree(kural);
+            var prosodyParser = new ProsodyParser(kural);
             prosodyParser.Parse();
 
             Assert.AreEqual("ஒரு விகற்ப இன்னிசைச் சிந்தியல் வெண்பா", prosodyParser.MetreType);
@@ -53,7 +53,7 @@ namespace RjamSoft.Tamil.Grammar.Parser.Tests
 செறிந்தார்க்குச் செவ்வன் உரைப்ப - செறிந்தார்
 சிறந்தமை ஆராய்ந்து கொண்டு";
 
-            var prosodyParser = new ProsodyParseTree(kural);
+            var prosodyParser = new ProsodyParser(kural);
             prosodyParser.Parse();
 
             Assert.AreEqual("ஒரு விகற்ப நேரிசைச் சிந்தியல் வெண்பா", prosodyParser.MetreType);
@@ -65,7 +65,7 @@ namespace RjamSoft.Tamil.Grammar.Parser.Tests
 உன்னத ஆசான்க ளையென்றும் உந்தனிருக்
 கண்களினும் மேலாகப் போற்று";
 
-            var prosodyParser = new ProsodyParseTree(kural);
+            var prosodyParser = new ProsodyParser(kural);
             prosodyParser.Parse();
 
             Assert.AreEqual("இரு விகற்ப இன்னிசைச் சிந்தியல் வெண்பா", prosodyParser.MetreType);
@@ -78,7 +78,7 @@ namespace RjamSoft.Tamil.Grammar.Parser.Tests
 தேர்விலை நம்மையா ள்வோருக்கே-- தீர்வது
 கற்றவ ராட்சிசெய் தல்";
 
-            var prosodyParser = new ProsodyParseTree(kural);
+            var prosodyParser = new ProsodyParser(kural);
             prosodyParser.Parse();
 
             Assert.AreEqual("இரு விகற்ப நேரிசைச் சிந்தியல் வெண்பா", prosodyParser.MetreType);
@@ -90,7 +90,7 @@ namespace RjamSoft.Tamil.Grammar.Parser.Tests
 ஆசான்க யென்றுமே உன்னதம்  உந்தனிருக்
 கண்களினும் மேலாகப் போற்று";
 
-            var prosodyParser = new ProsodyParseTree(kural);
+            var prosodyParser = new ProsodyParser(kural);
             prosodyParser.Parse();
 
             Assert.AreEqual("பல விகற்ப இன்னிசைச் சிந்தியல் வெண்பா", prosodyParser.MetreType);
@@ -103,7 +103,7 @@ namespace RjamSoft.Tamil.Grammar.Parser.Tests
 தேர்விலை நம்மையா ள்வோருக்கே-- தீர்வது
 கற்றவ ராட்சிசெய் தல்";
 
-            var prosodyParser = new ProsodyParseTree(kural);
+            var prosodyParser = new ProsodyParser(kural);
             prosodyParser.Parse();
 
             Assert.AreNotEqual("பல விகற்ப நேரிசைச் சிந்தியல் வெண்பா", prosodyParser.MetreType);
@@ -122,7 +122,7 @@ namespace RjamSoft.Tamil.Grammar.Parser.Tests
 கருணை சிறிதுமற்றக் காலன் அவனைத்
 திருப்பி அனுப்பி டுக";
 
-            var prosodyParser = new ProsodyParseTree(venpa);
+            var prosodyParser = new ProsodyParser(venpa);
             prosodyParser.Parse();
 
             Assert.AreEqual("பல விகற்ப பஃறொடை வெண்பா", prosodyParser.MetreType);
@@ -140,7 +140,7 @@ namespace RjamSoft.Tamil.Grammar.Parser.Tests
 ஓட்டுகளால் வேட்டுகள் வைத்தால் பதவியை
 விட்டோ டிடுவா ரவர்";
 
-            var prosodyParser = new ProsodyParseTree(venpa);
+            var prosodyParser = new ProsodyParser(venpa);
             prosodyParser.Parse();
 
             Assert.AreEqual("பல விகற்ப பஃறொடை வெண்பா", prosodyParser.MetreType);

@@ -86,7 +86,7 @@ namespace RjamSoft.Tamil.Grammar.Parser
             //{
             //    Console.WriteLine("{0} = {1}", mathiraiCount.Key, mathiraiCount.Value);
             //}
-            ProsodyParseTree parodyParserTree = new ProsodyParseTree(kural);
+            ProsodyParser parodyParserTree = new ProsodyParser(kural);
 
             string InputText = "சந்தம்";
             MatchCollection ms = MyRegex.Matches(InputText);
