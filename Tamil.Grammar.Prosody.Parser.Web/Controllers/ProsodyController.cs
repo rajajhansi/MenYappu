@@ -17,7 +17,7 @@ namespace Tamil.Parody.Parser.Web.Controllers
             var response = Request.CreateResponse(HttpStatusCode.NoContent);
             if (tamilpaa != null && !string.IsNullOrEmpty(tamilpaa.ProsodyText))
             {
-                var prosodyParser = new ProsodyParser(tamilpaa.ProsodyText);
+                var prosodyParser = new ProsodyParser(tamilpaa.ProsodyText, tamilpaa.ShouldParseKutriyalukaram, tamilpaa.ShouldParseVilaangaaySeer);
                 var prosodyPart = prosodyParser.Parse();
                 response = Request.CreateResponse(HttpStatusCode.Created, prosodyPart);
                 response.Headers.Location = new Uri(Request.RequestUri,

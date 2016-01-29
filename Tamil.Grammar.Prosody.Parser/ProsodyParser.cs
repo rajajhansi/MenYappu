@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Text.RegularExpressions;
 using Tamil.Grammar.Prosody.Parser;
@@ -69,6 +70,9 @@ namespace RjamSoft.Tamil.Grammar.Parser
         private bool WordBondClassCheck;
         private bool FinalSyllableClassCheck;
         private bool ThaniCholExists;
+
+        private bool ShouldParseKutriyalukaram = false;
+        private bool ShouldParseVilaangaaySeer = false;
         public Dictionary<string, List<string>> VenpaError = new Dictionary<string, List<string>>
         {
             { "word", new List<string> { "ஈற்றடியின் ஈற்றுச்சீரைத் தவிர்த்து ஈரசைச்சீர்களும் காய்ச்சீர்களும் மட்டுமே பயின்று வருதல் வேண்டும்" } },
@@ -76,9 +80,11 @@ namespace RjamSoft.Tamil.Grammar.Parser
             { "line", new List<string> { "ஈற்றடி மூன்று சீர்களும் ஏனைய அடிகள் நான்கு சீர்களும் கொண்டிருத்தல் வேண்டும்" } },
             { "final", new List<string> { "ஈற்றடியின் ஈற்றுச்சீர் நாள், மலர், காசு, பிறப்பு ஆகியவற்றுள் இருத்தல் வேண்டும்" } }
         };
-        public ProsodyParser(string prosodyText)
+        public ProsodyParser(string prosodyText, bool shouldParseKutriyalukaram = false, bool shouldParseVilaangaaySeer = false)
         {            
             this.InputSourceText = prosodyText;
+            ShouldParseKutriyalukaram = shouldParseKutriyalukaram;
+            ShouldParseVilaangaaySeer = shouldParseVilaangaaySeer;
             this.ThodaiCalculators = new Func<string, string, bool>[] {CheckMonai, CheckEthukai};
             ;
         }
@@ -336,7 +342,15 @@ namespace RjamSoft.Tamil.Grammar.Parser
 
                     if (WordPattern.Length > 0)
                     {
-                        Syllable["meta"] = new Dictionary<string, string>{ {"meta", ProsodyGrammarConstants.TamilWordType[WordPattern.ToString()] }};
+                        var wordPattern = WordPattern.ToString();
+                        if ( ShouldParseVilaangaaySeer &&
+                            (Syllable.Count == 3) &&
+                            (Syllable["acY-2"].Keys.ElementAt(0) == "நிரை") &&
+                            (Transliterator.Tamil2Latin(Syllable["acY-2"]["நிரை"]).Substring(3, 1).IndexOfAny("AIUEOQYBW".ToCharArray()) == 0))
+                        {
+                            wordPattern = wordPattern.Insert(8, "2");
+                        }
+                        Syllable["meta"] = new Dictionary<string, string>{ {"meta", ProsodyGrammarConstants.TamilWordType[wordPattern] }};
                     }
                     else
                     {

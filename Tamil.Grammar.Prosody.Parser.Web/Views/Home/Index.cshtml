@@ -18,6 +18,17 @@
                     <div class="control-group">
                         <div class="controls">
                             <button type="submit" class="btn">பகுத்திடுக</button>
+                            <button type="reset" class="btn">நீக்குக</button>
+                        </div>
+                        <div class="controls">
+                            <input type="checkbox" id="ShouldParseKutriyalukaram" name="ShouldParseKutriyalukaram" />
+                            <span class="uiTran">உயிர்முன் குற்றியலுகரத்தை அலகிடாது விடுக </span>
+                            <br />
+                            <input type="checkbox" id="ShouldParseVilaangaaySeer" name="ShouldParseVilaangaaySeer" />
+                            <span class="uiTran">விளாங்காய்ச்சீர்களை விலக்குக </span>
+                            <br />
+                            <input type="checkbox" id="venRules" name="venRules" />
+                            <span class="uiTran">வெண்பா விதிகளோடு ஒப்பிடுக  </span>
                         </div>
                     </div>
                 </form>
@@ -351,7 +362,10 @@
         seyyulPanelBar.expand($(".k-first"), true);
 
         $("#prosodyForm").submit(function () {
-            var data = '{"ProsodyText" : "' + $("#ProsodyText").val() + '"}';
+            var data = '{"ProsodyText" : "' + $("#ProsodyText").val() + '"' +
+                ', "ShouldParseKutriyalukaram" : "' + $("#ShouldParseKutriyalukaram").is(':checked') + '"' +
+                ', "ShouldParseVilaangaaySeer" : "' + $("#ShouldParseVilaangaaySeer").is(':checked') + '"' +
+                '}';
             $.ajax({
                 url: '/api/Prosody',
                 data: data,

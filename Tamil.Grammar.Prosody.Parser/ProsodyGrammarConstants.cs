@@ -103,6 +103,8 @@ namespace RjamSoft.Tamil.Grammar.Parser
             {"nirYnE_rnE_r" , "puLimA_GkA_y"},
             {"nE_rnirYnE_r" , "kUviLa_GkA_y"},
             {"nirYnirYnE_r" , "karuviLa_GkA_y"},
+            {"nE_rnirY2nE_r" , "kUviLA_GkA_y"},
+            {"nirYnirY2nE_r" , "karuviLA_GkA_y"},
 
 	        // Three Asais - Kani seers
 
@@ -169,6 +171,8 @@ namespace RjamSoft.Tamil.Grammar.Parser
             {"நிரைநேர்நேர்" , "புளிமாங்காய்"},
             {"நேர்நிரைநேர்" , "கூவிளங்காய்"},
             {"நிரைநிரைநேர்" , "கருவிளங்காய்"},
+            {"நேர்நிரை2நேர்" , "கூவிளாங்காய்"},
+            {"நிரைநிரை2நேர்" , "கருவிளாங்காய்"},
 
 	        // மூவசைச்சீர் - கனிச்சீர்
 
