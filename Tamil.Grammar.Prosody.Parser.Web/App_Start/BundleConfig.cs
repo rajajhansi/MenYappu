@@ -50,7 +50,7 @@ namespace Tamil.Parody.Parser.Web
                 "~/Content/bootstrap.css",
                 "~/Content/bootstrap-responsive.css"));
             // Add kendo css
-            bundles.Add(new StyleBundle("~/Content/kendo").Include(
+            bundles.Add(new StyleBundle("~/Content/kendoui").Include(
                 "~/Content/kendo/2012.2.710/kendo.common.*",
                 "~/Content/kendo/2012.2.710/kendo.default.*"
                 ));
