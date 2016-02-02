@@ -8,18 +8,10 @@
     <meta name="author" content="">
 
     <!-- Le styles -->
-    @Styles.Render("~/Content/themes/base/css",
-                    "~/Content/css",
-                    "~/Content/bootstrap",
-                    "~/Content/kendoui")
+    @Styles.Render("~/Content/winstrap",
+                    "~/Content/kendoui_notheme", "~/Content/prosody")
     @Scripts.Render("~/bundles/jquery", "~/Scripts/bootstrap", "~/bundles/kendo")
     @*<link href="~/Content/bootstrap.min.css" rel="stylesheet">*@
-    <style>
-        body
-        {
-            padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-        }
-    </style>
     @*<link href="~/Content/bootstrap-responsive.min.css" rel="stylesheet">*@
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -36,37 +28,136 @@
 </head>
 
 <body>
+    <div id="head-winstrap">
+        <div class="navbar-local color-accent theme-dark">
+                        <div class="container-fluid">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <i class="icon-hamburger"></i>
+                                </button>
+                                <a class="navbar-brand" href="#">Brand</a>
+                            </div>
+                
+                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+                                <ul class="nav navbar-nav">
+                                    <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+                                    <li><a href="#">Link</a></li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <i class="icon-flipviewdown"></i></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#">Action</a></li>
+                                            <li><a href="#">Another action</a></li>
+                                            <li><a href="#">Something else here</a></li>
+                                            <li role="separator" class="divider"></li>
+                                            <li><a href="#">Separated link</a></li>
+                                            <li role="separator" class="divider"></li>
+                                            <li><a href="#">One more separated link</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li><a href="#">Link</a></li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <i class="icon-flipviewdown"></i></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#">Action</a></li>
+                                            <li><a href="#">Another action</a></li>
+                                            <li><a href="#">Something else here</a></li>
+                                            <li role="separator" class="divider"></li>
+                                            <li><a href="#">Separated link</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+    </div>
 
-    <div class="container-fluid">
-
-        <div class="row-fluid">
-            <div class="span2">
-                <br />
+    <div class="container-wrap">
+            <div class="left-panelbar">
                 <!--Sidebar content-->
-                <ul id="panelbar">
-                    <li>மென்யாப்பு
-                    <ul>
-                        <li>மென்யாப்பு</li>
-                        <li>உதவி</li>
-                    </ul>
-                    <li>யாப்பிலக்கணம்
-                        <ul>
-                            <li>அசை</li>
-                            <li>சீர்</li>
-                            <li>தளை</li>
-                            <li>அடி</li>
-                            <li>தொடை</li>
-                        </ul>
-                    </li>
-                </ul>
+                <div class="stacked-menus">
+                    <div class="stacked-menus-items">
+                        <span class="stacked-menu-items-icon">
+                            <span class="glyph glyph-page-outline"></span>
+                        </span>
+                        <span class="stacked-menu-items-text">
+                            மென்யாப்பு
+                        </span>
+                    </div>
+                    <div class="stacked-menus-items">
+                        <span class="stacked-menu-items-icon">
+                            <span class="glyph glyph-other-user"></span>
+                        </span>
+                        <span class="stacked-menu-items-text">
+                            மென்யாப்பு
+                        </span>
+                    </div>
+                    <div class="stacked-menus-items">
+                        <span class="stacked-menu-items-icon">
+                            <span class="glyph glyph-admin"></span>
+                        </span>
+                        <span class="stacked-menu-items-text">
+                            உதவி
+                        </span>
+                    </div>
+                    <div class="stacked-menus-items">
+                        <span class="stacked-menu-items-icon">
+                            <span class="glyph glyph-like"></span>
+                        </span>
+                        <span class="stacked-menu-items-text">
+                            யாப்பிலக்கணம்
+                        </span>
+                    </div>
+                    <div class="stacked-menus-items">
+                        <span class="stacked-menu-items-icon">
+                            <span class="glyph glyph-go-to-start"></span>
+                        </span>
+                        <span class="stacked-menu-items-text">
+                            அசை
+                        </span>
+                    </div>
+                    <div class="stacked-menus-items">
+                        <span class="stacked-menu-items-icon">
+                            <span class="glyph glyph-flag-2"></span>
+                        </span>
+                        <span class="stacked-menu-items-text">
+                            சீர்
+                        </span>
+                    </div>
+                    <div class="stacked-menus-items">
+                        <span class="stacked-menu-items-icon">
+                            <span class="glyph glyph-subscriptions-mirrored"></span>
+                        </span>
+                        <span class="stacked-menu-items-text">
+                            தளை
+                        </span>
+                    </div>
+                    <div class="stacked-menus-items">
+                        <span class="stacked-menu-items-icon">
+                            <span class="glyph glyph-go-to-today"></span>
+                        </span>
+                        <span class="stacked-menu-items-text">
+                            அடி
+                        </span>
+                    </div>
+                    <div class="stacked-menus-items">
+                        <span class="stacked-menu-items-icon">
+                            <span class="glyph glyph-settings"></span>
+                        </span>
+                        <span class="stacked-menu-items-text">
+                            தொடை
+                        </span>
+                    </div>
+                </div>
                     
                 <div id="bottom"></div>
             </div>
-            <div class="span10">
-                <br/>               
+            <div class="right-panelbar">
                 @RenderBody()
             </div>
-        </div>
 
         <!-- Le javascript
     ================================================== -->
@@ -75,13 +166,12 @@
         @*<script src="~/Scripts/bootstrap.min.js"></script>*@
         <script>
             $(document).ready(function () {
-                $("#panelbar").kendoPanelBar({
-                    expandMode: "single"
-                });
+                // $("#panelbar").kendoPanelBar({
+                //     expandMode: "single"
+                // });
             });
         </script>
         @RenderSection("scripts", required: false)
     </div>
-    >
 </body>
 </html>

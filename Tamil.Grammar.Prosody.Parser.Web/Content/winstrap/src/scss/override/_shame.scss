@@ -1,0 +1,53 @@
+$shame_white: #fff;
+$shame_hoverlue: #0161b2;
+$shame_rpanelbg: #f9f9f9;
+
+.fx-all { -moz-transition: all 0.3s ease-out; -o-transition: all 0.3s ease-out; -webkit-transition: all 0.3s ease-out; transition: all 0.3s ease-out; }
+
+.container-wrap{
+    position: absolute;
+    background: red;
+    top: 72px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.left-panelbar{
+    position: absolute;
+    background: turquoise;
+    width: 300px;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-image: url('../../www/images/night.jpg');
+}
+
+.right-panelbar{
+    position: absolute;
+    background: $shame_rpanelbg;
+    left: 300px;
+    right: 0;
+    top: 0;
+    bottom: 0;   
+}
+
+.stacked-menus-items{
+    @extend .fx-all;
+    position: relative;
+    cursor: pointer;
+    padding: 15px 15px 15px 45px;
+    color: $shame_white;
+    &:hover{
+        background: $shame_hoverlue;
+    }
+}
+
+.stacked-menu-items-icon{
+    position: absolute;
+    top: 13px;
+    left: 14px;
+}
+.stacked-menu-items-text{
+    font-size: 1em;
+}

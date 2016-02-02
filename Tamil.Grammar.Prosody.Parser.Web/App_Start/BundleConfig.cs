@@ -54,6 +54,18 @@ namespace Tamil.Parody.Parser.Web
                 "~/Content/kendo/2012.2.710/kendo.common.*",
                 "~/Content/kendo/2012.2.710/kendo.default.*"
                 ));
+
+            
+            // BOGDAN: kendoui without the theme
+            bundles.Add(new StyleBundle("~/Content/kendoui_notheme").Include(
+                "~/Content/kendo/2012.2.710/kendo.common.*"
+                ));
+            bundles.Add(new StyleBundle("~/Content/prosody").Include(
+                "~/Content/prosody.css"));
+            // Add winstrap
+            bundles.Add(new StyleBundle("~/Content/winstrap").Include(
+                "~/Content/winstrap/dist/css/winstrap.css"
+            ));
         }
     }
 }
