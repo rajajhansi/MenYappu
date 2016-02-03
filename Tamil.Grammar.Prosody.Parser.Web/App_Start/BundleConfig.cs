@@ -28,6 +28,11 @@ namespace Tamil.Parody.Parser.Web
                     "~/Scripts/kendo/2012.2.710/kendo.web.*"
                     ));
 
+            // BOGDAN UI BUNDLE
+            bundles.Add(new ScriptBundle("~/Scripts/UI").Include(
+                    "~/Scripts/ui/ui.*"
+                    ));            
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                 "~/Content/site.css",
                 "~/Content/prosody.css"));
@@ -55,7 +60,7 @@ namespace Tamil.Parody.Parser.Web
                 "~/Content/kendo/2012.2.710/kendo.default.*"
                 ));
 
-            
+
             // BOGDAN: kendoui without the theme
             bundles.Add(new StyleBundle("~/Content/kendoui_notheme").Include(
                 "~/Content/kendo/2012.2.710/kendo.common.*"

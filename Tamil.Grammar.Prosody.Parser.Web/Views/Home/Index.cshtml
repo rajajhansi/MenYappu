@@ -3,32 +3,42 @@
     ViewBag.Title = "Home Page";
 }
 
-<ul id="seyyulbar">
+<ul class="kendo-panelbars-custom" id="seyyulbar">
     <li>
-        <h2>செய்யுள் உள்ளிடவும்</h2>
+        <h4 class="main-title">
+            செய்யுள் உள்ளிடவும்
+            <span class="main-title-icon glyph glyph-chevron-down"></span>
+        </h4>
         <ul>
             <li id="seyyul" class="k-state-active">
                 <form id="prosodyForm" class="form-horizontal" action="/api/Prosody" method="POST">
-                    <br />
-                    <div class="control-group">
-                        <div class="controls">
-                            <textarea id="ProsodyText" rows="8" class="field span12"></textarea>
-                        </div>
+                    <div>
+                        <textarea class="panelbar-textarea" id="ProsodyText" rows="8"></textarea>
                     </div>
                     <div class="control-group">
                         <div class="controls">
-                            <button type="submit" class="btn">பகுத்திடுக</button>
-                            <button type="reset" class="btn">நீக்குக</button>
+                            <button type="submit" class="btn btn-primary">பகுத்திடுக</button>
+                            <button type="reset" class="btn btn-default">நீக்குக</button>
                         </div>
-                        <div class="controls">
-                            <input type="checkbox" id="ShouldParseKutriyalukaram" name="ShouldParseKutriyalukaram" />
-                            <span class="uiTran">உயிர்முன் குற்றியலுகரத்தை அலகிடாது விடுக </span>
-                            <br />
-                            <input type="checkbox" id="ShouldParseVilaangaaySeer" name="ShouldParseVilaangaaySeer" />
-                            <span class="uiTran">விளாங்காய்ச்சீர்களை விலக்குக </span>
-                            <br />
-                            <input type="checkbox" id="venRules" name="venRules" />
-                            <span class="uiTran">வெண்பா விதிகளோடு ஒப்பிடுக  </span>
+                        <div class="controls group-checkboxes-control">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" id="ShouldParseKutriyalukaram" name="ShouldParseKutriyalukaram" />
+                                    <span class="uiTran">உயிர்முன் குற்றியலுகரத்தை அலகிடாது விடுக </span>                                    
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" id="ShouldParseVilaangaaySeer" name="ShouldParseVilaangaaySeer" />
+                                    <span class="uiTran">விளாங்காய்ச்சீர்களை விலக்குக </span>                                    
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" id="venRules" name="venRules" />
+                                    <span class="uiTran">வெண்பா விதிகளோடு ஒப்பிடுக  </span>
+                                </label>
+                            </div>
                         </div>
                     </div>
                 </form>
@@ -37,11 +47,14 @@
     </li>
 </ul>
 
-<ul id="seyyulResult">
+<ul class="kendo-panelbars-custom" id="seyyulResult">
     <li>
-        பகுத்தல் முடிவு
+        <h4 class="main-title">
+            பகுத்தல் முடிவு
+            <span class="main-title-icon glyph glyph-chevron-down"></span>
+        </h4>
 
-        <div id="tabstrip">
+        <div id="tabstrip" class="menyappu-content-tabstrip">
             <ul>
                 <li class="k-state-active">
                     எழுத்து
