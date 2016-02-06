@@ -8,7 +8,9 @@
     <meta name="author" content="">
 
     <!-- Le styles -->
-    @Styles.Render("~/Content/kendoui_notheme","~/Content/winstrapcss", "~/Content/prosody")
+    @Styles.Render("~/Content/kendoui_notheme")
+    <link rel="stylesheet" href="~/Content/winstrap/dist/css/winstrap.css" />
+    @Styles.Render("~/Content/prosody")
     @Scripts.Render("~/bundles/jquery", "~/Scripts/bootstrap", "~/bundles/kendo")
     @*<link href="~/Content/bootstrap.min.css" rel="stylesheet">*@
     @*<link href="~/Content/bootstrap-responsive.min.css" rel="stylesheet">*@
@@ -17,7 +19,6 @@
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-
     <!-- Le fav and touch icons -->
     <link rel="shortcut icon" href="~/Content/icons/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="~/Content/icons/apple-touch-icon-144-precomposed.png">
@@ -28,152 +29,151 @@
 
 <body>
     <div id="head-winstrap">
-        
+
         <nav class="navbar navbar-default">
-        <div class="navbar-global theme-dark color-accent">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <i class="glyph glyph-hamburger"></i>
-                    </button>
-    
-                    <a class="navbar-brand no-outline" href="#">மென்யாப்பு</a>
-                </div>
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li class="dropdown">
-                            <a href="colors.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">யாப்பிலக்கணம் <i class="glyph glyph-chevron-down-2"></i></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">எழுத்து</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">அசை</a></li>
-                                <li><a href="#">சீர்</a></li>
-                                <li><a href="#">தளை</a></li>
-                                <li><a href="#">அடி</a></li>
-                                <li><a href="#">தொடை</a></li>
-                                <li><a href="#">ஓசை</a></li> 
-                            </ul>
-                        </li>
-    
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">பா வகைகள் <i class="glyph glyph-chevron-down-2"></i></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">வெண்பா</a></li>
-                                <li><a href="#">ஆசிரியப்பா</a></li>
-                                <li><a href="#">கலிப்பா</a></li>
-                                <li><a href="#">வஞ்சிப்பா</a></li>                                
-                            </ul>
-                        </li>
-    
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">பாவினங்கள் <i class="glyph glyph-chevron-down-2"></i></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">வெண்பாவினம்</a></li>
-                                <li><a href="#">ஆசிரியப்பாவினம்</a></li>
-                                <li><a href="#">கலிப்பாவினம்</a></li>
-                                <li><a href="#">வஞ்சிப்பாவினம்</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <form class="navbar-form navbar-right" role="search">
-                        <div class="form-group">
-                            <input type="search" class="form-control" placeholder="தேடு">
-                        </div>
-                        <button type="submit" class="btn btn-default"></button>
-                    </form>
+            <div class="navbar-global theme-dark color-accent">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <i class="glyph glyph-hamburger"></i>
+                        </button>
+
+                        <a class="navbar-brand no-outline" href="#">மென்யாப்பு</a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a href="colors.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">யாப்பிலக்கணம் <i class="glyph glyph-chevron-down-2"></i></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">எழுத்து</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">அசை</a></li>
+                                    <li><a href="#">சீர்</a></li>
+                                    <li><a href="#">தளை</a></li>
+                                    <li><a href="#">அடி</a></li>
+                                    <li><a href="#">தொடை</a></li>
+                                    <li><a href="#">ஓசை</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">பா வகைகள் <i class="glyph glyph-chevron-down-2"></i></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">வெண்பா</a></li>
+                                    <li><a href="#">ஆசிரியப்பா</a></li>
+                                    <li><a href="#">கலிப்பா</a></li>
+                                    <li><a href="#">வஞ்சிப்பா</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">பாவினங்கள் <i class="glyph glyph-chevron-down-2"></i></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">வெண்பாவினம்</a></li>
+                                    <li><a href="#">ஆசிரியப்பாவினம்</a></li>
+                                    <li><a href="#">கலிப்பாவினம்</a></li>
+                                    <li><a href="#">வஞ்சிப்பாவினம்</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <form class="navbar-form navbar-right" role="search">
+                            <div class="form-group">
+                                <input type="search" class="form-control" placeholder="தேடு">
+                            </div>
+                            <button type="submit" class="btn btn-default"></button>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
-    </nav>
+        </nav>
 
     </div>
 
     <div class="container-wrap" id="container-wrapper-with-panels">
-            <div class="left-panelbar">
-                <!--Sidebar content-->
-                <div class="stacked-menus">
-                    <div class="stacked-menus-toggler">
-                        <span class="stacked-menu-items-icon">
-                            <span class="glyph glyph-hamburger"></span>
-                        </span>
-                    </div>
-                    <div class="stacked-menus-items">
-                        <span class="stacked-menu-items-icon">
-                            <span class="glyph glyph-home"></span>
-                        </span>
-                        <span class="stacked-menu-items-text">
-                            முகப்பு
-                        </span>
-                    </div>
-                    <div class="stacked-menus-items">
-                        <span class="stacked-menu-items-icon">
-                            <span class="glyph glyph-music-info"></span>
-                        </span>
-                        <span class="stacked-menu-items-text">
-                            வெண்பாக்கள்
-                        </span>
-                    </div>
-                    <div class="stacked-menus-items">
-                        <span class="stacked-menu-items-icon">
-                            <span class="glyph glyph-message"></span>
-                        </span>
-                        <span class="stacked-menu-items-text">
-                            வெண்பா உரையாடல்
-                        </span>
-                    </div>                                     
-                    <div class="stacked-menus-items">
-                        <span class="stacked-menu-items-icon">
-                            <span class="glyph glyph-download"></span>
-                        </span>
-                        <span class="stacked-menu-items-text">
-                            பதிவிறக்கம்
-                        </span>
-                    </div>
-                    <div class="stacked-menus-items">
-                        <span class="stacked-menu-items-icon">
-                            <span class="glyph glyph-help"></span>
-                        </span>
-                        <span class="stacked-menu-items-text">
-                            உதவி
-                        </span>
-                    </div>   
-                    <div class="stacked-menus-items">
-                        <span class="stacked-menu-items-icon">
-                            <span class="glyph glyph-comment"></span>
-                        </span>
-                        <span class="stacked-menu-items-text">
-                            கருத்து
-                        </span>
-                    </div>                    
-                    <div class="stacked-menus-items">
-                        <span class="stacked-menu-items-icon">
-                            <span class="glyph glyph-info"></span>
-                        </span>
-                        <span class="stacked-menu-items-text">
-                            மென்யாப்பைப் பற்றி
-                        </span>
-                    </div>
-                    <div class="stacked-menus-items">
-                        <span class="stacked-menu-items-icon">
-                            <span class="glyph glyph-settings"></span>
-                        </span>
-                        <span class="stacked-menu-items-text">
-                            அமைப்புகள்
-                        </span>
-                    </div>
+        <div class="left-panelbar">
+            <!--Sidebar content-->
+            <div class="stacked-menus">
+                <div class="stacked-menus-toggler">
+                    <span class="stacked-menu-items-icon">
+                        <span class="glyph glyph-hamburger"></span>
+                    </span>
                 </div>
-                    
-                <div id="bottom"></div>
+                <div class="stacked-menus-items">
+                    <span class="stacked-menu-items-icon">
+                        <span class="glyph glyph-home"></span>
+                    </span>
+                    <span class="stacked-menu-items-text">
+                        முகப்பு
+                    </span>
+                </div>
+                <div class="stacked-menus-items">
+                    <span class="stacked-menu-items-icon">
+                        <span class="glyph glyph-music-info"></span>
+                    </span>
+                    <span class="stacked-menu-items-text">
+                        வெண்பாக்கள்
+                    </span>
+                </div>
+                <div class="stacked-menus-items">
+                    <span class="stacked-menu-items-icon">
+                        <span class="glyph glyph-message"></span>
+                    </span>
+                    <span class="stacked-menu-items-text">
+                        வெண்பா உரையாடல்
+                    </span>
+                </div>
+                <div class="stacked-menus-items">
+                    <span class="stacked-menu-items-icon">
+                        <span class="glyph glyph-download"></span>
+                    </span>
+                    <span class="stacked-menu-items-text">
+                        பதிவிறக்கம்
+                    </span>
+                </div>
+                <div class="stacked-menus-items">
+                    <span class="stacked-menu-items-icon">
+                        <span class="glyph glyph-help"></span>
+                    </span>
+                    <span class="stacked-menu-items-text">
+                        உதவி
+                    </span>
+                </div>
+                <div class="stacked-menus-items">
+                    <span class="stacked-menu-items-icon">
+                        <span class="glyph glyph-comment"></span>
+                    </span>
+                    <span class="stacked-menu-items-text">
+                        கருத்து
+                    </span>
+                </div>
+                <div class="stacked-menus-items">
+                    <span class="stacked-menu-items-icon">
+                        <span class="glyph glyph-info"></span>
+                    </span>
+                    <span class="stacked-menu-items-text">
+                        மென்யாப்பைப் பற்றி
+                    </span>
+                </div>
+                <div class="stacked-menus-items">
+                    <span class="stacked-menu-items-icon">
+                        <span class="glyph glyph-settings"></span>
+                    </span>
+                    <span class="stacked-menu-items-text">
+                        அமைப்புகள்
+                    </span>
+                </div>
             </div>
-            <div class="right-panelbar">
-                @RenderBody()
-            </div>
+
+            <div id="bottom"></div>
+        </div>
+        <div class="right-panelbar">
+            @RenderBody()
+        </div>
 
         <!-- Le javascript
-    ================================================== -->
+        ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
-
         @*<script src="~/Scripts/bootstrap.min.js"></script>*@
         <script>
             $(document).ready(function () {
