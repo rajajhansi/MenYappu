@@ -29,7 +29,7 @@ namespace Tamil.Parody.Parser.Web
                     ));
 
             // BOGDAN UI BUNDLE
-            bundles.Add(new ScriptBundle("~/Scripts/UI").Include(
+            bundles.Add(new ScriptBundle("~/Scripts/customui").Include(
                     "~/Scripts/ui/ui.*"
                     ));            
 
@@ -68,7 +68,7 @@ namespace Tamil.Parody.Parser.Web
             bundles.Add(new StyleBundle("~/Content/prosody").Include(
                 "~/Content/prosody.css"));
             // Add winstrap
-            bundles.Add(new StyleBundle("~/Content/winstrap").Include(
+            bundles.Add(new StyleBundle("~/Content/winstrapcss").Include(
                 "~/Content/winstrap/dist/css/winstrap.css"
             ));
         }
