@@ -5,6 +5,7 @@ $shame_rpanelbg: #f9f9f9;
 $shame_bordercol: #dddddd;
 $shame_leftpanelsize: 250px;
 $shame_leftpanelsize_collapsed: 44px;
+$shame_lefticons_fs: 24px;
 
 .noselect {
   -webkit-touch-callout: none; /* iOS Safari */
@@ -63,22 +64,20 @@ $shame_leftpanelsize_collapsed: 44px;
 .panel-collapsed{
     .left-panelbar{
         width: $shame_leftpanelsize_collapsed;
+        .stacked-menu-items-text{
+            display: none;
+        }
     }
     .right-panelbar{
         left: $shame_leftpanelsize_collapsed;
     }
 }
 
-.stacked-menus{
-    padding-top: 43px;
-}
-
 .stacked-menus-toggler {
     @extend %stacked-menus-items-mix;
-    position: absolute;
-    top: 0;
-    left: 0px;
-    padding: 14px;
+    padding: 10px;
+    font-size: $shame_lefticons_fs;
+    float: left;
     .glyph {
         width: auto;
         height: auto;
@@ -86,20 +85,20 @@ $shame_leftpanelsize_collapsed: 44px;
     }
 }
 
+
 .stacked-menus-items{
     @extend %stacked-menus-items-mix;
     position: relative;
-    padding: 15px 15px 15px 45px;
+    padding: 15px 15px 15px 10px;
+    line-height: 1em;
     .stacked-menu-items-icon{
-        position: absolute;
-        top: 9px;
-        left: 10px;
-        font-size: 24px;
+        font-size: $shame_lefticons_fs;
     }
 }
 
 .stacked-menu-items-text{
     font-size: 1.2em;
+    padding-left: 4px;
 }
 
 

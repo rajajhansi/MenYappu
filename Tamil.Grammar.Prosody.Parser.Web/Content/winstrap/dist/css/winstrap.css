@@ -11082,18 +11082,16 @@ main {
 
 .panel-collapsed .left-panelbar {
   width: 44px; }
+  .panel-collapsed .left-panelbar .stacked-menu-items-text {
+    display: none; }
 
 .panel-collapsed .right-panelbar {
   left: 44px; }
 
-.stacked-menus {
-  padding-top: 43px; }
-
 .stacked-menus-toggler {
-  position: absolute;
-  top: 0;
-  left: 0px;
-  padding: 14px; }
+  padding: 10px;
+  font-size: 24px;
+  float: left; }
   .stacked-menus-toggler .glyph {
     width: auto;
     height: auto;
@@ -11101,15 +11099,14 @@ main {
 
 .stacked-menus-items {
   position: relative;
-  padding: 15px 15px 15px 45px; }
+  padding: 15px 15px 15px 10px;
+  line-height: 1em; }
   .stacked-menus-items .stacked-menu-items-icon {
-    position: absolute;
-    top: 9px;
-    left: 10px;
     font-size: 24px; }
 
 .stacked-menu-items-text {
-  font-size: 1.2em; }
+  font-size: 1.2em;
+  padding-left: 4px; }
 
 .kendo-panelbars-custom {
   border: 0 !important; }
