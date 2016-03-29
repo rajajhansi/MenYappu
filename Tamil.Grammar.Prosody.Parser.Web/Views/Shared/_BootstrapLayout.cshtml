@@ -18,13 +18,23 @@
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+      <![endif]-->
     <!-- Le fav and touch icons -->
     <link rel="shortcut icon" href="~/Content/icons/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="~/Content/icons/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="~/Content/icons/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="~/Content/icons/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="~/Content/icons/apple-touch-icon-57-precomposed.png">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="~/Content/icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="~/Content/icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="~/Content/icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="~/Content/icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="~/Content/icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="~/Content/icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="~/Content/icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="~/Content/icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="~/Content/icons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="~/Content/icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="~/Content/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="~/Content/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/Content/icons/favicon-16x16.png">
 </head>
 
 <body>
@@ -94,10 +104,12 @@
         <div class="left-panelbar">
             <!--Sidebar content-->
             <div class="stacked-menus">
-                <div class="stacked-menus-toggler">
-                    <span class="stacked-menu-items-icon">
-                        <span class="glyph glyph-hamburger"></span>
-                    </span>
+                <div class="clearfix">
+                    <div class="stacked-menus-toggler">
+                        <span class="stacked-menu-items-icon">
+                            <span class="glyph glyph-hamburger"></span>
+                        </span>
+                    </div>
                 </div>
                 <div class="stacked-menus-items">
                     <span class="stacked-menu-items-icon">
@@ -121,6 +133,14 @@
                     </span>
                     <span class="stacked-menu-items-text">
                         வெண்பா உரையாடல்
+                    </span>
+                </div>
+                <div class="stacked-menus-items">
+                    <span class="stacked-menu-items-icon">
+                        <span class="glyph glyph-message"></span>
+                    </span>
+                    <span class="stacked-menu-items-text">
+                        விளையாட்டுகள்
                     </span>
                 </div>
                 <div class="stacked-menus-items">
@@ -183,15 +203,27 @@
         ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
         @*<script src="~/Scripts/bootstrap.min.js"></script>*@
-        <script>
-            $(document).ready(function () {
-                // $("#panelbar").kendoPanelBar({
-                //     expandMode: "single"
-                // });
-            });
-        </script>
+
         @RenderSection("scripts", required: false)
         @Scripts.Render("~/Scripts/customui")
+
+        <script>
+        $("#container-wrapper-with-panels").panelExpander({
+            onLoad: function (isCollapsedOnLoad, container) {
+                if (isCollapsedOnLoad) {
+                    container.find('.stacked-menu-items-text').hide();
+                }
+            },
+            beforeCollapse: function (e, container) {
+                container.find('.stacked-menu-items-text').hide();
+            },
+            afterExpand: function (e, container) {
+                setTimeout(function (param) {
+                    container.find('.stacked-menu-items-text').fadeIn(100);
+                }, 100);
+            }
+        });
+        </script>
     </div>
 </body>
 </html>
