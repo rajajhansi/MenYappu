@@ -11210,9 +11210,6 @@ not supported by any browser */ }
     border: 0;
     border-bottom: 1px solid #dddddd; }
 
-.navbar {
-  z-index: 9999; }
-
 .group-checkboxes-control {
   margin-top: 10px; }
 
@@ -11225,6 +11222,12 @@ td {
 
 .navbar-search-wrap .navbar-searchfield:focus {
   border-color: rgba(0, 0, 0, 0.6); }
+
+.navbar {
+  z-index: 9999; }
+
+.modal {
+  z-index: 99999; }
 
 @media screen and (max-width: 1200px) {
   .navbar-search-wrap {

@@ -259,10 +259,6 @@ not supported by any browser */
   }
 }
 
-.navbar {
-  z-index: 9999;
-}
-
 // not sure why the seyul klink gets a link class.. adding this here till i figure out why
 .group-checkboxes-control {
   margin-top: 10px;
@@ -279,13 +275,21 @@ td {
   border: 0 none;
 }
 
+
+
 .navbar-search-wrap{
     .navbar-searchfield{
         &:focus{
             border-color: rgba(0, 0, 0, 0.6);
         }
     }
-} 
+}
+.navbar {
+  z-index: 9999;
+}
+.modal{
+  z-index: 99999;
+}
 
 @media screen and (max-width: 1200px){
     .navbar-search-wrap{
