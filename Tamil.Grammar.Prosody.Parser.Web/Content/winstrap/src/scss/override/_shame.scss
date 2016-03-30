@@ -3,7 +3,7 @@ $shame_black: #000;
 $shame_hoverlue: #0161b2;
 $shame_rpanelbg: #f9f9f9;
 $shame_bordercol: #dddddd;
-$shame_leftpanelsize: 250px;
+$shame_leftpanelsize: 280px;
 $shame_leftpanelsize_collapsed: 44px;
 $shame_lefticons_fs: 24px;
 
@@ -23,8 +23,18 @@ $shame_lefticons_fs: 24px;
     @extend .fx-all;
     cursor: pointer;
     color: $shame_white;
-    &:hover{
-        background: $shame_hoverlue;
+    a {
+        padding: 15px 15px 15px 10px;
+        display: block;
+        outline: none;
+        color: $shame_white;
+        &:hover{
+            background: $shame_hoverlue;
+            text-decoration: none !important;
+        }
+        &:focus{
+            text-decoration: none !important;
+        }
     }
 }
 
@@ -78,6 +88,9 @@ $shame_lefticons_fs: 24px;
     padding: 10px;
     font-size: $shame_lefticons_fs;
     float: left;
+    &:hover{
+        background: $shame_hoverlue;
+    }
     .glyph {
         width: auto;
         height: auto;
@@ -89,10 +102,27 @@ $shame_lefticons_fs: 24px;
 .stacked-menus-items{
     @extend %stacked-menus-items-mix;
     position: relative;
-    padding: 15px 15px 15px 10px;
     line-height: 1em;
     .stacked-menu-items-icon{
         font-size: $shame_lefticons_fs;
+    }
+}
+
+.stacked-menus-items-submenu{
+    .stacked-menus-items{
+        a {
+            padding-left: 30px;
+        }
+    }
+}
+.with-submenu{
+    .stacked-menus-items-submenu{
+        display: none;
+    }
+    &.expanded{
+        .stacked-menus-items-submenu{
+            display: block;
+        }   
     }
 }
 

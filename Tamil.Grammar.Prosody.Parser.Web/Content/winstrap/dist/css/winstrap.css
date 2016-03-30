@@ -11050,8 +11050,16 @@ main {
 .stacked-menus-toggler, .stacked-menus-items {
   cursor: pointer;
   color: #fff; }
-  .stacked-menus-toggler:hover, .stacked-menus-items:hover {
-    background: #0161b2; }
+  .stacked-menus-toggler a, .stacked-menus-items a {
+    padding: 15px 15px 15px 10px;
+    display: block;
+    outline: none;
+    color: #fff; }
+    .stacked-menus-toggler a:hover, .stacked-menus-items a:hover {
+      background: #0161b2;
+      text-decoration: none !important; }
+    .stacked-menus-toggler a:focus, .stacked-menus-items a:focus {
+      text-decoration: none !important; }
 
 .container-wrap {
   position: absolute;
@@ -11065,7 +11073,7 @@ main {
 .left-panelbar {
   overflow: hidden;
   position: absolute;
-  width: 250px;
+  width: 280px;
   left: 0;
   top: 0;
   bottom: 0;
@@ -11075,7 +11083,7 @@ main {
   position: absolute;
   overflow: auto;
   background: #f9f9f9;
-  left: 250px;
+  left: 280px;
   right: 0;
   top: 0;
   bottom: 0; }
@@ -11092,6 +11100,8 @@ main {
   padding: 10px;
   font-size: 24px;
   float: left; }
+  .stacked-menus-toggler:hover {
+    background: #0161b2; }
   .stacked-menus-toggler .glyph {
     width: auto;
     height: auto;
@@ -11099,10 +11109,18 @@ main {
 
 .stacked-menus-items {
   position: relative;
-  padding: 15px 15px 15px 10px;
   line-height: 1em; }
   .stacked-menus-items .stacked-menu-items-icon {
     font-size: 24px; }
+
+.stacked-menus-items-submenu .stacked-menus-items a {
+  padding-left: 30px; }
+
+.with-submenu .stacked-menus-items-submenu {
+  display: none; }
+
+.with-submenu.expanded .stacked-menus-items-submenu {
+  display: block; }
 
 .stacked-menu-items-text {
   font-size: 1.2em;

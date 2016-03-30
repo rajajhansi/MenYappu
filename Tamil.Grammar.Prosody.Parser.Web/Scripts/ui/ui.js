@@ -59,4 +59,29 @@
 			}
 		});
 	};
+
+	$.fn.panelSubmenus = function (params) {
+		var elem = $(this);
+
+		var defaults = {
+			menus: elem.find(".stacked-menus-items"),
+			submenuClass: 'stacked-menus-items-submenu'
+		};
+
+		var config = $.extend(defaults, params);
+
+		config.menus.each(function (idx, val) {
+			var currMenuElem = $(val);
+			var hasSubmenu = currMenuElem.find('.' + config.submenuClass).length > 0;
+			if (hasSubmenu) {
+				currMenuElem.addClass('with-submenu');
+			}
+		});
+
+		elem.on('click', '.with-submenu > a', function (e) {
+			$(e.currentTarget).closest('.with-submenu').toggleClass('expanded');
+			e.preventDefault();
+		});
+	};
+
 })(jQuery);
