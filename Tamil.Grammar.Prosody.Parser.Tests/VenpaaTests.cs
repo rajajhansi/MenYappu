@@ -1,15 +1,13 @@
-﻿using NUnit.Framework;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using Xunit;
 namespace RjamSoft.Tamil.Grammar.Parser.Tests
-{
-    [TestFixture]
+{  
     public class VenpaaTests
     {
-        [Test]
+        [Fact]
         public void TestIfVenpaIsOruVikarpaKuralVenpa()
         {
             var kural = @"முற்ற உணர்ந்தானை ஏத்தி மொழிகுவன்
@@ -18,11 +16,11 @@ namespace RjamSoft.Tamil.Grammar.Parser.Tests
             var prosodyParser = new ProsodyParser(kural);
             prosodyParser.Parse();
 
-            Assert.AreEqual("ஒரு விகற்ப குறள் வெண்பா", prosodyParser.MetreType);
+            Assert.Equal("ஒரு விகற்ப குறள் வெண்பா", prosodyParser.MetreType);
         }
 
-        [Test]
-        public void TestIfVenpaIsIruVikarpaKuralVenpa()
+        [Fact]
+        public void FactIfVenpaIsIruVikarpaKuralVenpa()
         {
             var kural = @"நற்காட்சி நன்ஞானம் நல்லொழுக்கம் இம்மூன்றும்
 தொக்க அறச்சொல் பொருள்";
@@ -30,10 +28,10 @@ namespace RjamSoft.Tamil.Grammar.Parser.Tests
             var prosodyParser = new ProsodyParser(kural);
             prosodyParser.Parse();
 
-            Assert.AreEqual("இரு விகற்ப குறள் வெண்பா", prosodyParser.MetreType);
+            Assert.Equal("இரு விகற்ப குறள் வெண்பா", prosodyParser.MetreType);
         }
 
-        [Test]
+        [Fact]
         public void TestIfVenpaIsOruVikarpaInnisaiSinthiyalVenpa()
         {
             var kural = @"தேர்வெதற்கு பிள்ளைகளைப் பள்ளிகளில் சேர்ப்பதற்கே
@@ -43,10 +41,10 @@ namespace RjamSoft.Tamil.Grammar.Parser.Tests
             var prosodyParser = new ProsodyParser(kural);
             prosodyParser.Parse();
 
-            Assert.AreEqual("ஒரு விகற்ப இன்னிசைச் சிந்தியல் வெண்பா", prosodyParser.MetreType);
+            Assert.Equal("ஒரு விகற்ப இன்னிசைச் சிந்தியல் வெண்பா", prosodyParser.MetreType);
         }
 
-        [Test]
+        [Fact]
         public void TestIfVenpaIsOruVikarpaNerisaiSinthiyalVenpa()
         {
             var kural = @"அறிந்தானை ஏத்தி அறிவாங் கறிந்து
@@ -56,9 +54,9 @@ namespace RjamSoft.Tamil.Grammar.Parser.Tests
             var prosodyParser = new ProsodyParser(kural);
             prosodyParser.Parse();
 
-            Assert.AreEqual("ஒரு விகற்ப நேரிசைச் சிந்தியல் வெண்பா", prosodyParser.MetreType);
+            Assert.Equal("ஒரு விகற்ப நேரிசைச் சிந்தியல் வெண்பா", prosodyParser.MetreType);
         }
-        [Test]
+        [Fact]
         public void TestIfVenpaIsIruVikarpaInnisaiSinthiyalVenpa()
         {
             var kural = @"தன்னல மற்றுன் நலத்திற்கு ழைத்திட்ட
@@ -68,10 +66,10 @@ namespace RjamSoft.Tamil.Grammar.Parser.Tests
             var prosodyParser = new ProsodyParser(kural);
             prosodyParser.Parse();
 
-            Assert.AreEqual("இரு விகற்ப இன்னிசைச் சிந்தியல் வெண்பா", prosodyParser.MetreType);
+            Assert.Equal("இரு விகற்ப இன்னிசைச் சிந்தியல் வெண்பா", prosodyParser.MetreType);
         }
 
-        [Test]
+        [Fact]
         public void TestIfVenpaIsIruVikarpaNerisaiSinthiyalVenpa()
         {
             var kural = @"தேர்வெதற்கு பிள்ளைகளைப் பள்ளிகளில் சேர்ப்பதற்கே
@@ -81,9 +79,9 @@ namespace RjamSoft.Tamil.Grammar.Parser.Tests
             var prosodyParser = new ProsodyParser(kural);
             prosodyParser.Parse();
 
-            Assert.AreEqual("இரு விகற்ப நேரிசைச் சிந்தியல் வெண்பா", prosodyParser.MetreType);
+            Assert.Equal("இரு விகற்ப நேரிசைச் சிந்தியல் வெண்பா", prosodyParser.MetreType);
         }
-        [Test]
+        [Fact]
         public void TestIfVenpaIsPalaVikarpaInnisaiSinthiyalVenpa()
         {
             var kural = @"தன்னல மற்றுன் நலத்திற்கு ழைத்திட்ட
@@ -93,10 +91,10 @@ namespace RjamSoft.Tamil.Grammar.Parser.Tests
             var prosodyParser = new ProsodyParser(kural);
             prosodyParser.Parse();
 
-            Assert.AreEqual("பல விகற்ப இன்னிசைச் சிந்தியல் வெண்பா", prosodyParser.MetreType);
+            Assert.Equal("பல விகற்ப இன்னிசைச் சிந்தியல் வெண்பா", prosodyParser.MetreType);
         }
 
-        [Test]
+        [Fact]
         public void TestIfASinthiyalNerisaiVenpaCannotBeAPalaVikarpaNerisaiSinthiyalVenpa()
         {
             var kural = @"தேர்வெதற்கு பிள்ளைகளைப் பள்ளிகளில் சேர்ப்பதற்கே
@@ -106,9 +104,9 @@ namespace RjamSoft.Tamil.Grammar.Parser.Tests
             var prosodyParser = new ProsodyParser(kural);
             prosodyParser.Parse();
 
-            Assert.AreNotEqual("பல விகற்ப நேரிசைச் சிந்தியல் வெண்பா", prosodyParser.MetreType);
+            Assert.NotEqual("பல விகற்ப நேரிசைச் சிந்தியல் வெண்பா", prosodyParser.MetreType);
         }
-        [Test]
+        [Fact]
         public void TestIfVenPaIsPalaVikarpaPahrodaiVenpa()
         {
             var venpa = @"இனத்தை அழித்த இலங்கை அரக்கனை
@@ -125,9 +123,9 @@ namespace RjamSoft.Tamil.Grammar.Parser.Tests
             var prosodyParser = new ProsodyParser(venpa);
             prosodyParser.Parse();
 
-            Assert.AreEqual("பல விகற்ப பஃறொடை வெண்பா", prosodyParser.MetreType);
+            Assert.Equal("பல விகற்ப பஃறொடை வெண்பா", prosodyParser.MetreType);
         }
-        [Test]
+        [Fact]
         public void TestIfVenPaIsPalaVikarpaPahrodaiVenpa2()
         {
             var venpa = @"ஓட்டுத்தே வைக்காய் தமிழுணர் வைத்தூண்டி
@@ -143,7 +141,7 @@ namespace RjamSoft.Tamil.Grammar.Parser.Tests
             var prosodyParser = new ProsodyParser(venpa);
             prosodyParser.Parse();
 
-            Assert.AreEqual("பல விகற்ப பஃறொடை வெண்பா", prosodyParser.MetreType);
+            Assert.Equal("பல விகற்ப பஃறொடை வெண்பா", prosodyParser.MetreType);
         }
     }
 }
