@@ -11039,7 +11039,7 @@ main {
   /* IE/Edge */
   user-select: none;
   /* non-prefixed version, currently
-  not supported by any browser */ }
+not supported by any browser */ }
 
 .fx-all, .stacked-menus-toggler, .stacked-menus-items, .left-panelbar, .right-panelbar {
   -moz-transition: all 0.1s ease-in-out;
@@ -11096,6 +11096,15 @@ main {
 .panel-collapsed .right-panelbar {
   left: 44px; }
 
+.panel-collapsed .subitems-toggler {
+  display: none; }
+
+.panel-collapsed .stacked-menus-items-submenu {
+  border-top: 1px solid #dddddd;
+  border-bottom: 1px solid #dddddd; }
+  .panel-collapsed .stacked-menus-items-submenu .stacked-menus-items a {
+    padding-left: 10px; }
+
 .stacked-menus-toggler {
   padding: 10px;
   font-size: 24px;
@@ -11113,14 +11122,25 @@ main {
   .stacked-menus-items .stacked-menu-items-icon {
     font-size: 24px; }
 
-.stacked-menus-items-submenu .stacked-menus-items a {
-  padding-left: 30px; }
+.stacked-menus-items-submenu {
+  position: relative; }
+  .stacked-menus-items-submenu .stacked-menus-items a {
+    padding-left: 30px; }
 
 .with-submenu .stacked-menus-items-submenu {
   display: none; }
 
+.with-submenu > a {
+  padding-right: 29px; }
+
 .with-submenu.expanded .stacked-menus-items-submenu {
   display: block; }
+
+.subitems-toggler {
+  pointer-events: none;
+  position: absolute;
+  top: 20px;
+  right: 10px; }
 
 .stacked-menu-items-text {
   font-size: 1.2em;

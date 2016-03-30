@@ -9,236 +9,264 @@ $shame_lefticons_fs: 24px;
 
 .noselect {
   -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none;   /* Chrome/Safari/Opera */
-  -khtml-user-select: none;    /* Konqueror */
-  -moz-user-select: none;      /* Firefox */
-  -ms-user-select: none;       /* IE/Edge */
-  user-select: none;           /* non-prefixed version, currently
-  not supported by any browser */
+  -webkit-user-select: none; /* Chrome/Safari/Opera */
+  -khtml-user-select: none; /* Konqueror */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE/Edge */
+  user-select: none;
+  /* non-prefixed version, currently
+not supported by any browser */
 }
 
-.fx-all { -moz-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; -webkit-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; }
+.fx-all {
+  -moz-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
 
-%stacked-menus-items-mix{
-    @extend .fx-all;
-    cursor: pointer;
+%stacked-menus-items-mix {
+  @extend .fx-all;
+  cursor: pointer;
+  color: $shame_white;
+  a {
+    padding: 15px 15px 15px 10px;
+    display: block;
+    outline: none;
     color: $shame_white;
-    a {
-        padding: 15px 15px 15px 10px;
-        display: block;
-        outline: none;
-        color: $shame_white;
-        &:hover{
-            background: $shame_hoverlue;
-            text-decoration: none !important;
-        }
-        &:focus{
-            text-decoration: none !important;
-        }
+    &:hover {
+      background: $shame_hoverlue;
+      text-decoration: none !important;
     }
-}
-
-.container-wrap{
-    position: absolute;
-    overflow: hidden;
-    background: white;
-    top: 48px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-}
-
-.left-panelbar{
-    @extend .fx-all;
-    @extend .noselect;
-    overflow: hidden;
-    position: absolute;
-    width: $shame_leftpanelsize;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    background-image: url('../../www/images/night.jpg');
-}
-
-.right-panelbar{
-    @extend .fx-all;
-    position: absolute;
-    overflow: auto;
-    background: $shame_rpanelbg;
-    left: $shame_leftpanelsize;
-    right: 0;
-    top: 0;
-    bottom: 0;   
-}
-
-.panel-collapsed{
-    .left-panelbar{
-        width: $shame_leftpanelsize_collapsed;
-        .stacked-menu-items-text{
-            display: none;
-        }
+    &:focus {
+      text-decoration: none !important;
     }
-    .right-panelbar{
-        left: $shame_leftpanelsize_collapsed;
+  }
+}
+
+.container-wrap {
+  position: absolute;
+  overflow: hidden;
+  background: white;
+  top: 48px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.left-panelbar {
+  @extend .fx-all;
+  @extend .noselect;
+  overflow: hidden;
+  position: absolute;
+  width: $shame_leftpanelsize;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background-image: url('../../www/images/night.jpg');
+}
+
+.right-panelbar {
+  @extend .fx-all;
+  position: absolute;
+  overflow: auto;
+  background: $shame_rpanelbg;
+  left: $shame_leftpanelsize;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.panel-collapsed {
+  .left-panelbar {
+    width: $shame_leftpanelsize_collapsed;
+    .stacked-menu-items-text {
+      display: none;
     }
+  }
+  .right-panelbar {
+    left: $shame_leftpanelsize_collapsed;
+  }
+  .subitems-toggler {
+    display: none;
+  }
+  .stacked-menus-items-submenu {
+    border-top: 1px solid $shame_bordercol;
+    border-bottom: 1px solid $shame_bordercol;
+    .stacked-menus-items {
+      a {
+        padding-left: 10px;
+      }
+    }
+  }
 }
 
 .stacked-menus-toggler {
-    @extend %stacked-menus-items-mix;
-    padding: 10px;
+  @extend %stacked-menus-items-mix;
+  padding: 10px;
+  font-size: $shame_lefticons_fs;
+  float: left;
+  &:hover {
+    background: $shame_hoverlue;
+  }
+  .glyph {
+    width: auto;
+    height: auto;
+    display: block;
+  }
+}
+
+.stacked-menus-items {
+  @extend %stacked-menus-items-mix;
+  position: relative;
+  line-height: 1em;
+  .stacked-menu-items-icon {
     font-size: $shame_lefticons_fs;
-    float: left;
-    &:hover{
-        background: $shame_hoverlue;
-    }
-    .glyph {
-        width: auto;
-        height: auto;
-        display: block;
-    }
+  }
 }
 
+.stacked-menus-items-submenu {
+  position: relative;
+  .stacked-menus-items {
+    a {
+      padding-left: 30px;
+    }
+  }
+}
 
-.stacked-menus-items{
-    @extend %stacked-menus-items-mix;
+.with-submenu {
+  .stacked-menus-items-submenu {
+    display: none;
+  }
+  > a {
+    padding-right: 29px;
+  }
+  &.expanded {
+    .stacked-menus-items-submenu {
+      display: block;
+    }
+  }
+}
+
+.subitems-toggler {
+  pointer-events: none;
+  position: absolute;
+  top: 20px;
+  right: 10px;
+}
+
+.stacked-menu-items-text {
+  font-size: 1.2em;
+  padding-left: 4px;
+}
+
+.kendo-panelbars-custom {
+  border: 0 !important;
+  .main-title {
+    @extend .noselect;
     position: relative;
-    line-height: 1em;
-    .stacked-menu-items-icon{
-        font-size: $shame_lefticons_fs;
+    padding: 15px 0 15px 40px;
+    border-bottom: 1px solid $shame_bordercol;
+    .main-title-icon {
+      position: absolute;
+      top: 20px;
+      left: 5px;
     }
-}
-
-.stacked-menus-items-submenu{
-    .stacked-menus-items{
-        a {
-            padding-left: 30px;
-        }
+  }
+  .panelbar-textarea {
+    margin-top: 1em;
+    width: 720px;
+  }
+  > .k-item {
+    > .k-header {
+      border-bottom: 0 !important;
     }
-}
-.with-submenu{
-    .stacked-menus-items-submenu{
-        display: none;
+  }
+  .k-group.k-panel {
+    border: 0;
+  }
+
+  > .k-item {
+    &.k-state-active {
+      .main-title-icon {
+        -webkit-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        transform: rotate(180deg);
+      }
     }
-    &.expanded{
-        .stacked-menus-items-submenu{
-            display: block;
-        }   
-    }
-}
-
-.stacked-menu-items-text{
-    font-size: 1.2em;
-    padding-left: 4px;
-}
-
-
-.kendo-panelbars-custom{
+  }
+  .k-tabstrip {
+    border: 0;
+  }
+  .k-tabstrip-items .k-item, .k-panelbar .k-tabstrip-items .k-item {
     border: 0 !important;
-    .main-title{
-        @extend .noselect;
-        position: relative;
-        padding: 15px 0 15px 40px;
-        border-bottom: 1px solid $shame_bordercol;
-        .main-title-icon{
-            position: absolute;
-            top: 20px;
-            left: 5px;
-        }
-    }
-    .panelbar-textarea{
-        margin-top: 1em;
-        width: 720px;
-    }
-    > .k-item {
-        > .k-header {
-            border-bottom: 0 !important;
-        }
-    }
-    .k-group.k-panel {
-        border: 0;
-    }
+  }
+  .k-tabstrip .k-content, .k-panelbar .k-tabstrip .k-content {
+    border: 0 !important;
+  }
 
-    > .k-item{
-        &.k-state-active{
-            .main-title-icon{
-                -webkit-transform: rotate(180deg);
-                -ms-transform: rotate(180deg);
-                transform: rotate(180deg);
-            }
-        }
+  .menyappu-content-tabstrip {
+    margin-left: 1em;
+    margin-right: 1em;
+    > .k-content {
+      padding: 0 1em;
+      margin: 0;
     }
-    .k-tabstrip{
-        border: 0;
-    }
-    .k-tabstrip-items .k-item, .k-panelbar .k-tabstrip-items .k-item {
-        border: 0 !important;
-    }
-    .k-tabstrip .k-content, .k-panelbar .k-tabstrip .k-content{
-        border: 0 !important;   
-    }
-
-    .menyappu-content-tabstrip {
-        margin-left: 1em;
-        margin-right: 1em;
-        > .k-content {
-            padding: 0 1em;
-            margin: 0;
-        }
-    }
+  }
 }
-
 
 .k-tabstrip-items .k-link, .k-panelbar .k-tabstrip-items .k-link {
-    color: $shame_black;
+  color: $shame_black;
 }
 
-
-.menyappu-content-tabstrip{
-    > .k-tabstrip-items {
-        padding: 0;
-        background: #f1f1f1;
-        border-left: 1px solid $shame_bordercol;
-        border-bottom: 1px solid $shame_bordercol;
-        border-right: 1px solid $shame_bordercol;
-        > .k-item {
-            > .k-link {
-                &:hover{
-                    text-decoration: none;
-                }
-            }
-            &.k-state-active{
-                position: relative;
-                &:after{
-                    content: ' ';
-                    position: absolute;
-                    height: 3px;
-                    background: $shame_hoverlue;
-                    bottom: 0;
-                    left: 0;
-                    right: 0;
-                }
-            }
+.menyappu-content-tabstrip {
+  > .k-tabstrip-items {
+    padding: 0;
+    background: #f1f1f1;
+    border-left: 1px solid $shame_bordercol;
+    border-bottom: 1px solid $shame_bordercol;
+    border-right: 1px solid $shame_bordercol;
+    > .k-item {
+      > .k-link {
+        &:hover {
+          text-decoration: none;
         }
-    }
-    > .k-content {
-        .k-header {
-            padding: 10px 0;
-            border: 0;
-            border-bottom: 1px solid $shame_bordercol;
+      }
+      &.k-state-active {
+        position: relative;
+        &:after {
+          content: ' ';
+          position: absolute;
+          height: 3px;
+          background: $shame_hoverlue;
+          bottom: 0;
+          left: 0;
+          right: 0;
         }
+      }
     }
+  }
+  > .k-content {
+    .k-header {
+      padding: 10px 0;
+      border: 0;
+      border-bottom: 1px solid $shame_bordercol;
+    }
+  }
 }
 
 // not sure why the seyul klink gets a link class.. adding this here till i figure out why
-.group-checkboxes-control{
-    margin-top: 10px;
+.group-checkboxes-control {
+  margin-top: 10px;
 }
-#seyyul{
-    > .k-link {
-        cursor: auto;
-    }
+
+#seyyul {
+  > .k-link {
+    cursor: auto;
+  }
 }
-td{
-        padding: .25em 2em .25em 0;
-        border: 0 none;
+
+td {
+  padding: .25em 2em .25em 0;
+  border: 0 none;
 }
