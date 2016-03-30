@@ -11188,6 +11188,8 @@ not supported by any browser */ }
 .menyappu-content-tabstrip {
   outline: none; }
   .menyappu-content-tabstrip > .k-tabstrip-items {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
     padding: 0;
     background: #f1f1f1;
     border-left: 1px solid #dddddd;
