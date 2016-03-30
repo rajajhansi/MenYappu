@@ -57,7 +57,7 @@ not supported by any browser */
 .left-panelbar {
   @extend .fx-all;
   @extend .noselect;
-  overflow: hidden;
+  overflow: auto;
   position: absolute;
   width: $shame_leftpanelsize;
   left: 0;
@@ -175,7 +175,7 @@ not supported by any browser */
   }
   .panelbar-textarea {
     margin-top: 1em;
-    width: 720px;
+    width: 100%;
   }
   > .k-item {
     > .k-header {
@@ -213,6 +213,9 @@ not supported by any browser */
       margin: 0;
     }
   }
+  .k-tabstrip-wrapper {
+    border-bottom-width: 0;
+  }
 }
 
 .k-tabstrip-items .k-link, .k-panelbar .k-tabstrip-items .k-link {
@@ -220,6 +223,7 @@ not supported by any browser */
 }
 
 .menyappu-content-tabstrip {
+  outline: none;
   > .k-tabstrip-items {
     padding: 0;
     background: #f1f1f1;
@@ -255,6 +259,10 @@ not supported by any browser */
   }
 }
 
+.navbar {
+  z-index: 9999;
+}
+
 // not sure why the seyul klink gets a link class.. adding this here till i figure out why
 .group-checkboxes-control {
   margin-top: 10px;
@@ -269,4 +277,29 @@ not supported by any browser */
 td {
   padding: .25em 2em .25em 0;
   border: 0 none;
+}
+
+.navbar-search-wrap{
+    .navbar-searchfield{
+        &:focus{
+            border-color: rgba(0, 0, 0, 0.6);
+        }
+    }
+} 
+
+@media screen and (max-width: 1200px){
+    .navbar-search-wrap{
+        position: relative;
+        width: 100%;
+        .navbar-searchfield{
+            width: 100%;
+            max-width: initial;
+            padding-right: 35px;
+        }
+        .navbar-searchbtn{
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+    } 
 }

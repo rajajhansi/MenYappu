@@ -178,7 +178,6 @@
     <Content Include="Content\bootstrap-responsive.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\winstrap\dist\js\vendor\jquery.js" />
     <Content Include="fonts\LICENSE.txt" />
     <Content Include="Content\images\glyphicons-halflings-white.png" />
     <Content Include="Content\images\glyphicons-halflings.png" />
@@ -287,8 +286,8 @@
     <Content Include="Content\winstrap\dist\css\winstrap.css" />
     <Content Include="Content\winstrap\dist\css\winstrap.min.css" />
     <Content Include="Content\winstrap\dist\fonts\LICENSE.txt" />
-    <Content Include="Content\winstrap\dist\js\vendor\bootstrap.min.js" />
-    <Content Include="Content\winstrap\dist\js\vendor\jquery.min.js" />
+    <Content Include="Content\winstrap\dist\js\vendor\bootstrap.js" />
+    <Content Include="Content\winstrap\dist\js\vendor\jquery.js" />
     <Content Include="Content\winstrap\Gruntfile.js" />
     <Content Include="Content\winstrap\handlebars-helpers\inArrayJson.js" />
     <Content Include="Content\winstrap\src\fonts\LICENSE.txt" />
@@ -950,6 +949,8 @@
     <Content Include="Scripts\kendo\2012.2.710\kendo.web.js" />
     <Content Include="Scripts\kendo\2012.2.710\kendo.web.min.js" />
     <Content Include="Scripts\kendo\2012.2.710\kendo.window.min.js" />
+    <Content Include="Scripts\kendo\2016.1\kendo.web.js" />
+    <Content Include="Scripts\kendo\2016.1\kendo.web.min.js" />
     <Content Include="Scripts\knockout-2.1.0.debug.js" />
     <Content Include="Scripts\knockout-2.1.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />

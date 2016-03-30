@@ -11071,7 +11071,7 @@ not supported by any browser */ }
   bottom: 0; }
 
 .left-panelbar {
-  overflow: hidden;
+  overflow: auto;
   position: absolute;
   width: 280px;
   left: 0;
@@ -11158,7 +11158,7 @@ not supported by any browser */ }
       left: 5px; }
   .kendo-panelbars-custom .panelbar-textarea {
     margin-top: 1em;
-    width: 720px; }
+    width: 100%; }
   .kendo-panelbars-custom > .k-item > .k-header {
     border-bottom: 0 !important; }
   .kendo-panelbars-custom .k-group.k-panel {
@@ -11179,33 +11179,39 @@ not supported by any browser */ }
     .kendo-panelbars-custom .menyappu-content-tabstrip > .k-content {
       padding: 0 1em;
       margin: 0; }
+  .kendo-panelbars-custom .k-tabstrip-wrapper {
+    border-bottom-width: 0; }
 
 .k-tabstrip-items .k-link, .k-panelbar .k-tabstrip-items .k-link {
   color: #000; }
 
-.menyappu-content-tabstrip > .k-tabstrip-items {
-  padding: 0;
-  background: #f1f1f1;
-  border-left: 1px solid #dddddd;
-  border-bottom: 1px solid #dddddd;
-  border-right: 1px solid #dddddd; }
-  .menyappu-content-tabstrip > .k-tabstrip-items > .k-item > .k-link:hover {
-    text-decoration: none; }
-  .menyappu-content-tabstrip > .k-tabstrip-items > .k-item.k-state-active {
-    position: relative; }
-    .menyappu-content-tabstrip > .k-tabstrip-items > .k-item.k-state-active:after {
-      content: ' ';
-      position: absolute;
-      height: 3px;
-      background: #0161b2;
-      bottom: 0;
-      left: 0;
-      right: 0; }
+.menyappu-content-tabstrip {
+  outline: none; }
+  .menyappu-content-tabstrip > .k-tabstrip-items {
+    padding: 0;
+    background: #f1f1f1;
+    border-left: 1px solid #dddddd;
+    border-bottom: 1px solid #dddddd;
+    border-right: 1px solid #dddddd; }
+    .menyappu-content-tabstrip > .k-tabstrip-items > .k-item > .k-link:hover {
+      text-decoration: none; }
+    .menyappu-content-tabstrip > .k-tabstrip-items > .k-item.k-state-active {
+      position: relative; }
+      .menyappu-content-tabstrip > .k-tabstrip-items > .k-item.k-state-active:after {
+        content: ' ';
+        position: absolute;
+        height: 3px;
+        background: #0161b2;
+        bottom: 0;
+        left: 0;
+        right: 0; }
+  .menyappu-content-tabstrip > .k-content .k-header {
+    padding: 10px 0;
+    border: 0;
+    border-bottom: 1px solid #dddddd; }
 
-.menyappu-content-tabstrip > .k-content .k-header {
-  padding: 10px 0;
-  border: 0;
-  border-bottom: 1px solid #dddddd; }
+.navbar {
+  z-index: 9999; }
 
 .group-checkboxes-control {
   margin-top: 10px; }
@@ -11216,6 +11222,22 @@ not supported by any browser */ }
 td {
   padding: .25em 2em .25em 0;
   border: 0 none; }
+
+.navbar-search-wrap .navbar-searchfield:focus {
+  border-color: rgba(0, 0, 0, 0.6); }
+
+@media screen and (max-width: 1200px) {
+  .navbar-search-wrap {
+    position: relative;
+    width: 100%; }
+    .navbar-search-wrap .navbar-searchfield {
+      width: 100%;
+      max-width: initial;
+      padding-right: 35px; }
+    .navbar-search-wrap .navbar-searchbtn {
+      position: absolute;
+      top: 0;
+      right: 0; } }
 
 #glyphs span[class*="glyph-"] {
   font-size: 2em; }

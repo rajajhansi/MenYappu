@@ -9,7 +9,7 @@ namespace Tamil.Parody.Parser.Web
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+                        "~/Content/winstrap/dist/js/vendor/jquery.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
                         "~/Scripts/jquery-ui-{version}.js"));
@@ -22,10 +22,13 @@ namespace Tamil.Parody.Parser.Web
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
-            bundles.Add(new ScriptBundle("~/Scripts/bootstrap").Include("~/Scripts/bootstrap.js"));
+
+            bundles.Add(new ScriptBundle("~/Scripts/bootstrap").Include(
+                "~/Content/winstrap/dist/js/vendor/bootstrap.js"
+                ));
             // The Kendo JavaScript bundle
-            bundles.Add(new ScriptBundle("~/bundles/kendo").Include(
-                    "~/Scripts/kendo/2012.2.710/kendo.web.*"
+            bundles.Add(new ScriptBundle("~/Scripts/kendo").Include(
+                    "~/Scripts/kendo/2016.1/kendo.web.js"
                     ));
 
             // BOGDAN UI BUNDLE
