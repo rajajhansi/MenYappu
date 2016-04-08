@@ -9,8 +9,10 @@ using Tamil.Grammar.Prosody.Parser;
 
 namespace Tamil.Parody.Parser.Web.Controllers
 {
+    [RoutePrefix("api/prosody")]
     public class ProsodyController : ApiController
     {
+        [Route("")]
         [HttpPost]
         public HttpResponseMessage  Parse(TamilPaa tamilpaa)
         {
@@ -27,13 +29,14 @@ namespace Tamil.Parody.Parser.Web.Controllers
             return response;
         }
 
+        [Route("MathiraiCount")]
         [HttpPost]
-        public HttpResponseMessage MathiraiCount(string prosodyText)
+        public HttpResponseMessage MathiraiCount(ProsodyText prosodyText)
         {
             var response = Request.CreateResponse(HttpStatusCode.NoContent);
-            if (prosodyText != null && !string.IsNullOrEmpty(prosodyText))
+            if (prosodyText != null && !string.IsNullOrEmpty(prosodyText.InputText))
             {
-                var prosodyParser = new ProsodyParser(prosodyText);
+                var prosodyParser = new ProsodyParser(prosodyText.InputText);
                 var mathiraiCount = prosodyParser.GetMathiraiCount();
                 response = Request.CreateResponse(HttpStatusCode.Created, mathiraiCount);
                 response.Headers.Location = new Uri(Request.RequestUri,

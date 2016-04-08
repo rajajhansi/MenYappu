@@ -998,6 +998,10 @@ namespace RjamSoft.Tamil.Grammar.Parser
         }
     }
 
+    public class ProsodyText
+    {
+        public string InputText { get; set; }
+    }
     public class MathiraiCounter
     {
         public List<Dictionary<string, double>> MathiraiCount { get; set; }
