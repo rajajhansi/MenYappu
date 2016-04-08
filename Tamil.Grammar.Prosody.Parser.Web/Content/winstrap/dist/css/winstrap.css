@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 /*!
  * Bootstrap v3.3.4 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.
@@ -11157,6 +11157,9 @@ not supported by any browser */ }
       top: 20px;
       left: 5px; }
   .kendo-panelbars-custom .panelbar-textarea {
+    margin-top: 1em;
+    width: 100%; }
+  .kendo-panelbars-custom .panelbar-text{
     margin-top: 1em;
     width: 100%; }
   .kendo-panelbars-custom > .k-item > .k-header {

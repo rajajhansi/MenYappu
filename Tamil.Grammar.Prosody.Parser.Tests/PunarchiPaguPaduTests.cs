@@ -8,7 +8,6 @@ using Xunit;
 
 namespace RjamSoft.Tamil.Grammar.Parser.Tests
 {
-    
     public class PunarchiPaguPaduTests
     {
         [Fact]
@@ -31,9 +30,9 @@ namespace RjamSoft.Tamil.Grammar.Parser.Tests
                 }
                 int finalValue = (firstValue << 1) | lastValue;
                 Assert.Equal(TamilLanguageConstants.PunarchiPaguPadugal[Convert.ToString(finalValue, 2).PadLeft(2, '0')], "உயிர் முதல் உயிர் ஈறு");
-                Console.WriteLine(TamilLanguageConstants.PunarchiPaguPadugal[Convert.ToString(finalValue, 2).PadLeft(2, '0')]);                
+                Console.WriteLine(TamilLanguageConstants.PunarchiPaguPadugal[Convert.ToString(finalValue, 2).PadLeft(2, '0')]);
             }
-            
+
         }
 
         [Fact]

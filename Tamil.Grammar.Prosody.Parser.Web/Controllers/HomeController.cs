@@ -28,5 +28,12 @@ namespace Tamil.Parody.Parser.Web.Controllers
 
             return View();
         }
+
+        public ActionResult MathiraiCount()
+        {
+            ViewBag.Message = "Mathirai Finder";
+
+            return View();
+        }
     }
 }

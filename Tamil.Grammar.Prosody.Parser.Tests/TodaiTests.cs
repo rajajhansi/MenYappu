@@ -7,7 +7,7 @@ using Xunit;
 
 namespace RjamSoft.Tamil.Grammar.Parser.Tests
 {
-   
+
     public class TodaiTests
     {
         [Fact]
@@ -31,7 +31,7 @@ namespace RjamSoft.Tamil.Grammar.Parser.Tests
 புயலே குழலே மயிலே";
             var prosodyParser = new ProsodyParser(paa);
             var prosodyPart = prosodyParser.Parse();
-            Assert.Equal(TamilLanguageConstants.TodaiVagaigalTamil[prosodyPart.SeerIyaipuWithinAdi[0][0][0]], "கீழ்க்கதுவாய்");
+            Assert.Equal(TamilLanguageConstants.TodaiVagaigalTamil[prosodyPart.SeerIyaipuWithinAdi[0][0][0]], "மேற்கதுவாய்");
         }
     }
 }

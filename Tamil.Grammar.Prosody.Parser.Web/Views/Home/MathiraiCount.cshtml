@@ -1,0 +1,80 @@
+﻿@using RjamSoft.Tamil.Grammar.Parser
+@{
+    ViewBag.Title = "மென்யாப்பு";
+}
+
+<ul class="kendo-panelbars-custom" id="seyyulbar">
+    <li>
+        <h4 class="main-title">
+            வாக்கியத்தை உள்ளிடவும்
+            <span class="main-title-icon glyph glyph-chevron-down"></span>
+        </h4>
+        <ul>
+            <li id="seyyul" class="k-state-active">
+                <form id="prosodyForm" class="form-horizontal" action="/api/Prosody/MathiraiCount" method="POST">
+                    <div class="row row-sm">
+                        <div class="col-md-6">
+                            <textarea class="panelbar-textarea" id="ProsodyText" rows="2"></textarea>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" id="MathiraiCount" class="panelbar-text form-control"/>
+                            <br/>
+                            <input type="text" id="CalculatedMathiraiCount" disabled="true" class="panelbar-text form-control" />
+                        </div>
+                    </div>
+                    <div class="row row-sm">
+                        <div class="col-md-6">
+                            <div class="control-group">
+                                <div class="controls">
+                                    <button type="submit" class="btn btn-primary">சரி பார்த்திடு</button>
+                                    <button type="reset" class="btn btn-default">கணக்கிடு</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<script>
+    $(document).ready(function() {
+
+        // event handler for select
+        var onSelect = function(e) {
+            // access the selected item via e.item (HTMLElement)
+            var item = e.sender.select();
+
+            if (item.hasClass("k-state-active")) {
+                e.sender.collapse(item);
+            } else {
+                e.sender.expand(item);
+            }
+        };
+        var seyyulPanelBar = $("#seyyulbar").kendoPanelBar({
+            expandMode: "single",
+            select: onSelect
+        }).data("kendoPanelBar");
+
+        $("#prosodyForm").submit(function () {
+            var shouldCompareVenpaRules = $("#ShouldCompareVenpaRules").is(':checked');
+            var data = '{"prosodyText" : "' + $("#ProsodyText").val() + '"' +
+                '}';
+            $.ajax({
+                url: '/api/Prosody/MathiraiCount',
+                data: data,
+                contentType: 'application/json; charset=utf8',
+                type: 'POST',
+                async: false,
+                success: function (data) {
+                    $('#CalculatedMathiraiCount').value(data.TotalMathiraiCount);
+                },
+                error: function (data) {
+                    alert('error');
+                }
+            });
+            return false;
+        });
+    });
+</script>

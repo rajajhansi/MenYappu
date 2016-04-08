@@ -23,9 +23,25 @@ namespace Tamil.Parody.Parser.Web.Controllers
                 response.Headers.Location = new Uri(Request.RequestUri,
                                                     string.Format("prosody/{0}", prosodyPart.MetreType));
             }
-            
+
             return response;
         }
-        
+
+        [HttpPost]
+        public HttpResponseMessage MathiraiCount(string prosodyText)
+        {
+            var response = Request.CreateResponse(HttpStatusCode.NoContent);
+            if (prosodyText != null && !string.IsNullOrEmpty(prosodyText))
+            {
+                var prosodyParser = new ProsodyParser(prosodyText);
+                var mathiraiCount = prosodyParser.GetMathiraiCount();
+                response = Request.CreateResponse(HttpStatusCode.Created, mathiraiCount);
+                response.Headers.Location = new Uri(Request.RequestUri,
+                                                    string.Format("prosody/{0}", "MathiraiCount"));
+            }
+
+            return response;
+        }
+
     }
 }

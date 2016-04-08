@@ -24,18 +24,18 @@
                             <div class="checkbox">
                                 <label>
                                     <input type="checkbox" id="ShouldParseKutriyalukaram" name="ShouldParseKutriyalukaram" />
-                                    <span class="uiTran">உயிர்முன் குற்றியலுகரத்தை அலகிடாது விடுக </span>                                    
+                                    <span class="uiTran">உயிர்முன் குற்றியலுகரத்தை அலகிடாது விடுக </span>
                                 </label>
                             </div>
                             <div class="checkbox">
                                 <label>
                                     <input type="checkbox" id="ShouldParseVilaangaaySeer" name="ShouldParseVilaangaaySeer" />
-                                    <span class="uiTran">விளாங்காய்ச்சீர்களை விலக்குக </span>                                    
+                                    <span class="uiTran">விளாங்காய்ச்சீர்களை விலக்குக </span>
                                 </label>
                             </div>
                             <div class="checkbox">
                                 <label>
-                                    <input type="checkbox" id="venRules" name="venRules" />
+                                    <input type="checkbox" id="ShouldCompareVenpaRules" name="ShouldCompareVenpaRules" />
                                     <span class="uiTran">வெண்பா விதிகளோடு ஒப்பிடுக  </span>
                                 </label>
                             </div>
@@ -77,6 +77,9 @@
                 <li>
                     இயைபு
                 </li>
+                <li>
+                    விதி ஒப்பீடு
+                </li>
             </ul>
             <div>
                 எழுத்து
@@ -99,7 +102,10 @@
             <div>
                 இயைபு
             </div>
-        </div>
+            <div>
+                விதி ஒப்பீடு
+            </div>
+    </div>
     </li>
 </ul>
 
@@ -157,7 +163,7 @@
             # } else if(new RegExp("^நிரை").test(key)) { #
                 # paaAsaiInAdi = paaAsaiInAdi + '<span class="niryasai">' + value + '</span>' #
                 # asigalInAdi = asigalInAdi + '<span class="niryasai">' + key #
-            # } else if( key == "பு") { #                
+            # } else if( key == "பு") { #
                 # var spanClass = new RegExp("^நேர்").test(venLastSyllable) ? "nerasai" : "niryasai"; #
                 # paaAsaiInAdi = paaAsaiInAdi + '<span class="' + spanClass + '">' + value + '</span>' #
             # } #
@@ -230,10 +236,10 @@
         # for(var s = 0; s < seerMonaiWithinAdi[i][2].length; s++) { #
             # console.log("|" + seerMonaiWithinAdi[i][2][s] + "|") #
             # if( stringStartsWith(seerMonaiWithinAdi[i][2][s], "~")) { #
-                # allMonais += '<span class="todaiword">' + seerMonaiWithinAdi[i][2][s].substring(1) + '</span>' # 
+                # allMonais += '<span class="todaiword">' + seerMonaiWithinAdi[i][2][s].substring(1) + '</span>' #
             # } else if(!isNaN(parseInt(seerMonaiWithinAdi[i][2][s]))) { #
                 # allMonais += '<span class="todaiindex">' + seerMonaiWithinAdi[i][2][s] + '</span>' #
-            # } else { #  
+            # } else { #
                 # allMonais += '<span>' + seerMonaiWithinAdi[i][2][s] + '</span>  ' #
            # } #
          # } #
@@ -270,12 +276,12 @@
     #} else { #
         # for(var s = 0; s < seerEthukaiWithinAdi[i][2].length; s++) { #
             # if( stringStartsWith(seerEthukaiWithinAdi[i][2][s], "~")) { #
-                <span class="todaiword"> #=seerEthukaiWithinAdi[i][2][s].substring(1)# </span> 
+                <span class="todaiword"> #=seerEthukaiWithinAdi[i][2][s].substring(1)# </span>
             # } else if(!isNaN(parseInt(seerEthukaiWithinAdi[i][2][s]))) { #
                 <span class="todaiindex"> #=seerEthukaiWithinAdi[i][2][s]# </span>
-            # } else { #  
-                <span> #=seerEthukaiWithinAdi[i][2][s]# </span>  
-           # } #   
+            # } else { #
+                <span> #=seerEthukaiWithinAdi[i][2][s]# </span>
+           # } #
          # } #
          | <span class="todaipattern"> #= seerEthukaiWithinAdi[i][1][0] #  எதுகை </span>
         # } #
@@ -309,12 +315,12 @@
     #} else { #
         # for(var s = 0; s < seerIyaipuWithinAdi[i][2].length; s++) { #
             # if( stringStartsWith(seerIyaipuWithinAdi[i][2][s], "~")) { #
-                <span class="todaiword"> #=seerIyaipuWithinAdi[i][2][s].substring(1)# </span> 
+                <span class="todaiword"> #=seerIyaipuWithinAdi[i][2][s].substring(1)# </span>
             # } else if(!isNaN(parseInt(seerIyaipuWithinAdi[i][2][s]))) { #
                 <span class="todaiindex"> #=seerIyaipuWithinAdi[i][2][s]# </span>
-            # } else { #  
-                <span> #=seerIyaipuWithinAdi[i][2][s]# </span>  
-           # } #   
+            # } else { #
+                <span> #=seerIyaipuWithinAdi[i][2][s]# </span>
+           # } #
          # } #
          | <span class="todaipattern"> #= seerIyaipuWithinAdi[i][1][0] #  இயைபு </span>
         # } #
@@ -335,14 +341,50 @@
     <br />
 </script>
 
+<script type="text/x-kendo-template" id="vidhiOppeeduTemplate">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th><b>விதி</b></th>
+                <th><b>பொருத்தம்</b></th>
+            </tr>
+        </thead>
+        <tbody>
+            # for(var prop in venpaError) { #
+            <tr>
+                <td>#=venpaError[prop][0]#</td>
+                <td>
+                    # if(venpaError[prop].length < 2) { #
+                    <div class="talainame">பொருந்துகிறது</div>
+                    #} else { #
+                    <div class="nerasai"> #=venpaError[prop][1]#</div>
+                    # } #
+                </td>
+            </tr>
+            # } #
+        </tbody>
+    </table>
+</script>
+
 <script>
     function stringStartsWith(string, prefix) {
         return string.slice(0, prefix.length) === prefix;
     }
-    $(document).ready(function () {
 
+    $(document).ready(function() {
+
+        var TabNames = {
+            Letter: 0,
+            Metreme: 1,
+            Linkage: 2,
+            MetricalLine: 3,
+            Alliteration: 4,
+            Rhyme: 5,
+            EndRhyme: 6,
+            VenpaRulesComparison: 7
+        };
         // event handler for select
-        var onSelect = function (e) {
+        var onSelect = function(e) {
             // access the selected item via e.item (HTMLElement)
             var item = e.sender.select();
 
@@ -374,10 +416,35 @@
         //var item = panelBar.select();
         seyyulPanelBar.expand($(".k-first"), true);
 
-        $("#prosodyForm").submit(function () {
+        $("#ShouldCompareVenpaRules").change(function () {
+            toggleTab(TabNames.VenpaRulesComparison, $(this).is(':checked'));
+            //if ($(this).is(':checked')) {
+            //    showTab(TabNames.VenpaRulesComparison);
+            //} else {
+            //    hideTab(TabNames.VenpaRulesComparison);
+            //}
+        });
+
+        function toggleTab(tabNum, shouldShow) {
+            var tabstrip = $("#tabstrip").data("kendoTabStrip");
+            var tabstripContent = $("#tabstrip-" + (tabNum + 1));
+            var currentTab = tabstrip.select();
+            var displayStyle = (shouldShow) ? "inline-block" : "none";
+            var opacityStyle = (shouldShow) ? "1" : "0";
+            $(tabstrip.items()[tabNum]).css('display', displayStyle);
+            tabstripContent.css('opacity', opacityStyle);
+
+            if (!shouldShow && tabNum === $(currentTab).index()) {
+                tabstrip.select(tabNum - 1);
+            }
+        }
+
+        $("#prosodyForm").submit(function() {
+            var shouldCompareVenpaRules = $("#ShouldCompareVenpaRules").is(':checked');
             var data = '{"ProsodyText" : "' + $("#ProsodyText").val() + '"' +
                 ', "ShouldParseKutriyalukaram" : "' + $("#ShouldParseKutriyalukaram").is(':checked') + '"' +
                 ', "ShouldParseVilaangaaySeer" : "' + $("#ShouldParseVilaangaaySeer").is(':checked') + '"' +
+                ', "ShouldCompareVenpaRules" : "' + shouldCompareVenpaRules + '"' +
                 '}';
             $.ajax({
                 url: '/api/Prosody',
@@ -385,13 +452,13 @@
                 contentType: 'application/json; charset=utf8',
                 type: 'POST',
                 async: false,
-                success: function (data) {
+                success: function(data) {
                     seyyulResultPanelBar.expand($(".k-first"), true);
                     tabStrip.select(0);
 
                     var ezhuthuTemplate = kendo.template($("#ezhuthuTemplate").html());
 
-                    $("#tabstrip-1").html(ezhuthuTemplate({
+                    $("#tabstrip-" + (TabNames.Letter + 1)).html(ezhuthuTemplate({
                         uyirEzhuthugal: data["LetterCount"]["@TamilLanguageConstants.Vowel"],
                         meyEzhuthugal: data["LetterCount"]["@TamilLanguageConstants.Consonant"],
                         uyirMeyEzhuthugal: data["LetterCount"]["@TamilLanguageConstants.ConsonantVowel"],
@@ -403,39 +470,49 @@
                     }));
 
                     var seerTemplate = kendo.template($("#seerTemplate").html());
-                    $("#tabstrip-2").html(seerTemplate({
+                    $("#tabstrip-" + (TabNames.Metreme + 1)).html(seerTemplate({
                         paaVagai: data["MetreType"],
                         parseTree: data["ParseTree"],
                         venLastSyllable: data["VenLastSyllable"]
                     }));
 
                     var thalaiTemplate = kendo.template($("#thalaiTemplate").html());
-                    $("#tabstrip-3").html(thalaiTemplate({
+                    $("#tabstrip-" + (TabNames.Linkage + 1)).html(thalaiTemplate({
                         wordBond: data["WordBond"]
                     }));
                     var adiTemplate = kendo.template($("#adiTemplate").html());
-                    $("#tabstrip-4").html(adiTemplate({
+                    $("#tabstrip-" + (TabNames.MetricalLine + 1)).html(adiTemplate({
                         adigal: data["Lines"],
                         adiVagaigal: data["LineClass"]
                     }));
                     var monaiTemplate = kendo.template($("#monaiTemplate").html());
-                    $("#tabstrip-5").html(monaiTemplate({
+                    $("#tabstrip-" + (TabNames.Alliteration + 1)).html(monaiTemplate({
                         adigal: data["Lines"],
                         seerMonaiWithinAdi: data["SeerMonaiWithinAdi"],
                         matchingAdiMonai: data["MatchingAdiMonai"]
                     }));
                     var ethukaiTemplate = kendo.template($("#ethukaiTemplate").html());
-                    $("#tabstrip-6").html(ethukaiTemplate({
+                    $("#tabstrip-" + (TabNames.Rhyme + 1)).html(ethukaiTemplate({
                         adigal: data["Lines"],
                         seerEthukaiWithinAdi: data["SeerEthukaiWithinAdi"],
                         matchingAdiEthukai: data["MatchingAdiEthukai"]
                     }));
                     var iyaipuTemplate = kendo.template($("#iyaipuTemplate").html());
-                    $("#tabstrip-7").html(iyaipuTemplate({
+                    $("#tabstrip-" + (TabNames.EndRhyme + 1)).html(iyaipuTemplate({
                         adigal: data["Lines"],
                         seerIyaipuWithinAdi: data["SeerIyaipuWithinAdi"],
                         matchingAdiIyaipu: data["MatchingAdiIyaipu"]
                     }));
+                    var vidhiOppeeduTemplate = kendo.template($("#vidhiOppeeduTemplate").html());
+                    $("#tabstrip-" + (TabNames.VenpaRulesComparison + 1)).html(vidhiOppeeduTemplate({
+                        venpaError: data["VenpaError"]
+                    }));
+                    toggleTab(TabNames.VenpaRulesComparison, shouldCompareVenpaRules);
+                    //if (shouldCompareVenpaRules) {
+                    //    showTab(TabNames.VenpaRulesComparison);
+                    //} else {
+                    //    hideTab(TabNames.VenpaRulesComparison);
+                    //}
                 },
                 error: function (data) {
                     alert('error');

@@ -66,6 +66,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MathiraiTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PunarchiPaguPaduTests.cs" />
     <Compile Include="TodaiTests.cs" />

@@ -74,6 +74,10 @@ namespace Tamil.Parody.Parser.Web
             bundles.Add(new StyleBundle("~/Content/winstrapcss").Include(
                 "~/Content/winstrap/dist/css/winstrap.css"
             ));
+
+            bundles.Add(new StyleBundle("~/Aurelia/styles").Include(
+            "~/Aurelia/node_modules/font-awesome/css/font-awesome.css",
+            "~/Aurelia/styles/styles.css"));
         }
     }
 }

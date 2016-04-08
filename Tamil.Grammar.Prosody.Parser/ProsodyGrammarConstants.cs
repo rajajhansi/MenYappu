@@ -7,7 +7,7 @@ namespace RjamSoft.Tamil.Grammar.Parser
     public class ProsodyGrammarConstants
     {
         public class AsaiRegularExpressions
-        {                                               
+        {
             public static Regex NiraiAsai = new Regex("([kGcJTNtnpmyrlvZLRVjSsh]?_?[aiueoBQ])([kGcJTNtnpmyrlvZLRVjSsh][aAiIuUeEoOYWBQ])(_[KkGcJTNtnpmyrlvZLRVjSsh])*",
                                                         RegexOptions.CultureInvariant | RegexOptions.IgnorePatternWhitespace | RegexOptions.Compiled);
             public static Regex NerAsai = new Regex("[kGcJTNtnpmyrlvZLRVjSsh]?_?[aAiIuUeEoOQYBW](_[KkGcJTNtnpmyrlvZLRVjSsh])*",
@@ -39,8 +39,8 @@ namespace RjamSoft.Tamil.Grammar.Parser
 
         public class PaIlakkanaSeergal
         {
-            public static Dictionary<string, List<string>> Venpaa = new Dictionary<string, List<string>> 
-                        { 
+            public static Dictionary<string, List<string>> Venpaa = new Dictionary<string, List<string>>
+                        {
                             {"AllowedSeergal", new List<string> { "tEmA","puLimA","kUviLa_m","karuviLa_m","tEmA_GkA_y","puLimA_GkA_y","kUviLa_GkA_y","karuviLa_GkA_y","mA","viLa_m"}},
                             {"DisAllowedSeergal", new List<string>{}}
                         };
@@ -59,15 +59,17 @@ namespace RjamSoft.Tamil.Grammar.Parser
 
         public class TamilPaIlakkanaSeergal
         {
-            public static Dictionary<string, List<string>> Venpaa = new Dictionary<string, List<string>> 
-                        { 
-                            {"AllowedSeergal", new List<string> { "தேமா","புளிமா","கூவிளம்","கருவிளம்","தேமாங்காய்","புளிமாங்காய்","கூவிளங்காய்","கருவிளங்காய்","மா","விளம்"}},
+            public static Dictionary<string, List<string>> Venpaa = new Dictionary<string, List<string>>
+                        {
+                            {"AllowedSeergal", new List<string> { "தேமா","புளிமா","கூவிளம்","கருவிளம்","தேமாங்காய்","புளிமாங்காய்","கூவிளங்காய்","கருவிளங்காய்" /*,"மா","விளம்" */}},
                             {"DisAllowedSeergal", new List<string>{}}
                         };
             public static Dictionary<string, List<string>> Asiriyipaa = new Dictionary<string, List<string>>
                         {
                             {"AllowedSeergal", new List<string>{"தேமா","புளிமா","கூவிளம்","கருவிளம்"}},
-                            {"DisAllowedSeergal", new List<string>{"கருவிளங்கனி","கூவிளங்கனி"}}
+                            {"DisAllowedSeergal", new List<string>{"கருவிளங்கனி","கூவிளங்கனி"}},
+                            {"AllowedMonoFinalLetters", new List<string>{ "E", "O", "I", "Y", "Q"}}, // ஏ ஓ ஐ ஈ Q
+                            {"AllowedTriFinalLetters", new List<string>{ "A_y", "e_V"}} // "ஆய்" "என்"
                         };
             public static Dictionary<string, List<string>> Kalipaa = new Dictionary<string, List<string>>
                         {
@@ -119,14 +121,14 @@ namespace RjamSoft.Tamil.Grammar.Parser
             {"nirYnE_rnE_rnE_r" , "puLimA_nta_NpU"},
             {"nE_rnirYnE_rnE_r" , "kUviLa_nta_NpU"},
             {"nirYnirYnE_rnE_r" , "karuviLa_nta_NpU"},
-    
+
             // Four Asais - naRumpU seers
 
             {"nE_rnE_rnirYnE_r" , "tEmAnaRu_mpU"},
             {"nirYnE_rnirYnE_r" , "puLimAnaRu_mpU"},
             {"nE_rnirYnirYnE_r" , "kUviLanaRu_mpU"},
             {"nirYnirYnirYnE_r" , "karuviLanaRu_mpU"},
-    
+
 	        // Four Asais - naRunizhal
 
             {"nE_rnE_rnirYnirY" , "tEmAnaRuniZa_l"},
@@ -187,14 +189,14 @@ namespace RjamSoft.Tamil.Grammar.Parser
             {"நிரைநேர்நேர்நேர்" , "புளிமாந்தண்பூ"},
             {"நேர்நிரைநேர்நேர்" , "கூவிளந்தண்பூ"},
             {"நிரைநிரைநேர்நேர்" , "கருவிளந்தண்பூ"},
-    
+
             // நாலசைச்சீர் - பூச்சீர் - நறும்பூச்சீர்
 
             {"நேர்நேர்நிரைநேர்" , "தேமாநறும்பூ"},
             {"நிரைநேர்நிரைநேர்" , "புளிமாநறும்பூ"},
             {"நேர்நிரைநிரைநேர்" , "கூவிளநறும்பூ"},
             {"நிரைநிரைநிரைநேர்" , "கருவிளநறும்பூ"},
-    
+
 	        // நாலசைச்சீர் - நிழல் சீர் - நறுநிழல்
 
             {"நேர்நேர்நிரைநிரை" , "தேமாநறுநிழல்"},
@@ -224,102 +226,102 @@ namespace RjamSoft.Tamil.Grammar.Parser
         public class Thalaigal
         {
 
-            public static Dictionary<string, Dictionary<KeyValuePair<int, string>, string>> ThalaiRules = new Dictionary<string, Dictionary<KeyValuePair<int, string>, string>> 
+            public static Dictionary<string, Dictionary<KeyValuePair<int, string>, string>> ThalaiRules = new Dictionary<string, Dictionary<KeyValuePair<int, string>, string>>
             {
-                { "நேரொன்றாசிரியத்தளை", new Dictionary<KeyValuePair<int, string>, string> 
-                                                    {                                                        
+                { "நேரொன்றாசிரியத்தளை", new Dictionary<KeyValuePair<int, string>, string>
+                                                    {
                                                         { new KeyValuePair<int, string>(2, "mA"), "nE_r" }
-                                                         
+
                                                     }
                 },
-                { "நிரையொன்றாசிரியத்தளை", new Dictionary<KeyValuePair<int, string>, string> 
+                { "நிரையொன்றாசிரியத்தளை", new Dictionary<KeyValuePair<int, string>, string>
                                                     {
-                                                        { new KeyValuePair<int, string>(6, "viLa_m"), "nirY" } 
+                                                        { new KeyValuePair<int, string>(6, "viLa_m"), "nirY" }
                                                     }
                 },
                 {
-                  "இயற்சீர் வெண்டளை", new Dictionary<KeyValuePair<int, string>, string> 
+                  "இயற்சீர் வெண்டளை", new Dictionary<KeyValuePair<int, string>, string>
                                                     {
                                                         { new KeyValuePair<int, string>(2, "mA"), "nirY" },
-                                                        { new KeyValuePair<int, string>(6, "viLa_m"), "nE_r" } 
+                                                        { new KeyValuePair<int, string>(6, "viLa_m"), "nE_r" }
                                                     }
                 },
                 {
-                  "வெண்சீர் வெண்டளை", new Dictionary<KeyValuePair<int, string>, string> 
+                  "வெண்சீர் வெண்டளை", new Dictionary<KeyValuePair<int, string>, string>
                                                     {
                                                         { new KeyValuePair<int, string>(4, "kA_y"), "nE_r" },
-                                                        { new KeyValuePair<int, string>(2, "pU"), "nE_r" } 
+                                                        { new KeyValuePair<int, string>(2, "pU"), "nE_r" }
                                                     }
                 },
                 {
-                  "ஒன்றிய வஞ்சித்தளை", new Dictionary<KeyValuePair<int, string>, string> 
+                  "ஒன்றிய வஞ்சித்தளை", new Dictionary<KeyValuePair<int, string>, string>
                                                     {
                                                         { new KeyValuePair<int, string>(4, "kaVi"), "nirY" },
-                                                        { new KeyValuePair<int, string>(6, "niZa_l"), "nirY" } 
+                                                        { new KeyValuePair<int, string>(6, "niZa_l"), "nirY" }
                                                     }
                 },
                 {
-                  "ஒன்றா வஞ்சித்தளை", new Dictionary<KeyValuePair<int, string>, string> 
+                  "ஒன்றா வஞ்சித்தளை", new Dictionary<KeyValuePair<int, string>, string>
                                                     {
                                                         { new KeyValuePair<int, string>(4, "kaVi"), "nE_r" },
-                                                        { new KeyValuePair<int, string>(6, "niZa_l"), "nE_r" } 
+                                                        { new KeyValuePair<int, string>(6, "niZa_l"), "nE_r" }
                                                     }
                 },
                 {
-                  "கலித்தளை", new Dictionary<KeyValuePair<int, string>, string> 
+                  "கலித்தளை", new Dictionary<KeyValuePair<int, string>, string>
                                                     {
                                                         { new KeyValuePair<int, string>(4, "kA_y"), "nirY" },
-                                                        { new KeyValuePair<int, string>(2, "pU"), "nirY" } 
+                                                        { new KeyValuePair<int, string>(2, "pU"), "nirY" }
                                                     }
                 }
             };
 
-            public static Dictionary<string, Dictionary<KeyValuePair<int, string>, string>> TamilThalaiRules = new Dictionary<string, Dictionary<KeyValuePair<int, string>, string>> 
+            public static Dictionary<string, Dictionary<KeyValuePair<int, string>, string>> TamilThalaiRules = new Dictionary<string, Dictionary<KeyValuePair<int, string>, string>>
             {
-                { "நேரொன்றாசிரியத்தளை", new Dictionary<KeyValuePair<int, string>, string> 
-                                                    {                                                        
+                { "நேரொன்றாசிரியத்தளை", new Dictionary<KeyValuePair<int, string>, string>
+                                                    {
                                                         { new KeyValuePair<int, string>("மா".Length, "மா"), "நேர்" }
-                                                         
+
                                                     }
                 },
-                { "நிரையொன்றாசிரியத்தளை", new Dictionary<KeyValuePair<int, string>, string> 
+                { "நிரையொன்றாசிரியத்தளை", new Dictionary<KeyValuePair<int, string>, string>
                                                     {
-                                                        { new KeyValuePair<int, string>("விளம்".Length, "விளம்"), "நிரை" } 
+                                                        { new KeyValuePair<int, string>("விளம்".Length, "விளம்"), "நிரை" }
                                                     }
                 },
                 {
-                  "இயற்சீர் வெண்டளை", new Dictionary<KeyValuePair<int, string>, string> 
+                  "இயற்சீர் வெண்டளை", new Dictionary<KeyValuePair<int, string>, string>
                                                     {
                                                         { new KeyValuePair<int, string>("மா".Length, "மா"), "நிரை" },
-                                                        { new KeyValuePair<int, string>("விளம்".Length, "விளம்"), "நேர்" } 
+                                                        { new KeyValuePair<int, string>("விளம்".Length, "விளம்"), "நேர்" }
                                                     }
                 },
                 {
-                  "வெண்சீர் வெண்டளை", new Dictionary<KeyValuePair<int, string>, string> 
+                  "வெண்சீர் வெண்டளை", new Dictionary<KeyValuePair<int, string>, string>
                                                     {
                                                         { new KeyValuePair<int, string>("காய்".Length, "காய்"), "நேர்" },
-                                                        { new KeyValuePair<int, string>("பூ".Length, "பூ"), "நேர்" } 
+                                                        { new KeyValuePair<int, string>("பூ".Length, "பூ"), "நேர்" }
                                                     }
                 },
                 {
-                  "ஒன்றிய வஞ்சித்தளை", new Dictionary<KeyValuePair<int, string>, string> 
+                  "ஒன்றிய வஞ்சித்தளை", new Dictionary<KeyValuePair<int, string>, string>
                                                     {
                                                         { new KeyValuePair<int, string>("கனி".Length, "கனி"), "நிரை" },
-                                                        { new KeyValuePair<int, string>("நிழல்".Length, "நிழல்"), "நிரை" } 
+                                                        { new KeyValuePair<int, string>("நிழல்".Length, "நிழல்"), "நிரை" }
                                                     }
                 },
                 {
-                  "ஒன்றா வஞ்சித்தளை", new Dictionary<KeyValuePair<int, string>, string> 
+                  "ஒன்றா வஞ்சித்தளை", new Dictionary<KeyValuePair<int, string>, string>
                                                     {
                                                         { new KeyValuePair<int, string>("கனி".Length, "கனி"), "நேர்" },
-                                                        { new KeyValuePair<int, string>("நிழல்".Length, "நிழல்"), "நேர்" } 
+                                                        { new KeyValuePair<int, string>("நிழல்".Length, "நிழல்"), "நேர்" }
                                                     }
                 },
                 {
-                  "கலித்தளை", new Dictionary<KeyValuePair<int, string>, string> 
+                  "கலித்தளை", new Dictionary<KeyValuePair<int, string>, string>
                                                     {
                                                         { new KeyValuePair<int, string>("காய்".Length, "காய்"), "நிரை" },
-                                                        { new KeyValuePair<int, string>("பூ".Length, "பூ"), "நிரை" } 
+                                                        { new KeyValuePair<int, string>("பூ".Length, "பூ"), "நிரை" }
                                                     }
                 }
             };
@@ -332,7 +334,7 @@ namespace RjamSoft.Tamil.Grammar.Parser
             //    new Dictionary<string, string> { { "viLa_m", "nirY"} }
             //};
             public static int TodaiMonai = 0;
-            public static int TodaiEthukai = 1;            
+            public static int TodaiEthukai = 1;
         }
 
         public static Dictionary<string, int> ThodaiTypeDictionary = new Dictionary<string, int>
