@@ -1,0 +1,340 @@
+﻿@{
+    ViewBag.Title = "மென்யாப்பு";
+}
+
+<ul class="kendo-panelbars-custom" id="seyyulbar">
+    <li>
+        <h4 class="main-title">
+            வாக்கியத்தை உள்ளிடவும்
+            <span class="main-title-icon glyph glyph-chevron-down"></span>
+        </h4>
+        <ul>
+            <li id="seyyul" class="k-state-active">
+                <form id="prosodyForm" class="form-horizontal" action="/api/Prosody/MathiraiCount" method="POST">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4 class="main-title">
+                                வாக்கியம்
+                            </h4>
+                            <textarea class="panelbar-textarea" id="ProsodyText" rows="6"></textarea>
+                        </div>
+                        <div class="col-md-6">
+                            <h4 class="main-title">
+                                தொடை வகை
+                            </h4>
+
+                            <div id="monaiType" class="type-t7">
+                                <p class="form-group-label">மோனை வகை</p>
+                                <div class="dropdown">
+                                    <button id="monai-dropdown" class="btn btn-dropdown dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+                                        மோனை வகை
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="monai-dropdown">
+                                        <li><a href="#">இல்லை</a></li>
+                                        <li><a href="#">இணை</a></li>
+                                        <li><a href="#">பொழிப்பு</a></li>
+                                        <li><a href="#">ஒரூஉ</a></li>
+                                        <li><a href="#">கூழை</a></li>
+                                        <li><a href="#">கீழ்க்கதுவாய்</a></li>
+                                        <li><a href="#">மேற்கதுவாய்</a></li>
+                                        <li><a href="#">முற்று</a></li>
+                                        <li><a href="#">கடையிணை</a></li>
+                                        <li><a href="#">பின்</a></li>
+                                        <li><a href="#">கடைக்கூழை</a></li>
+                                        <li><a href="#">இடைப்புணர்</a></li>
+                                    </ul>
+                                </div>
+                                <p class="form-group-label">எதுகை  வகை</p>
+                                <div class="dropdown">
+                                    <button id="ethukai-dropdown" class="btn btn-dropdown dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+                                        எதுகை வகை
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="ethukai-dropdown">
+                                        <li><a href="#">இல்லை</a></li>
+                                        <li><a href="#">இணை</a></li>
+                                        <li><a href="#">பொழிப்பு</a></li>
+                                        <li><a href="#">ஒரூஉ</a></li>
+                                        <li><a href="#">கூழை</a></li>
+                                        <li><a href="#">கீழ்க்கதுவாய்</a></li>
+                                        <li><a href="#">மேற்கதுவாய்</a></li>
+                                        <li><a href="#">முற்று</a></li>
+                                        <li><a href="#">கடையிணை</a></li>
+                                        <li><a href="#">பின்</a></li>
+                                        <li><a href="#">கடைக்கூழை</a></li>
+                                        <li><a href="#">இடைப்புணர்</a></li>
+                                    </ul>
+                                </div>
+                                <p class="form-group-label">இயைபு  வகை</p>
+                                <div class="dropdown">
+                                    <button id="iyaipu-dropdown" class="btn btn-dropdown dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+                                        இயைபு வகை
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="iyaipu-dropdown">
+                                        <li><a href="#">இல்லை</a></li>
+                                        <li><a href="#">இணை</a></li>
+                                        <li><a href="#">பொழிப்பு</a></li>
+                                        <li><a href="#">ஒரூஉ</a></li>
+                                        <li><a href="#">கூழை</a></li>
+                                        <li><a href="#">கீழ்க்கதுவாய்</a></li>
+                                        <li><a href="#">மேற்கதுவாய்</a></li>
+                                        <li><a href="#">முற்று</a></li>
+                                        <li><a href="#">கடையிணை</a></li>
+                                        <li><a href="#">பின்</a></li>
+                                        <li><a href="#">கடைக்கூழை</a></li>
+                                        <li><a href="#">இடைப்புணர்</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-6">
+                            <h4 class="main-title">
+                                முடிவு
+                            </h4>
+                            <div class="type-t5">
+                                <p class="form-group-label">மோனை வகை</p>
+                                <button id="monai-correct" class="right btn btn-primary" aria-hidden="true">சரி</button>
+                                <button id="monai-incorrect" class="wrong btn btn-primary" aria-hidden="true" data-toggle="tooltip" data-placement="right">
+                                    தவறு
+                                </button>
+                            </div>
+                            <div class="type-t5">
+                                <p class="form-group-label">எதுகை  வகை</p>
+                                <button id="ethukai-correct" class="right btn btn-primary" aria-hidden="true">சரி</button>
+                                <button id="ethukai-incorrect" class="wrong btn btn-primary" aria-hidden="true" data-toggle="tooltip" data-placement="right">
+                                    தவறு
+                                </button>
+                            </div>
+                            <div class="type-t5">
+                                <p class="form-group-label">இயைபு  வகை</p>
+                                <button id="iyaipu-correct" class="right btn btn-primary" aria-hidden="true">சரி</button>
+                                <button id="iyaipu-incorrect" class="wrong btn btn-primary" aria-hidden="true" data-toggle="tooltip" data-placement="right">
+                                    தவறு
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="control-group">
+                                <div class="controls">
+                                    <button type="submit" class="btn btn-primary">சரி பார்த்திடு</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<script type="text/x-kendo-template" id="monaiTemplate">
+    <div class="type-t4">சீர் மோனை</div>
+
+    # for (var i = 0; i < adigal.length; i++) { #
+    <br />
+    அடி #= i + 1 # |  #= adigal[i] #
+    <br />
+    # if(seerMonaiWithinAdi[i][1][0] == "இல்லை") { #
+    மோனை #= seerMonaiWithinAdi[i][1][0] #
+    <br />
+    #} else { #
+    # var allMonais = ''; #
+    # for(var s = 0; s < seerMonaiWithinAdi[i][2].length; s++) { #
+    # console.log("|" + seerMonaiWithinAdi[i][2][s] + "|") #
+    # if( stringStartsWith(seerMonaiWithinAdi[i][2][s], "~")) { #
+    # allMonais += '<span class="todaiword">' + seerMonaiWithinAdi[i][2][s].substring(1) + '</span>' #
+    # } else if(!isNaN(parseInt(seerMonaiWithinAdi[i][2][s]))) { #
+    # allMonais += '<span class="todaiindex">' + seerMonaiWithinAdi[i][2][s] + '</span>' #
+    # } else { #
+    # allMonais += '<span>' + seerMonaiWithinAdi[i][2][s] + '</span>  ' #
+    # } #
+    # } #
+    #= allMonais #
+    |
+    <span class="todaipattern">#=seerMonaiWithinAdi[i][1][0]#  மோனை </span>
+    # } #
+    <br />
+    # } #
+    <div class="type-t4">அடி மோனை</div>
+    <br />
+    # var output = ""; for (var i = 0; i < matchingAdiMonai.length; i++) { #
+    # var monaiCount = 0 #
+    # $.each(matchingAdiMonai[i], function(key, value) { #
+    # output = output + ((parseInt(key,10) + 1 ) + ' ' + value + '  '); monaiCount++; #
+    # }) #
+    # if(monaiCount > 1) { #
+    #= output #
+    # } #
+    # } #
+    # if(matchingAdiMonai.length > 1) { #
+    #= "மோனை இல்லை" #
+    # } #
+    <br />
+</script>
+
+<script type="text/x-kendo-template" id="ethukaiTemplate">
+    <div class="type-t4">சீர் எதுகை</div>
+
+    # for (var i = 0; i < adigal.length; i++) { #
+    <br />
+    அடி #= i + 1 # |  #= adigal[i] #
+    <br />
+    # if(seerEthukaiWithinAdi[i][1][0] == "இல்லை") { #
+    எதுகை #= seerEthukaiWithinAdi[i][1][0] #
+    <br />
+    #} else { #
+    # for(var s = 0; s < seerEthukaiWithinAdi[i][2].length; s++) { #
+    # if( stringStartsWith(seerEthukaiWithinAdi[i][2][s], "~")) { #
+    <span class="todaiword"> #=seerEthukaiWithinAdi[i][2][s].substring(1)# </span>
+    # } else if(!isNaN(parseInt(seerEthukaiWithinAdi[i][2][s]))) { #
+    <span class="todaiindex"> #=seerEthukaiWithinAdi[i][2][s]# </span>
+    # } else { #
+    <span> #=seerEthukaiWithinAdi[i][2][s]# </span>
+    # } #
+    # } #
+    |
+    <span class="todaipattern"> #= seerEthukaiWithinAdi[i][1][0] #  எதுகை </span>
+    # } #
+    <br />
+    # } #
+    <div class="type-t4">அடி எதுகை</div>
+    <br />
+    # var output = ""; for (var i = 0; i < matchingAdiEthukai.length; i++) { #
+    # var ethukaiCount = 0 #
+    # $.each(matchingAdiEthukai[i], function(key, value) { #
+    # output = output + ((parseInt(key,10) + 1 ) + ' ' + value + '  '); ethukaiCount++; #
+    # }) #
+    # if(ethukaiCount > 1) { #
+    #= output #
+    # } #
+    # } #
+    # if(matchingAdiEthukai.length > 1) { #
+    #= "எதுகை இல்லை" #
+    # } #
+    <br />
+</script>
+
+<script type="text/x-kendo-template" id="iyaipuTemplate">
+    <div class="type-t4">சீர் இயைபு</div>
+
+    # for (var i = 0; i < adigal.length; i++) { #
+    <br />
+    அடி #= i + 1 # |  #= adigal[i] #
+    <br />
+    # if(seerIyaipuWithinAdi[i][1][0] == "இல்லை") { #
+    இயைபு #= seerIyaipuWithinAdi[i][1][0] #
+    <br />
+    #} else { #
+    # for(var s = 0; s < seerIyaipuWithinAdi[i][2].length; s++) { #
+    # if( stringStartsWith(seerIyaipuWithinAdi[i][2][s], "~")) { #
+    <span class="todaiword"> #=seerIyaipuWithinAdi[i][2][s].substring(1)# </span>
+    # } else if(!isNaN(parseInt(seerIyaipuWithinAdi[i][2][s]))) { #
+    <span class="todaiindex"> #=seerIyaipuWithinAdi[i][2][s]# </span>
+    # } else { #
+    <span> #=seerIyaipuWithinAdi[i][2][s]# </span>
+    # } #
+    # } #
+    |
+    <span class="todaipattern"> #= seerIyaipuWithinAdi[i][1][0] #  இயைபு </span>
+    # } #
+    <br />
+    # } #
+    <div class="type-t4">அடி இயைபு</div>
+    <br />
+    # var output = ""; for (var i = 0; i < matchingAdiIyaipu.length; i++) { #
+    # var iyaipuCount = 0 #
+    # $.each(matchingAdiIyaipu[i], function(key, value) { #
+    # output = output + ((parseInt(key,10) + 1 ) + ' ' + value + '  '); iyaipuCount++; #
+    # }) #
+    # if(iyaipuCount > 1) { #
+    #= output #
+    # } #
+    # } #
+    # if(matchingAdiIyaipu.length > 1) { #
+    #= "இயைபு இல்லை" #
+    # } #
+    <br />
+</script>
+<script>
+    $(document).ready(function () {
+
+        // event handler for select
+        var onSelect = function (e) {
+            // access the selected item via e.item (HTMLElement)
+            var item = e.sender.select();
+
+            if (item.hasClass("k-state-active")) {
+                e.sender.collapse(item);
+            } else {
+                e.sender.expand(item);
+            }
+        };
+        var seyyulPanelBar = $("#seyyulbar").kendoPanelBar({
+            expandMode: "single",
+            select: onSelect
+        }).data("kendoPanelBar");
+        seyyulPanelBar.expand($(".k-first"), true);
+
+        function showCorrect() {
+            $("#correct").css('display', 'inline-block');
+            $("#incorrect").css('display', 'none');
+        }
+        function showIncorrect() {
+            $("#correct").css('display', 'none');
+            $("#incorrect").css('display', 'inline-block');
+        }
+
+        function hideBoth() {
+            $("[id*=correct").css('display', 'none');
+            //$("#incorrect").css('display', 'none');
+        }
+
+        hideBoth();
+
+
+        $("#prosodyForm").submit(function () {
+            var data = '{"InputText" : "' + $("#ProsodyText").val() + '"' + '}';
+            $.ajax({
+                url: '/api/Prosody/ThodaiFinder',
+                data: data,
+                contentType: 'application/json; charset=utf8',
+                type: 'POST',
+                async: false,
+                success: function (data) {
+                    var monaiTemplate = kendo.template($("#monaiTemplate").html());
+                    var ethukaiTemplate = kendo.template($("#ethukaiTemplate").html());
+                    var iyaipuTemplate = kendo.template($("#iyaipuTemplate").html());
+                    $("[id*=incorrect").css('display', 'inline-block');
+                    $('#monai-incorrect').attr('data-html', 'true');
+                    $('#monai-incorrect').attr('data-original-title', monaiTemplate({
+                        adigal: data["Lines"],
+                        seerMonaiWithinAdi: data["SeerMonaiWithinAdi"],
+                        matchingAdiMonai: data["MatchingAdiMonai"]
+                    }));
+                    $('#ethukai-incorrect').attr('data-html', 'true');
+                    $('#ethukai-incorrect').attr('data-original-title', ethukaiTemplate({
+                        adigal: data["Lines"],
+                        seerEthukaiWithinAdi: data["SeerEthukaiWithinAdi"],
+                        matchingAdiEthukai: data["MatchingAdiEthukai"]
+                    }));
+                    $('#iyaipu-incorrect').attr('data-html', 'true');
+                    $('#iyaipu-incorrect').attr('data-original-title', iyaipuTemplate({
+                        adigal: data["Lines"],
+                        seerIyaipuWithinAdi: data["SeerIyaipuWithinAdi"],
+                        matchingAdiIyaipu: data["MatchingAdiIyaipu"]
+                    }));
+
+                },
+                error: function (data) {
+                    alert('error');
+                }
+            });
+            return false;
+        });
+    });
+</script>

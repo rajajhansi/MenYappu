@@ -1,0 +1,151 @@
+﻿@{
+    ViewBag.Title = "மென்யாப்பு";
+}
+
+<ul class="kendo-panelbars-custom" id="seyyulbar">
+    <li>
+        <h4 class="main-title">
+            வாக்கியத்தை உள்ளிடவும் (குறைந்தது 2 சீர்கள் அவசியம்)
+            <span class="main-title-icon glyph glyph-chevron-down"></span>
+        </h4>
+        <ul>
+            <li id="seyyul" class="k-state-active">
+                <form id="prosodyForm" class="form-horizontal" action="/api/Prosody/MathiraiCount" method="POST">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4 class="main-title">
+                                வாக்கியம்
+                            </h4>
+                            <textarea class="panelbar-textarea" id="ProsodyText" rows="6"></textarea>
+                        </div>
+                        <div class="col-md-6">
+                            <h4 class="main-title">
+                                தளை வகை
+                            </h4>
+
+                            <div id="monaiType" class="type-t7">
+                                <p class="form-group-label">தளை வகை</p>
+                                <div class="dropdown">
+                                    <button id="thalai-dropdown" class="btn btn-dropdown dropdown-toggle" type="button" data-toggle="dropdown"
+                                            aria-haspopup="true" role="button" aria-expanded="false">----------தளை வகை----------<span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="thalai-dropdown">
+                                        <li><a href="#">நேரொன்றாசிரியத்தளை</a></li>
+                                        <li><a href="#">நிரையொன்றாசிரியத்தளை</a></li>
+                                        <li><a href="#">இயற்சீர் வெண்டளை</a></li>
+                                        <li><a href="#">வெண்சீர் வெண்டளை</a></li>
+                                        <li><a href="#">ஒன்றிய வஞ்சித்தளை</a></li>
+                                        <li><a href="#">ஒன்றா வஞ்சித்தளை</a></li>
+                                        <li><a href="#">கலித்தளை</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-6">
+                            <h4 class="main-title">
+                                முடிவு
+                            </h4>
+                            <div class="type-t5">
+                                <p class="form-group-label">தளை வகை</p>
+                                <button id="thalai-correct" class="right btn btn-primary" aria-hidden="true">சரி</button>
+                                <button id="thalai-incorrect" class="wrong btn btn-primary" aria-hidden="true" data-toggle="tooltip" data-placement="right">
+                                    தவறு
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="control-group">
+                                <div class="controls">
+                                    <button type="submit" class="btn btn-primary">சரி பார்த்திடு</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<script type="text/x-kendo-template" id="thalaiTemplate">
+    <br />
+    <table border=0 cellspacing=10>
+        <tr>
+            <th>சீர்கள்</th>
+            <th>வாய்ப்பாடு - அசை&nbsp;</th>
+            <th>தளை</th>
+        </tr>
+        # for (var i = 0; i < wordBond.length; i++) { #
+        <tr>
+            <td> <span class="talaiseer"> #= wordBond[i]["word1"] # - #= wordBond[i]["word2"] # </span></td>
+            <td> <span class="talaiasai"> #= wordBond[i]["class1"] # - #= wordBond[i]["class2"] # </span></td>
+            <td> <span class="talainame"> #= wordBond[i]["bond"] # </span></td>
+        </tr>
+        # } #
+    </table>
+</script>
+
+<script>
+    $(document).ready(function () {
+
+        // event handler for select
+        var onSelect = function (e) {
+            // access the selected item via e.item (HTMLElement)
+            var item = e.sender.select();
+
+            if (item.hasClass("k-state-active")) {
+                e.sender.collapse(item);
+            } else {
+                e.sender.expand(item);
+            }
+        };
+        var seyyulPanelBar = $("#seyyulbar").kendoPanelBar({
+            expandMode: "single",
+            select: onSelect
+        }).data("kendoPanelBar");
+        seyyulPanelBar.expand($(".k-first"), true);
+
+        function showCorrect() {
+            $("#correct").css('display', 'inline-block');
+            $("#incorrect").css('display', 'none');
+        }
+        function showIncorrect() {
+            $("#correct").css('display', 'none');
+            $("#incorrect").css('display', 'inline-block');
+        }
+
+        function hideBoth() {
+            $("[id*=correct").css('display', 'none');
+            //$("#incorrect").css('display', 'none');
+        }
+
+        hideBoth();
+
+
+        $("#prosodyForm").submit(function () {
+            var data = '{"InputText" : "' + $("#ProsodyText").val() + '"' + '}';
+            $.ajax({
+                url: '/api/Prosody/ThalaiFinder',
+                data: data,
+                contentType: 'application/json; charset=utf8',
+                type: 'POST',
+                async: false,
+                success: function (data) {
+                    var thalaiTemplate = kendo.template($("#thalaiTemplate").html());
+                    $("[id*=incorrect").css('display', 'inline-block');
+                    $('#thalai-incorrect').attr('data-html', 'true');
+                    $('#thalai-incorrect').attr('data-original-title', thalaiTemplate({
+                        wordBond: data["WordBond"]
+                    }));
+
+                },
+                error: function (data) {
+                    alert('error');
+                }
+            });
+            return false;
+        });
+    });</script>

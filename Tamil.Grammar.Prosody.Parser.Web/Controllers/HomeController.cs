@@ -35,5 +35,19 @@ namespace Tamil.Parody.Parser.Web.Controllers
 
             return View();
         }
+
+        public ActionResult ThodaiFinder()
+        {
+            ViewBag.Message = "Thodai Finder";
+
+            return View();
+        }
+
+        public ActionResult ThalaiFinder()
+        {
+            ViewBag.Message = "Thalai Finder";
+
+            return View();
+        }
     }
 }

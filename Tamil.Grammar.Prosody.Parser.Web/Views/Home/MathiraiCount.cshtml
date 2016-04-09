@@ -23,10 +23,11 @@
                                 மாத்திரை எண்ணிக்கை
                             </h4>
                             <input type="text" id="MathiraiCount" class="panelbar-text form-control" />
-                            <div class="type-t3">
-                                சரியான மாத்திரை எண்ணிக்கை
+                            <div id="rightMathiraiCount" class="type-t5">
+                                <div>சரியான மாத்திரை எண்ணிக்கை</div>
+                                <input type="text" id="CalculatedMathiraiCount" disabled="true" class="panelbar-text form-control" />
                             </div>
-                            <input type="text" id="CalculatedMathiraiCount" disabled="true" class="panelbar-text form-control" />
+
                         </div>
                         <div class="col-md-6">
                             <h4 class="main-title">
@@ -105,10 +106,10 @@
         }
 
         hideBoth();
-        $("#CalculatedMathiraiCount").css('display', 'none');
+        $("#rightMathiraiCount").css('display', 'none');
 
         $("#prosodyForm").submit(function () {
-            $("#CalculatedMathiraiCount").css('display', 'none');
+            $("#rightMathiraiCount").css('display', 'none');
             var shouldCompareVenpaRules = $("#ShouldCompareVenpaRules").is(':checked');
             var data = '{"InputText" : "' + $("#ProsodyText").val() + '"' +
                 '}';
@@ -122,17 +123,13 @@
                     var mathiraiTemplate = kendo.template($("#mathiraiTemplate").html());
                     $("#CalculatedMathiraiCount").val(data["TotalMathiraiCount"]);
                     if (parseFloat($("#MathiraiCount").val()) !== data["TotalMathiraiCount"]) {
-                        $("#CalculatedMathiraiCount").css('display', 'inline-block');
+                        $("#rightMathiraiCount").css('display', 'block');
                         showIncorrect();
                         $('#incorrect').attr('data-html', 'true');
                         $('#incorrect').attr('data-original-title', mathiraiTemplate({
                             mathiraiCount: data["MathiraiCount"],
                             totalMathiraiCount: data["TotalMathiraiCount"]
                         }));
-                        //$('#incorrect').tooltip({
-                        //    template: '<div class="tooltip" role="tooltip"><div class="tooltip-inner"></div></div>'
-                        //});
-
                     } else {
                         showCorrect();
                     }

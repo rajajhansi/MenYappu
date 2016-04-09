@@ -46,5 +46,38 @@ namespace Tamil.Parody.Parser.Web.Controllers
             return response;
         }
 
+        [Route("ThodaiFinder")]
+        [HttpPost]
+        public HttpResponseMessage FindThodais(ProsodyText prosodyText)
+        {
+            var response = Request.CreateResponse(HttpStatusCode.NoContent);
+            if (prosodyText != null && !string.IsNullOrEmpty(prosodyText.InputText))
+            {
+                var prosodyParser = new ProsodyParser(prosodyText.InputText);
+                var mathiraiCount = prosodyParser.GetThodais();
+                response = Request.CreateResponse(HttpStatusCode.Created, mathiraiCount);
+                response.Headers.Location = new Uri(Request.RequestUri,
+                                                    string.Format("prosody/{0}", "FindThodais"));
+            }
+
+            return response;
+        }
+
+        [Route("ThalaiFinder")]
+        [HttpPost]
+        public HttpResponseMessage FindThalais(ProsodyText prosodyText)
+        {
+            var response = Request.CreateResponse(HttpStatusCode.NoContent);
+            if (prosodyText != null && !string.IsNullOrEmpty(prosodyText.InputText))
+            {
+                var prosodyParser = new ProsodyParser(prosodyText.InputText);
+                var metricLinkage = prosodyParser.GetMetricAndLinkage(prosodyText.InputText);
+                response = Request.CreateResponse(HttpStatusCode.Created, metricLinkage);
+                response.Headers.Location = new Uri(Request.RequestUri,
+                                                    string.Format("prosody/{0}", "FindThalais"));
+            }
+
+            return response;
+        }
     }
 }

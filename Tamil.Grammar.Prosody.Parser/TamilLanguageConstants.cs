@@ -261,30 +261,7 @@ namespace RjamSoft.Tamil.Grammar.Parser
         };
         public static char AythaEzuthu = 'ஃ'; // 0X0B83 - 'ஃ', ஆய்த எழுத்து
         public static char MeyEzuthuPulli = '்'; // 0x0BCD - ஒற்று எழுத்தில் வரும் தலையில் வரும் புள்ளி - க்
-        public static Dictionary<string, double> MathiraiTable = new Dictionary<string, double>
-                                                                  {
-                                                                      {"குறில்", 1.0 },
-                                                                      {"நெடில்", 2.0},
-                                                                      {"மெய்", 0.5},
-                                                                      {"ஆய்தம்", 0.5},
-                                                                      {"ஐகாரம்", 1.5}
-                                                                  }; 
-
-        public static Dictionary<string, string> TodaiVagaigalTamil = new Dictionary<string, string>
-                                                                          {
-                                                                              { "1000", "இல்லை"},
-                                                                              { "1100", "இணை"},
-                                                                              { "1010", "பொழிப்பு"},
-                                                                              { "1001", "ஒரூஉ"},
-                                                                              { "1110", "கூழை"},
-                                                                              { "1101", "கீழ்க்கதுவாய்"},                                                                              
-                                                                              { "1011", "மேற்கதுவாய்"},
-                                                                              { "1111", "முற்று"},
-                                                                              { "0011", "கடையிணை"},
-                                                                              { "0101", "பின்"},
-                                                                              { "0111", "கடைக்கூழை"},
-                                                                              { "0110", "இடைப்புணர்"}
-                                                                          };
+        
 
         public static Dictionary<string, string> PunarchiPaguPadugal = new Dictionary<string, string>
             {

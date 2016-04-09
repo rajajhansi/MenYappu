@@ -58,11 +58,11 @@ namespace RjamSoft.Tamil.Grammar.Parser
             //Console.WriteLine(
             //    "Uyir Ezuthukkal = {0}\r\nMey Ezuthukkal = {1}\r\nUyir Mey Ezuthukkal = {2}\r\nAytha Ezhuthukkal = {3}\r\nGrantha Ezuthukkal = {4}\r\nKuril Ezuthukkal = {5}\r\nNedil Ezuthukkal = {6}",
             //    uyirEzuthuCount, meyEzuthuCount, uyirMeyEzuthuCount, aythaEzuthuCount, granthaEzuthuCount, kurilEzuthuCount, nedilEzuthuCount);
-            mathirai = kurilEzuthuCount*TamilLanguageConstants.MathiraiTable["குறில்"] +
-                       nedilEzuthuCount*TamilLanguageConstants.MathiraiTable["நெடில்"] +
-                       meyEzuthuCount*TamilLanguageConstants.MathiraiTable["மெய்"] +
-                       aythaEzuthuCount*TamilLanguageConstants.MathiraiTable["ஆய்தம்"] +
-                       aikaramInStartPosition * TamilLanguageConstants.MathiraiTable["ஐகாரம்"];
+            mathirai = kurilEzuthuCount*ProsodyGrammarConstants.MathiraiTable["குறில்"] +
+                       nedilEzuthuCount* ProsodyGrammarConstants.MathiraiTable["நெடில்"] +
+                       meyEzuthuCount* ProsodyGrammarConstants.MathiraiTable["மெய்"] +
+                       aythaEzuthuCount* ProsodyGrammarConstants.MathiraiTable["ஆய்தம்"] +
+                       aikaramInStartPosition * ProsodyGrammarConstants.MathiraiTable["ஐகாரம்"];
             return mathirai;
         }
 

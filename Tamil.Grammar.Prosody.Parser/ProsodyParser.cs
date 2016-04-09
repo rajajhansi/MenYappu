@@ -56,7 +56,7 @@ namespace RjamSoft.Tamil.Grammar.Parser
             { "line", new List<string> { "ஈற்றடி மூன்று சீர்களும் ஏனைய அடிகள் நான்கு சீர்களும் கொண்டிருத்தல் வேண்டும்" } },
             { "final", new List<string> { "ஈற்றடியின் ஈற்றுச்சீர் நாள், மலர், காசு, பிறப்பு ஆகியவற்றுள் இருத்தல் வேண்டும்" } }
         };
-        public ProsodyParser(string prosodyText, bool shouldParseKutriyalukaram = false,
+        public ProsodyParser(string prosodyText= "தமிழ்", bool shouldParseKutriyalukaram = false,
                              bool shouldParseVilaangaaySeer = false, bool shouldCompareVenpaRules = false)
         {
             this.InputSourceText = prosodyText;
@@ -66,8 +66,9 @@ namespace RjamSoft.Tamil.Grammar.Parser
             this.ThodaiCalculators = new Func<string, string, bool>[] {CheckMonai, CheckEthukai};
         }
 
-        public MathiraiCounter GetMathiraiCount()
+        public MathiraiCounter GetMathiraiCount(string prosodyText="")
         {
+            InputSourceText = (prosodyText.Length > 0) ? prosodyText : InputSourceText;
             ProsodyText = Transliterator.Tamil2Latin(InputSourceText).Trim();
             var tamilText = InputSourceText;
             this.LetterCount = GetLetterCount(tamilText);
@@ -81,8 +82,50 @@ namespace RjamSoft.Tamil.Grammar.Parser
             };
         }
 
-        public ProsodyPart Parse()
+        public ThodaiFinder GetThodais(string prosodyText="")
         {
+            InputSourceText = (prosodyText.Length > 0) ? prosodyText : InputSourceText;
+            ProsodyText = Transliterator.Tamil2Latin(InputSourceText).Trim();
+            GetThodai(ProsodyText, CheckEthukai);
+            this.AdiThodaiWithThodaiType["_etukY"] = new Dictionary<int, string>(this.AdiThodai);
+            this.MatchingAdiThodaigalWithThodaiType["_etukY"] = new List<Dictionary<int, string>>(this.MatchingAdiThodaigal);
+            this.SeerThodaiWithinAdiWithThodaiType["_etukY"] = new Dictionary<int, List<List<string>>>(this.SeerThodaiWithinAdi);
+            GetThodai(ProsodyText, CheckMonai);
+            this.AdiThodaiWithThodaiType["mOVY"] = new Dictionary<int, string>(AdiThodai);
+            this.MatchingAdiThodaigalWithThodaiType["mOVY"] = new List<Dictionary<int, string>>(this.MatchingAdiThodaigal);
+            this.SeerThodaiWithinAdiWithThodaiType["mOVY"] = new Dictionary<int, List<List<string>>>(this.SeerThodaiWithinAdi);
+            GetThodai(ProsodyText, CheckIyaipu);
+            this.AdiThodaiWithThodaiType["_iyYpu"] = new Dictionary<int, string>(AdiThodai);
+            this.MatchingAdiThodaigalWithThodaiType["_iyYpu"] = new List<Dictionary<int, string>>(this.MatchingAdiThodaigal);
+            this.SeerThodaiWithinAdiWithThodaiType["_iyYpu"] = new Dictionary<int, List<List<string>>>(this.SeerThodaiWithinAdi);
+
+            return new ThodaiFinder
+            {
+                Lines = this.InputSourceText.Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList<string>(),
+                MatchingAdiEthukai = this.MatchingAdiThodaigalWithThodaiType["_etukY"],
+                SeerEthukaiWithinAdi = this.SeerThodaiWithinAdiWithThodaiType["_etukY"],
+                MatchingAdiMonai = this.MatchingAdiThodaigalWithThodaiType["mOVY"],
+                SeerMonaiWithinAdi = this.SeerThodaiWithinAdiWithThodaiType["mOVY"],
+                MatchingAdiIyaipu = this.MatchingAdiThodaigalWithThodaiType["_iyYpu"],
+                SeerIyaipuWithinAdi = this.SeerThodaiWithinAdiWithThodaiType["_iyYpu"]
+            };
+        }
+
+        public MetricLinkage GetMetricAndLinkage(string prosodyText="")
+        {
+            InputSourceText = (prosodyText.Length > 0) ? prosodyText : InputSourceText;
+            ProsodyText = Transliterator.Tamil2Latin(InputSourceText).Trim();
+            this.ParseTreeRoot = GetTextSyllablePattern(ProsodyText);
+            this.WordBond = GetWordBond(this.ParseTreeRoot);
+            return new MetricLinkage
+            {
+                ParseTree = ParseTreeRoot,
+                WordBond = WordBond
+            };
+        }
+        public ProsodyPart Parse(string prosodyText="")
+        {
+            InputSourceText = (prosodyText.Length > 0) ? prosodyText : InputSourceText;
             ProsodyText = Transliterator.Tamil2Latin(InputSourceText).Trim();
             var tamilText = InputSourceText;
             this.LetterCount = GetLetterCount(tamilText);
@@ -316,7 +359,7 @@ namespace RjamSoft.Tamil.Grammar.Parser
                 SeerThodaiWithinAdi[adiIndex] = new List<List<string>>
                                                     {
                                                         new List<string> { seerThodaiInAdiMaskString },
-                                                        new List<string>{ TamilLanguageConstants.TodaiVagaigalTamil[seerThodaiInAdiMaskString]},
+                                                        new List<string>{ ProsodyGrammarConstants.TodaiVagaigalTamil[seerThodaiInAdiMaskString]},
                                                         ThodaiProcessor.GetThodaiForDisplay(seerThodaiInAdi.ToString(), ProsodyGrammarConstants.ThodaiTypeDictionary[CheckThodaiFunc.Method.Name])
                                                     };
             }
@@ -963,11 +1006,11 @@ namespace RjamSoft.Tamil.Grammar.Parser
             //Console.WriteLine(
             //    "Uyir Ezuthukkal = {0}\r\nMey Ezuthukkal = {1}\r\nUyir Mey Ezuthukkal = {2}\r\nAytha Ezhuthukkal = {3}\r\nGrantha Ezuthukkal = {4}\r\nKuril Ezuthukkal = {5}\r\nNedil Ezuthukkal = {6}",
             //    uyirEzuthuCount, meyEzuthuCount, uyirMeyEzuthuCount, aythaEzuthuCount, granthaEzuthuCount, kurilEzuthuCount, nedilEzuthuCount);
-            mathirai = kurilEzuthuCount * TamilLanguageConstants.MathiraiTable["குறில்"] +
-                       nedilEzuthuCount * TamilLanguageConstants.MathiraiTable["நெடில்"] +
-                       meyEzuthuCount * TamilLanguageConstants.MathiraiTable["மெய்"] +
-                       aythaEzuthuCount * TamilLanguageConstants.MathiraiTable["ஆய்தம்"] +
-                       aikaramInStartPosition * TamilLanguageConstants.MathiraiTable["ஐகாரம்"];
+            mathirai = kurilEzuthuCount * ProsodyGrammarConstants.MathiraiTable["குறில்"] +
+                       nedilEzuthuCount * ProsodyGrammarConstants.MathiraiTable["நெடில்"] +
+                       meyEzuthuCount * ProsodyGrammarConstants.MathiraiTable["மெய்"] +
+                       aythaEzuthuCount * ProsodyGrammarConstants.MathiraiTable["ஆய்தம்"] +
+                       aikaramInStartPosition * ProsodyGrammarConstants.MathiraiTable["ஐகாரம்"];
             return mathirai;
         }
 
@@ -996,6 +1039,23 @@ namespace RjamSoft.Tamil.Grammar.Parser
                 {TamilLanguageConstants.Nedil, nedilEzuthuCount }
             };
         }
+    }
+
+    public class MetricLinkage
+    {
+        public Dictionary<string, Dictionary<string, Dictionary<string, Dictionary<string, string>>>> ParseTree { get; set; }
+        public List<Dictionary<string, string>> WordBond { get; set; }
+    }
+
+    public class ThodaiFinder
+    {
+        public List<string> Lines { get; set; }
+        public List<Dictionary<int, string>> MatchingAdiEthukai { get; set; }
+        public Dictionary<int, List<List<string>>> SeerEthukaiWithinAdi { get; set; }
+        public List<Dictionary<int, string>> MatchingAdiMonai { get; set; }
+        public Dictionary<int, List<List<string>>> SeerMonaiWithinAdi { get; set; }
+        public List<Dictionary<int, string>> MatchingAdiIyaipu { get; set; }
+        public Dictionary<int, List<List<string>>> SeerIyaipuWithinAdi { get; set; }
     }
 
     public class ProsodyText

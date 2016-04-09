@@ -66,10 +66,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AsaiTests.cs" />
     <Compile Include="MathiraiTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PunarchiPaguPaduTests.cs" />
-    <Compile Include="TodaiTests.cs" />
+    <Compile Include="ThalaiTests.cs" />
+    <Compile Include="ThodaiTests.cs" />
     <Compile Include="VenpaaTests.cs" />
   </ItemGroup>
   <ItemGroup>
