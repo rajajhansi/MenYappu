@@ -34,10 +34,16 @@
                                 முடிவு
                             </h4>
                             <div class="type-t3">
-                                <button id="correct" class="right btn btn-primary" aria-hidden="true">சரி</button>
-                                <button id="incorrect" class="wrong btn btn-primary" aria-hidden="true" data-toggle="tooltip" data-placement="right">
+                                <button id="mathirai-correct" class="right btn btn-primary" aria-hidden="true" data-toggle="tooltip" data-placement="right">சரி</button>
+                                <button id="mathirai-incorrect" class="wrong btn btn-primary" aria-hidden="true" data-toggle="tooltip" data-placement="right">
                                     தவறு
                                 </button>
+                                <a role="button" id="mathirai-explanation"
+                                   class="btn btn-primary"
+                                   tabindex="0"
+                                   data-toggle="popover"
+                                   data-trigger="focus"
+                                   data-content="அருமை">விளக்கம்</a>
                             </div>
                         </div>
                     </div>
@@ -91,24 +97,11 @@
         }).data("kendoPanelBar");
         seyyulPanelBar.expand($(".k-first"), true);
 
-        function showCorrect() {
-            $("#correct").css('display', 'inline-block');
-            $("#incorrect").css('display', 'none');
-        }
-        function showIncorrect() {
-            $("#correct").css('display', 'none');
-            $("#incorrect").css('display', 'inline-block');
-        }
-
-        function hideBoth() {
-            $("#correct").css('display', 'none');
-            $("#incorrect").css('display', 'none');
-        }
-
-        hideBoth();
+        Utility.hideResult();
         $("#rightMathiraiCount").css('display', 'none');
 
         $("#prosodyForm").submit(function () {
+            Utility.hideResult();
             $("#rightMathiraiCount").css('display', 'none');
             var shouldCompareVenpaRules = $("#ShouldCompareVenpaRules").is(':checked');
             var data = '{"InputText" : "' + $("#ProsodyText").val() + '"' +
@@ -121,17 +114,16 @@
                 async: false,
                 success: function (data) {
                     var mathiraiTemplate = kendo.template($("#mathiraiTemplate").html());
+                    var mathiraiExplanation = mathiraiTemplate({
+                        mathiraiCount: data["MathiraiCount"],
+                        totalMathiraiCount: data["TotalMathiraiCount"]
+                    });
                     $("#CalculatedMathiraiCount").val(data["TotalMathiraiCount"]);
                     if (parseFloat($("#MathiraiCount").val()) !== data["TotalMathiraiCount"]) {
                         $("#rightMathiraiCount").css('display', 'block');
-                        showIncorrect();
-                        $('#incorrect').attr('data-html', 'true');
-                        $('#incorrect').attr('data-original-title', mathiraiTemplate({
-                            mathiraiCount: data["MathiraiCount"],
-                            totalMathiraiCount: data["TotalMathiraiCount"]
-                        }));
+                        Utility.showIncorrect("mathirai", mathiraiExplanation);
                     } else {
-                        showCorrect();
+                        Utility.showCorrect("mathirai", mathiraiExplanation);
                     }
                 },
                 error: function (data) {

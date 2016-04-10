@@ -3,7 +3,7 @@
 namespace RjamSoft.Tamil.Grammar.Parser
 {
     public class TamilLanguageConstants
-    {        
+    {
         public static string Vowel = "உயிரெழுத்துகள்";
         public static string Consonant = "மெய்யெழுத்துகள்";
         public static string ConsonantVowel = "உயிர்மெய்யெழுத்துகள்";
@@ -75,7 +75,7 @@ namespace RjamSoft.Tamil.Grammar.Parser
                                                     {'ொ', "o"}, // 0x0BCA - 'ொ', ஒகார உயிர் மெய்யெழுத்தில் இடது புறமும் வலது புறமும் வரும் கொம்பும் துணைக்காலும் - கொ
                                                     {'ோ', "O"}, // 0x0BCB - 'ோ', ஓகார உயிர் மெய்யெழுத்தில் இடது புறமும் வலது புறமும் வரும் கொம்பும் துணைக்காலும் - கோ
                                                     {'ௌ', "W"}, // 0x0BCC - 'ௌ', ஒளகார உயிர் மெய்யெழுத்தில் இடது புறமும் வலது புறமும் வரும் கொம்புகள் - கெள
-                                                    {'்', "்"}, // 0x0BCD - '்', ஒற்று எழுத்தில் தலையில் வரும் புள்ளி - க்  
+                                                    {'்', "்"}, // 0x0BCD - '்', ஒற்று எழுத்தில் தலையில் வரும் புள்ளி - க்
                                                      {'ஃ', "_ஃ"} // 0X0B83 - 'ஃ', ஆய்த எழுத்து
                                                     /*
                                                     {'ா', "ஆ"},
@@ -142,15 +142,15 @@ namespace RjamSoft.Tamil.Grammar.Parser
                                                     {'ொ', "o"}, // 0x0BCA - 'ொ', ஒகார உயிர் மெய்யெழுத்தில் இடது புறமும் வலது புறமும் வரும் கொம்பும் துணைக்காலும் - கொ
                                                     {'ோ', "O"}, // 0x0BCB - 'ோ', ஓகார உயிர் மெய்யெழுத்தில் இடது புறமும் வலது புறமும் வரும் கொம்பும் துணைக்காலும் - கோ
                                                     {'ௌ', "W"}, // 0x0BCC - 'ௌ', ஒளகார உயிர் மெய்யெழுத்தில் இடது புறமும் வலது புறமும் வரும் கொம்புகள் - கெள
-                                                    {'்', "X"}, // 0x0BCD - '்', ஒற்று எழுத்தில் தலையில் வரும் புள்ளி - க்  
+                                                    {'்', "X"}, // 0x0BCD - '்', ஒற்று எழுத்தில் தலையில் வரும் புள்ளி - க்
                                                     {'ஃ', "_K"} // 0X0B83 - 'ஃ', ஆய்த எழுத்து
         };
-        public static Dictionary<char, char> AythaEzuthuAgarathi = new Dictionary<char, char> 
-        { 
-            { 'ஃ', 'ஃ' } 
+        public static Dictionary<char, char> AythaEzuthuAgarathi = new Dictionary<char, char>
+        {
+            { 'ஃ', 'ஃ' }
         };
 
-        public static Dictionary<char, char> AgaraUyirMeyEzuthukkalAgarathi = new Dictionary<char, char> 
+        public static Dictionary<char, char> AgaraUyirMeyEzuthukkalAgarathi = new Dictionary<char, char>
         {
                                                     {'க', 'க'},
                                                     {'ங', 'ங'},
@@ -172,18 +172,18 @@ namespace RjamSoft.Tamil.Grammar.Parser
                                                     {'ன', 'ன'}
         };
 
-        public static Dictionary<char, char> GranthaEzuthukkalAgarathi = new Dictionary<char, char> 
+        public static Dictionary<char, char> GranthaEzuthukkalAgarathi = new Dictionary<char, char>
         {
                                                     { 'ஜ', 'ஜ' },
                                                     { 'ஶ', 'ஶ' },
                                                     { 'ஷ', 'ஷ' },
                                                     { 'ஸ', 'ஸ' },
-                                                    { 'ஹ', 'ஹ' },                                   
+                                                    { 'ஹ', 'ஹ' },
         };
 
-        public static Dictionary<int, int> UyirMeyKuriyeedugalAgarathi = new Dictionary<int, int> 
+        public static Dictionary<int, int> UyirMeyKuriyeedugalAgarathi = new Dictionary<int, int>
         {
-                { 0x0BCD, 0x0BCD }, // ஒற்று எழுத்தில் வரும் தலையில் வரும் புள்ளி - க்  
+                { 0x0BCD, 0x0BCD }, // ஒற்று எழுத்தில் வரும் தலையில் வரும் புள்ளி - க்
                 { 0x0BBE, 0x0BBE }, // ஆகார உயிர் மெய்யெழுத்தில் வரும் துணைக்கால் - கா
                 { 0x0BBF, 0x0BBF }, // இகார உயிர் மெய்யெழுத்தில் வரும் கொக்கி - கி
                 { 0x0BC0, 0x0BC0 }, // ஈகார உயிர் மெய்யெழுத்தில் வரும் கொக்கி - கீ
@@ -196,14 +196,14 @@ namespace RjamSoft.Tamil.Grammar.Parser
                 { 0x0BCB, 0x0BCB }, // ஓகார உயிர் மெய்யெழுத்தில் இடது புறமும் வலது புறமும் வரும் கொம்பும் துணைக்காலும் - கோ
                 { 0x0BCC, 0x0BCC }  // ஒளகார உயிர் மெய்யெழுத்தில் இடது புறமும் வலது புறமும் வரும் கொம்புகள் - கெள
         };
-        public static List<string> UgaraMeiEzuthuVagaigal = new List<string> 
+        public static List<string> UgaraMeiEzuthuVagaigal = new List<string>
         {
                                                 "குடுமுருளுழு",
                                                 "ஙுசுபுயுவு",
                                                 "ஞுணுதுநுலுறுனு",
                                                 "ஜுஸுஹு"
         };
-        public static List<string> UugaraMeiEzuthuVagaigal = new List<string> 
+        public static List<string> UugaraMeiEzuthuVagaigal = new List<string>
         {
                 "டூமூரூளூழூ",
                 "ஙூசூபூயூவூ",
@@ -217,23 +217,23 @@ namespace RjamSoft.Tamil.Grammar.Parser
         public static List<char> UyirKurilEzuthukkal = new List<char> { 'அ', 'இ', 'உ', 'எ', 'ஒ' };
         public static List<char> UyirNedilEzuthukkal = new List<char> { 'ஆ', 'ஈ', 'ஊ', 'ஏ', 'ஐ', 'ஓ', 'ஔ' };
         public static List<char> AgaraUyirMeyEzuthukkal = new List<char> { 'க', 'ங', 'ச', 'ஞ', 'ட', 'ண', 'த', 'ந', 'ப', 'ம', 'ய', 'ர', 'ல', 'வ', 'ழ', 'ள', 'ற', 'ன' };
-        public static List<string> MeyEzhuthukkalInLatin = new List<string> { "_k", "_G", "_c", "_J", "_T", "_N", "_t", "_n", "_p", "_m", "_y", "_r", "_l", "_v", "_Z", "_L", "_R", "_V", "_J", "_F", "_S", "_s", "_h" }; 
-        public static List<string> AgaraUyirMeyEzhuthukkalInLatin = new List<string> { "k", "G", "c", "J", "T", "N", "t", "n", "p", "m", "y", "r", "l", "v", "Z", "L", "R", "V", "J", "F", "S", "s", "h" }; 
+        public static List<string> MeyEzhuthukkalInLatin = new List<string> { "_k", "_G", "_c", "_J", "_T", "_N", "_t", "_n", "_p", "_m", "_y", "_r", "_l", "_v", "_Z", "_L", "_R", "_V", "_J", "_F", "_S", "_s", "_h" };
+        public static List<string> AgaraUyirMeyEzhuthukkalInLatin = new List<string> { "k", "G", "c", "J", "T", "N", "t", "n", "p", "m", "y", "r", "l", "v", "Z", "L", "R", "V", "J", "F", "S", "s", "h" };
         public static List<char> GranthaEzuthukkal = new List<char> { 'ஜ', 'ஶ', 'ஷ', 'ஸ', 'ஹ' };
 
         public static List<string> VallinaKutriyalugaraEzhuthukal = new List<string>
             {"கு", "சு", "டு", "து", "பு", "று"};
-        public static List<char> UyirMeyKurilEzuthukkal = new List<char> 
+        public static List<char> UyirMeyKurilEzuthukkal = new List<char>
         {
-            /*'அ',  'இ',  'உ',  'எ',   'ஒ', */           
+            /*'அ',  'இ',  'உ',  'எ',   'ஒ', */
             'ி', // 0x0BBF - இகார உயிர் மெய்யெழுத்தில் வரும் கொக்கி - கி
             'ு', // 0x0BC1 - உகார உயிர் மெய்யெழுத்தில் வரும் கீழே வரும் கோடு - பு
             'ெ', // 0x0BC6 - எகார உயிர் மெய்யெழுத்தில் இடது புறம் வரும் கொம்பு - கெ
             'ொ'  // 0x0BCA - ஒகார உயிர் மெய்யெழுத்தில் இடது புறமும் வலது புறமும் வரும் கொம்பும் துணைக்காலும் - கொ
-             
+
         };
-        public static List<char> UyirMeyNedilEzuthukkal = new List<char> 
-        { 
+        public static List<char> UyirMeyNedilEzuthukkal = new List<char>
+        {
             /*'ஆ', 'ஈ', 'ஊ', 'ஏ', 'ஐ', 'ஓ', 'ஔ', */
             'ா', // 0x0BBE - ஆகார உயிர் மெய்யெழுத்தில் வரும் துணைக்கால் - கா
             'ீ', // 0x0BC0 - ஈகார உயிர் மெய்யெழுத்தில் வரும் கொக்கி - கீ
@@ -243,9 +243,9 @@ namespace RjamSoft.Tamil.Grammar.Parser
             'ோ', // 0x0BCB - ஓகார உயிர் மெய்யெழுத்தில் இடது புறமும் வலது புறமும் வரும் கொம்பும் துணைக்காலும் - கோ
             'ௌ'  // 0x0BCC - ஒளகார உயிர் மெய்யெழுத்தில் இடது புறமும் வலது புறமும் வரும் கொம்புகள் - கெள
         };
-        
-        public static List<char> UyirMeyKuriyeedugal = new List<char> 
-        { 
+
+        public static List<char> UyirMeyKuriyeedugal = new List<char>
+        {
             '்', // 0x0BCD - ஒற்று எழுத்தில் வரும் தலையில் வரும் புள்ளி - க் ,
             'ா', // 0x0BBE - ஆகார உயிர் மெய்யெழுத்தில் வரும் துணைக்கால் - கா
             'ி', // 0x0BBF - இகார உயிர் மெய்யெழுத்தில் வரும் கொக்கி - கி
@@ -261,7 +261,7 @@ namespace RjamSoft.Tamil.Grammar.Parser
         };
         public static char AythaEzuthu = 'ஃ'; // 0X0B83 - 'ஃ', ஆய்த எழுத்து
         public static char MeyEzuthuPulli = '்'; // 0x0BCD - ஒற்று எழுத்தில் வரும் தலையில் வரும் புள்ளி - க்
-        
+
 
         public static Dictionary<string, string> PunarchiPaguPadugal = new Dictionary<string, string>
             {

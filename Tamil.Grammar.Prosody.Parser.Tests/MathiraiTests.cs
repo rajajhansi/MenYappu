@@ -19,5 +19,15 @@ namespace RjamSoft.Tamil.Grammar.Parser.Tests
 
             Assert.True(MathiraiCount.TotalMathiraiCount == 6);
         }
+
+        [Fact]
+        public void TestTotalMathiraiCountWithGranthaLetters()
+        {
+            var sentence = "மஹத்தி ராஜா";
+            var prosodyParser = new ProsodyParser(sentence);
+            var MathiraiCount = prosodyParser.GetMathiraiCount();
+
+            Assert.True(MathiraiCount.TotalMathiraiCount == 7.5);
+        }
     }
 }

@@ -234,7 +234,7 @@
         # var allMonais = ''; #
         # for(var s = 0; s < seerMonaiWithinAdi[i][2].length; s++) { #
             # console.log("|" + seerMonaiWithinAdi[i][2][s] + "|") #
-            # if( stringStartsWith(seerMonaiWithinAdi[i][2][s], "~")) { #
+            # if( Utility.stringStartsWith(seerMonaiWithinAdi[i][2][s], "~")) { #
                 # allMonais += '<span class="todaiword">' + seerMonaiWithinAdi[i][2][s].substring(1) + '</span>' #
             # } else if(!isNaN(parseInt(seerMonaiWithinAdi[i][2][s]))) { #
                 # allMonais += '<span class="todaiindex">' + seerMonaiWithinAdi[i][2][s] + '</span>' #
@@ -274,7 +274,7 @@
     <br />
     #} else { #
         # for(var s = 0; s < seerEthukaiWithinAdi[i][2].length; s++) { #
-            # if( stringStartsWith(seerEthukaiWithinAdi[i][2][s], "~")) { #
+            # if( Utility.stringStartsWith(seerEthukaiWithinAdi[i][2][s], "~")) { #
                 <span class="todaiword"> #=seerEthukaiWithinAdi[i][2][s].substring(1)# </span>
             # } else if(!isNaN(parseInt(seerEthukaiWithinAdi[i][2][s]))) { #
                 <span class="todaiindex"> #=seerEthukaiWithinAdi[i][2][s]# </span>
@@ -313,7 +313,7 @@
     <br />
     #} else { #
         # for(var s = 0; s < seerIyaipuWithinAdi[i][2].length; s++) { #
-            # if( stringStartsWith(seerIyaipuWithinAdi[i][2][s], "~")) { #
+            # if( Utility.stringStartsWith(seerIyaipuWithinAdi[i][2][s], "~")) { #
                 <span class="todaiword"> #=seerIyaipuWithinAdi[i][2][s].substring(1)# </span>
             # } else if(!isNaN(parseInt(seerIyaipuWithinAdi[i][2][s]))) { #
                 <span class="todaiindex"> #=seerIyaipuWithinAdi[i][2][s]# </span>

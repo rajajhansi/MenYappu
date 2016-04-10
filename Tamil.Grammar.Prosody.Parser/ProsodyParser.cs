@@ -657,7 +657,7 @@ namespace RjamSoft.Tamil.Grammar.Parser
                         foreach (var asai in asais.Value)
                         {
 
-                            if (asai.Key == "meta")
+                            if (asai.Key == "meta" && line.Key != $"aTi-{this.TotalLines}")
                             {
                                 // Check for Allowed Seers
                                 if (
@@ -1001,7 +1001,7 @@ namespace RjamSoft.Tamil.Grammar.Parser
             int aikaraKurukkamCount = "ை".FindAll(word, 0).Count();
             aikaraKurukkamCount = (aikaraKurukkamCount > 0) ? aikaraKurukkamCount - aikaramInStartPosition : aikaramInStartPosition;
             int uyirMeyEzuthuCount = (agaraUyirMeyEzuthuCount + granthaEzuthuCount) - meyEzuthuCount;
-            int kurilEzuthuCount = (uyirKurilEzhuthuCount + agaraUyirMeyEzuthuCount + aikaraKurukkamCount) - meyEzuthuCount - uyirMeyNedilEzuthuCount;
+            int kurilEzuthuCount = (uyirKurilEzhuthuCount + agaraUyirMeyEzuthuCount + granthaEzuthuCount + aikaraKurukkamCount) - meyEzuthuCount - uyirMeyNedilEzuthuCount;
             int nedilEzuthuCount = (uyirNedilEzhuthuCount + uyirMeyNedilEzuthuCount) - aikaraKurukkamCount - aikaramInStartPosition;
             //Console.WriteLine(
             //    "Uyir Ezuthukkal = {0}\r\nMey Ezuthukkal = {1}\r\nUyir Mey Ezuthukkal = {2}\r\nAytha Ezhuthukkal = {3}\r\nGrantha Ezuthukkal = {4}\r\nKuril Ezuthukkal = {5}\r\nNedil Ezuthukkal = {6}",

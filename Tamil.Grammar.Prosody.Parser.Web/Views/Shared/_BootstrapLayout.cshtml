@@ -104,53 +104,45 @@
 
     </div>
 
-<div class="container-wrap" id="container-wrapper-with-panels">
-@{
-    Html.RenderPartial("_LeftNavigationBar");
-}
-
-<!-- About us Dialog -->
-
-<div class="right-panelbar">
-    @RenderBody()
-</div>
-
-<!-- Le javascript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-@*<script src="~/Scripts/bootstrap.min.js"></script>*@
-
-@RenderSection("scripts", required: false)
-@Scripts.Render("~/Scripts/customui")
-
-    <script>
-        function stringStartsWith(string, prefix) {
-            return string.slice(0, prefix.length) === prefix;
+    <div class="container-wrap" id="container-wrapper-with-panels">
+        @{
+            Html.RenderPartial("_LeftNavigationBar");
         }
-        $("#container-wrapper-with-panels").panelExpander({
-            onLoad: function(isCollapsedOnLoad, container) {
-                if (isCollapsedOnLoad) {
-                    container.find('.stacked-menu-items-text').hide();
-                }
-            },
-            beforeCollapse: function(e, container) {
-                container.find('.stacked-menu-items-text').hide();
-            },
-            afterExpand: function(e, container) {
-                setTimeout(function(param) {
-                    container.find('.stacked-menu-items-text').fadeIn(100);
-                }, 100);
-            }
-        });
 
-        $(".stacked-menus").panelSubmenus();
-        $('[data-toggle="tooltip"]').tooltip({
-            template: '<div class="tooltip" role="tooltip"><div class="tooltip-inner"></div></div>',
-            container: 'body',
-            html: 'true'
-        });
-    </script>
-</div>
+        <!-- About us Dialog -->
+
+        <div class="right-panelbar">
+            @RenderBody()
+        </div>
+
+        <!-- Le javascript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        @*<script src="~/Scripts/bootstrap.min.js"></script>*@
+
+        @RenderSection("scripts", required: false)
+        @Scripts.Render("~/Scripts/customui")
+        <script src="/Scripts/prosody/utilityfunctions.js"></script>
+        <script>
+            $("#container-wrapper-with-panels").panelExpander({
+                onLoad: function (isCollapsedOnLoad, container) {
+                    if (isCollapsedOnLoad) {
+                        container.find('.stacked-menu-items-text').hide();
+                    }
+                },
+                beforeCollapse: function (e, container) {
+                    container.find('.stacked-menu-items-text').hide();
+                },
+                afterExpand: function (e, container) {
+                    setTimeout(function (param) {
+                        container.find('.stacked-menu-items-text').fadeIn(100);
+                    }, 100);
+                }
+            });
+
+            $(".stacked-menus").panelSubmenus();
+        </script>
+    </div>
     <div class="modal modal-center-vertical" id="modal-about-menyappu"
          tabindex="-1" role="dialog"
          aria-labelledby="modal-about-menyappu-label" aria-hidden="true">

@@ -27,7 +27,7 @@
                                 <p class="form-group-label">தளை வகை</p>
                                 <div class="dropdown">
                                     <button id="thalai-dropdown" class="btn btn-dropdown dropdown-toggle" type="button" data-toggle="dropdown"
-                                            aria-haspopup="true" role="button" aria-expanded="false">----------தளை வகை----------<span class="caret"></span>
+                                            aria-haspopup="true" role="button" aria-expanded="false">தளை வகையைத் தேர்ந்தெடு<span class="caret"></span>
                                     </button>
                                     <ul class="dropdown-menu" role="menu" aria-labelledby="thalai-dropdown">
                                         <li><a href="#">நேரொன்றாசிரியத்தளை</a></li>
@@ -48,10 +48,16 @@
                             </h4>
                             <div class="type-t5">
                                 <p class="form-group-label">தளை வகை</p>
-                                <button id="thalai-correct" class="right btn btn-primary" aria-hidden="true">சரி</button>
+                                <button id="thalai-correct" class="right btn btn-primary" aria-hidden="true" data-toggle="tooltip" data-placement="right">சரி</button>
                                 <button id="thalai-incorrect" class="wrong btn btn-primary" aria-hidden="true" data-toggle="tooltip" data-placement="right">
                                     தவறு
                                 </button>
+                                <a role="button" id="thalai-explanation"
+                                   class="btn btn-primary"
+                                   tabindex="0"
+                                   data-toggle="popover"
+                                   data-trigger="focus"
+                                   data-content="அருமை">விளக்கம்</a>
                             </div>
                         </div>
                     </div>
@@ -108,24 +114,11 @@
         }).data("kendoPanelBar");
         seyyulPanelBar.expand($(".k-first"), true);
 
-        function showCorrect() {
-            $("#correct").css('display', 'inline-block');
-            $("#incorrect").css('display', 'none');
-        }
-        function showIncorrect() {
-            $("#correct").css('display', 'none');
-            $("#incorrect").css('display', 'inline-block');
-        }
-
-        function hideBoth() {
-            $("[id*=correct").css('display', 'none');
-            //$("#incorrect").css('display', 'none');
-        }
-
-        hideBoth();
+        Utility.hideResult();
 
 
         $("#prosodyForm").submit(function () {
+            Utility.hideResult();
             var data = '{"InputText" : "' + $("#ProsodyText").val() + '"' + '}';
             $.ajax({
                 url: '/api/Prosody/ThalaiFinder',
@@ -135,12 +128,17 @@
                 async: false,
                 success: function (data) {
                     var thalaiTemplate = kendo.template($("#thalaiTemplate").html());
-                    $("[id*=incorrect").css('display', 'inline-block');
-                    $('#thalai-incorrect').attr('data-html', 'true');
-                    $('#thalai-incorrect').attr('data-original-title', thalaiTemplate({
+                    var thalaiExplanation = thalaiTemplate({
                         wordBond: data["WordBond"]
-                    }));
+                    });
 
+                    var chosenThalai = $("#thalai-dropdown").text().trim();
+                    if (chosenThalai === data["WordBond"][0]["bond"]) {
+                        $("#thalai-correct").attr('data-original-title', thalaiExplanation);
+                        Utility.showCorrect("thalai", thalaiExplanation);
+                    } else {
+                        Utility.showIncorrect("thalai", thalaiExplanation);
+                    }
                 },
                 error: function (data) {
                     alert('error');

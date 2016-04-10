@@ -27,7 +27,7 @@
                                 <p class="form-group-label">மோனை வகை</p>
                                 <div class="dropdown">
                                     <button id="monai-dropdown" class="btn btn-dropdown dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
-                                        மோனை வகை
+                                        மோனை வகையைத் தேர்ந்தெடு
                                         <span class="caret"></span>
                                     </button>
                                     <ul class="dropdown-menu" role="menu" aria-labelledby="monai-dropdown">
@@ -48,7 +48,7 @@
                                 <p class="form-group-label">எதுகை  வகை</p>
                                 <div class="dropdown">
                                     <button id="ethukai-dropdown" class="btn btn-dropdown dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
-                                        எதுகை வகை
+                                        எதுகை வகையைத் தேர்ந்தெடு
                                         <span class="caret"></span>
                                     </button>
                                     <ul class="dropdown-menu" role="menu" aria-labelledby="ethukai-dropdown">
@@ -69,7 +69,7 @@
                                 <p class="form-group-label">இயைபு  வகை</p>
                                 <div class="dropdown">
                                     <button id="iyaipu-dropdown" class="btn btn-dropdown dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
-                                        இயைபு வகை
+                                        இயைபு வகையைத் தேர்ந்தெடு
                                         <span class="caret"></span>
                                     </button>
                                     <ul class="dropdown-menu" role="menu" aria-labelledby="iyaipu-dropdown">
@@ -96,24 +96,42 @@
                             </h4>
                             <div class="type-t5">
                                 <p class="form-group-label">மோனை வகை</p>
-                                <button id="monai-correct" class="right btn btn-primary" aria-hidden="true">சரி</button>
+                                <button id="monai-correct" class="right btn btn-primary" aria-hidden="true" data-toggle="tooltip" data-placement="right">சரி</button>
                                 <button id="monai-incorrect" class="wrong btn btn-primary" aria-hidden="true" data-toggle="tooltip" data-placement="right">
                                     தவறு
                                 </button>
+                                <a role="button" id="monai-explanation"
+                                   class="btn btn-primary"
+                                   tabindex="0"
+                                   data-toggle="popover"
+                                   data-trigger="focus"
+                                   data-content="அருமை">விளக்கம்</a>
                             </div>
                             <div class="type-t5">
                                 <p class="form-group-label">எதுகை  வகை</p>
-                                <button id="ethukai-correct" class="right btn btn-primary" aria-hidden="true">சரி</button>
+                                <button id="ethukai-correct" class="right btn btn-primary" aria-hidden="true" data-toggle="tooltip" data-placement="right">சரி</button>
                                 <button id="ethukai-incorrect" class="wrong btn btn-primary" aria-hidden="true" data-toggle="tooltip" data-placement="right">
                                     தவறு
                                 </button>
+                                <a role="button" id="ethukai-explanation"
+                                   class="btn btn-primary"
+                                   tabindex="0"
+                                   data-toggle="popover"
+                                   data-trigger="focus"
+                                   data-content="அருமை">விளக்கம்</a>
                             </div>
                             <div class="type-t5">
                                 <p class="form-group-label">இயைபு  வகை</p>
-                                <button id="iyaipu-correct" class="right btn btn-primary" aria-hidden="true">சரி</button>
+                                <button id="iyaipu-correct" class="right btn btn-primary" aria-hidden="true" data-toggle="tooltip" data-placement="right">சரி</button>
                                 <button id="iyaipu-incorrect" class="wrong btn btn-primary" aria-hidden="true" data-toggle="tooltip" data-placement="right">
                                     தவறு
                                 </button>
+                                <a role="button" id="iyaipu-explanation"
+                                   class="btn btn-primary"
+                                   tabindex="0"
+                                   data-toggle="popover"
+                                   data-trigger="focus"
+                                   data-content="அருமை">விளக்கம்</a>
                             </div>
                         </div>
                     </div>
@@ -146,7 +164,7 @@
     # var allMonais = ''; #
     # for(var s = 0; s < seerMonaiWithinAdi[i][2].length; s++) { #
     # console.log("|" + seerMonaiWithinAdi[i][2][s] + "|") #
-    # if( stringStartsWith(seerMonaiWithinAdi[i][2][s], "~")) { #
+    # if( Utility.stringStartsWith(seerMonaiWithinAdi[i][2][s], "~")) { #
     # allMonais += '<span class="todaiword">' + seerMonaiWithinAdi[i][2][s].substring(1) + '</span>' #
     # } else if(!isNaN(parseInt(seerMonaiWithinAdi[i][2][s]))) { #
     # allMonais += '<span class="todaiindex">' + seerMonaiWithinAdi[i][2][s] + '</span>' #
@@ -189,7 +207,7 @@
     <br />
     #} else { #
     # for(var s = 0; s < seerEthukaiWithinAdi[i][2].length; s++) { #
-    # if( stringStartsWith(seerEthukaiWithinAdi[i][2][s], "~")) { #
+    # if( Utility.stringStartsWith(seerEthukaiWithinAdi[i][2][s], "~")) { #
     <span class="todaiword"> #=seerEthukaiWithinAdi[i][2][s].substring(1)# </span>
     # } else if(!isNaN(parseInt(seerEthukaiWithinAdi[i][2][s]))) { #
     <span class="todaiindex"> #=seerEthukaiWithinAdi[i][2][s]# </span>
@@ -231,7 +249,7 @@
     <br />
     #} else { #
     # for(var s = 0; s < seerIyaipuWithinAdi[i][2].length; s++) { #
-    # if( stringStartsWith(seerIyaipuWithinAdi[i][2][s], "~")) { #
+    # if( Utility.stringStartsWith(seerIyaipuWithinAdi[i][2][s], "~")) { #
     <span class="todaiword"> #=seerIyaipuWithinAdi[i][2][s].substring(1)# </span>
     # } else if(!isNaN(parseInt(seerIyaipuWithinAdi[i][2][s]))) { #
     <span class="todaiindex"> #=seerIyaipuWithinAdi[i][2][s]# </span>
@@ -280,24 +298,9 @@
         }).data("kendoPanelBar");
         seyyulPanelBar.expand($(".k-first"), true);
 
-        function showCorrect() {
-            $("#correct").css('display', 'inline-block');
-            $("#incorrect").css('display', 'none');
-        }
-        function showIncorrect() {
-            $("#correct").css('display', 'none');
-            $("#incorrect").css('display', 'inline-block');
-        }
-
-        function hideBoth() {
-            $("[id*=correct").css('display', 'none');
-            //$("#incorrect").css('display', 'none');
-        }
-
-        hideBoth();
-
-
+        Utility.hideResult();
         $("#prosodyForm").submit(function () {
+            Utility.hideResult();
             var data = '{"InputText" : "' + $("#ProsodyText").val() + '"' + '}';
             $.ajax({
                 url: '/api/Prosody/ThodaiFinder',
@@ -309,26 +312,44 @@
                     var monaiTemplate = kendo.template($("#monaiTemplate").html());
                     var ethukaiTemplate = kendo.template($("#ethukaiTemplate").html());
                     var iyaipuTemplate = kendo.template($("#iyaipuTemplate").html());
-                    $("[id*=incorrect").css('display', 'inline-block');
-                    $('#monai-incorrect').attr('data-html', 'true');
-                    $('#monai-incorrect').attr('data-original-title', monaiTemplate({
+
+                    var monaiExplanation = monaiTemplate({
                         adigal: data["Lines"],
                         seerMonaiWithinAdi: data["SeerMonaiWithinAdi"],
                         matchingAdiMonai: data["MatchingAdiMonai"]
-                    }));
-                    $('#ethukai-incorrect').attr('data-html', 'true');
-                    $('#ethukai-incorrect').attr('data-original-title', ethukaiTemplate({
+                    });
+
+                    var chosenMonai = $("#monai-dropdown").text().trim();
+                    if (chosenMonai === data["SeerMonaiWithinAdi"][0][1][0]) {
+                        Utility.showCorrect("monai", monaiExplanation);
+                    } else {
+                        Utility.showIncorrect("monai", monaiExplanation);
+                    }
+
+                    var ethukaiExplanation = ethukaiTemplate({
                         adigal: data["Lines"],
                         seerEthukaiWithinAdi: data["SeerEthukaiWithinAdi"],
                         matchingAdiEthukai: data["MatchingAdiEthukai"]
-                    }));
-                    $('#iyaipu-incorrect').attr('data-html', 'true');
-                    $('#iyaipu-incorrect').attr('data-original-title', iyaipuTemplate({
+                    });
+
+                    var chosenEthukai = $("#ethukai-dropdown").text().trim();
+                    if (chosenEthukai === data["SeerEthukaiWithinAdi"][0][1][0]) {
+                        Utility.showCorrect("ethukai", ethukaiExplanation);
+                    } else {
+                        Utility.showIncorrect("ethukai", ethukaiExplanation);
+                    }
+                    var iyaipuExplanation = iyaipuTemplate({
                         adigal: data["Lines"],
                         seerIyaipuWithinAdi: data["SeerIyaipuWithinAdi"],
                         matchingAdiIyaipu: data["MatchingAdiIyaipu"]
-                    }));
+                    });
 
+                    var chosenIyaipu = $("#iyaipu-dropdown").text().trim();
+                    if (chosenIyaipu === data["SeerIyaipuWithinAdi"][0][1][0]) {
+                        Utility.showCorrect("iyaipu", iyaipuExplanation);
+                    } else {
+                        Utility.showIncorrect("iyaipu", iyaipuExplanation);
+                    }
                 },
                 error: function (data) {
                     alert('error');

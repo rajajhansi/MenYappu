@@ -223,11 +223,8 @@
 
 @RenderSection("scripts", required: false)
 @Scripts.Render("~/Scripts/customui")
-
+<script src="/Scripts/prosody/utilityfunctions.js"></script>
 <script>
-    function stringStartsWith(string, prefix) {
-        return string.slice(0, prefix.length) === prefix;
-    }
     $("#container-wrapper-with-panels").panelExpander({
         onLoad: function(isCollapsedOnLoad, container) {
             if (isCollapsedOnLoad) {
