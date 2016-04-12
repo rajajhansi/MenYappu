@@ -418,11 +418,17 @@ namespace RjamSoft.Tamil.Grammar.Parser
         {
             var Venpaa = CheckVenpaa();
             var Asiriyappaa = CheckAsiriyapaa();
+            var Kalippaa = CheckKalippaa();
+            var VenKalippaa = CheckVenKalippaa();
 
             if(Venpaa != null)
                 MetreType = Venpaa;
             else if (Asiriyappaa != null)
                 MetreType = Asiriyappaa;
+            else if (Kalippaa != null)
+                MetreType = Kalippaa;
+            else if (VenKalippaa != null)
+                MetreType = VenKalippaa;
             return (MetreType ?? "எந்த பா வகையும் பொருந்தவில்லை");
         }
 
@@ -878,95 +884,248 @@ namespace RjamSoft.Tamil.Grammar.Parser
             var WordSyllableCheck = (AllowedWordClassCount/(double)TotalWordCount) > 0.45;
             var AsiriyappaaCheck = (WordClassCheck && FinalLastSyllableClassCheck && LineClassCheck && WordSyllableCheck);
 
-            HashSet<string> wrongBondsList = new HashSet<string>();
-            // Check for Metre Specific Thalais
-            WordBondClassCheck = true;
-            foreach (var bond in WordBond)
+            MetreType = null;
+            // Find the type of Asiriyappaa
+            var AlavadiClass = true;
+            var NonAlavadiClassCount = new List<int>();
+            var VikalpaCount = GetVikalpaCount();
+
+            // Validate the count of words in each line, to decide the type of Asiriyappaa
+            for (var LineIndex = 0; LineIndex < LineWordCount.Count; LineIndex++)
             {
-                if (!bond["bond"].Contains("வெண்டளை"))
+                if (LineWordCount[LineIndex] < 4)
                 {
-                    WordBondClassCheck = false;
-                    wrongBondsList.Add(bond["bond"]);
+                    AlavadiClass = false;
+                    NonAlavadiClassCount.Add(LineIndex + 1);
+
+                    if (LineIndex == 0 || LineIndex == LineWordCount.Count - 1)
+                    {
+                        AsiriyappaaCheck = false;
+                    }
+                }
+                if (LineWordCount[LineIndex] > 4)
+                {
+                    AsiriyappaaCheck = false;
                 }
             }
 
-            MetreType = null;
-
-            // Classify and log the venpa errors
-            foreach (var key in VenpaError.Keys)
+            if (AsiriyappaaCheck)
             {
-                if (VenpaError[key].Count > 1)
+                // If Vikalpa == 1 then it must be considered as Kali Vritta rather than Asiriyappaa
+                if (AlavadiClass)
                 {
-                    for (var i = 1; i < VenpaError[key].Count; i++)
+                    if (VikalpaCount != 1)
                     {
-                        VenpaError[key][i] = string.Empty;
+                        MetreType = "நிலைமண்டில ஆசிரியப்பா";
+                    }
+                    else
+                    {
+                        MetreType = null;
+                    }
+                }
+                else
+                {
+                    if (NonAlavadiClassCount.Count == 1 && NonAlavadiClassCount[0] == TotalLines - 1)
+                    {
+                        MetreType = "நேரிசை ஆசிரியப்பா";
+                    }
+                    else
+                    {
+                        MetreType = "இணைக்குறள் ஆசிரியப்பா";
                     }
                 }
             }
+            return MetreType;
+        }
 
-            if (!WordClassCheck)
-            {
-                var wrongWordClasses = string.Join(", ", wrongWordClassList);
-                VenpaError["word"].Add(wrongWordClasses + " ஆகிய வாய்பாடு(கள்) பயின்றுள்ளது(ன)");
-            }
-            if (!WordBondClassCheck)
-            {
-                var wrongBonds = string.Join(", ", wrongBondsList);
-                VenpaError["bond"].Add("பாவினுள் வெண்டளை அல்லாத " + wrongBonds +
-                    " பயின்று வந்துள்ளது(ன)");
-            }
-            if (!LineClassCheck)
-            {
-                VenpaError["line"].Add("பொருந்தவில்லை");
-            }
-            if (!FinalSyllableClassCheck)
-            {
-                VenpaError["final"].Add("பொருந்தவில்லை");
-            }
-            // Classify the Metre
-            if (WordBondClassCheck && FinalSyllableClassCheck && LineClassCheck && WordClassCheck)
-            {
-                ThaniCholExists = CheckThaniChol(ProsodyText, 2, true);
-                var MetreTypeTemplate = "{0} விகற்ப {1} வெண்பா";
-                var VikalpaType = "";
-                var AdiOrOsaiType = (ThaniCholExists ? "நேரிசை" : "இன்னிசை");
-                switch (VikalpaCount)
-                {
-                    case 1:
-                        VikalpaType = "ஒரு";
-                        break;
-                    case 2:
-                        VikalpaType = "இரு";
-                        break;
-                    default:
-                        VikalpaType = "பல";
-                        break;
+        private string CheckKalippaa()
+        {
+            var root = this.ParseTreeRoot;
 
-                }
-                switch (TotalLines)
+            bool LineClassCheck = true;
+            bool WordClassCheck = true;
+            bool WordSyllableClassCheck = false;
+            bool LineCountCheck = false;
+
+            Dictionary<string, Dictionary<string, Dictionary<string, string>>> LastLine =
+                new Dictionary<string, Dictionary<string, Dictionary<string, string>>>();
+            // Check for allowed Seers, Line Count
+            HashSet<string> wrongWordClassList = new HashSet<string>();
+            int AllowedWordClassCount = 0;
+            int TotalWordCount = 0;
+            List<int> LineWordCount = new List<int>();
+
+            // Check for line count
+            if (TotalLines > 3)
+            {
+                LineCountCheck = true;
+            }
+            foreach (var line in root)
+            {
+                foreach (var seer in line.Value)
                 {
-                    case 2:
-                        AdiOrOsaiType = "குறள்";
-                        break;
-                    case 3:
-                        AdiOrOsaiType += "ச் சிந்தியல்";
-                        break;
+                    foreach (var asais in seer.Value)
+                    {
+                        foreach (var asai in asais.Value)
+                        {
+
+                            if (asai.Key == "meta")
+                            {
+                                TotalWordCount++;
+                                // Check for DisAllowed Seers
+                                if (
+                                    ProsodyGrammarConstants.TamilPaIlakkanaSeergal.Kalipaa["DisAllowedSeergal"].Find(
+                                        a => a == asai.Value) == asai.Value)
+                                {
+                                    WordClassCheck = false;
+                                    wrongWordClassList.Add(asai.Value);
+                                }
+                                // Check for Allowed Seers
+                                if (
+                                    ProsodyGrammarConstants.TamilPaIlakkanaSeergal.Kalipaa["AllowedSeergal"].Find(
+                                        a => a == asai.Value) == asai.Value)
+                                {
+                                    AllowedWordClassCount++;
+                                }
+                            }
+                        }
+                    }
                 }
-                if (TotalLines < 5)
+                // Check for Allowed Line Classes
+                if (int.Parse(line.Value["smeta"]["smeta"]["smeta"]) != 4)
                 {
-                    MetreType = string.Format(MetreTypeTemplate, VikalpaType, AdiOrOsaiType);
+                    LineClassCheck = false;
                 }
-                else if (TotalLines > 4 && TotalLines <= 12)
+                if (line.Key == $"aTi-{this.TotalLines}")
                 {
-                    MetreType = string.Format(MetreTypeTemplate, VikalpaType, "பஃறொடை");
+                    LastLine = line.Value;
                 }
-                else if (TotalLines > 12)
+            }
+
+            // Check for Allowed Word Syllable Types is Majority
+            WordSyllableClassCheck = (AllowedWordClassCount / (double)TotalWordCount) > 0.45;
+
+            MetreType = null;
+            if (WordClassCheck && LineClassCheck && WordSyllableClassCheck && LineCountCheck)
+            {
+                MetreType = "தரவு கொச்சகக் கலிப்பா";
+            }
+            return MetreType;
+        }
+
+        private string CheckVenKalippaa()
+        {
+            var root = this.ParseTreeRoot;
+
+            bool LineClassCheck = true;
+            bool WordClassCheck = true;
+            bool WordSyllableClassCheck = false;
+            bool VenKalippaEndCheck = false;
+            bool LineCountCheck = false;
+
+            Dictionary<string, Dictionary<string, Dictionary<string, string>>> LastLine =
+                new Dictionary<string, Dictionary<string, Dictionary<string, string>>>();
+            // Check for allowed Seers, Line Count
+            HashSet<string> wrongWordClassList = new HashSet<string>();
+            int AllowedWordClassCount = 0;
+            int TotalWordCount = 0;
+            List<int> LineWordCount = new List<int>();
+            List<string> FinalWords = new List<string>();
+            int FinalWordsCount = 0;
+            // Check for line count
+            if (TotalLines > 3)
+            {
+                LineCountCheck = true;
+            }
+            var LineIndex = 0;
+            foreach (var line in root)
+            {
+                foreach (var seer in line.Value)
                 {
-                    MetreType = string.Format(MetreTypeTemplate, VikalpaType, "கலி");
+                    foreach (var asais in seer.Value)
+                    {
+                        foreach (var asai in asais.Value)
+                        {
+
+                            if (asai.Key == "meta" && LineIndex != TotalLines - 1)
+                            {
+                                TotalWordCount++;
+                                // Check for DisAllowed Seers
+                                if (
+                                    ProsodyGrammarConstants.TamilPaIlakkanaSeergal.VenKalipaa["DisAllowedSeergal"].Find(
+                                        a => a == asai.Value) == asai.Value)
+                                {
+                                    WordClassCheck = false;
+                                    wrongWordClassList.Add(asai.Value);
+                                }
+                                // Check for Allowed Seers
+                                if (
+                                    ProsodyGrammarConstants.TamilPaIlakkanaSeergal.VenKalipaa["AllowedSeergal"].Find(
+                                        a => a == asai.Value) == asai.Value)
+                                {
+                                    AllowedWordClassCount++;
+                                }
+                            }
+
+                        }
+                    }
+                }
+                LineIndex++;
+                // Check for Allowed Line Classes
+                if (line.Key != $"aTi-{this.TotalLines}" &&
+                    int.Parse(line.Value["smeta"]["smeta"]["smeta"]) != 4 )
+                {
+                    LineClassCheck = false;
+                }
+                if (line.Key == $"aTi-{this.TotalLines}")
+                {
+                    LastLine = line.Value;
+                    FinalWordsCount = int.Parse(line.Value["smeta"]["smeta"]["smeta"]);
                 }
 
             }
+            Dictionary<string, Dictionary<string, string>> LastWord =
+               new Dictionary<string, Dictionary<string, string>>();
+            foreach (var seer in LastLine)
+            {
+                foreach (var asais in seer.Value)
+                {
+                    foreach (var asai in asais.Value)
+                    {
+                        if (asai.Key == "meta" && LineIndex == TotalLines)
+                        {
+                            FinalWords.Add(asai.Value);
+                            if (
+                                ProsodyGrammarConstants.TamilPaIlakkanaSeergal.VenKalipaa["AllowedSeergal"].Find(
+                                    a => a == asai.Value) == asai.Value)
+                            {
+                                AllowedWordClassCount++;
+                            }
+                        }
+                    }
+                }
+            }
+            // Check if Final Words Count is 3 and presence of DisallowedWordClass
+            if (FinalWordsCount == 3 && (
+                ProsodyGrammarConstants.TamilPaIlakkanaSeergal.VenKalipaa["DisAllowedSeergal"].Find(
+                    a => a == FinalWords[0]) != FinalWords[0]) &&
+                (
+                    ProsodyGrammarConstants.TamilPaIlakkanaSeergal.VenKalipaa["DisAllowedSeergal"].Find(
+                        a => a == FinalWords[1]) != FinalWords[1]) &&
+                (
+                    ProsodyGrammarConstants.TamilPaIlakkanaSeergal.VenKalipaa["DisAllowedSeergal"].Find(
+                        a => a == FinalWords[2]) != FinalWords[2]))
+            {
+                VenKalippaEndCheck = true;
+            }
+            // Check for Allowed Word Syllable Types is Majority
+            WordSyllableClassCheck = (AllowedWordClassCount / (double)TotalWordCount) > 0.45;
 
+            MetreType = null;
+            if (WordClassCheck && LineClassCheck && WordSyllableClassCheck && VenKalippaEndCheck && LineCountCheck)
+            {
+                MetreType = "வெண்கலிப்பா";
+            }
             return MetreType;
         }
         private string  RemovePunctuation(string text)

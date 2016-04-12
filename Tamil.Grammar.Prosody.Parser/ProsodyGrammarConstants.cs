@@ -54,7 +54,12 @@ namespace RjamSoft.Tamil.Grammar.Parser
                             {"AllowedSeergal", new List<string> {"tEmA_GkA_y","puLimA_GkA_y","kUviLa_GkA_y","karuviLa_GkA_y"}},
                             {"DisAllowedSeergal", new List<string> {"karuviLa_GkaVi","kUviLa_GkaVi","tEmA","puLimA"}}
                         };
-
+            public static Dictionary<string, List<string>> VenKalipaa = new Dictionary<string, List<string>>
+            {
+                            {"AllowedSeergal", new List<string> {"tEmA_GkA_y","puLimA_GkA_y","kUviLa_GkA_y","karuviLa_GkA_y"}},
+                            {"DisAllowedSeergal", new List<string> {"karuviLa_GkaVi","kUviLa_GkaVi","tEmA","puLimA"}},
+                            {"NonFinalWordClass", new List<string> {"karuviLa_GkaVi", "kUviLa_GkaVi" }}
+                        };
         }
 
         public class TamilPaIlakkanaSeergal
@@ -76,7 +81,12 @@ namespace RjamSoft.Tamil.Grammar.Parser
                             {"AllowedSeergal", new List<string> {"தேமாங்காய்","புளிமாங்காய்","கூவிளங்காய்","கருவிளங்காய்"}},
                             {"DisAllowedSeergal", new List<string> {"கருவிளங்கனி","கூவிளங்கனி","தேமா","புளிமா"}}
                         };
-
+            public static Dictionary<string, List<string>> VenKalipaa = new Dictionary<string, List<string>>
+            {
+                            {"AllowedSeergal", new List<string> {"தேமாங்காய்","புளிமாங்காய்","கூவிளங்காய்","கருவிளங்காய்"}},
+                            {"DisAllowedSeergal", new List<string> {"கருவிளங்கனி","கூவிளங்கனி","தேமா","புளிமா"}},
+                            {"NonFinalWordClass", new List<string> {"கருவிளங்கனி","கூவிளங்கனி" }}
+                        };
         }
 
         public static List<string> TamilLineType = new List<string> { "", "தனிச்சொல்", "குறளடி", "சிந்தடி", "அளவடி", "நெடிலடி", "அறுசீர்க் கழிநெடிலடி", "எழுசீர்க் கழிநெடிலடி", "எண்சீர்க் கழிநெடிலடி", "ஒன்பதின்சீர்க் கழிநெடிலடி", "பதின்சீர்க் கழிநெடிலடி", "பதினொறு சீர்க் கழிநெடிலடி", "பன்னிரு சீர்க் கழிநெடிலடி", "பதின்மூன்று சீர்க் கழிநெடிலடி", "பதினான்கு சீர்க் கழிநெடிலடி", "பதினைந்து சீர்க் கழிநெடிலடி", "பதினாறு சீர்க் கழிநெடிலடி", "பதினேழு சீர்க் கழிநெடிலடி", "பதினெட்டு சீர்க் கழிநெடிலடி", "பத்தொன்பது சீர்க் கழிநெடிலடி", "இருபது சீர்க் கழிநெடிலடி", "இருபத்தோரு சீர்க் கழிநெடிலடி", "இருபத்தி இரண்டு சீர்க் கழிநெடிலடி", "இருபத்து மூன்று சீர்க் கழிநெடிலடி", "இருபத்து நான்கு சீர்க் கழிநெடிலடி" };
