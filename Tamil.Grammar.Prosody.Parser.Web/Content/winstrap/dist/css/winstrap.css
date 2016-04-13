@@ -11026,6 +11026,26 @@ main {
   padding: 0;
   background: rgba(0, 0, 0, 0.05); }
 
+.btn.btn-success {
+  background-color: #60a917;
+  border-color: #60a917; }
+  .btn.btn-success:hover {
+    background-color: #539314;
+    border-color: #4c8512; }
+  .btn.btn-success:active {
+    background-color: #4c8512;
+    border-color: #447810; }
+  .btn.btn-success:focus {
+    background-color: #539314;
+    border-color: #4c8512; }
+
+.btn {
+  position: relative; }
+  .btn > .glyph {
+    position: absolute;
+    top: 10px;
+    left: 10px; }
+
 .noselect, .left-panelbar, .kendo-panelbars-custom .main-title {
   -webkit-touch-callout: none;
   /* iOS Safari */
