@@ -11231,15 +11231,9 @@ td {
 .modal {
   z-index: 99999; }
 
-.popover, .tooltip {
-  font-size: 13px; }
-
-.popover .popover-content {
-  padding: 7px 8px 8px; }
-
-.tooltip-inner, .popover {
-  max-width: 350px;
-  overflow: auto; }
+.cspan {
+  display: table;
+  margin: 0 auto; }
 
 @media screen and (max-width: 1200px) {
   .navbar-search-wrap {
