@@ -25,7 +25,8 @@
                             <input type="text" id="MathiraiCount" class="panelbar-text form-control" />
                             <div id="rightMathiraiCount" class="type-t5">
                                 <div>சரியான மாத்திரை எண்ணிக்கை</div>
-                                <input type="text" id="CalculatedMathiraiCount" disabled="true" class="panelbar-text form-control" />
+                                @*<input type="text" id="CalculatedMathiraiCount" disabled="true" class="panelbar-text form-control" />*@
+                                <span class="cspan" id="CalculatedMathiraiCount"></span>
                             </div>
 
                         </div>
@@ -118,7 +119,8 @@
                         mathiraiCount: data["MathiraiCount"],
                         totalMathiraiCount: data["TotalMathiraiCount"]
                     });
-                    $("#CalculatedMathiraiCount").val(data["TotalMathiraiCount"]);
+                    //$("#CalculatedMathiraiCount").val(data["TotalMathiraiCount"]);
+                    $("#CalculatedMathiraiCount").html('<h1>' + data["TotalMathiraiCount"] + '</h1>');
                     if (parseFloat($("#MathiraiCount").val()) !== data["TotalMathiraiCount"]) {
                         $("#rightMathiraiCount").css('display', 'block');
                         Utility.showIncorrect("mathirai", mathiraiExplanation);

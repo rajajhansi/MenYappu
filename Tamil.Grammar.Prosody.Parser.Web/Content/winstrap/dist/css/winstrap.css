@@ -11156,6 +11156,8 @@ not supported by any browser */ }
       position: absolute;
       top: 20px;
       left: 5px; }
+  .kendo-panelbars-custom .panelbar-text {
+    margin-top: 1em; }
   .kendo-panelbars-custom .panelbar-textarea {
     margin-top: 1em;
     width: 100%; }
