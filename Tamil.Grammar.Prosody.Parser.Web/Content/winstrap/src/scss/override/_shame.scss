@@ -7,6 +7,35 @@ $shame_leftpanelsize: 280px;
 $shame_leftpanelsize_collapsed: 44px;
 $shame_lefticons_fs: 24px;
 
+$shame_green: #60a917;
+
+.btn.btn-success {
+  background-color: $shame_green;
+  border-color: $shame_green;
+  &:hover {
+    background-color: darken($shame_green, 5%);
+    border-color: darken($shame_green, 8%);
+  }
+  &:active {
+    background-color: darken($shame_green, 8%);
+    border-color: darken($shame_green, 11%);
+  }
+  &:focus {
+    background-color: darken($shame_green, 5%);
+    border-color: darken($shame_green, 8%);
+
+  }
+}
+
+.btn {
+  position: relative;
+  > .glyph {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+}
+
 .noselect {
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Chrome/Safari/Opera */
@@ -277,40 +306,40 @@ td {
   border: 0 none;
 }
 
-
-
-.navbar-search-wrap{
-    .navbar-searchfield{
-        &:focus{
-            border-color: rgba(0, 0, 0, 0.6);
-        }
+.navbar-search-wrap {
+  .navbar-searchfield {
+    &:focus {
+      border-color: rgba(0, 0, 0, 0.6);
     }
+  }
 }
+
 .navbar {
   z-index: 9999;
 }
-.modal{
+
+.modal {
   z-index: 99999;
 }
 
 .cspan {
-    display: table;
-    margin: 0 auto;
+  display: table;
+  margin: 0 auto;
 }
 
-@media screen and (max-width: 1200px){
-    .navbar-search-wrap{
-        position: relative;
-        width: 100%;
-        .navbar-searchfield{
-            width: 100%;
-            max-width: initial;
-            padding-right: 35px;
-        }
-        .navbar-searchbtn{
-            position: absolute;
-            top: 0;
-            right: 0;
-        }
+@media screen and (max-width: 1200px) {
+  .navbar-search-wrap {
+    position: relative;
+    width: 100%;
+    .navbar-searchfield {
+      width: 100%;
+      max-width: initial;
+      padding-right: 35px;
     }
+    .navbar-searchbtn {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
 }
