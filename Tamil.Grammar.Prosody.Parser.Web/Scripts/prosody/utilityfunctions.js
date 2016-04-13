@@ -46,6 +46,7 @@ $(document).ready(function () {
 
         $element.popover({
             template: '<div class="popover" role="tooltip"><div class="popover-content"></div></div>',
+            container: 'body',
             html: 'true'
         }).data('bs.popover').tip().addClass($element.data("theme"));
     });
