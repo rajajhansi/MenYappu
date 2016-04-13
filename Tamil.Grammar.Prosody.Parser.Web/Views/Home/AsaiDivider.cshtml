@@ -1,0 +1,228 @@
+﻿@{
+    ViewBag.Title = "மென்யாப்பு";
+}
+
+<ul class="kendo-panelbars-custom" id="seyyulbar">
+    <li>
+        <h4 class="main-title">
+            ஒரேயொரு சீரை உள்ளிடவும்
+            <span class="main-title-icon glyph glyph-chevron-down"></span>
+        </h4>
+        <ul>
+            <li id="seyyul" class="k-state-active">
+                <form id="prosodyForm" class="form-horizontal" action="/api/Prosody/MathiraiCount" method="POST">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4 class="main-title">
+                                சீர்
+                            </h4>
+                            <textarea class="panelbar-textarea" id="ProsodyText" rows="6"></textarea>
+                        </div>
+                        <div class="col-md-6">
+                            <h4 class="main-title">
+                                அசைகளின் எண்ணிக்கை
+                            </h4>
+                            <input type="text" id="AsaiCount" disabled="true" class="panelbar-text form-control"/>
+                        </div>
+                        <div class="col-md-6">
+                            <h4 class="main-title">
+                                அசை வகைகள்
+                            </h4>
+                            <div id="asaiTypes" class="type-t7">
+
+                            </div>
+
+                        </div>
+                        <div class="col-md-6">
+                            <h4 class="main-title">
+                                முடிவு
+                            </h4>
+                            <div class="type-t5">
+                                <p class="form-group-label">அசை</p>
+                                <button id="asai-correct" class="right btn btn-primary" aria-hidden="true" data-toggle="tooltip" data-placement="right">சரி</button>
+                                <button id="asai-incorrect" class="wrong btn btn-primary" aria-hidden="true" data-toggle="tooltip" data-placement="right">
+                                    தவறு
+                                </button>
+                                <a role="button" id="asai-explanation"
+                                   class="btn btn-primary"
+                                   tabindex="0"
+                                   data-toggle="popover"
+                                   data-trigger="focus"
+                                   data-content="அருமை">விளக்கம்</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="control-group">
+                                <div class="controls">
+                                    <button type="submit" class="btn btn-primary">சரி பார்த்திடு</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<script type="text/x-kendo-template" id="asaiTemplate">
+    # var asaiId = 'asai-dropdown-' + asaiIndex; #
+    <p class="form-group-label">அசை வகை</p>
+    <div class="dropdown">
+        <button id="#= asaiId #" class="btn btn-dropdown dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">அசை வகையைத் தேர்ந்தெடு<span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="#= asaiId #" >
+            <li><a href="\\#">நேர்</a></li>
+            <li><a href="\\#">நிரை</a></li>
+        </ul>
+    </div>
+
+</script>
+
+<script type="text/x-kendo-template" id="seerTemplate">
+    # if(paaVagai) { #
+    <h3 class="k-widget k-header">#= paaVagai #</h3>
+    <br />
+    # } #
+    <table border="0" cellspacing="15">
+        <tbody>
+
+            # $.each(parseTree, function(adiKey, adiValue) { #
+            # var paaAsaiInAdi = ""; var asigalInAdi = "";	var vaippaduInAdi = ""; #
+            # $.each(adiValue, function(seerKey, seerValue) { #
+            # paaAsaiInAdi = paaAsaiInAdi + '<td>' #
+            # asigalInAdi = asigalInAdi + '<td>'#
+            # vaippaduInAdi = vaippaduInAdi + '<td>'#
+            # $.each(seerValue, function(asaiKey, asaiValue) { #
+            # $.each(asaiValue, function(key, value) { #
+            # if(key != "meta" && key != "smeta") { #
+            # if(new RegExp("^நேர்").test(key)) {  #
+            # paaAsaiInAdi = paaAsaiInAdi + '<span class="nerasai">' + value + '</span>' #
+            # asigalInAdi = asigalInAdi + '<span class="nerasai">' + key #
+                # } else if(new RegExp("^நிரை").test(key)) { #
+                # paaAsaiInAdi = paaAsaiInAdi + '<span class="niryasai">' + value + '</span>' #
+                # asigalInAdi = asigalInAdi + '<span class="niryasai">' + key #
+                    # } else if( key == "பு") { #
+                    # var spanClass = new RegExp("^நேர்").test(venLastSyllable) ? "nerasai" : "niryasai"; #
+                    # paaAsaiInAdi = paaAsaiInAdi + '<span class="' + spanClass + '">' + value + '</span>' #
+                    # } #
+                    # } else { #
+                    # if(key == "meta") { #
+                    # paaAsaiInAdi = paaAsaiInAdi + '</td>' #
+        # asigalInAdi = asigalInAdi + '</td>'  #
+        # vaippaduInAdi = vaippaduInAdi + value + '</td>' #
+        # } #
+        # }	#
+        # }) #
+        # }) #
+        # }) #
+        # console.log("\r\n" + paaAsaiInAdi); console.log("\r\n" + asigalInAdi); console.log("\r\n" + vaippaduInAdi); #
+        <tr>
+            #= paaAsaiInAdi #
+        </tr>
+        <tr>
+            #= asigalInAdi #
+        </tr>
+        <tr>
+            #= vaippaduInAdi #
+        </tr>
+        #}) #
+        </tbody>
+    </table>
+
+</script>
+
+<script>
+    $(document).ready(function () {
+
+        // event handler for select
+        var onSelect = function (e) {
+            // access the selected item via e.item (HTMLElement)
+            var item = e.sender.select();
+
+            if (item.hasClass("k-state-active")) {
+                e.sender.collapse(item);
+            } else {
+                e.sender.expand(item);
+            }
+        };
+        var seyyulPanelBar = $("#seyyulbar").kendoPanelBar({
+            expandMode: "single",
+            select: onSelect
+        }).data("kendoPanelBar");
+        seyyulPanelBar.expand($(".k-first"), true);
+
+        Utility.hideResult();
+
+        $("#asaiTypes").on('click', '.dropdown-menu li a', function () {
+            var selText = $(this).text();
+            $(this).parents('.dropdown').find('.dropdown-toggle').html(selText + ' <span class="caret"></span>');
+        });
+        $("#ProsodyText").blur(function() {
+            var numSyllables = ($("#ProsodyText").val().match(/\//g) || []).length;
+            numSyllables++;
+            $("#AsaiCount").val(numSyllables);
+            $("#asaiTypes").empty();
+            var asaiTemplate = kendo.template($("#asaiTemplate").html());
+            for(var syllableIndex=0; syllableIndex < numSyllables; syllableIndex++) {
+                var asai = asaiTemplate({
+                    asaiIndex: syllableIndex + 1
+                });
+                $("#asaiTypes").append(asai);
+            }
+        });
+
+        $("#prosodyForm").submit(function () {
+            Utility.hideResult();
+            var data = '{"InputText" : "' + $("#ProsodyText").val() + '"' + '}';
+            $.ajax({
+                url: '/api/Prosody/ThalaiFinder',
+                data: data,
+                contentType: 'application/json; charset=utf8',
+                type: 'POST',
+                async: false,
+                success: function (data) {
+                    var seerTemplate = kendo.template($("#seerTemplate").html());
+                    var seerExplanation = seerTemplate({
+                        paaVagai: null,
+                        parseTree: data["ParseTree"],
+                        wordBond: data["WordBond"],
+                        venLastSyllable: ""
+                    });
+
+                    var isAnyAsaiWrong = false;
+                    var index = 0;
+                    $.each(data["ParseTree"]["aTi-1"]["cI_r-1"], function(seerKey, seerValue) {
+
+                        $.each(seerValue, function (asaiKey, asaiValue) {
+                            var chosenAsai = $("#asai-dropdown-" + (index + 1)).text().trim();
+                            if (asaiKey !== 'meta' && chosenAsai !== asaiKey) {
+                                isAnyAsaiWrong = true;
+                                return false;
+                            }
+                        });
+                        index++;
+                    });
+                    if (isAnyAsaiWrong) {
+                        $("#asai-correct").attr('data-original-title', seerExplanation);
+                        Utility.showIncorrect("asai", seerExplanation);
+                    } else {
+                        Utility.showCorrect("asai", seerExplanation);
+                    }
+                    //var chosenAsai = $("#asai-dropdown-1").text().trim();
+                    //if (chosenAsai === data["WordBond"][0]["bond"]) {
+                    //    $("#thalai-correct").attr('data-original-title', thalaiExplanation);
+                    //    Utility.showCorrect("thalai", thalaiExplanation);
+                    //} else {
+                    //    Utility.showIncorrect("thalai", thalaiExplanation);
+                    //}
+                },
+                error: function (data) {
+                    alert('error');
+                }
+            });
+            return false;
+        });
+    });</script>

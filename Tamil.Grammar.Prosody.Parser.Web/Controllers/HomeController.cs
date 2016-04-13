@@ -49,5 +49,12 @@ namespace Tamil.Parody.Parser.Web.Controllers
 
             return View();
         }
+
+        public ActionResult AsaiDivider()
+        {
+            ViewBag.Message = "Syllable Divider";
+
+            return View();
+        }
     }
 }

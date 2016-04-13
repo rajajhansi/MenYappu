@@ -1264,6 +1264,7 @@
     <Content Include="Views\Shared\_LeftNavigationBar.cshtml" />
     <Content Include="Views\Home\ThodaiFinder.cshtml" />
     <Content Include="Views\Home\ThalaiFinder.cshtml" />
+    <Content Include="Views\Home\AsaiDivider.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
