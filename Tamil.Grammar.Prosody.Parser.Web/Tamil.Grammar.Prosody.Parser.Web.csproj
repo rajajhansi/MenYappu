@@ -703,6 +703,10 @@
     <Content Include="Content\kendo\2014.1.318\images\kendoui.woff" />
     <Content Include="Content\kendo\2014.1.318\images\kendoui.ttf" />
     <Content Include="ApplicationInsights.config" />
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
     <None Include="Scripts\jquery-1.8.1.intellisense.js" />
     <Content Include="Images\night-dark-blur-blurred.jpg" />
     <None Include="Scripts\jquery-2.2.2-vsdoc.js" />

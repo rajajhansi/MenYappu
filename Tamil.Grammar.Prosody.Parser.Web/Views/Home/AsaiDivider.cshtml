@@ -22,7 +22,8 @@
                             <h4 class="main-title">
                                 அசைகளின் எண்ணிக்கை
                             </h4>
-                            <input type="text" id="AsaiCount" disabled="true" class="panelbar-text form-control"/>
+                            @*<input type="text" id="AsaiCount" disabled="true" class="panelbar-text form-control"/>*@
+                            <span class="cspan" id="AsaiCount"></span>
                         </div>
                         <div class="col-md-6">
                             <h4 class="main-title">
@@ -163,7 +164,8 @@
         $("#ProsodyText").blur(function() {
             var numSyllables = ($("#ProsodyText").val().match(/\//g) || []).length;
             numSyllables++;
-            $("#AsaiCount").val(numSyllables);
+            //$("#AsaiCount").val(numSyllables);
+            $("#AsaiCount").html('<h1>' + numSyllables + '</h1>');
             $("#asaiTypes").empty();
             var asaiTemplate = kendo.template($("#asaiTemplate").html());
             for(var syllableIndex=0; syllableIndex < numSyllables; syllableIndex++) {
