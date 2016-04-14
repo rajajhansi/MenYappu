@@ -18,7 +18,7 @@
                             </h4>
                             <textarea class="panelbar-textarea" id="ProsodyText" rows="6"></textarea>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6 hidden" id="thalaiSelector">
                             <h4 class="main-title">
                                 தளை வகை
                             </h4>
@@ -42,14 +42,14 @@
                             </div>
 
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6 hidden" id="result">
                             <h4 class="main-title">
                                 முடிவு
                             </h4>
                             <div class="type-t5">
                                 <p class="form-group-label">தளை வகை</p>
-                                <button id="thalai-correct" class="right btn btn-primary" aria-hidden="true" data-toggle="tooltip" data-placement="right">சரி</button>
-                                <button id="thalai-incorrect" class="wrong btn btn-primary" aria-hidden="true" data-toggle="tooltip" data-placement="right">
+                                <button id="thalai-correct" class="right btn btn-success" aria-hidden="true" data-toggle="tooltip" data-placement="right"><i class="glyph glyph-checkmark"></i>சரி</button>
+                                <button id="thalai-incorrect" class="wrong btn btn-warning" aria-hidden="true" data-toggle="tooltip" data-placement="right"><i class="glyph glyph-cancel"></i>
                                     தவறு
                                 </button>
                                 <a role="button" id="thalai-explanation"
@@ -57,7 +57,7 @@
                                    tabindex="0"
                                    data-toggle="popover"
                                    data-trigger="focus"
-                                   data-content="அருமை">விளக்கம்</a>
+                                   data-content="அருமை"><i class="glyph glyph-message"></i>விளக்கம்</a>
                             </div>
                         </div>
                     </div>
@@ -65,7 +65,8 @@
                         <div class="col-md-6">
                             <div class="control-group">
                                 <div class="controls">
-                                    <button type="submit" class="btn btn-primary">சரி பார்த்திடு</button>
+                                    <button class="btn btn-primary" id="example"><i class="glyph glyph-import"></i>மாதிரி</button>
+                                    <button type="submit" class="btn btn-primary"><i class="glyph glyph-arrow-right"></i>சரி பார்த்திடு</button>
                                 </div>
                             </div>
                         </div>
@@ -115,8 +116,11 @@
         seyyulPanelBar.expand($(".k-first"), true);
 
         Utility.hideResult();
+        $("#ProsodyText").blur(function () {
+            Utility.showElement("thalaiSelector");
+        });
 
-
+        Utility.setupExample('/api/prosody/ThalaiSentences', 'sentence');
         $("#prosodyForm").submit(function () {
             Utility.hideResult();
             var data = '{"InputText" : "' + $("#ProsodyText").val() + '"' + '}';
@@ -139,6 +143,7 @@
                     } else {
                         Utility.showIncorrect("thalai", thalaiExplanation);
                     }
+                    Utility.showElement("result");
                 },
                 error: function (data) {
                     alert('error');

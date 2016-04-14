@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Text;
+using System.Web;
 using System.Web.Http;
 using RjamSoft.Tamil.Grammar.Parser;
 using Tamil.Grammar.Prosody.Parser;
@@ -78,6 +81,30 @@ namespace Tamil.Parody.Parser.Web.Controllers
             }
 
             return response;
+        }
+
+        private HttpResponseMessage ReadJsonFile(string fileName)
+        {
+            var json = File.ReadAllText(HttpContext.Current.Server.MapPath(fileName));
+
+            return new HttpResponseMessage()
+            {
+                Content = new StringContent(json, Encoding.UTF8, "application/json"),
+                StatusCode = HttpStatusCode.OK
+            };
+        }
+        [Route("ThalaiSentences")]
+        [HttpPost]
+        public HttpResponseMessage ThalaiSentences()
+        {
+            return ReadJsonFile(@"~/App_Data/ThalaiSentences.json");
+        }
+
+        [Route("Seergal")]
+        [HttpPost]
+        public HttpResponseMessage Seergal()
+        {
+            return ReadJsonFile(@"~/App_Data/Seergal.json");
         }
     }
 }

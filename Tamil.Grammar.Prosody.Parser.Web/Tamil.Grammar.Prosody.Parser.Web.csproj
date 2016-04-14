@@ -703,6 +703,8 @@
     <Content Include="Content\kendo\2014.1.318\images\kendoui.woff" />
     <Content Include="Content\kendo\2014.1.318\images\kendoui.ttf" />
     <Content Include="ApplicationInsights.config" />
+    <Content Include="App_Data\ThalaiSentences.json" />
+    <Content Include="App_Data\Seergal.json" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -1271,9 +1273,7 @@
     <Content Include="Views\Home\AsaiDivider.cshtml" />
     <Content Include="Views\Home\VaippaduFinder.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>

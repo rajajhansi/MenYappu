@@ -18,14 +18,14 @@
                             </h4>
                             <textarea class="panelbar-textarea" id="ProsodyText" rows="6"></textarea>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6 hidden" id="asaiCalculator">
                             <h4 class="main-title">
                                 அசைகளின் எண்ணிக்கை
                             </h4>
                             @*<input type="text" id="AsaiCount" disabled="true" class="panelbar-text form-control"/>*@
                             <span class="cspan" id="AsaiCount"></span>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6 hidden" id="asaiSelector">
                             <h4 class="main-title">
                                 அசை வகைகள்
                             </h4>
@@ -34,14 +34,14 @@
                             </div>
 
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6 hidden" id="result">
                             <h4 class="main-title">
                                 முடிவு
                             </h4>
                             <div class="type-t5">
                                 <p class="form-group-label">அசை</p>
-                                <button id="asai-correct" class="right btn btn-primary" aria-hidden="true" data-toggle="tooltip" data-placement="right">சரி</button>
-                                <button id="asai-incorrect" class="wrong btn btn-primary" aria-hidden="true" data-toggle="tooltip" data-placement="right">
+                                <button id="asai-correct" class="right btn btn-success" aria-hidden="true" data-toggle="tooltip" data-placement="right"><i class="glyph glyph-checkmark"></i>சரி</button>
+                                <button id="asai-incorrect" class="wrong btn btn-warning" aria-hidden="true" data-toggle="tooltip" data-placement="right"><i class="glyph glyph-cancel"></i>
                                     தவறு
                                 </button>
                                 <a role="button" id="asai-explanation"
@@ -49,7 +49,7 @@
                                    tabindex="0"
                                    data-toggle="popover"
                                    data-trigger="focus"
-                                   data-content="அருமை">விளக்கம்</a>
+                                   data-content="அருமை"><i class="glyph glyph-message"></i>விளக்கம்</a>
                             </div>
                         </div>
                     </div>
@@ -57,7 +57,7 @@
                         <div class="col-md-6">
                             <div class="control-group">
                                 <div class="controls">
-                                    <button type="submit" class="btn btn-primary">சரி பார்த்திடு</button>
+                                    <button type="submit" class="btn btn-primary"><i class="glyph glyph-arrow-right"></i>சரி பார்த்திடு</button>
                                 </div>
                             </div>
                         </div>
@@ -164,8 +164,8 @@
         $("#ProsodyText").blur(function() {
             var numSyllables = ($("#ProsodyText").val().match(/\//g) || []).length;
             numSyllables++;
-            //$("#AsaiCount").val(numSyllables);
             $("#AsaiCount").html('<h1>' + numSyllables + '</h1>');
+            Utility.showElement("asaiCalculator");
             $("#asaiTypes").empty();
             var asaiTemplate = kendo.template($("#asaiTemplate").html());
             for(var syllableIndex=0; syllableIndex < numSyllables; syllableIndex++) {
@@ -173,6 +173,7 @@
                     asaiIndex: syllableIndex + 1
                 });
                 $("#asaiTypes").append(asai);
+                Utility.showElement("asaiSelector");
             }
         });
 
@@ -197,7 +198,6 @@
                     var isAnyAsaiWrong = false;
                     var index = 0;
                     $.each(data["ParseTree"]["aTi-1"]["cI_r-1"], function(seerKey, seerValue) {
-
                         $.each(seerValue, function (asaiKey, asaiValue) {
                             var chosenAsai = $("#asai-dropdown-" + (index + 1)).text().trim();
                             if (asaiKey !== 'meta' && chosenAsai !== asaiKey) {
@@ -213,13 +213,7 @@
                     } else {
                         Utility.showCorrect("asai", seerExplanation);
                     }
-                    //var chosenAsai = $("#asai-dropdown-1").text().trim();
-                    //if (chosenAsai === data["WordBond"][0]["bond"]) {
-                    //    $("#thalai-correct").attr('data-original-title', thalaiExplanation);
-                    //    Utility.showCorrect("thalai", thalaiExplanation);
-                    //} else {
-                    //    Utility.showIncorrect("thalai", thalaiExplanation);
-                    //}
+                    Utility.showElement("result");
                 },
                 error: function (data) {
                     alert('error');

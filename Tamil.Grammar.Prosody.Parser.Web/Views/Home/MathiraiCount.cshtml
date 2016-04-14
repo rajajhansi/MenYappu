@@ -23,20 +23,20 @@
                                 மாத்திரை எண்ணிக்கை
                             </h4>
                             <input type="text" id="MathiraiCount" class="panelbar-text form-control" />
-                            <div id="rightMathiraiCount" class="type-t5">
+                            <div id="rightMathiraiCount" class="type-t5 hidden">
                                 <div>சரியான மாத்திரை எண்ணிக்கை</div>
                                 @*<input type="text" id="CalculatedMathiraiCount" disabled="true" class="panelbar-text form-control" />*@
                                 <span class="cspan" id="CalculatedMathiraiCount"></span>
                             </div>
 
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6 hidden" id="result">
                             <h4 class="main-title">
                                 முடிவு
                             </h4>
                             <div class="type-t3">
-                                <button id="mathirai-correct" class="right btn btn-primary" aria-hidden="true" data-toggle="tooltip" data-placement="right">சரி</button>
-                                <button id="mathirai-incorrect" class="wrong btn btn-primary" aria-hidden="true" data-toggle="tooltip" data-placement="right">
+                                <button id="mathirai-correct" class="right btn btn-success" aria-hidden="true" data-toggle="tooltip" data-placement="right"><i class="glyph glyph-checkmark"></i>சரி</button>
+                                <button id="mathirai-incorrect" class="wrong btn btn-warning" aria-hidden="true" data-toggle="tooltip" data-placement="right"><i class="glyph glyph-cancel"></i>
                                     தவறு
                                 </button>
                                 <a role="button" id="mathirai-explanation"
@@ -44,7 +44,7 @@
                                    tabindex="0"
                                    data-toggle="popover"
                                    data-trigger="focus"
-                                   data-content="அருமை">விளக்கம்</a>
+                                   data-content="அருமை"><i class="glyph glyph-message"></i>விளக்கம்</a>
                             </div>
                         </div>
                     </div>
@@ -52,7 +52,7 @@
                         <div class="col-md-6">
                             <div class="control-group">
                                 <div class="controls">
-                                    <button type="submit" class="btn btn-primary">சரி பார்த்திடு</button>
+                                    <button type="submit" class="btn btn-primary"><i class="glyph glyph-message"></i>சரி பார்த்திடு</button>
                                 </div>
                             </div>
                         </div>
@@ -99,7 +99,7 @@
         seyyulPanelBar.expand($(".k-first"), true);
 
         Utility.hideResult();
-        $("#rightMathiraiCount").css('display', 'none');
+        Utility.hideElement("rightMathiraiCount");
 
         $("#prosodyForm").submit(function () {
             Utility.hideResult();
@@ -122,11 +122,12 @@
                     //$("#CalculatedMathiraiCount").val(data["TotalMathiraiCount"]);
                     $("#CalculatedMathiraiCount").html('<h1>' + data["TotalMathiraiCount"] + '</h1>');
                     if (parseFloat($("#MathiraiCount").val()) !== data["TotalMathiraiCount"]) {
-                        $("#rightMathiraiCount").css('display', 'block');
+                        Utility.showElement("rightMathiraiCount");
                         Utility.showIncorrect("mathirai", mathiraiExplanation);
                     } else {
                         Utility.showCorrect("mathirai", mathiraiExplanation);
                     }
+                    Utility.showElement("result");
                 },
                 error: function (data) {
                     alert('error');

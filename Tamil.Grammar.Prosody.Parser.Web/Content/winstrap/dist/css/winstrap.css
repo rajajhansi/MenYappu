@@ -11188,6 +11188,8 @@ not supported by any browser */ }
   .kendo-panelbars-custom > .k-item.k-state-active .main-title-icon {
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
     transform: rotate(180deg); }
   .kendo-panelbars-custom .k-tabstrip {
     border: 0; }
@@ -11256,6 +11258,24 @@ td {
 .cspan {
   display: table;
   margin: 0 auto; }
+
+/* Fade-In Effect */
+.visible {
+  visibility: visible;
+  opacity: 1;
+  -moz-transition: opacity 2s linear;
+  -o-transition: opacity 2s linear;
+  -webkit-transition: opacity 2s linear;
+  transition: opacity 2s linear; }
+
+/* Fade-Out Effect */
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+  -moz-transition: visibility 0s 2s, opacity 2s linear;
+  -o-transition: visibility 0s 2s, opacity 2s linear;
+  -webkit-transition: visibility 0s 2s, opacity 2s linear;
+  transition: visibility 0s 2s, opacity 2s linear; }
 
 @media screen and (max-width: 1200px) {
   .navbar-search-wrap {
