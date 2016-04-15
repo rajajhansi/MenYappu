@@ -52,6 +52,7 @@
                         <div class="col-md-6">
                             <div class="control-group">
                                 <div class="controls">
+                                    <button class="btn btn-primary" id="example"><i class="glyph glyph-import"></i>மாதிரி</button>
                                     <button type="submit" class="btn btn-primary"><i class="glyph glyph-message"></i>சரி பார்த்திடு</button>
                                 </div>
                             </div>
@@ -100,10 +101,9 @@
 
         Utility.hideResult();
         Utility.hideElement("rightMathiraiCount");
-
+        Utility.setupExample('/api/prosody/Seergal', 'seer');
         $("#prosodyForm").submit(function () {
             Utility.hideResult();
-            $("#rightMathiraiCount").css('display', 'none');
             var shouldCompareVenpaRules = $("#ShouldCompareVenpaRules").is(':checked');
             var data = '{"InputText" : "' + $("#ProsodyText").val() + '"' +
                 '}';
@@ -119,7 +119,7 @@
                         mathiraiCount: data["MathiraiCount"],
                         totalMathiraiCount: data["TotalMathiraiCount"]
                     });
-                    //$("#CalculatedMathiraiCount").val(data["TotalMathiraiCount"]);
+
                     $("#CalculatedMathiraiCount").html('<h1>' + data["TotalMathiraiCount"] + '</h1>');
                     if (parseFloat($("#MathiraiCount").val()) !== data["TotalMathiraiCount"]) {
                         Utility.showElement("rightMathiraiCount");

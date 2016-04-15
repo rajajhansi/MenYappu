@@ -18,7 +18,7 @@
                             </h4>
                             <textarea class="panelbar-textarea" id="ProsodyText" rows="6"></textarea>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6 hidden" id="thodaiSelector">
                             <h4 class="main-title">
                                 தொடை வகை
                             </h4>
@@ -90,14 +90,14 @@
                             </div>
 
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6 hidden" id="result">
                             <h4 class="main-title">
                                 முடிவு
                             </h4>
                             <div class="type-t5">
                                 <p class="form-group-label">மோனை வகை</p>
-                                <button id="monai-correct" class="right btn btn-primary" aria-hidden="true" data-toggle="tooltip" data-placement="right">சரி</button>
-                                <button id="monai-incorrect" class="wrong btn btn-primary" aria-hidden="true" data-toggle="tooltip" data-placement="right">
+                                <button id="monai-correct" class="right btn btn-success" aria-hidden="true" data-toggle="tooltip" data-placement="right"><i class="glyph glyph-checkmark"></i>சரி</button>
+                                <button id="monai-incorrect" class="wrong btn btn-warning" aria-hidden="true" data-toggle="tooltip" data-placement="right"><i class="glyph glyph-cancel"></i>
                                     தவறு
                                 </button>
                                 <a role="button" id="monai-explanation"
@@ -109,8 +109,8 @@
                             </div>
                             <div class="type-t5">
                                 <p class="form-group-label">எதுகை  வகை</p>
-                                <button id="ethukai-correct" class="right btn btn-primary" aria-hidden="true" data-toggle="tooltip" data-placement="right">சரி</button>
-                                <button id="ethukai-incorrect" class="wrong btn btn-primary" aria-hidden="true" data-toggle="tooltip" data-placement="right">
+                                <button id="ethukai-correct" class="right btn btn-success" aria-hidden="true" data-toggle="tooltip" data-placement="right"><i class="glyph glyph-checkmark"></i>சரி</button>
+                                <button id="ethukai-incorrect" class="wrong btn btn-primary" aria-hidden="true" data-toggle="tooltip" data-placement="right"><i class="glyph glyph-cancel"></i>
                                     தவறு
                                 </button>
                                 <a role="button" id="ethukai-explanation"
@@ -122,8 +122,8 @@
                             </div>
                             <div class="type-t5">
                                 <p class="form-group-label">இயைபு  வகை</p>
-                                <button id="iyaipu-correct" class="right btn btn-primary" aria-hidden="true" data-toggle="tooltip" data-placement="right">சரி</button>
-                                <button id="iyaipu-incorrect" class="wrong btn btn-primary" aria-hidden="true" data-toggle="tooltip" data-placement="right">
+                                <button id="iyaipu-correct" class="right btn btn-success" aria-hidden="true" data-toggle="tooltip" data-placement="right"><i class="glyph glyph-checkmark"></i>சரி</button>
+                                <button id="iyaipu-incorrect" class="wrong btn btn-primary" aria-hidden="true" data-toggle="tooltip" data-placement="right"><i class="glyph glyph-cancel"></i>
                                     தவறு
                                 </button>
                                 <a role="button" id="iyaipu-explanation"
@@ -131,7 +131,7 @@
                                    tabindex="0"
                                    data-toggle="popover"
                                    data-trigger="focus"
-                                   data-content="அருமை">விளக்கம்</a>
+                                   data-content="அருமை"><i class="glyph glyph-message"></i>விளக்கம்</a>
                             </div>
                         </div>
                     </div>
@@ -139,7 +139,8 @@
                         <div class="col-md-6">
                             <div class="control-group">
                                 <div class="controls">
-                                    <button type="submit" class="btn btn-primary">சரி பார்த்திடு</button>
+                                    <button class="btn btn-primary" id="example"><i class="glyph glyph-import"></i>மாதிரி</button>
+                                    <button type="submit" class="btn btn-primary"><i class="glyph glyph-arrow-right"></i>சரி பார்த்திடு</button>
                                 </div>
                             </div>
                         </div>
@@ -299,6 +300,10 @@
         seyyulPanelBar.expand($(".k-first"), true);
 
         Utility.hideResult();
+        Utility.setupExample('/api/prosody/Thodaigal', 'thodai');
+        $("#ProsodyText").blur(function () {
+            Utility.showElement("thodaiSelector");
+        });
         $("#prosodyForm").submit(function () {
             Utility.hideResult();
             var data = '{"InputText" : "' + $("#ProsodyText").val() + '"' + '}';
@@ -350,6 +355,7 @@
                     } else {
                         Utility.showIncorrect("iyaipu", iyaipuExplanation);
                     }
+                    Utility.showElement("result");
                 },
                 error: function (data) {
                     alert('error');

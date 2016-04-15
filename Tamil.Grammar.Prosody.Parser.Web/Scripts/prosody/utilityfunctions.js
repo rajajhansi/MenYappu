@@ -3,9 +3,8 @@
         return string.slice(0, prefix.length) === prefix;
     }
 
-    function getRandomNumber(max)
-    {
-        return Math.floor((Math.random() * max) + 1);
+    function getRandomNumber(min, max) {
+        return Math.floor(Math.random() * (max - min )) + min;
     }
 
     function showElement(id) {
@@ -48,7 +47,12 @@
                 type: 'POST',
                 async: false,
                 success: function (data) {
-                    $("#ProsodyText").val(data[Utility.getRandomNumber(data.length)][attr]).blur();
+                    var exampleText = data[Utility.getRandomNumber(0, data.length)][attr];
+                    exampleText = (_.isArray(exampleText)) ? exampleText.join('\n') : exampleText;
+                    $("#ProsodyText").val(exampleText).blur();
+                },
+                error: function (data) {
+                    alert('error' + data);
                 }
             });
             return false;

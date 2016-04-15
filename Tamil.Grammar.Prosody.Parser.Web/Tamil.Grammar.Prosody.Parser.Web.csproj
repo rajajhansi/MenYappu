@@ -705,6 +705,7 @@
     <Content Include="ApplicationInsights.config" />
     <Content Include="App_Data\ThalaiSentences.json" />
     <Content Include="App_Data\Seergal.json" />
+    <Content Include="App_Data\Thodaigal.json" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
