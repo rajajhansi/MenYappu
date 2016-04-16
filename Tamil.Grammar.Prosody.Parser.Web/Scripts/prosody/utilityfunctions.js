@@ -58,6 +58,10 @@
             return false;
         });
     }
+
+    function setContextHelp(helpText) {
+        $("#help").append(helpText);
+    }
     return {
         stringStartsWith: stringStartsWith,
         getRandomNumber: getRandomNumber,
@@ -67,7 +71,8 @@
         showIncorrect: showIncorrect,
         showExplanation: showExplanation,
         hideResult: hideResult,
-        setupExample: setupExample
+        setupExample: setupExample,
+        setContextHelp: setContextHelp
     };
 })();
 

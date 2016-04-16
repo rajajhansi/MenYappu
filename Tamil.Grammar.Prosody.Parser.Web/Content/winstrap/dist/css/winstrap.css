@@ -11318,6 +11318,72 @@ td {
       top: 0;
       right: 0; } }
 
+.helptext {
+  margin-left: 5px;
+  margin-bottom: 5px;
+  font-size: 11px;
+  color: white; }
+
+.kuril {
+  color: #A80000; }
+
+.nedil {
+  color: #FF8C00; }
+
+.otru {
+  color: #BAD80A; }
+
+.aytham {
+  color: #0078D7; }
+
+.thaninedil {
+  color: #A80000; }
+
+.thanikkuril {
+  color: #FF8C00; }
+
+.kurilotru {
+  color: #BAD80A; }
+
+.nedilotru {
+  color: #0078D7; }
+
+.kurilinai {
+  color: #A80000; }
+
+.kurilinaiyotru {
+  color: #BAD80A; }
+
+.kurinedil {
+  color: #FF8C00; }
+
+.kurinedilotru {
+  color: #0078D7; }
+
+.naal {
+  color: #A80000; }
+
+.malar {
+  color: #FF8C00; }
+
+.kaasu {
+  color: #BAD80A; }
+
+.pirappu {
+  color: #0078D7; }
+
+.thema {
+  color: #A80000; }
+
+.pulima {
+  color: #FF8C00; }
+
+.koovilam {
+  color: #BAD80A; }
+
+.karuvilam {
+  color: #0078D7; }
+
 #glyphs span[class*="glyph-"] {
   font-size: 2em; }
 

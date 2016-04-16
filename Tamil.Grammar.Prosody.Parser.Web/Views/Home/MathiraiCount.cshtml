@@ -36,7 +36,8 @@
                             </h4>
                             <div class="type-t3">
                                 <button id="mathirai-correct" class="right btn btn-success btn-with-glyph" aria-hidden="true" data-toggle="tooltip" data-placement="right"><i class="glyph glyph-checkmark"></i>சரி</button>
-                                <button id="mathirai-incorrect" class="wrong btn btn-warning btn-with-glyph" aria-hidden="true" data-toggle="tooltip" data-placement="right"><i class="glyph glyph-cancel"></i>
+                                <button id="mathirai-incorrect" class="wrong btn btn-warning btn-with-glyph" aria-hidden="true" data-toggle="tooltip" data-placement="right">
+                                    <i class="glyph glyph-cancel"></i>
                                     தவறு
                                 </button>
                                 <a role="button" id="mathirai-explanation"
@@ -69,19 +70,60 @@
     # for (var l=0; l < mathiraiCount.length; l++) { #
     # $.each(mathiraiCount[l], function(mathiraiKey, mathiraiValue) { #
     # if (key !== Object.keys(mathiraiCount[l]).length - 1) { #
-    # mathiraiInSeer = mathiraiInSeer + '<ruby><span class="uiTrant">' + mathiraiKey + '</span><rt>' + mathiraiValue + ' + </rt></ruby>  '; #
+    # mathiraiInSeer = mathiraiInSeer + '
+    <ruby><span class="uiTrant">' + mathiraiKey + '</span><rt>' + mathiraiValue + ' + </rt></ruby>  '; #
     # } else { #
-    # mathiraiInSeer = mathiraiInSeer + '<ruby><span class="uiTrant">' + mathiraiKey + '</span><rt>' + mathiraiValue +  '</rt></ruby>  '; #
+    # mathiraiInSeer = mathiraiInSeer + '
+    <ruby><span class="uiTrant">' + mathiraiKey + '</span><rt>' + mathiraiValue +  '</rt></ruby>  '; #
     # } #
     # key++; #
     # }) #
-    # mathiraiInSeer = mathiraiInSeer + '<ruby><span class="uiTrant">' + '&nbsp;' + ' </span><rt>' + ' = ' + totalMathiraiCount + '</rt></ruby><br />'; #
+    # mathiraiInSeer = mathiraiInSeer + '
+    <ruby><span class="uiTrant">' + '&nbsp;' + ' </span><rt>' + ' = ' + totalMathiraiCount + '</rt></ruby>
+    <br />'; #
     # } #
     #= mathiraiInSeer #
 </script>
+
+<script type="text/x-kendo-template" id="mathiraiHelpTemplate">
+    <div class="helptext">
+        <span class="type-t6">மாத்திரை</span>
+        <br />
+        எழுத்து ஒலி அளவு மாத்திரை எனப்படும்.
+    </div>
+    <br/>
+    <table class="table theme-alt type-t9">
+        <thead>
+            <tr>
+                <th>எழுத்து</th>
+                <th>மாத்திரை</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="kuril">
+                <td>குறில்</td>
+                <td>1</td>
+            </tr>
+            <tr class="nedil">
+                <td>நெடில்</td>
+                <td>2</td>
+            </tr>
+            <tr class="otru">
+                <td>ஒற்று/மெய்</td>
+                <td>½</td>
+            </tr>
+            <tr class="aytham">
+                <td>ஆய்தம்</td>
+                <td>½</td>
+            </tr>
+        </tbody>
+    </table>
+</script>
 <script>
     $(document).ready(function () {
-
+        // set the context help
+        var mathiraiHelpTemplate = kendo.template($("#mathiraiHelpTemplate").html());
+        Utility.setContextHelp(mathiraiHelpTemplate({}));
         // event handler for select
         var onSelect = function (e) {
             // access the selected item via e.item (HTMLElement)
@@ -104,6 +146,7 @@
         Utility.setupExample('/api/prosody/Seergal', 'seer');
         $("#prosodyForm").submit(function () {
             Utility.hideResult();
+
             var shouldCompareVenpaRules = $("#ShouldCompareVenpaRules").is(':checked');
             var data = '{"InputText" : "' + $("#ProsodyText").val() + '"' +
                 '}';
