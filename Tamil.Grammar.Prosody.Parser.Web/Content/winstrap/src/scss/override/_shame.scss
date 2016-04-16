@@ -1,14 +1,3 @@
-$shame_white: #fff;
-$shame_black: #000;
-$shame_hoverlue: #0161b2;
-$shame_rpanelbg: #f9f9f9;
-$shame_bordercol: #dddddd;
-$shame_leftpanelsize: 280px;
-$shame_leftpanelsize_collapsed: 44px;
-$shame_lefticons_fs: 24px;
-
-$shame_green: #60a917;
-
 .btn.btn-success {
     background-color: $shame_green;
     border-color: $shame_green;
@@ -87,58 +76,6 @@ not supported by any browser */
     left: 0;
     right: 0;
     bottom: 0;
-}
-
-.left-panelbar {
-    @extend .fx-all;
-    @extend .noselect;
-    overflow: auto;
-    position: absolute;
-    width: $shame_leftpanelsize;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    background-image: url('../../www/images/night.jpg');
-}
-
-.right-panelbar {
-    @extend .fx-all;
-    position: absolute;
-    overflow: auto;
-    background: $shame_rpanelbg;
-    left: $shame_leftpanelsize;
-    right: 0;
-    top: 0;
-    bottom: 0;
-}
-
-.panel-collapsed {
-    .left-panelbar {
-        width: $shame_leftpanelsize_collapsed;
-
-        .stacked-menu-items-text {
-            display: none;
-        }
-    }
-
-    .right-panelbar {
-        left: $shame_leftpanelsize_collapsed;
-    }
-
-    .subitems-toggler {
-        display: none;
-    }
-
-    .stacked-menus-items-submenu {
-        border-top: 1px solid $shame_bordercol;
-        border-bottom: 1px solid $shame_bordercol;
-
-        .stacked-menus-items {
-            a {
-                padding-left: 10px;
-            }
-        }
-    }
 }
 
 .stacked-menus-toggler {

@@ -8,55 +8,103 @@
             throw new Error('please provide an ID for the panel!');
         }
 
-        // defaults
-        var defaults = {
-            toggler: elem.find('.stacked-menus-toggler'),
-            leftPanel: elem.find('.left-panelbar'),
-            rightPanel: elem.find('.right-panelbar')
+        var _defaultCallbacks = {
+            left: function () {
+                return false;
+            },
+            right: function () {
+                return false;
+            }
         };
 
-        // overwriting the defaults if we provide the params
-        var config = $.extend(defaults, params);
+        var defaults = {
+            toggler: {
+                left: elem.find('#stacked-menu-toggler-left'),
+                right: elem.find('#stacked-menu-toggler-right')
+            },
+            panels: {
+                left: elem.find('.left-panelbar'),
+                center: elem.find('.center-panelbar'),
+                right: elem.find('.right-panelbar')
+            },
+            callbacks: {
+                beforeExpand: $.extend({}, _defaultCallbacks),
+                afterExpand: $.extend({}, _defaultCallbacks),
+                beforeCollapse: $.extend({}, _defaultCallbacks),
+                afterCollapse: $.extend({}, _defaultCallbacks)
+            },
+            persistState: {
+                left: false,
+                right: false
+            },
+            // INFO[burs]: initial state
+            collapsed: {
+                left: true,
+                right: true
+            }
+        };
 
-        //TODO[burs]: This will need some refactoring if we're gonna have multiple panels
+        var config = $.extend(true, defaults, params);
 
-        var collapsedCssClass = 'panel-collapsed';
-        var collapsedLocalStorageState = 'collapsed';
         var localStorageIdentifier = 'pagepanel-' + elem.attr('id');
-        var isCollapsedOnLoad = localStorage.getItem(localStorageIdentifier) === collapsedLocalStorageState;
+        if(!localStorage.getItem(localStorageIdentifier)){
+            localStorage.setItem(localStorageIdentifier, JSON.stringify({ collapsed: config.collapsed}));
+        }
+        var isCollapsedOnLoad = {};
+
+        // INFO[burs]: determining the initial state of each panel based on the persistence settings..
+        $.each(config.persistState, function (position, persistState) {
+            if (persistState) {
+                isCollapsedOnLoad[position] = JSON.parse(localStorage.getItem(localStorageIdentifier))['collapsed'][position];
+            } else {
+                isCollapsedOnLoad[position] = config.collapsed[position];
+            }
+        });
+
+        var collapsedClasses = {
+            left: 'panel-collapsed-left',
+            right: 'panel-collapsed-right'
+        };
+        var _onExpandActions = function (position, event, ctx) {
+            config.callbacks.beforeExpand[position](event, elem, ctx);
+            elem.removeClass(collapsedClasses[position]);
+            config.callbacks.afterExpand[position](event, elem, ctx);
+        };
+        var _onCollapseActions = function (position, event, ctx) {
+            config.callbacks.beforeCollapse[position](event, elem, ctx);
+            elem.addClass(collapsedClasses[position]);
+            config.callbacks.afterCollapse[position](event, elem, ctx);
+        };
+        var _handlePersistence = function (position, isCollapsing) {
+            if (config.persistState[position]) {
+                var panelState = JSON.parse(localStorage.getItem(localStorageIdentifier));
+                panelState['collapsed'][position] = isCollapsing;
+                localStorage.setItem(localStorageIdentifier, JSON.stringify(panelState));
+            }
+        };
 
         if (config.onLoad) {
             config.onLoad(isCollapsedOnLoad, elem);
         }
 
-        if (isCollapsedOnLoad) {
-            elem.addClass(collapsedCssClass);
-        }
-
-        config.toggler.on('click', function (e) {
-            if (elem.hasClass(collapsedCssClass)) {
-                if (config.beforeExpand) {
-                    config.beforeExpand(e, elem);
-                }
-
-                elem.removeClass(collapsedCssClass);
-                localStorage.removeItem(localStorageIdentifier);
-
-                if (config.afterExpand) {
-                    config.afterExpand(e, elem);
-                }
-            } else {
-                if (config.beforeCollapse) {
-                    config.beforeCollapse(e, elem);
-                }
-
-                elem.addClass(collapsedCssClass);
-                localStorage.setItem(localStorageIdentifier, collapsedLocalStorageState);
-
-                if (config.afterCollapse) {
-                    config.afterCollapse(e, elem);
-                }
+        // INFO[burs]: setting the initial state of the panels..
+        $.each(isCollapsedOnLoad, function (position, value) {
+            if (value) {
+                elem.addClass(collapsedClasses[position]);
             }
+        });
+
+        // INFO[burs]: attaching the event handlers for every toggler ("hamburger" buttons)..
+        $.each(config.toggler, function (position, togglerElement) {
+            togglerElement.on('click', function (event) {
+                var isExpanding = elem.hasClass(collapsedClasses[position]);
+                if (isExpanding) {
+                    _onExpandActions(position, event, this);
+                } else {
+                    _onCollapseActions(position, event, this);
+                }
+                _handlePersistence(position, !isExpanding);
+            });
         });
     };
 

@@ -105,14 +105,22 @@
     </div>
 
     <div class="container-wrap" id="container-wrapper-with-panels">
-        @{
-            Html.RenderPartial("_LeftNavigationBar");
-        }
+        <div class="left-panelbar">
+            @{
+                Html.RenderPartial("_LeftNavigationBar");
+            }
+        </div>
 
         <!-- About us Dialog -->
 
-        <div class="right-panelbar">
+        <div class="center-panelbar">
             @RenderBody()
+        </div>
+
+        <div class="right-panelbar">
+            @{
+                            Html.RenderPartial("_RightBar");
+                        }
         </div>
 
         <!-- Le javascript
@@ -126,18 +134,27 @@
         <script src="/Scripts/prosody/utilityfunctions.js"></script>
         <script>
             $("#container-wrapper-with-panels").panelExpander({
+                persistState: {
+                    left: true
+                },
                 onLoad: function (isCollapsedOnLoad, container) {
-                    if (isCollapsedOnLoad) {
-                        container.find('.stacked-menu-items-text').hide();
+                    if (isCollapsedOnLoad['left']) {
+                        container.find('#left-panel-inwrap').find('.stacked-menu-items-text').hide();
                     }
                 },
-                beforeCollapse: function (e, container) {
-                    container.find('.stacked-menu-items-text').hide();
-                },
-                afterExpand: function (e, container) {
-                    setTimeout(function (param) {
-                        container.find('.stacked-menu-items-text').fadeIn(100);
-                    }, 100);
+                callbacks: {
+                    beforeCollapse: {
+                        left: function (e, container) {
+                            container.find('#left-panel-inwrap').find('.stacked-menu-items-text').hide();
+                        }
+                    },
+                    afterExpand: {
+                        left: function (e, container, ctx) {
+                            setTimeout(function (param) {
+                                container.find('#left-panel-inwrap').find('.stacked-menu-items-text').fadeIn(100);
+                            }, 100);
+                        }
+                    }
                 }
             });
 

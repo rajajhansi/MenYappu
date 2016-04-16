@@ -1273,6 +1273,7 @@
     <Content Include="Views\Home\ThalaiFinder.cshtml" />
     <Content Include="Views\Home\AsaiDivider.cshtml" />
     <Content Include="Views\Home\VaippaduFinder.cshtml" />
+    <Content Include="Views\Shared\_RightBar.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

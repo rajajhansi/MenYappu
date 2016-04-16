@@ -11021,6 +11021,56 @@ a.navigation-btn {
 main {
   padding: 0 0 10vh; }
 
+.left-panelbar, .right-panelbar {
+  overflow: auto;
+  position: absolute; }
+
+.left-panelbar {
+  width: 280px;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background-image: url("../../www/images/night.jpg"); }
+
+.right-panelbar {
+  width: 280px;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-image: url("../../www/images/night.jpg"); }
+
+.center-panelbar {
+  position: absolute;
+  overflow: auto;
+  background: #f9f9f9;
+  left: 280px;
+  right: 280px;
+  top: 0;
+  bottom: 0; }
+
+.panel-collapsed-left .left-panelbar {
+  width: 44px; }
+  .panel-collapsed-left .left-panelbar .stacked-menu-items-text {
+    display: none; }
+
+.panel-collapsed-left .center-panelbar {
+  left: 44px; }
+
+.panel-collapsed-right .right-panelbar {
+  width: 44px; }
+
+.panel-collapsed-right .center-panelbar {
+  right: 44px; }
+
+.panel-collapsed .subitems-toggler {
+  display: none; }
+
+.panel-collapsed .stacked-menus-items-submenu {
+  border-top: 1px solid #dddddd;
+  border-bottom: 1px solid #dddddd; }
+  .panel-collapsed .stacked-menus-items-submenu .stacked-menus-items a {
+    padding-left: 10px; }
+
 .page-header {
   margin: 0;
   padding: 0;
@@ -11046,7 +11096,7 @@ main {
     top: 10px;
     left: 10px; }
 
-.noselect, .left-panelbar, .kendo-panelbars-custom .main-title {
+.noselect, .left-panelbar, .right-panelbar, .kendo-panelbars-custom .main-title {
   -webkit-touch-callout: none;
   /* iOS Safari */
   -webkit-user-select: none;
@@ -11061,7 +11111,7 @@ main {
   /* non-prefixed version, currently
 not supported by any browser */ }
 
-.fx-all, .stacked-menus-toggler, .stacked-menus-items, .left-panelbar, .right-panelbar {
+.fx-all, .left-panelbar, .right-panelbar, .center-panelbar, .stacked-menus-toggler, .stacked-menus-items {
   -moz-transition: all 0.1s ease-in-out;
   -o-transition: all 0.1s ease-in-out;
   -webkit-transition: all 0.1s ease-in-out;
@@ -11089,41 +11139,6 @@ not supported by any browser */ }
   left: 0;
   right: 0;
   bottom: 0; }
-
-.left-panelbar {
-  overflow: auto;
-  position: absolute;
-  width: 280px;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  background-image: url("../../www/images/night.jpg"); }
-
-.right-panelbar {
-  position: absolute;
-  overflow: auto;
-  background: #f9f9f9;
-  left: 280px;
-  right: 0;
-  top: 0;
-  bottom: 0; }
-
-.panel-collapsed .left-panelbar {
-  width: 44px; }
-  .panel-collapsed .left-panelbar .stacked-menu-items-text {
-    display: none; }
-
-.panel-collapsed .right-panelbar {
-  left: 44px; }
-
-.panel-collapsed .subitems-toggler {
-  display: none; }
-
-.panel-collapsed .stacked-menus-items-submenu {
-  border-top: 1px solid #dddddd;
-  border-bottom: 1px solid #dddddd; }
-  .panel-collapsed .stacked-menus-items-submenu .stacked-menus-items a {
-    padding-left: 10px; }
 
 .stacked-menus-toggler {
   padding: 10px;

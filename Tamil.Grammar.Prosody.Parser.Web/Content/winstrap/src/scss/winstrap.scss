@@ -68,6 +68,10 @@
 
 // Layout
 @import "win/main";
+
+// MenYappu Components
+@import "menyappu/config";
+@import "menyappu/panels";
 @import "override/page";
 @import "override/shame";
 @import "override/fame";
