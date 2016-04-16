@@ -1,0 +1,178 @@
+﻿@{
+    ViewBag.Title = "மென்யாப்பு";
+}
+
+<ul class="kendo-panelbars-custom" id="seyyulbar">
+    <li>
+        <h4 class="main-title">
+            வாக்கியத்தை உள்ளிடவும்
+            <span class="main-title-icon glyph glyph-chevron-down"></span>
+        </h4>
+        <ul>
+            <li id="seyyul" class="k-state-active">
+                <form id="prosodyForm" class="form-horizontal" action="/api/Prosody/MathiraiCount" method="POST">
+                    <div class="row row-sm">
+                        <div class="col-md-6">
+                            <h4 class="main-title">
+                                வாக்கியம்
+                            </h4>
+                            <textarea class="panelbar-textarea" id="ProsodyText" rows="2"></textarea>
+                        </div>
+                        <div class="col-md-6">
+                            <h4 class="main-title">
+                                மாத்திரை எண்ணிக்கை
+                            </h4>
+                            <input type="text" id="MathiraiCount" class="panelbar-text form-control" />
+                            <div id="rightMathiraiCount" class="type-t5 hidden">
+                                <div>சரியான மாத்திரை எண்ணிக்கை</div>
+                                @*<input type="text" id="CalculatedMathiraiCount" disabled="true" class="panelbar-text form-control" />*@
+                                <span class="cspan" id="CalculatedMathiraiCount"></span>
+                            </div>
+
+                        </div>
+                        <div class="col-md-6 hidden" id="result">
+                            <h4 class="main-title">
+                                முடிவு
+                            </h4>
+                            <div class="type-t3">
+                                <button id="mathirai-correct" class="right btn btn-success btn-with-glyph" aria-hidden="true" data-toggle="tooltip" data-placement="right"><i class="glyph glyph-checkmark"></i>சரி</button>
+                                <button id="mathirai-incorrect" class="wrong btn btn-warning btn-with-glyph" aria-hidden="true" data-toggle="tooltip" data-placement="right">
+                                    <i class="glyph glyph-cancel"></i>
+                                    தவறு
+                                </button>
+                                <a role="button" id="mathirai-explanation"
+                                   class="btn btn-primary btn-with-glyph"
+                                   tabindex="0"
+                                   data-toggle="popover"
+                                   data-trigger="focus"
+                                   data-content="அருமை"><i class="glyph glyph-message"></i>விளக்கம்</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-sm">
+                        <div class="col-md-6">
+                            <div class="control-group">
+                                <div class="controls">
+                                    <button class="btn btn-primary btn-with-glyph" id="example"><i class="glyph glyph-import "></i>மாதிரி</button>
+                                    <button type="submit" class="btn btn-primary btn-with-glyph"><i class="glyph glyph-message"></i>சரி பார்த்திடு</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<script type="text/x-kendo-template" id="mathiraiTemplate">
+    # var mathiraiInSeer = ""; var key = 0; #
+    # for (var l=0; l < mathiraiCount.length; l++) { #
+    # $.each(mathiraiCount[l], function(mathiraiKey, mathiraiValue) { #
+    # if (key !== Object.keys(mathiraiCount[l]).length - 1) { #
+    # mathiraiInSeer = mathiraiInSeer + '<ruby><span class="uiTrant">' + mathiraiKey + '</span><rt>' + mathiraiValue + ' + </rt></ruby>  '; #
+    # } else { #
+    # mathiraiInSeer = mathiraiInSeer + '<ruby><span class="uiTrant">' + mathiraiKey + '</span><rt>' + mathiraiValue +  '</rt></ruby>  '; #
+    # } #
+    # key++; #
+    # }) #
+    # mathiraiInSeer = mathiraiInSeer + '<ruby><span class="uiTrant">' + '&nbsp;' + ' </span><rt>' + ' = ' + totalMathiraiCount + '</rt></ruby><br />'; #
+    # } #
+    #= mathiraiInSeer #
+</script>
+
+<script type="text/x-kendo-template" id="mathiraiHelpTemplate">
+    <div class="helptext">
+        <span class="type-t6">மாத்திரை</span>
+        <br />
+        எழுத்து ஒலி அளவு மாத்திரை எனப்படும்.
+    </div>
+    <br/>
+    <table class="table theme-alt type-t9">
+        <thead>
+            <tr>
+                <th>எழுத்து</th>
+                <th>மாத்திரை</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="kuril">
+                <td>குறில்</td>
+                <td>1</td>
+            </tr>
+            <tr class="nedil">
+                <td>நெடில்</td>
+                <td>2</td>
+            </tr>
+            <tr class="otru">
+                <td>ஒற்று/மெய்</td>
+                <td>½</td>
+            </tr>
+            <tr class="aytham">
+                <td>ஆய்தம்</td>
+                <td>½</td>
+            </tr>
+        </tbody>
+    </table>
+</script>
+<script>
+    $(document).ready(function () {
+        // set the context help
+        var mathiraiHelpTemplate = kendo.template($("#mathiraiHelpTemplate").html());
+        Utility.setContextHelp(mathiraiHelpTemplate({}));
+        // event handler for select
+        var onSelect = function (e) {
+            // access the selected item via e.item (HTMLElement)
+            var item = e.sender.select();
+
+            if (item.hasClass("k-state-active")) {
+                e.sender.collapse(item);
+            } else {
+                e.sender.expand(item);
+            }
+        };
+        var seyyulPanelBar = $("#seyyulbar").kendoPanelBar({
+            expandMode: "single",
+            select: onSelect
+        }).data("kendoPanelBar");
+        seyyulPanelBar.expand($(".k-first"), true);
+
+        Utility.hideResult();
+        Utility.hideElement("rightMathiraiCount");
+        Utility.setupExample('/api/prosody/Seergal', 'seer');
+        $("#prosodyForm").submit(function () {
+            Utility.hideResult();
+
+            var shouldCompareVenpaRules = $("#ShouldCompareVenpaRules").is(':checked');
+            var data = '{"InputText" : "' + $("#ProsodyText").val() + '"' +
+                '}';
+            $.ajax({
+                url: '/api/Prosody/MathiraiCount',
+                data: data,
+                contentType: 'application/json; charset=utf8',
+                type: 'POST',
+                async: false,
+                success: function (data) {
+                    var mathiraiTemplate = kendo.template($("#mathiraiTemplate").html());
+                    var mathiraiExplanation = mathiraiTemplate({
+                        mathiraiCount: data["MathiraiCount"],
+                        totalMathiraiCount: data["TotalMathiraiCount"]
+                    });
+
+                    $("#CalculatedMathiraiCount").html('<h1>' + data["TotalMathiraiCount"] + '</h1>');
+                    if (parseFloat($("#MathiraiCount").val()) !== data["TotalMathiraiCount"]) {
+                        Utility.showElement("rightMathiraiCount");
+                        Utility.showIncorrect("mathirai", mathiraiExplanation);
+                    } else {
+                        Utility.showCorrect("mathirai", mathiraiExplanation);
+                    }
+                    Utility.showElement("result");
+                },
+                error: function (data) {
+                    alert('error');
+                }
+            });
+            return false;
+        });
+    });
+</script>

@@ -1,0 +1,357 @@
+.btn.btn-success {
+    background-color: $shame_green;
+    border-color: $shame_green;
+
+    &:hover {
+        background-color: darken($shame_green, 5%);
+        border-color: darken($shame_green, 8%);
+    }
+
+    &:active {
+        background-color: darken($shame_green, 8%);
+        border-color: darken($shame_green, 11%);
+    }
+
+    &:focus {
+        background-color: darken($shame_green, 5%);
+        border-color: darken($shame_green, 8%);
+    }
+}
+
+.btn {
+    position: relative;
+
+    > .glyph {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+    }
+}
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+    -khtml-user-select: none; /* Konqueror */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE/Edge */
+    user-select: none;
+    /* non-prefixed version, currently
+not supported by any browser */
+}
+
+.fx-all {
+    -moz-transition: all 0.1s ease-in-out;
+    -o-transition: all 0.1s ease-in-out;
+    -webkit-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+}
+
+%stacked-menus-items-mix {
+    @extend .fx-all;
+    cursor: pointer;
+    color: $shame_white;
+
+    a {
+        padding: 15px 15px 15px 10px;
+        display: block;
+        outline: none;
+        color: $shame_white;
+
+        &:hover {
+            background: $shame_hoverlue;
+            text-decoration: none !important;
+        }
+
+        &:focus {
+            text-decoration: none !important;
+        }
+    }
+}
+
+.container-wrap {
+    position: absolute;
+    overflow: hidden;
+    background: white;
+    top: 48px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.stacked-menus-toggler {
+    @extend %stacked-menus-items-mix;
+    padding: 10px;
+    font-size: $shame_lefticons_fs;
+    float: left;
+
+    &:hover {
+        background: $shame_hoverlue;
+    }
+
+    .glyph {
+        width: auto;
+        height: auto;
+        display: block;
+    }
+}
+
+.stacked-menus-items {
+    @extend %stacked-menus-items-mix;
+    position: relative;
+    line-height: 1em;
+
+    .stacked-menu-items-icon {
+        font-size: $shame_lefticons_fs;
+    }
+}
+
+.stacked-menus-items-submenu {
+    position: relative;
+
+    .stacked-menus-items {
+        a {
+            padding-left: 30px;
+        }
+    }
+}
+
+.with-submenu {
+    .stacked-menus-items-submenu {
+        display: none;
+    }
+
+    > a {
+        padding-right: 29px;
+    }
+
+    &.expanded {
+        .stacked-menus-items-submenu {
+            display: block;
+        }
+    }
+}
+
+.subitems-toggler {
+    pointer-events: none;
+    position: absolute;
+    top: 20px;
+    right: 10px;
+}
+
+.stacked-menu-items-text {
+    font-size: 1.2em;
+    padding-left: 4px;
+}
+
+.kendo-panelbars-custom {
+    border: 0 !important;
+
+    .main-title {
+        @extend .noselect;
+        position: relative;
+        padding: 15px 0 15px 40px;
+        border-bottom: 1px solid $shame_bordercol;
+
+        .main-title-icon {
+            position: absolute;
+            top: 20px;
+            left: 5px;
+        }
+    }
+
+    .panelbar-text {
+        margin-top: 1em;
+    }
+
+    .panelbar-textarea {
+        margin-top: 1em;
+        width: 100%;
+    }
+
+    > .k-item {
+        > .k-header {
+            border-bottom: 0 !important;
+        }
+    }
+
+    .k-group.k-panel {
+        border: 0;
+    }
+
+    > .k-item {
+        &.k-state-active {
+            .main-title-icon {
+                -webkit-transform: rotate(180deg);
+                -ms-transform: rotate(180deg);
+                -moz-transform: rotate(180deg);
+                -o-transform: rotate(180deg);
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    .k-tabstrip {
+        border: 0;
+    }
+
+    .k-tabstrip-items .k-item, .k-panelbar .k-tabstrip-items .k-item {
+        border: 0 !important;
+    }
+
+    .k-tabstrip .k-content, .k-panelbar .k-tabstrip .k-content {
+        border: 0 !important;
+    }
+
+    .menyappu-content-tabstrip {
+        margin-left: 1em;
+        margin-right: 1em;
+
+        > .k-content {
+            padding: 0 1em;
+            margin: 0;
+        }
+    }
+
+    .k-tabstrip-wrapper {
+        border-bottom-width: 0;
+    }
+}
+
+.k-tabstrip-items .k-link, .k-panelbar .k-tabstrip-items .k-link {
+    color: $shame_black;
+}
+
+.menyappu-content-tabstrip {
+    outline: none;
+
+    > .k-tabstrip-items {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding: 0;
+        background: #f1f1f1;
+        border-left: 1px solid $shame_bordercol;
+        border-bottom: 1px solid $shame_bordercol;
+        border-right: 1px solid $shame_bordercol;
+
+        > .k-item {
+            > .k-link {
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+
+            &.k-state-active {
+                position: relative;
+
+                &:after {
+                    content: ' ';
+                    position: absolute;
+                    height: 3px;
+                    background: $shame_hoverlue;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                }
+            }
+        }
+    }
+
+    > .k-content {
+        .k-header {
+            padding: 10px 0;
+            border: 0;
+            border-bottom: 1px solid $shame_bordercol;
+        }
+    }
+}
+
+// not sure why the seyul klink gets a link class.. adding this here till i figure out why
+.group-checkboxes-control {
+    margin-top: 10px;
+}
+
+#seyyul {
+    > .k-link {
+        cursor: auto;
+    }
+}
+
+td {
+    padding: .25em 2em .25em 0;
+    border: 0 none;
+}
+
+.navbar-search-wrap {
+    .navbar-searchfield {
+        &:focus {
+            border-color: rgba(0, 0, 0, 0.6);
+        }
+    }
+}
+
+.navbar {
+    z-index: 9999;
+}
+
+.modal {
+    z-index: 99999;
+}
+
+.cspan {
+    display: table;
+    margin: 0 auto;
+}
+
+.popover, .tooltip{
+    font-size: 13px;
+}
+.popover .popover-content{
+    padding: 7px 8px 8px;
+}
+.tooltip-inner, .popover{
+    max-width: 350px;
+    overflow: auto;
+}
+
+.btn-with-glyph{
+    padding-left: 30px;
+}
+
+/* Fade-In Effect */
+.visible {
+    visibility: visible;
+    opacity: 1;
+    -moz-transition: opacity 2s linear;
+    -o-transition: opacity 2s linear;
+    -webkit-transition: opacity 2s linear;
+    transition: opacity 2s linear;
+}
+
+/* Fade-Out Effect */
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+    -moz-transition: visibility 0s 2s, opacity 2s linear;
+    -o-transition: visibility 0s 2s, opacity 2s linear;
+    -webkit-transition: visibility 0s 2s, opacity 2s linear;
+    transition: visibility 0s 2s, opacity 2s linear;
+}
+
+@media screen and (max-width: 1200px) {
+    .navbar-search-wrap {
+        position: relative;
+        width: 100%;
+
+        .navbar-searchfield {
+            width: 100%;
+            max-width: initial;
+            padding-right: 35px;
+        }
+
+        .navbar-searchbtn {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+    }
+}

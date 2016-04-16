@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tamil.Grammar.Prosody.Parser", "Tamil.Grammar.Prosody.Parser\Tamil.Grammar.Prosody.Parser.csproj", "{8154E335-1B53-4940-914E-A5E4A6612E0D}"
 EndProject
@@ -19,6 +19,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		WebEssentials2015-Settings.json = WebEssentials2015-Settings.json
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tamil.Grammar.Prosody.Parser.WebUI", "Tamil.Grammar.Prosody.Parser.WebUI\Tamil.Grammar.Prosody.Parser.WebUI.csproj", "{1341A4F7-794A-4E73-855B-52D6FD8167DC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -64,6 +66,18 @@ Global
 		{7F1453D2-A019-4334-9DE2-89AAAFC190E1}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{7F1453D2-A019-4334-9DE2-89AAAFC190E1}.Release|x86.ActiveCfg = Release|Any CPU
 		{7F1453D2-A019-4334-9DE2-89AAAFC190E1}.Release|x86.Build.0 = Release|Any CPU
+		{1341A4F7-794A-4E73-855B-52D6FD8167DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1341A4F7-794A-4E73-855B-52D6FD8167DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1341A4F7-794A-4E73-855B-52D6FD8167DC}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{1341A4F7-794A-4E73-855B-52D6FD8167DC}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{1341A4F7-794A-4E73-855B-52D6FD8167DC}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1341A4F7-794A-4E73-855B-52D6FD8167DC}.Debug|x86.Build.0 = Debug|Any CPU
+		{1341A4F7-794A-4E73-855B-52D6FD8167DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1341A4F7-794A-4E73-855B-52D6FD8167DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1341A4F7-794A-4E73-855B-52D6FD8167DC}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{1341A4F7-794A-4E73-855B-52D6FD8167DC}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{1341A4F7-794A-4E73-855B-52D6FD8167DC}.Release|x86.ActiveCfg = Release|Any CPU
+		{1341A4F7-794A-4E73-855B-52D6FD8167DC}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -72,5 +86,6 @@ Global
 		{8154E335-1B53-4940-914E-A5E4A6612E0D} = {5F4756D0-22B1-4F0C-9B9F-933758276D6A}
 		{54460D3F-3C68-4D50-95AC-43710B3E06A2} = {8B8097AA-7514-491C-8DC6-55C523CA4ABE}
 		{7F1453D2-A019-4334-9DE2-89AAAFC190E1} = {489B3C15-51BA-4985-9C7B-C35369336AB8}
+		{1341A4F7-794A-4E73-855B-52D6FD8167DC} = {489B3C15-51BA-4985-9C7B-C35369336AB8}
 	EndGlobalSection
 EndGlobal
