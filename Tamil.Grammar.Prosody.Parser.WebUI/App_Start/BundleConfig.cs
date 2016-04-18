@@ -27,7 +27,7 @@ namespace Tamil.Grammar.Prosody.Parser.WebUI
                 "~/Content/winstrap/dist/js/vendor/bootstrap.js"
                 ));
             // The Kendo JavaScript bundle
-            bundles.Add(new ScriptBundle("~/Scripts/kendo").Include(
+            bundles.Add(new ScriptBundle("~/Scripts/kendojs").Include(
                     "~/Scripts/kendo/2016.1/kendo.web.js"
                     ));
 
