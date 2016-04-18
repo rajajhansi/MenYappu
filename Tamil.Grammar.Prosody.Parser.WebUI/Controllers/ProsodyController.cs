@@ -83,6 +83,22 @@ namespace Tamil.Parody.Parser.WebUI.Controllers
             return response;
         }
 
+        [Route("AdiMeasurer")]
+        [HttpPost]
+        public HttpResponseMessage FindAdiClass(ProsodyText prosodyText)
+        {
+            var response = Request.CreateResponse(HttpStatusCode.NoContent);
+            if (prosodyText != null && !string.IsNullOrEmpty(prosodyText.InputText))
+            {
+                var prosodyParser = new ProsodyParser(prosodyText.InputText);
+                var lineClass = prosodyParser.GetLineClass(prosodyText.InputText);
+                response = Request.CreateResponse(HttpStatusCode.Created, lineClass);
+                response.Headers.Location = new Uri(Request.RequestUri,
+                                                    string.Format("prosody/{0}", "FindAdiClass"));
+            }
+
+            return response;
+        }
         private HttpResponseMessage ReadJsonFile(string fileName)
         {
             var json = File.ReadAllText(HttpContext.Current.Server.MapPath(fileName));

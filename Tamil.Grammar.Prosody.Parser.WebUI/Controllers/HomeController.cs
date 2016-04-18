@@ -63,5 +63,11 @@ namespace Tamil.Parody.Parser.WebUI.Controllers
 
             return View();
         }
+
+        private ActionResult AdiMeasurer()
+        {
+            ViewBag.Message = "Adi Measurer";
+            return View();
+        }
     }
 }

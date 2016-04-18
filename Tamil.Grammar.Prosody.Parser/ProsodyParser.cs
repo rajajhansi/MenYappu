@@ -123,6 +123,19 @@ namespace RjamSoft.Tamil.Grammar.Parser
                 WordBond = WordBond
             };
         }
+
+        public LineMeasure GetLineClass(string prosodyText = "")
+        {
+            InputSourceText = (prosodyText.Length > 0) ? prosodyText : InputSourceText;
+            ProsodyText = Transliterator.Tamil2Latin(InputSourceText).Trim();
+            this.ParseTreeRoot = GetTextSyllablePattern(ProsodyText);
+            LineClass = GetLineClass(this.ParseTreeRoot);
+            return new LineMeasure
+            {
+                ParseTree = ParseTreeRoot,
+                LineClass = LineClass
+            };
+        }
         public ProsodyPart Parse(string prosodyText="")
         {
             InputSourceText = (prosodyText.Length > 0) ? prosodyText : InputSourceText;
@@ -1198,6 +1211,12 @@ namespace RjamSoft.Tamil.Grammar.Parser
                 {TamilLanguageConstants.Nedil, nedilEzuthuCount }
             };
         }
+    }
+
+    public class LineMeasure
+    {
+        public Dictionary<string, Dictionary<string, Dictionary<string, Dictionary<string, string>>>> ParseTree { get; set; }
+        public List<string> LineClass { get; set; }
     }
 
     public class MetricLinkage

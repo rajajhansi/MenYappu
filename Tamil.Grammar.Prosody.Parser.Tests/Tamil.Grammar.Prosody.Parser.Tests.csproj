@@ -66,6 +66,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdiTests.cs" />
     <Compile Include="AsaiTests.cs" />
     <Compile Include="MathiraiTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
