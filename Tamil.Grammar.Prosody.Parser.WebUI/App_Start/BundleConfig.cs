@@ -59,15 +59,9 @@ namespace Tamil.Grammar.Prosody.Parser.WebUI
                 "~/Content/bootstrap-responsive.css"));
             // Add kendo css
             bundles.Add(new StyleBundle("~/Content/kendoui").Include(
-                "~/Content/kendo/2012.2.710/kendo.common.*",
-                "~/Content/kendo/2012.2.710/kendo.default.*"
+                "~/Content/kendo/2016.1/kendo.common.*"
                 ));
 
-
-            // BOGDAN: kendoui without the theme
-            bundles.Add(new StyleBundle("~/Content/kendoui_notheme").Include(
-                "~/Content/kendo/2012.2.710/kendo.common.*"
-                ));
             bundles.Add(new StyleBundle("~/Content/prosody").Include(
                 "~/Content/prosody.css"));
             // Add winstrap
