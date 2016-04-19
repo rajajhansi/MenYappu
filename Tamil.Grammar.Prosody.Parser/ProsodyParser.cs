@@ -133,6 +133,7 @@ namespace RjamSoft.Tamil.Grammar.Parser
             return new LineMeasure
             {
                 ParseTree = ParseTreeRoot,
+                Lines = this.InputSourceText.Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList<string>(),
                 LineClass = LineClass
             };
         }
@@ -1216,6 +1217,7 @@ namespace RjamSoft.Tamil.Grammar.Parser
     public class LineMeasure
     {
         public Dictionary<string, Dictionary<string, Dictionary<string, Dictionary<string, string>>>> ParseTree { get; set; }
+        public List<string> Lines { get; set; }
         public List<string> LineClass { get; set; }
     }
 

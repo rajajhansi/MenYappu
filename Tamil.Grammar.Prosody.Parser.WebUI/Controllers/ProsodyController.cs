@@ -129,5 +129,12 @@ namespace Tamil.Parody.Parser.WebUI.Controllers
         {
             return ReadJsonFile(@"~/App_Data/Thodaigal.json");
         }
+
+        [Route("Adigal")]
+        [HttpPost]
+        public HttpResponseMessage Adigal()
+        {
+            return ReadJsonFile(@"~/App_Data/Adigal.json");
+        }
     }
 }

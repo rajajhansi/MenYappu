@@ -592,6 +592,7 @@
     <Content Include="fonts\selawksb.ttf" />
     <Content Include="fonts\selawksl.eot" />
     <Content Include="fonts\selawksl.ttf" />
+    <Content Include="App_Data\adigal.json" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -646,6 +647,7 @@
     <Content Include="Views\Shared\_LeftNavigationBar.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_RightBar.cshtml" />
+    <Content Include="Views\Home\AdiMeasurer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Tamil.Grammar.Prosody.Parser\Tamil.Grammar.Prosody.Parser.csproj">
