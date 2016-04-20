@@ -30,6 +30,10 @@ namespace Tamil.Grammar.Prosody.Parser.WebUI
             bundles.Add(new ScriptBundle("~/Scripts/kendojs").Include(
                     "~/Scripts/kendo/2016.1/kendo.web.js"
                     ));
+            // The Toastr JavaScript bundle
+            bundles.Add(new ScriptBundle("~/Scripts/toastr").Include(
+                    "~/Scripts/toastr/toastr.js"
+                    ));
 
             // BOGDAN UI BUNDLE
             bundles.Add(new ScriptBundle("~/Scripts/customui").Include(

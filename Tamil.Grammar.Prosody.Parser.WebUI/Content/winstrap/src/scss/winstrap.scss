@@ -69,6 +69,9 @@
 // Layout
 @import "win/main";
 
+// Plugins
+@import "plugins/toastr";
+
 // MenYappu Components
 @import "menyappu/config";
 @import "menyappu/panels";

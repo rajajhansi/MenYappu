@@ -15,6 +15,7 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/Scripts/bootstrap")
     @Scripts.Render("~/Scripts/kendojs")
+    @Scripts.Render("~/Scripts/toastr")
 
     @*<link href="~/Content/bootstrap.min.css" rel="stylesheet">*@
     @*<link href="~/Content/bootstrap-responsive.min.css" rel="stylesheet">*@
@@ -93,17 +94,28 @@
                     if (isCollapsedOnLoad['left']) {
                         container.find('#left-panel-inwrap').find('.stacked-menu-items-text').hide();
                     }
+                    if (isCollapsedOnLoad['right']) {
+                        container.find("#right-panelbar-innercontent").hide();
+                    }
                 },
                 callbacks: {
                     beforeCollapse: {
                         left: function (e, container) {
                             container.find('#left-panel-inwrap').find('.stacked-menu-items-text').hide();
+                        },
+                        right: function (e, container) {
+                            container.find("#right-panelbar-innercontent").hide();       
                         }
                     },
                     afterExpand: {
                         left: function (e, container, ctx) {
                             setTimeout(function (param) {
                                 container.find('#left-panel-inwrap').find('.stacked-menu-items-text').fadeIn(100);
+                            }, 100);
+                        },
+                        right: function (e, container, ctx) {
+                            setTimeout(function (param) {
+                                container.find("#right-panelbar-innercontent").fadeIn(100);  
                             }, 100);
                         }
                     }

@@ -1,5 +1,9 @@
 // generic panels
-
+%panelbar-hide-on-collapse-ext{
+  //.panelbar-hide-on-collapse{
+  //  display: none !important;
+  //}
+}
 %panelbar-common-styles{
   @extend .fx-all;
   @extend .noselect;
@@ -36,6 +40,7 @@
   bottom: 0;
 }
 .panel-collapsed-left{
+  @extend %panelbar-hide-on-collapse-ext;
   .left-panelbar {
     width: $shame_leftpanelsize_collapsed;
 
@@ -48,6 +53,7 @@
   }
 }
 .panel-collapsed-right{
+  @extend %panelbar-hide-on-collapse-ext;
   .right-panelbar {
     width: $shame_rightpanelsize_collapsed;
   }
