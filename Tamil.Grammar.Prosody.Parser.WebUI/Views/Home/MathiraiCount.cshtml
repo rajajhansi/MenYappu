@@ -82,12 +82,17 @@
 </script>
 
 <script type="text/x-kendo-template" id="mathiraiHelpTemplate">
+    <audio id="aud-mathirai" preload="auto">
+        <source src="/audio/mathirai.mp3" controls>
+        Your browser isn't invited for super fun audio time.
+    </audio>
     <div class="helptext">
         <span class="type-t6">மாத்திரை</span>
+        <button id="play-mathirai" class="btn btn-primary btn-with-glyph"><i class="glyph glyph-play"></i>ஒலி</button>
         <br />
         எழுத்து ஒலி அளவு மாத்திரை எனப்படும்.
     </div>
-    <br/>
+    <br />
     <table class="table theme-alt type-t9">
         <thead>
             <tr>
@@ -114,12 +119,20 @@
             </tr>
         </tbody>
     </table>
+
 </script>
 <script>
     $(document).ready(function () {
         // set the context help
         var mathiraiHelpTemplate = kendo.template($("#mathiraiHelpTemplate").html());
         Utility.setContextHelp(mathiraiHelpTemplate({}));
+        var audioMathirai = $("#aud-mathirai")[0];
+        $("#play-mathirai").mouseenter(function () {
+            audioMathirai.play();
+        });
+        $("#play-mathirai").mouseleave(function () {
+            audioMathirai.pause();
+        });
         // event handler for select
         var onSelect = function (e) {
             // access the selected item via e.item (HTMLElement)
