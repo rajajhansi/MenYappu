@@ -88,11 +88,12 @@
     </audio>
     <div class="helptext">
         <span class="type-t6">மாத்திரை</span>
-        <button id="play-mathirai" class="btn btn-primary btn-with-glyph"><i class="glyph glyph-play"></i>ஒலி</button>
         <br />
         எழுத்து ஒலி அளவு மாத்திரை எனப்படும்.
     </div>
-    <br />
+    <button id="play-mathirai" class="btn btn-primary btn-with-glyph"><i class="glyph glyph-play"></i>ஒலி</button>
+    <button id="play-mathirai" class="btn btn-primary btn-with-glyph" data-toggle="modal" data-target="\#modal-video-mathirai"><i class="glyph glyph-video"></i>நிகழ்படம்</button>
+    <br /> <br/>
     <table class="table theme-alt type-t9">
         <thead>
             <tr>
@@ -120,6 +121,25 @@
         </tbody>
     </table>
 
+    <div class="modal modal-center-vertical" id="modal-video-mathirai" tabindex="-1" role="dialog" aria-labelledby="modal-about-menyappu-label" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="modal-sample-label">
+                        மென் யாப்பு
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <iframe width="420" height="315" src="https://www.youtube.com/embed/AH4bCeBXFm4?start=396" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">
+                        மூடு
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 </script>
 <script>
     $(document).ready(function () {
