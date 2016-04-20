@@ -18,7 +18,7 @@
                             </h4>
                             <textarea class="panelbar-textarea" id="ProsodyText" rows="6"></textarea>
                         </div>
-                        <div class="col-md-6 hidden" id="asaiCalculator">
+                        <div class="col-md-4 hidden" id="asaiCalculator">
                             <h4 class="main-title">
                                 அசைகளின் எண்ணிக்கை
                             </h4>
@@ -120,6 +120,28 @@
             <li><a href="\\#">புளிமாங்காய்</a></li>
             <li><a href="\\#">கூவிளங்காய்</a></li>
             <li><a href="\\#">கருவிளங்காய்</a></li>
+            <li><a href="\\#">தேமாங்கனி</a></li>
+            <li><a href="\\#">புளிமாங்கனி</a></li>
+            <li><a href="\\#">கூவிளங்கனி</a></li>
+            <li><a href="\\#">கருவிளங்கனி</a></li>
+            # } #
+            # if (asaiCount === 4) { #
+            <li><a href="\\#">தேமாந்தண்பூ</a></li>
+            <li><a href="\\#">புளிமாந்தண்பூ</a></li>
+            <li><a href="\\#">கூவிளந்தண்பூ</a></li>
+            <li><a href="\\#">கருவிளந்தண்பூ</a></li>
+            <li><a href="\\#">தேமாநறும்பூ</a></li>
+            <li><a href="\\#">புளிமாநறும்பூ</a></li>
+            <li><a href="\\#">கூவிளநறும்பூ </a></li>
+            <li><a href="\\#">கருவிளநறும்பூ</a></li>
+            <li><a href="\\#">தேமாநறுநிழல்</a></li>
+            <li><a href="\\#">புளிமாநறுநிழல்</a></li>
+            <li><a href="\\#">கூவிளநறுநிழல்</a></li>
+            <li><a href="\\#">கருவிளநறுநிழல்</a></li>
+            <li><a href="\\#">தேமாந்தண்ணிழல்</a></li>
+            <li><a href="\\#">புளிமாந்தண்ணிழல்</a></li>
+            <li><a href="\\#">கூவிளந்தண்ணிழல்</a></li>
+            <li><a href="\\#">கருவிளந்தண்ணிழல்</a></li>
             # } #
         </ul>
     </div>
@@ -179,7 +201,7 @@
 
 <script type="text/x-kendo-template" id="seerHelpTemplate">
     <div class="helptext">
-        <span class="type-t6">சீர் (Metrical foot)</span>
+        <span class="type-t6" id="seer">சீர் (Metrical foot)</span>
         <br />
         அசையால் அமைவது சீர் ஆகும்.
     </div>
@@ -187,21 +209,21 @@
     <table class="table theme-alt type-t9">
         <tbody>
             <tr>
-                <td>1. ஓரசைச்சீர்</td>
+                <td>1. ஓரசைச்சீர் <a href="\#orasai"><i class="glyph glyph-go"></i></a></td>
             </tr>
             <tr>
-                <td>2. ஈரசைச்சீர்</td>
+                <td>2. ஈரசைச்சீர் <a href="\#eerasai"><i class="glyph glyph-go"></i></a></td>
             </tr>
             <tr>
-                <td>3. மூவசைச்சீர்</td>
+                <td>3. மூவசைச்சீர் <a href="\#moovasai"><i class="glyph glyph-go"></i></a></td>
             </tr>
             <tr>
-                <td>4. நாலசைச்சீர்</td>
+                <td>4. நாலசைச்சீர் <a href="\#naalasai"><i class="glyph glyph-go"></i></a></td>
             </tr>
         </tbody>
     </table>
     <div class="helptext">
-        <span class="type-t6">ஓரசைச்சீர் வகை</span>
+        <span class="type-t6" id="orasai">ஓரசைச்சீர் வகை<a href="\#seer"><i class="glyph glyph-up"></i></a></span>
     </div>
     <table class="table theme-alt type-t9">
         <thead>
@@ -235,7 +257,7 @@
         </tbody>
     </table>
     <div class="helptext">
-        <span class="type-t6">ஈரசைச்சீர் வகை: மாச்சீர், விளச்சீர்</span>
+        <span class="type-t6" id="eerasai">ஈரசைச்சீர் வகை: மாச்சீர், விளச்சீர்<a href="\#seer"><i class="glyph glyph-up"></i></a></span>
     </div>
     <table class="table theme-alt type-t9">
         <thead>
@@ -269,7 +291,7 @@
         </tbody>
     </table>
     <div class="helptext">
-        <span class="type-t6">மூவசைச்சீர் வகை: காய்ச்சீர், கனிச்சீர்</span>
+        <span class="type-t6" id="moovasai">மூவசைச்சீர் வகை: காய்ச்சீர், கனிச்சீர்<a href="\#seer"><i class="glyph glyph-up"></i></a></span>
         <br/>
         <br/>
         <span class="type-t6">காய்ச்சீர் வகை</span>
@@ -306,7 +328,7 @@
         </tbody>
     </table>
     <div class="helptext">
-        <span class="type-t6">கனிச்சீர் வகை</span>
+        <span class="type-t6" id="naalasai">கனிச்சீர் வகை<a href="\#seer"><i class="glyph glyph-up"></i></a></span>
     </div>
     <table class="table theme-alt type-t9">
         <thead>

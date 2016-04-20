@@ -648,6 +648,9 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_RightBar.cshtml" />
     <Content Include="Views\Home\AdiMeasurer.cshtml" />
+    <Content Include="Views\Shared\_TopNavigationBar.cshtml" />
+    <Content Include="Views\Home\VenpaConversations.cshtml" />
+    <Content Include="Views\Home\Venpas.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Tamil.Grammar.Prosody.Parser\Tamil.Grammar.Prosody.Parser.csproj">

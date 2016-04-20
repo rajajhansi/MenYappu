@@ -22,6 +22,18 @@ namespace Tamil.Parody.Parser.WebUI.Controllers
             return View();
         }
 
+        public ActionResult Venpas()
+        {
+            ViewBag.Message = "வெண்பாக்கள்";
+
+            return View();
+        }
+        public ActionResult VenpaConversations()
+        {
+            ViewBag.Message = "Venpa Conversations";
+
+            return View();
+        }
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
