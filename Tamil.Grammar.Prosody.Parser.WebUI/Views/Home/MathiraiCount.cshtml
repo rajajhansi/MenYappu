@@ -65,6 +65,20 @@
     </li>
 </ul>
 
+<script type="text/x-kendo-template" id="detailedMathiraiTemplate">
+    # var mathiraiInSeer = ""; var key = 0; #
+    # for(var l=0; l < detailedMathiraiCount.length; l++) { #
+    # $.each(detailedMathiraiCount[l], function(detailedMathiraiKey, detailedMathiraiValue) { #
+    # $.each(detailedMathiraiValue, function(mathiraiKey, mathiraiValue) { #
+    # mathiraiInSeer = mathiraiInSeer + '<ruby><span class="uiTrant">' + mathiraiKey + '</span><rt>' + mathiraiValue +  '</rt></ruby>  '; #
+    # }) #
+    # key++; #
+    # }) #
+    # mathiraiInSeer = mathiraiInSeer + '<ruby><span class="uiTrant">' + '&nbsp;' + ' </span><rt>' + ' = ' + totalMathiraiCount + '</rt></ruby><br />'; #
+    # } #
+    #= mathiraiInSeer #
+</script>
+
 <script type="text/x-kendo-template" id="mathiraiTemplate">
     # var mathiraiInSeer = ""; var key = 0; #
     # for (var l=0; l < mathiraiCount.length; l++) { #
@@ -186,9 +200,10 @@
                 type: 'POST',
                 async: false,
                 success: function (data) {
-                    var mathiraiTemplate = kendo.template($("#mathiraiTemplate").html());
+                    var mathiraiTemplate = kendo.template($("#detailedMathiraiTemplate").html());
                     var mathiraiExplanation = mathiraiTemplate({
                         mathiraiCount: data["MathiraiCount"],
+                        detailedMathiraiCount: data["DetailedMathiraiCount"],
                         totalMathiraiCount: data["TotalMathiraiCount"]
                     });
 

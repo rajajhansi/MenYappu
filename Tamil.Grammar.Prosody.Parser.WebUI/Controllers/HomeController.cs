@@ -69,9 +69,9 @@ namespace Tamil.Parody.Parser.WebUI.Controllers
             return View();
         }
 
-        public ActionResult VaippaduFinder()
+        public ActionResult SeerFinder()
         {
-            ViewBag.Message = "Vaippadu Finder";
+            ViewBag.Message = "Seer Finder";
 
             return View();
         }

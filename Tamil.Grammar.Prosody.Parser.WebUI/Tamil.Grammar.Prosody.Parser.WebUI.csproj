@@ -642,7 +642,7 @@
     <Content Include="Views\Home\MathiraiCount.cshtml" />
     <Content Include="Views\Home\ThalaiFinder.cshtml" />
     <Content Include="Views\Home\ThodaiFinder.cshtml" />
-    <Content Include="Views\Home\VaippaduFinder.cshtml" />
+    <Content Include="Views\Home\SeerFinder.cshtml" />
     <Content Include="Views\Shared\_AureliaLayout.cshtml" />
     <Content Include="Views\Shared\_BootstrapLayout.cshtml" />
     <Content Include="Views\Shared\_LeftNavigationBar.cshtml" />

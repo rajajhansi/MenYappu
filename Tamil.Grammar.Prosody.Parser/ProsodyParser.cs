@@ -72,12 +72,14 @@ namespace RjamSoft.Tamil.Grammar.Parser
             ProsodyText = Transliterator.Tamil2Latin(InputSourceText).Trim();
             var tamilText = InputSourceText;
             this.LetterCount = GetLetterCount(tamilText);
-            MathiraiCount = CalculateMathiraiForPaa(tamilText);
+            var detailedMathiraiCount = CalculateDetailedMathiraiForPaa(tamilText);
+            MathiraiCount = detailedMathiraiCount.MathiraiCount;
             MathiraiCount.ForEach(l => TotalMathiraiCount += l.Sum(m => m.Value));
 
             return new MathiraiCounter
             {
                 MathiraiCount = MathiraiCount,
+                DetailedMathiraiCount = detailedMathiraiCount.DetailedMathiraiCount,
                 TotalMathiraiCount = TotalMathiraiCount
             };
         }
@@ -181,6 +183,38 @@ namespace RjamSoft.Tamil.Grammar.Parser
                     SeerIyaipuWithinAdi = this.SeerThodaiWithinAdiWithThodaiType["_iyYpu"],
                     VenpaError = this.VenpaError
                 };
+        }
+
+        public Dictionary<string, double> CalculateMathiraiForWord(string word)
+        {
+            var mathiraiDictionary = new Dictionary<string, double>();
+            var latinWord = Transliterator.Tamil2Latin(word).Trim();
+            var latinLetters = latinWord.SplitInGroups(2);
+            foreach (var latinLetter in latinLetters)
+            {
+                var tamilLetter = Transliterator.Latin2Tamil(latinLetter);
+                mathiraiDictionary.Add(tamilLetter, CalculateMathirai(tamilLetter, false));
+            }
+
+            return mathiraiDictionary;
+        }
+
+        public MathiraiCounter CalculateDetailedMathiraiForPaa(string prosodyText)
+        {
+            var mathiraiCounter = new MathiraiCounter();
+            mathiraiCounter.MathiraiCount = CalculateMathiraiForPaa(prosodyText);
+            mathiraiCounter.DetailedMathiraiCount = new List<Dictionary<string, Dictionary<string, double>>>();
+            foreach (var entry in mathiraiCounter.MathiraiCount)
+            {
+                var wordsDictionary = new Dictionary<string, Dictionary<string, double>>();
+                foreach (var word in entry)
+                {
+                    var mathiraiForWord = CalculateMathiraiForWord(word.Key);
+                    wordsDictionary.Add(word.Key, mathiraiForWord);
+                }
+                mathiraiCounter.DetailedMathiraiCount.Add(wordsDictionary);
+            }
+            return mathiraiCounter;
         }
         public List<Dictionary<string, double>> CalculateMathiraiForPaa(string prosodyText)
         {
@@ -1245,6 +1279,7 @@ namespace RjamSoft.Tamil.Grammar.Parser
     public class MathiraiCounter
     {
         public List<Dictionary<string, double>> MathiraiCount { get; set; }
+        public List<Dictionary<string, Dictionary<string, double>>> DetailedMathiraiCount { get; set; }
         public double TotalMathiraiCount { get; set; }
     }
 }

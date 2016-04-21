@@ -17,9 +17,39 @@ namespace RjamSoft.Tamil.Grammar.Parser.Tests
             var prosodyParser = new ProsodyParser(sentence);
             var MathiraiCount = prosodyParser.GetMathiraiCount();
 
+
             Assert.True(MathiraiCount.TotalMathiraiCount == 6);
         }
 
+        [Fact]
+        public void TestEachWordsMathiraiCount()
+        {
+            var sentence = "தமிழ் வாழ்க";
+            var mathirais = new Dictionary<string, double> {
+            {
+               "தமிழ்", 2.5
+            },
+            {
+                "வாழ்க", 3.5
+            }};
+            var prosodyParser = new ProsodyParser(sentence);
+            var MathiraiCount = prosodyParser.GetMathiraiCount();
+
+            foreach (var wordDictionary in MathiraiCount.DetailedMathiraiCount)
+            {
+                foreach (var wordList in wordDictionary)
+                {
+                    double mathiraiCountForWord = 0;
+                    foreach (var word in wordList.Value)
+                    {
+                        mathiraiCountForWord = mathiraiCountForWord + word.Value;
+                    }
+                    Assert.Equal(mathirais[wordList.Key], mathiraiCountForWord);
+                }
+            }
+
+            Assert.True(MathiraiCount.TotalMathiraiCount == 6);
+        }
         [Fact]
         public void TestTotalMathiraiCountWithGranthaLetters()
         {
