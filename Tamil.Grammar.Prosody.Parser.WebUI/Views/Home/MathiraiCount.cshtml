@@ -66,34 +66,42 @@
 </ul>
 
 <script type="text/x-kendo-template" id="detailedMathiraiTemplate">
-    # var mathiraiInSeer = ""; var key = 0; #
-    # for(var l=0; l < detailedMathiraiCount.length; l++) { #
-    # $.each(detailedMathiraiCount[l], function(detailedMathiraiKey, detailedMathiraiValue) { #
+    # var mathiraiInSeer = ""; var key = 0; var l = 0; #
+    # var letterClass = { 'கு' : 'kuril', 'நெ' : 'nedil', 'ஒ' : 'otru', 'ஆ' : 'aytham' }; #
+    # for(var w=0; w < detailedMathiraiCount.length; w++) { #
+    # $.each(detailedMathiraiCount[w], function(detailedMathiraiKey, detailedMathiraiValue) { #
+    # mathiraiInSeer = mathiraiInSeer + '&nbsp;' #
     # $.each(detailedMathiraiValue, function(mathiraiKey, mathiraiValue) { #
-    # mathiraiInSeer = mathiraiInSeer + '<ruby><span class="uiTrant">' + mathiraiKey + '</span><rt>' + mathiraiValue +  '</rt></ruby>  '; #
+    # var rubyStyle = l === Object.keys(detailedMathiraiValue).length - 1 ? "margin-right:10px" : "margin-right:0px"; #
+    # mathiraiInSeer = mathiraiInSeer + '<ruby style="' + rubyStyle + '"><div class="type-t8 text-center ' + letterClass[mathiraiValue.LetterType] +'"><rt>' + mathiraiValue.LetterType +'</rt></div><span class="uiTrant">' + mathiraiKey + '</span><rt>' + mathiraiValue.Mathirai +  '</rt></ruby>  '; #
+    # if(l !== Object.keys(detailedMathiraiValue).length - 1) { #
+    # mathiraiInSeer = mathiraiInSeer + '<ruby><div class="type-t8 text-center"><rt>&nbsp;</rt></div><span class="uiTrant">' + '&nbsp;' + '</span><rt>' + ' + ' +  '</rt></ruby>  '; #
+    # } #
+    # l++; #
     # }) #
-    # key++; #
+    # l = 0; key++; #
     # }) #
-    # mathiraiInSeer = mathiraiInSeer + '<ruby><span class="uiTrant">' + '&nbsp;' + ' </span><rt>' + ' = ' + totalMathiraiCount + '</rt></ruby><br />'; #
+    # mathiraiInSeer = mathiraiInSeer + '<ruby><div class="type-t8 text-center"><rt>&nbsp;</rt></div><span class="uiTrant">' + '&nbsp;' + ' </span><rt>' + ' = ' + totalMathiraiCount + '</rt></ruby><br />'; #
     # } #
     #= mathiraiInSeer #
 </script>
 
-<script type="text/x-kendo-template" id="mathiraiTemplate">
+@*<script type="text/x-kendo-template" id="mathiraiTemplate">
     # var mathiraiInSeer = ""; var key = 0; #
     # for (var l=0; l < mathiraiCount.length; l++) { #
     # $.each(mathiraiCount[l], function(mathiraiKey, mathiraiValue) { #
     # if (key !== Object.keys(mathiraiCount[l]).length - 1) { #
-    # mathiraiInSeer = mathiraiInSeer + '<ruby><span class="uiTrant">' + mathiraiKey + '</span><rt>' + mathiraiValue + ' + </rt></ruby>  '; #
+    # mathiraiInSeer = mathiraiInSeer + '<ruby class="type-t9"><div>s<span class="uiTrant">' + mathiraiKey + '</span><rt>' + mathiraiValue + ' + </rt></div></ruby>  '; #
     # } else { #
-    # mathiraiInSeer = mathiraiInSeer + '<ruby><span class="uiTrant">' + mathiraiKey + '</span><rt>' + mathiraiValue +  '</rt></ruby>  '; #
+    # mathiraiInSeer = mathiraiInSeer + '<ruby class="type-t9"><div>s<span class="uiTrant">' + mathiraiKey + '</span><rt>' + mathiraiValue + ' + </rt></div></ruby>  '; #
     # } #
     # key++; #
     # }) #
-    # mathiraiInSeer = mathiraiInSeer + '<ruby><span class="uiTrant">' + '&nbsp;' + ' </span><rt>' + ' = ' + totalMathiraiCount + '</rt></ruby><br />'; #
+    # mathiraiInSeer = mathiraiInSeer + '<ruby class="type-t9"><span class="uiTrant">' + '&nbsp;' + ' </span><rt>' + ' = ' + totalMathiraiCount + '</rt></ruby>
+    <br />'; #
     # } #
     #= mathiraiInSeer #
-</script>
+</script>*@
 
 <script type="text/x-kendo-template" id="mathiraiHelpTemplate">
     <audio id="aud-mathirai" preload="auto">
@@ -107,7 +115,8 @@
     </div>
     <button id="play-mathirai" class="btn btn-primary btn-with-glyph"><i class="glyph glyph-play"></i>ஒலி</button>
     <button id="play-mathirai" class="btn btn-primary btn-with-glyph" data-toggle="modal" data-target="\#modal-video-mathirai"><i class="glyph glyph-video"></i>நிகழ்படம்</button>
-    <br /> <br/>
+    <br />
+    <br />
     <table class="table theme-alt type-t9">
         <thead>
             <tr>
