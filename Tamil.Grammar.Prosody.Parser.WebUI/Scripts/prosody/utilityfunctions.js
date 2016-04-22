@@ -1,4 +1,6 @@
-﻿var Utility = (function() {
+﻿var Utility = (function () {
+
+
     function stringStartsWith(string, prefix) {
         return string.slice(0, prefix.length) === prefix;
     }
@@ -62,6 +64,7 @@
     function setContextHelp(helpText) {
         $("#help").append(helpText);
     }
+
     return {
         stringStartsWith: stringStartsWith,
         getRandomNumber: getRandomNumber,

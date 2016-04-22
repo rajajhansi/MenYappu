@@ -78,6 +78,7 @@ namespace RjamSoft.Tamil.Grammar.Parser
 
             return new MathiraiCounter
             {
+                TotalLetterCount = LetterCount[TamilLanguageConstants.All],
                 MathiraiCount = MathiraiCount,
                 DetailedMathiraiCount = detailedMathiraiCount.DetailedMathiraiCount,
                 TotalMathiraiCount = TotalMathiraiCount
@@ -1263,6 +1264,7 @@ namespace RjamSoft.Tamil.Grammar.Parser
             int uyirMeyEzuthuCount = (agaraUyirMeyEzuthuCount + granthaEzuthuCount) - meyEzuthuCount;
             int kurilEzuthuCount = (uyirAndUyirMeyKurilEzuthuCount + agaraUyirMeyEzuthuCount) - meyEzuthuCount - uyirAndUyriMeyNedilEzuthuCount;
             int nedilEzuthuCount = uyirAndUyriMeyNedilEzuthuCount;
+            int totalEzuthuCount = Transliterator.Tamil2Latin(tamilText).Length/2;
             Console.WriteLine(
                 "Uyir Ezuthukkal = {0}\r\nMey Ezuthukkal = {1}\r\nUyir Mey Ezuthukkal = {2}\r\nAytha Ezhuthukkal = {3}\r\nGrantha Ezuthukkal = {4}\r\nKuril Ezuthukkal = {5}\r\nNedil Ezuthukkal = {6}",
                 uyirEzuthuCount, meyEzuthuCount, uyirMeyEzuthuCount, aythaEzuthuCount, granthaEzuthuCount, kurilEzuthuCount, nedilEzuthuCount);
@@ -1273,7 +1275,8 @@ namespace RjamSoft.Tamil.Grammar.Parser
                 {TamilLanguageConstants.ConsonantVowel, uyirMeyEzuthuCount},
                 {TamilLanguageConstants.Aytham, aythaEzuthuCount},
                 {TamilLanguageConstants.Kuril,  kurilEzuthuCount},
-                {TamilLanguageConstants.Nedil, nedilEzuthuCount }
+                {TamilLanguageConstants.Nedil, nedilEzuthuCount },
+                {TamilLanguageConstants.All, totalEzuthuCount }
             };
         }
     }
@@ -1311,6 +1314,7 @@ namespace RjamSoft.Tamil.Grammar.Parser
         public List<Dictionary<string, double>> MathiraiCount { get; set; }
         public List<Dictionary<string, Dictionary<string, LetterTypeWithMathirai>>> DetailedMathiraiCount { get; set; }
         public double TotalMathiraiCount { get; set; }
+        public int TotalLetterCount { get; set; }
     }
 
     public class LetterTypeWithMathirai

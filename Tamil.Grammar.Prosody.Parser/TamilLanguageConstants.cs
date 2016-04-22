@@ -10,6 +10,7 @@ namespace RjamSoft.Tamil.Grammar.Parser
         public static string Aytham = "ஆய்த எழுத்து";
         public static string Kuril = "குறில் எழுத்துக்கள்";
         public static string Nedil = "நெடில் எழுத்துக்கள்";
+        public static string All = "மொத்த எழுத்துக்கள்";
 
         public static Dictionary<char, char> UyirEzuthukkalAgarathi = new Dictionary<char, char>
         {
