@@ -209,7 +209,7 @@ namespace RjamSoft.Tamil.Grammar.Parser
                 var tamilLetter = Transliterator.Latin2Tamil(latinLetter);
                 int meyEzuthuCount = tamilLetter.Count(k => k == TamilLanguageConstants.MeyEzuthuPulli /* 0X0BCD - மெய்யெழுத்தில் வரும் புள்ளி. எ.கா, ’க்’ */);
                 int aythaEzuthuCount = tamilLetter.Count(k => k == TamilLanguageConstants.AythaEzuthu);
-                var letterType = (meyEzuthuCount == 1) ? "ஒ" : (aythaEzuthuCount == 1) ? "ஆ" : "";
+                var letterType = (meyEzuthuCount == 1) ? "மெ" : (aythaEzuthuCount == 1) ? "ஃ" : "";
                 if (string.IsNullOrEmpty(letterType))
                 {
                     letterType = CalculateMathirai(tamilLetter, false) == 1.0 ? "கு" : "நெ";

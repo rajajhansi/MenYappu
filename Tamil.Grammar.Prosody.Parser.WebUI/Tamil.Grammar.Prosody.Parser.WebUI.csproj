@@ -652,6 +652,7 @@
     <Content Include="Views\Shared\_TopNavigationBar.cshtml" />
     <Content Include="Views\Home\VenpaConversations.cshtml" />
     <Content Include="Views\Home\Venpas.cshtml" />
+    <Content Include="Views\Home\LetterTypeFinder.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Tamil.Grammar.Prosody.Parser\Tamil.Grammar.Prosody.Parser.csproj">

@@ -41,6 +41,12 @@ namespace Tamil.Parody.Parser.WebUI.Controllers
             return View();
         }
 
+        public ActionResult LetterTypeFinder()
+        {
+            ViewBag.Message = "Letter Type Finder";
+
+            return View();
+        }
         public ActionResult MathiraiCount()
         {
             ViewBag.Message = "Mathirai Finder";
