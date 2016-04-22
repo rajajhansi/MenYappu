@@ -73,7 +73,9 @@
 @import "plugins/toastr";
 
 // MenYappu Components
+@import "menyappu/others";
 @import "menyappu/config";
+@import "menyappu/flexbox-stuff";
 @import "menyappu/panels";
 @import "override/page";
 @import "override/shame";

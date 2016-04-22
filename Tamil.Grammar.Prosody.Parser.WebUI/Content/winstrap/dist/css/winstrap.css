@@ -11212,10 +11212,43 @@ button.toast-close-button {
     padding: 15px 15px 15px 50px;
     width: 25em; } }
 
+.fullwidth {
+  width: 100%; }
+
+.fullheight {
+  height: 100%; }
+
+.p-absolute {
+  position: absolute; }
+
+.p-relative {
+  position: relative; }
+
+.p-cover {
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0; }
+
+.v-top {
+  vertical-align: top; }
+
 * {
   webkit-box-sizing: border-box !important;
   -moz-box-sizing: border-box !important;
   box-sizing: border-box !important; }
+
+.flexbox-height-parent {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column; }
+
+.flexbox-height-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+  .flexbox-height-child.flexbox-height-child-main {
+    flex: 1; }
 
 .left-panelbar, .right-panelbar {
   overflow: auto;

@@ -1,0 +1,14 @@
+.flexbox-height-parent {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.flexbox-height-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  &.flexbox-height-child-main{
+    flex: 1;
+  }
+}
