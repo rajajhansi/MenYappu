@@ -657,6 +657,14 @@
     <Content Include="Views\Home\LetterTypeFinder.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Gma.DataStructures.StringSearch\Gma.DataStructures.StringSearch.csproj">
+      <Project>{17125877-2cf0-42b2-89d3-418e40bde5d0}</Project>
+      <Name>Gma.DataStructures.StringSearch</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tamil.Grammar.Prosody.Core\Tamil.Grammar.Prosody.Core.csproj">
+      <Project>{9112bc2e-796d-47f6-a7c4-a25aaea9ef49}</Project>
+      <Name>Tamil.Grammar.Prosody.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Tamil.Grammar.Prosody.Parser\Tamil.Grammar.Prosody.Parser.csproj">
       <Project>{8154e335-1b53-4940-914e-a5e4a6612e0d}</Project>
       <Name>Tamil.Grammar.Prosody.Parser</Name>
