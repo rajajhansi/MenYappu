@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using RjamSoft.Tamil.Grammar.Parser;
+using RjamSoft.Tamil.Grammar.Prosody.Core;
 
 namespace Tamil.Grammar.Prosody.Parser
 {

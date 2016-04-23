@@ -594,6 +594,7 @@
     <Content Include="fonts\selawksl.eot" />
     <Content Include="fonts\selawksl.ttf" />
     <Content Include="App_Data\adigal.json" />
+    <Content Include="App_Data\Sorkkal.json" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

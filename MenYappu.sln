@@ -20,6 +20,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tamil.Grammar.Prosody.Parser.WebUI", "Tamil.Grammar.Prosody.Parser.WebUI\Tamil.Grammar.Prosody.Parser.WebUI.csproj", "{1341A4F7-794A-4E73-855B-52D6FD8167DC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gma.DataStructures.StringSearch", "Gma.DataStructures.StringSearch\Gma.DataStructures.StringSearch.csproj", "{17125877-2CF0-42B2-89D3-418E40BDE5D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tamil.Grammar.Prosody.Core", "Tamil.Grammar.Prosody.Core\Tamil.Grammar.Prosody.Core.csproj", "{9112BC2E-796D-47F6-A7C4-A25AAEA9EF49}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -64,6 +68,30 @@ Global
 		{1341A4F7-794A-4E73-855B-52D6FD8167DC}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{1341A4F7-794A-4E73-855B-52D6FD8167DC}.Release|x86.ActiveCfg = Release|Any CPU
 		{1341A4F7-794A-4E73-855B-52D6FD8167DC}.Release|x86.Build.0 = Release|Any CPU
+		{17125877-2CF0-42B2-89D3-418E40BDE5D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17125877-2CF0-42B2-89D3-418E40BDE5D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17125877-2CF0-42B2-89D3-418E40BDE5D0}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{17125877-2CF0-42B2-89D3-418E40BDE5D0}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{17125877-2CF0-42B2-89D3-418E40BDE5D0}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{17125877-2CF0-42B2-89D3-418E40BDE5D0}.Debug|x86.Build.0 = Debug|Any CPU
+		{17125877-2CF0-42B2-89D3-418E40BDE5D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17125877-2CF0-42B2-89D3-418E40BDE5D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17125877-2CF0-42B2-89D3-418E40BDE5D0}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{17125877-2CF0-42B2-89D3-418E40BDE5D0}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{17125877-2CF0-42B2-89D3-418E40BDE5D0}.Release|x86.ActiveCfg = Release|Any CPU
+		{17125877-2CF0-42B2-89D3-418E40BDE5D0}.Release|x86.Build.0 = Release|Any CPU
+		{9112BC2E-796D-47F6-A7C4-A25AAEA9EF49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9112BC2E-796D-47F6-A7C4-A25AAEA9EF49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9112BC2E-796D-47F6-A7C4-A25AAEA9EF49}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{9112BC2E-796D-47F6-A7C4-A25AAEA9EF49}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{9112BC2E-796D-47F6-A7C4-A25AAEA9EF49}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9112BC2E-796D-47F6-A7C4-A25AAEA9EF49}.Debug|x86.Build.0 = Debug|Any CPU
+		{9112BC2E-796D-47F6-A7C4-A25AAEA9EF49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9112BC2E-796D-47F6-A7C4-A25AAEA9EF49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9112BC2E-796D-47F6-A7C4-A25AAEA9EF49}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{9112BC2E-796D-47F6-A7C4-A25AAEA9EF49}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{9112BC2E-796D-47F6-A7C4-A25AAEA9EF49}.Release|x86.ActiveCfg = Release|Any CPU
+		{9112BC2E-796D-47F6-A7C4-A25AAEA9EF49}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -72,5 +100,7 @@ Global
 		{8154E335-1B53-4940-914E-A5E4A6612E0D} = {5F4756D0-22B1-4F0C-9B9F-933758276D6A}
 		{54460D3F-3C68-4D50-95AC-43710B3E06A2} = {8B8097AA-7514-491C-8DC6-55C523CA4ABE}
 		{1341A4F7-794A-4E73-855B-52D6FD8167DC} = {489B3C15-51BA-4985-9C7B-C35369336AB8}
+		{17125877-2CF0-42B2-89D3-418E40BDE5D0} = {5F4756D0-22B1-4F0C-9B9F-933758276D6A}
+		{9112BC2E-796D-47F6-A7C4-A25AAEA9EF49} = {5F4756D0-22B1-4F0C-9B9F-933758276D6A}
 	EndGlobalSection
 EndGlobal

@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdiTests.cs" />
+    <Compile Include="AgarathiTests.cs" />
     <Compile Include="AsaiTests.cs" />
     <Compile Include="MathiraiTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -79,6 +80,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Gma.DataStructures.StringSearch\Gma.DataStructures.StringSearch.csproj">
+      <Project>{17125877-2cf0-42b2-89d3-418e40bde5d0}</Project>
+      <Name>Gma.DataStructures.StringSearch</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tamil.Grammar.Prosody.Core\Tamil.Grammar.Prosody.Core.csproj">
+      <Project>{9112bc2e-796d-47f6-a7c4-a25aaea9ef49}</Project>
+      <Name>Tamil.Grammar.Prosody.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Tamil.Grammar.Prosody.Parser\Tamil.Grammar.Prosody.Parser.csproj">
       <Project>{8154e335-1b53-4940-914e-a5e4a6612e0d}</Project>
       <Name>Tamil.Grammar.Prosody.Parser</Name>
@@ -86,6 +95,11 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="agarathiValid.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

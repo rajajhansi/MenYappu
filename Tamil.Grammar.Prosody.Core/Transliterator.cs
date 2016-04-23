@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace RjamSoft.Tamil.Grammar.Parser
+namespace RjamSoft.Tamil.Grammar.Prosody.Core
 {
     public class Transliterator
     {
@@ -61,7 +61,7 @@ RegexOptions.IgnorePatternWhitespace
         public static string Tamil2Latin(string text)
         {
             var enumerator = TamilLanguageConstants.UyirEzuthukkal2LatinEnglishAgarathi.GetEnumerator();
-            while(enumerator.MoveNext())            
+            while(enumerator.MoveNext())
             {
                 var dictionaryItem = enumerator.Current;
                 text = text.Replace(new string(dictionaryItem.Key, 1), dictionaryItem.Value);
@@ -89,7 +89,7 @@ RegexOptions.IgnorePatternWhitespace
         }
 
         public static string LatinTamil2Tamil(string text)
-        {   
+        {
             text = MeyTamilRegex2.Replace(text, MeyTamilRegexReplace2);
             var enumerator = TamilLanguageConstants.UyirEzuthukkal2LatinAgarathi.GetEnumerator();
             while(enumerator.MoveNext())

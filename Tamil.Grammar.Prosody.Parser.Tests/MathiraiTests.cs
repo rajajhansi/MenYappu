@@ -42,7 +42,7 @@ namespace RjamSoft.Tamil.Grammar.Parser.Tests
                     double mathiraiCountForWord = 0;
                     foreach (var word in wordList.Value)
                     {
-                        mathiraiCountForWord = mathiraiCountForWord + word.Value;
+                        //mathiraiCountForWord = mathiraiCountForWord + word.Value;
                     }
                     Assert.Equal(mathirais[wordList.Key], mathiraiCountForWord);
                 }

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace RjamSoft.Tamil.Grammar.Parser
+namespace RjamSoft.Tamil.Grammar.Prosody.Core
 {
     public class TamilLanguageConstants
     {
