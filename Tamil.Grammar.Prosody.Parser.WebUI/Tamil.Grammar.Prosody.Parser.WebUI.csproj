@@ -609,6 +609,12 @@
     <Content Include="fonts\selawksl.ttf" />
     <Content Include="App_Data\adigal.json" />
     <Content Include="App_Data\Sorkkal.json" />
+    <Content Include="Content\winstrap\src\scss\menyappu\_config.scss" />
+    <Content Include="Content\winstrap\src\scss\menyappu\_flexbox-stuff.scss" />
+    <Content Include="Content\winstrap\src\scss\menyappu\_others.scss" />
+    <Content Include="Content\winstrap\src\scss\menyappu\_panels.scss" />
+    <Content Include="Content\winstrap\src\scss\plugins\_toastr.scss" />
+    <Content Include="Content\winstrap\src\scss\override\_fame.scss" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -636,6 +642,7 @@
     <Content Include="Scripts\prosody\utilityfunctions.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\toastr\toastr.js" />
     <Content Include="Scripts\ui\ui.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

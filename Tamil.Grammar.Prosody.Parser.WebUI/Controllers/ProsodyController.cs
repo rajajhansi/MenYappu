@@ -13,6 +13,12 @@ using Tamil.Grammar.Prosody.Parser;
 
 namespace Tamil.Parody.Parser.WebUI.Controllers
 {
+    public class ThodaiFunctionsAndMessages
+    {
+        public Func<string, int> ThodaiIndexCalculatorFunc { get; set; }
+        public Func<string, string, bool> ThodaiCheckFunc { get; set; }
+        public Dictionary<bool, string> ExplanationMessages { get; set; }
+    }
     [RoutePrefix("api/prosody")]
     public class ProsodyController : ApiController
     {
@@ -22,6 +28,17 @@ namespace Tamil.Parody.Parser.WebUI.Controllers
         private static readonly int Monai = 0;
         private static readonly int Ethukai = 1;
         private static readonly int Iyaipu = 2;
+        private static readonly string MonaiCorrectExplanation = "இரண்டு சொற்களிலும் உள்ள முதல் எழுத்தான ‘{0}’ ஒன்றி வந்திருப்பதால் அவைகளுக்குள் மோனை இருக்கிறது.";
+        private static readonly string MonaiIncorrectExplanation =
+            "இரண்டு சொற்களிலும் உள்ள முதல் எழுத்துகள் ‘{0}' '{1}’ ஒன்றி வராததால் அவைகளுக்குள் மோனை இல்லை.";
+        private static readonly string EthukaiCorrectExplanation = "இரண்டு சொற்களிலும் உள்ள இரண்டாம் எழுத்தான ‘{0}’ ஒன்றி வந்திருப்பதாலும் முதல் எழுத்துகளின் மாத்திரைகள் ஒன்றி இருப்பதாலும் அவைகளுக்குள் எதுகை இருக்கிறது.";
+        private static readonly string EthukaiIncorrectExplanation =
+            "இரண்டு சொற்களிலும் உள்ள இரண்டாம் எழுத்துகள் ‘{0}' '{1}’ ஒன்றி வராததாலோ (அ) முதல் எழுத்துகளின் மாத்திரைகள் ஒன்றி வராததாலோ அவைகளுக்குள் எதுகை இல்லை.";
+        private static readonly string IyaipuCorrectExplanation = "இரண்டு சொற்களிலும் உள்ள கடைசி எழுத்தான ‘{0}’ ஒன்றி வந்திருப்பதால் அவைகளுக்குள் மோனை இருக்கிறது.";
+        private static readonly string IyaipuIncorrectExplanation =
+            "இரண்டு சொற்களிலும் உள்ள கடைசி 	எழுத்துகள் ‘{0}' '{1}’ ஒன்றி வராததால் அவைகளுக்குள் மோனை இல்லை.";
+        private readonly Dictionary<int, ThodaiFunctionsAndMessages> _thodaiFunctionsAndMessagesDictionary;
+
 
         private readonly Dictionary<int, Func<string, int>> _thodaiIndexCalculatorFuncDictionary = new Dictionary
             <int, Func<string, int>>
@@ -30,6 +47,8 @@ namespace Tamil.Parody.Parser.WebUI.Controllers
             {Ethukai, (s) => 1 },
             {Iyaipu, (s) => s.TamilLength() - 1}
         };
+
+        private readonly Dictionary<int, Func<string, string, bool>> _thodaiCheckFuncDictionary;
 
         #region Helper Methods
         private IEnumerable<string> GetThodaiWords(Func<string, string, bool> checkThodaiFunc, int funcIndex)
@@ -44,14 +63,48 @@ namespace Tamil.Parody.Parser.WebUI.Controllers
         }
         #endregion //Helper Methods
 
-        public ProsodyController()
-        {
+        //public ProsodyController()
+        //{
 
-        }
+        //}
         public ProsodyController(ITamilAgarathi tamilAgarathi, ProsodyParser prosodyParser)
         {
             _tamilAgarathi = tamilAgarathi;
             _prosodyParser = prosodyParser;
+            _thodaiFunctionsAndMessagesDictionary =
+                new Dictionary<int, ThodaiFunctionsAndMessages>
+                {
+                    {Monai, new ThodaiFunctionsAndMessages
+                            {
+                                ThodaiIndexCalculatorFunc = (s) => 0, ThodaiCheckFunc = _prosodyParser.CheckMonai,
+                                ExplanationMessages = new Dictionary<bool, string>
+                                {
+                                    { true, MonaiCorrectExplanation },
+                                    { false, MonaiIncorrectExplanation }
+                                }
+                            }
+                    },
+                    {Ethukai, new ThodaiFunctionsAndMessages
+                            {
+                                ThodaiIndexCalculatorFunc = (s) => 1, ThodaiCheckFunc = _prosodyParser.CheckEthukai,
+                                ExplanationMessages = new Dictionary<bool, string>
+                                {
+                                    { true, EthukaiCorrectExplanation },
+                                    { false, EthukaiIncorrectExplanation }
+                                }
+                            }
+                    },
+                    {Iyaipu, new ThodaiFunctionsAndMessages
+                            {
+                                ThodaiIndexCalculatorFunc = (s) => s.TamilLength() - 1, ThodaiCheckFunc = _prosodyParser.CheckIyaipu,
+                                ExplanationMessages = new Dictionary<bool, string>
+                                {
+                                    { true, IyaipuCorrectExplanation },
+                                    { false, IyaipuIncorrectExplanation }
+                                }
+                            }
+                    },
+                };
         }
 
         [Route("")]
@@ -89,21 +142,29 @@ namespace Tamil.Parody.Parser.WebUI.Controllers
 
         [Route("ThodaiChecker")]
         [HttpPost]
-        public HttpResponseMessage CheckTodais(ThodaigalText thodaigalText)
+        public HttpResponseMessage CheckTodais(ThodaiPairsText thodaiPairsText)
         {
-            var response = Request.CreateResponse(HttpStatusCode.OK,
-                new
-                {
-                    IsEthukai =
-                        _prosodyParser.CheckEthukai(thodaigalText.EthukaiPair.InputText?.ToLatinString(),
-                            thodaigalText.EthukaiPair.ThodaiText?.ToLatinString()),
-                    IsMonai =
-                        _prosodyParser.CheckMonai(thodaigalText.MonaiPair.InputText?.ToLatinString(),
-                            thodaigalText.MonaiPair.ThodaiText?.ToLatinString()),
-                    IsIyaipu =
-                        _prosodyParser.CheckIyaipu(thodaigalText.IyaipuPair.InputText?.ToLatinString(),
-                            thodaigalText.IyaipuPair.ThodaiText?.ToLatinString()),
-                });
+            var thodaiResults = new List<ThodaiResult>(3);
+            for (var thodaiIndex = Monai; thodaiIndex <= Iyaipu; thodaiIndex++)
+            {
+                var firstWord = thodaiPairsText.ThodaiPairs[thodaiIndex].InputText?.ToLatinString();
+                var secondWord = thodaiPairsText.ThodaiPairs[thodaiIndex].ThodaiText?.ToLatinString();
+                var thodaiResult = new ThodaiResult();
+                var letterInFirstWordIndex = _thodaiFunctionsAndMessagesDictionary[thodaiIndex].ThodaiIndexCalculatorFunc(firstWord);
+                var letterInSecondWordIndex = _thodaiFunctionsAndMessagesDictionary[thodaiIndex].ThodaiIndexCalculatorFunc(secondWord);
+                var letterInFirstWord = firstWord.TamilSubstr(letterInFirstWordIndex, 1);
+                var letterInSecondWord = secondWord.TamilSubstr(letterInSecondWordIndex, 1);
+                thodaiResult.DoesThodaiExist = _thodaiFunctionsAndMessagesDictionary[thodaiIndex].ThodaiCheckFunc(firstWord, secondWord);
+                thodaiResult.Explanation =
+                    (thodaiResult.DoesThodaiExist) ?
+                    string.Format(_thodaiFunctionsAndMessagesDictionary[thodaiIndex].ExplanationMessages[thodaiResult.DoesThodaiExist],
+                        letterInFirstWord) :
+                    string.Format(_thodaiFunctionsAndMessagesDictionary[thodaiIndex].ExplanationMessages[thodaiResult.DoesThodaiExist],
+                        letterInFirstWord, letterInSecondWord);
+
+                thodaiResults.Add(thodaiResult);
+            }
+            var response = Request.CreateResponse(HttpStatusCode.OK, thodaiResults);
 
             return response;
         }

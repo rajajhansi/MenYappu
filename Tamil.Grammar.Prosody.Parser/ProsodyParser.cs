@@ -1317,6 +1317,12 @@ namespace RjamSoft.Tamil.Grammar.Parser
         public string ThodaiText { get; set; }
     }
 
+    public class ThodaiResult
+    {
+        public bool DoesThodaiExist { get; set; }
+        public string Explanation { get; set; }
+    }
+
     public class ThodaigalText
     {
         public ThodaiPair EthukaiPair { get; set; }
@@ -1324,6 +1330,10 @@ namespace RjamSoft.Tamil.Grammar.Parser
         public ThodaiPair IyaipuPair { get; set; }
     }
 
+    public class ThodaiPairsText
+    {
+        public List<ThodaiPair> ThodaiPairs { get; set; }
+    }
     public class MathiraiCounter
     {
         public List<Dictionary<string, double>> MathiraiCount { get; set; }

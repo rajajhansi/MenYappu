@@ -18,6 +18,8 @@ $thema: $color-darkred;
 $pulima: $color-lightorange;
 $koovilam: $color-lightgreen;
 $karuvilam: $color-blue;
+$sari: $color-lightgreen;
+$thavaru: $color-darkred;
 
 .helptext {
     margin-left: 5px;
@@ -84,4 +86,10 @@ $karuvilam: $color-blue;
 }
 .karuvilam {
     color: $karuvilam;
+}
+.sari {
+    color: $sari;
+}
+.thavaru {
+    color: $thavaru;
 }
