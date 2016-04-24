@@ -13,7 +13,7 @@ namespace Tamil.Grammar.Prosody.Parser
     {
         private ITrie<string> Trie { set; get; }
         private bool _isLoaded = false;
-        private string _defaultAgarathiFileName = "agarathiValid.txt";
+
         private static IEnumerable<string> GetTamilWordsFromFile(string file)
         {
             using (StreamReader reader = File.OpenText(file))
@@ -47,16 +47,16 @@ namespace Tamil.Grammar.Prosody.Parser
             }
             _isLoaded = true;
         }
-        public TamilAgarathi(string agarathiFileName= "agarathiValid.txt")
+        public TamilAgarathi(string agarathiFileName= "agarathiValid.txt", int minimumSuffixLength = 1)
         {
-            Trie = new SuffixTamilTrie<string>(3);
+            Trie = new SuffixTamilTrie<string>(minimumSuffixLength);
             BuildUpTamil(agarathiFileName, Trie);
         }
-        public void Seed(string agarathiFileName)
+        public void Seed(string agarathiFileName, int minimumSuffixLength = 1)
         {
             if (!_isLoaded)
             {
-                Trie = new SuffixTamilTrie<string>(3);
+                Trie = new SuffixTamilTrie<string>(minimumSuffixLength);
                 BuildUpTamil(agarathiFileName, Trie);
             }
         }

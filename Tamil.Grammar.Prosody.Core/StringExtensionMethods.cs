@@ -55,5 +55,27 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Core
             }
             yield return original.Substring(p);
         }
+
+        public static string TamilSubstr(this string tamilString, int startIndex, int length)
+        {
+            var latinString = Transliterator.Tamil2Latin(tamilString);
+            return Transliterator.Latin2Tamil(latinString.Substring(startIndex*2, length*2));
+        }
+
+        public static int TamilLength(this string tamilString)
+        {
+            var latinString = Transliterator.Tamil2Latin(tamilString);
+            return latinString.Length/2;
+        }
+
+        public static string ToLatinString(this string tamilString)
+        {
+            return Transliterator.Tamil2Latin(tamilString);
+        }
+
+        public static string ToTamilString(this string latinString)
+        {
+            return Transliterator.Latin2Tamil(latinString);
+        }
     }
 }

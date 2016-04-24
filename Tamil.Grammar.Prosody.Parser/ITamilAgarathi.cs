@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Tamil.Grammar.Prosody.Parser
 {
-    interface ITamilAgarathi
+    public interface ITamilAgarathi
     {
-        void Seed(string agarathiFileName);
+        void Seed(string agarathiFileName, int minimumSuffixLength  = 1);
         IEnumerable<string> Lookup(string word);
     }
 }

@@ -39,53 +39,6 @@ namespace Tamil.Parody.Parser.WebUI.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
-        }
-
-        public ActionResult LetterTypeFinder()
-        {
-            ViewBag.Message = "Letter Type Finder";
-
-            return View();
-        }
-        public ActionResult MathiraiCount()
-        {
-            ViewBag.Message = "Mathirai Finder";
-
-            return View();
-        }
-
-        public ActionResult ThodaiFinder()
-        {
-            ViewBag.Message = "Thodai Finder";
-
-            return View();
-        }
-
-        public ActionResult ThalaiFinder()
-        {
-            ViewBag.Message = "Thalai Finder";
-
-            return View();
-        }
-
-        public ActionResult AsaiDivider()
-        {
-            ViewBag.Message = "Syllable Divider";
-
-            return View();
-        }
-
-        public ActionResult SeerFinder()
-        {
-            ViewBag.Message = "Seer Finder";
-
-            return View();
-        }
-
-        public ActionResult AdiMeasurer()
-        {
-            ViewBag.Message = "Adi Measurer";
-            return View();
-        }
+        }      
     }
 }

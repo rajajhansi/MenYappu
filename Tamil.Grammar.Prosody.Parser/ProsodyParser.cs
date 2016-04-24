@@ -1310,6 +1310,20 @@ namespace RjamSoft.Tamil.Grammar.Parser
     {
         public string InputText { get; set; }
     }
+
+    public class ThodaiPair
+    {
+        public string InputText { get; set; }
+        public string ThodaiText { get; set; }
+    }
+
+    public class ThodaigalText
+    {
+        public ThodaiPair EthukaiPair { get; set; }
+        public ThodaiPair MonaiPair { get; set; }
+        public ThodaiPair IyaipuPair { get; set; }
+    }
+
     public class MathiraiCounter
     {
         public List<Dictionary<string, double>> MathiraiCount { get; set; }

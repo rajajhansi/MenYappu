@@ -45,6 +45,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.3.5.0\lib\net40\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Autofac.Integration.Mvc, Version=3.3.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.Mvc5.3.3.4\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Autofac.Integration.WebApi, Version=3.4.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.WebApi2.3.4.0\lib\net45\Autofac.Integration.WebApi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.0.1011, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -236,6 +248,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\GamesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProsodyController.cs" />
     <Compile Include="Global.asax.cs">
@@ -250,6 +263,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\agarathiValid.txt" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="audio\mathirai.mp3" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -639,22 +653,23 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\AsaiDivider.cshtml" />
+    <Content Include="Views\Games\AsaiDivider.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\MathiraiCount.cshtml" />
-    <Content Include="Views\Home\ThalaiFinder.cshtml" />
-    <Content Include="Views\Home\ThodaiFinder.cshtml" />
-    <Content Include="Views\Home\SeerFinder.cshtml" />
+    <Content Include="Views\Games\MathiraiCount.cshtml" />
+    <Content Include="Views\Games\ThalaiFinder.cshtml" />
+    <Content Include="Views\Games\ThodaiFinder.cshtml" />
+    <Content Include="Views\Games\SeerFinder.cshtml" />
     <Content Include="Views\Shared\_AureliaLayout.cshtml" />
     <Content Include="Views\Shared\_BootstrapLayout.cshtml" />
     <Content Include="Views\Shared\_LeftNavigationBar.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_RightBar.cshtml" />
-    <Content Include="Views\Home\AdiMeasurer.cshtml" />
+    <Content Include="Views\Games\AdiMeasurer.cshtml" />
     <Content Include="Views\Shared\_TopNavigationBar.cshtml" />
     <Content Include="Views\Home\VenpaConversations.cshtml" />
     <Content Include="Views\Home\Venpas.cshtml" />
-    <Content Include="Views\Home\LetterTypeFinder.cshtml" />
+    <Content Include="Views\Games\LetterTypeFinder.cshtml" />
+    <Content Include="Views\Games\EthukaiMonaiFinder.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Gma.DataStructures.StringSearch\Gma.DataStructures.StringSearch.csproj">
