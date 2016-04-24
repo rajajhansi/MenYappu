@@ -91,7 +91,8 @@
     # mathiraiInSeer = mathiraiInSeer + '&nbsp;' #
     # $.each(detailedMathiraiValue, function(mathiraiKey, mathiraiValue) { #
     # var rubyStyle = l === Object.keys(detailedMathiraiValue).length - 1 ? "margin-right:10px" : "margin-right:0px"; #
-    # mathiraiInSeer = mathiraiInSeer + '<ruby style="' + rubyStyle + '">'+'<span class="uiTrant type-t7">' + mathiraiKey + '</span><rt class="' + LetterType.letterCssClasses[mathiraiValue.LetterType] + '">' + mathiraiValue.LetterType +  '</rt></ruby>  '; #
+    # var letter = mathiraiKey.split(":")[1]; #
+    # mathiraiInSeer = mathiraiInSeer + '<ruby style="' + rubyStyle + '">'+'<span class="uiTrant type-t7">' + letter + '</span><rt class="' + LetterType.letterCssClasses[mathiraiValue.LetterType] + '">' + mathiraiValue.LetterType +  '</rt></ruby>  '; #
     # l++; #
     # }) #
     # l = 0; key++; #

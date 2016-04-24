@@ -192,10 +192,12 @@ namespace RjamSoft.Tamil.Grammar.Parser
             var mathiraiDictionary = new Dictionary<string, double>();
             var latinWord = Transliterator.Tamil2Latin(word).Trim();
             var latinLetters = latinWord.SplitInGroups(2);
+            var letterIndex = 1;
             foreach (var latinLetter in latinLetters)
             {
                 var tamilLetter = Transliterator.Latin2Tamil(latinLetter);
-                mathiraiDictionary.Add(tamilLetter, CalculateMathirai(tamilLetter, false));
+                mathiraiDictionary.Add($"{letterIndex}:{tamilLetter}", CalculateMathirai(tamilLetter, false));
+                letterIndex++;
             }
 
             return mathiraiDictionary;
@@ -206,6 +208,7 @@ namespace RjamSoft.Tamil.Grammar.Parser
             var mathiraiDictionary = new Dictionary<string, string>();
             var latinWord = Transliterator.Tamil2Latin(word).Trim();
             var latinLetters = latinWord.SplitInGroups(2);
+            var letterIndex = 1;
             foreach (var latinLetter in latinLetters)
             {
                 var tamilLetter = Transliterator.Latin2Tamil(latinLetter);
@@ -216,7 +219,8 @@ namespace RjamSoft.Tamil.Grammar.Parser
                 {
                     letterType = CalculateMathirai(tamilLetter, false) == 1.0 ? "கு" : "நெ";
                 }
-                mathiraiDictionary.Add(tamilLetter, letterType);
+                mathiraiDictionary.Add($"{letterIndex}:{tamilLetter}", letterType);
+                letterIndex++;
             }
 
             return mathiraiDictionary;
@@ -226,6 +230,7 @@ namespace RjamSoft.Tamil.Grammar.Parser
             var mathiraiCounter = new MathiraiCounter();
             mathiraiCounter.MathiraiCount = CalculateMathiraiForPaa(prosodyText);
             mathiraiCounter.DetailedMathiraiCount = new List<Dictionary<string, Dictionary<string, LetterTypeWithMathirai>>>();
+            var letterIndex = 1;
             foreach (var entry in mathiraiCounter.MathiraiCount)
             {
                 var detailedMathiraiCount = new Dictionary<string, Dictionary<string, LetterTypeWithMathirai>>();
@@ -236,13 +241,15 @@ namespace RjamSoft.Tamil.Grammar.Parser
                     var letterTypeWithMathiraiDictionary = new Dictionary<string, LetterTypeWithMathirai>();
                     foreach (var letterKey in mathiraiForWord)
                     {
-                        letterTypeWithMathiraiDictionary.Add(letterKey.Key, new LetterTypeWithMathirai
+                        var newLetterKey = letterKey.Key.Split(":".ToCharArray())[1];
+                        letterTypeWithMathiraiDictionary.Add($"{letterIndex}:{newLetterKey}", new LetterTypeWithMathirai
                         {
                             LetterType = letterType[letterKey.Key],
                             Mathirai = mathiraiForWord[letterKey.Key]
                         });
+                        letterIndex++;
                     }
-                    detailedMathiraiCount.Add(word.Key, letterTypeWithMathiraiDictionary);
+                    detailedMathiraiCount.Add($"{letterIndex}:{word.Key}", letterTypeWithMathiraiDictionary);
                 }
                 mathiraiCounter.DetailedMathiraiCount.Add(detailedMathiraiCount);
             }
