@@ -9,6 +9,14 @@
         return Math.floor(Math.random() * (max - min )) + min;
     }
 
+    function disableElement(id) {
+        $('#' + id).attr('disabled', 'disabled');
+    }
+
+    function enableElement(id) {
+        $('#' + id).removeAttr('disabled');
+    }
+
     function showElement(id) {
         $("#" + id).removeClass('hidden');
         $("#" + id).addClass('visible');
@@ -41,6 +49,28 @@
         $("[id*=explanation").addClass('hidden');
     }
 
+    function showResult() {
+        showElement("result");
+        flipBack();
+    }
+
+    function clearResult() {
+        showElement("result");
+        flipFront();
+    }
+
+    function flipBack() {
+        if (!$('.flip-container_click').hasClass('flipped')) {
+            $('.flip-container_click').addClass('flipped');
+        }
+    }
+
+    function flipFront() {
+        if ($('.flip-container_click').hasClass('flipped')) {
+            $('.flip-container_click').removeClass('flipped');
+        }
+    }
+
     function setupExample(apiUrl, attr) {
         $("#example").on('click', function () {
             $.ajax({
@@ -52,6 +82,7 @@
                     var exampleText = data[Utility.getRandomNumber(0, data.length)][attr];
                     exampleText = (_.isArray(exampleText)) ? exampleText.join('\n') : exampleText;
                     $("#ProsodyText").val(exampleText).blur();
+                    clearResult();
                 },
                 error: function (data) {
                     alert('error' + data);
@@ -68,12 +99,18 @@
     return {
         stringStartsWith: stringStartsWith,
         getRandomNumber: getRandomNumber,
+        disableElement: disableElement,
+        enableElement: enableElement,
         showElement: showElement,
         hideElement: hideElement,
         showCorrect: showCorrect,
         showIncorrect: showIncorrect,
         showExplanation: showExplanation,
         hideResult: hideResult,
+        showResult: showResult,
+        clearResult: clearResult,
+        flipBack: flipBack,
+        flipFront: flipFront,
         setupExample: setupExample,
         setContextHelp: setContextHelp
     };

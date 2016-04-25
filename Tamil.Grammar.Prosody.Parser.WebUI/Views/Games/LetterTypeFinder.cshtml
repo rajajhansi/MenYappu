@@ -22,7 +22,6 @@
                             <h4 class="game-section-title">
                                 எழுத்துகளின் எண்ணிக்கை
                             </h4>
-                            @*<input type="text" id="AsaiCount" disabled="true" class="panelbar-text form-control"/>*@
                             <span class="cspan" id="ezhuthuCount"></span>
                         </div>
                         <div class="col-md-6 hidden" id="ezhuthuTypeSelector">
@@ -34,21 +33,35 @@
                             </div>
                         </div>
                         <div class="col-md-6 hidden" id="result">
-                            <h4 class="game-section-title">
-                                முடிவு
-                            </h4>
-                            <div class="type-t3">
-                                <button id="ezhuthu-correct" class="right btn btn-success btn-with-glyph" aria-hidden="true" data-toggle="tooltip" data-placement="right"><i class="glyph glyph-checkmark"></i>சரி</button>
-                                <button id="ezhuthu-incorrect" class="wrong btn btn-warning btn-with-glyph" aria-hidden="true" data-toggle="tooltip" data-placement="right">
-                                    <i class="glyph glyph-cancel"></i>
-                                    தவறு
-                                </button>
-                                <a role="button" id="ezhuthu-explanation"
-                                   class="btn btn-primary btn-with-glyph"
-                                   tabindex="0"
-                                   data-toggle="popover"
-                                   data-trigger="focus"
-                                   data-content="அருமை"><i class="glyph glyph-message"></i>விளக்கம்</a>
+                            <div class="flip-container_click">
+                                <div class="flipper">
+                                    <div class="front">
+                                        <h4 class="game-section-title">
+                                            முடிவு
+                                        </h4>
+                                        <div class="type-t5">
+                                            நீங்கள் விடையை உள்ளிட்டவுடன் “சரி பார்த்திடு” என்ற பொத்தானை அழுத்தினால் “முடிவு” தெரியும்.
+                                        </div>
+                                    </div>
+                                    <div class="back">
+                                        <h4 class="game-section-title">
+                                            முடிவு
+                                        </h4>
+                                        <div class="type-t3">
+                                            <button id="ezhuthu-correct" class="right btn btn-success btn-with-glyph" aria-hidden="true" data-toggle="tooltip" data-placement="right"><i class="glyph glyph-checkmark"></i>சரி</button>
+                                            <button id="ezhuthu-incorrect" class="wrong btn btn-warning btn-with-glyph" aria-hidden="true" data-toggle="tooltip" data-placement="right">
+                                                <i class="glyph glyph-cancel"></i>
+                                                தவறு
+                                            </button>
+                                            <a role="button" id="ezhuthu-explanation"
+                                               class="btn btn-primary btn-with-glyph"
+                                               tabindex="0"
+                                               data-toggle="popover"
+                                               data-trigger="focus"
+                                               data-content="அருமை"><i class="glyph glyph-message"></i>விளக்கம்</a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -57,7 +70,7 @@
                             <div class="control-group">
                                 <div class="controls">
                                     <button class="btn btn-primary btn-with-glyph" id="example"><i class="glyph glyph-import "></i>மாதிரி</button>
-                                    <button type="submit" class="btn btn-primary btn-with-glyph"><i class="glyph glyph-message"></i>சரி பார்த்திடு</button>
+                                    <button type="submit" class="btn btn-primary btn-with-glyph" id="checkResult"><i class="glyph glyph-message"></i>சரி பார்த்திடு</button>
                                 </div>
                             </div>
                         </div>
@@ -70,19 +83,25 @@
 
 <script type="text/x-kendo-template" id="ezhuthuVagaiSelectorTemplate">
     # var ezhuthuVagaiId = 'ezhuthuVagai-dropdown-' + ezhuthuVagaiIndex; #
-    <p class="form-group-label">எழுத்து வகைகள்</p>
-    <div class="dropdown">
-        <button id="#= ezhuthuVagaiId #" class="btn btn-dropdown dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
-            எழுத்து வகையைத் தேர்ந்தெடு<span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="#= ezhuthuVagaiId #">
-            <li><a href="\\#">குறில்</a></li>
-            <li><a href="\\#">நெடில்</a></li>
-            <li><a href="\\#">மெய்</a></li>
-            <li><a href="\\#">ஆய்தம்</a></li>
-        </ul>
-    </div>
-
+    <tr>
+        <td>
+            <div class="type-t5 text-right">#= ezhuthu + ':'#</div>
+        </td>
+        <td>
+            <!--<p class="form-group-label">எழுத்து வகைகள்</p>-->
+            <div class="dropdown">
+                <button id="#= ezhuthuVagaiId #" class="btn btn-dropdown dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+                    எழுத்து வகையைத் தேர்ந்தெடு<span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="#= ezhuthuVagaiId #">
+                    <li><a href="\\#">குறில்</a></li>
+                    <li><a href="\\#">நெடில்</a></li>
+                    <li><a href="\\#">மெய்</a></li>
+                    <li><a href="\\#">ஆய்தம்</a></li>
+                </ul>
+            </div>
+        </td>
+    </tr>
 </script>
 <script type="text/x-kendo-template" id="ezhuthuVagaiTemplate">
     # var mathiraiInSeer = ""; var key = 0; var l = 0; #
@@ -197,6 +216,7 @@
         }).data("kendoPanelBar");
         seyyulPanelBar.expand($(".k-first"), true);
 
+        Utility.disableElement("checkResult");
         Utility.hideResult();
         Utility.hideElement("rightMathiraiCount");
         Utility.setupExample('/api/prosody/Seergal', 'seer');
@@ -207,20 +227,39 @@
 
 
         $("#ProsodyText").blur(function () {
+            if (!$('#ProsodyText').val().trim()) {
+                Utility.disableElement("checkResult");
+                return false;
+            }
+            Utility.enableElement("checkResult");
+            Utility.clearResult();
             var data = '{"InputText" : "' + $("#ProsodyText").val() + '"' +
                 '}';
             var mathiraiData = LetterType.getMathirai(data);
             var ezhuthuCount = mathiraiData ? mathiraiData["TotalLetterCount"] : 0;
+            var detailedMathiraiCount = mathiraiData ? mathiraiData["DetailedMathiraiCount"] : null;
             $("#ezhuthuCount").html('<div class="type-t3">' + ezhuthuCount + '</div>');
             Utility.showElement("ezhuthuCalculator");
             $("#ezhuthuTypes").empty();
             var ezhuthuVagaiSelectorTemplate = kendo.template($("#ezhuthuVagaiSelectorTemplate").html());
-            for (var ezhuthuIndex = 0; ezhuthuIndex < ezhuthuCount; ezhuthuIndex++) {
-                var ezhuthu = ezhuthuVagaiSelectorTemplate({
-                    ezhuthuVagaiIndex: ezhuthuIndex + 1
-                });
-                $("#ezhuthuTypes").append(ezhuthu);
-                Utility.showElement("ezhuthuTypeSelector");
+            var ezhuthuIndex = 0;
+            var ezhuthuVagaigal = '';
+            if (detailedMathiraiCount) {
+                for(var word=0; word < detailedMathiraiCount.length; word++) {
+                    $.each(detailedMathiraiCount[word], function(detailedMathiraiKey, detailedMathiraiValue) {
+                        $.each(detailedMathiraiValue, function(mathiraiKey, mathiraiValue) {
+                            var ezhuthu = mathiraiKey.split(":")[1];
+                            var ezhuthuVagai = ezhuthuVagaiSelectorTemplate({
+                                ezhuthu: ezhuthu,
+                                ezhuthuVagaiIndex: ezhuthuIndex + 1
+                            });
+                            ezhuthuIndex++;
+                            ezhuthuVagaigal += ezhuthuVagai;
+                            Utility.showElement("ezhuthuTypeSelector");
+                        });
+                    });
+                }
+                $("#ezhuthuTypes").append('<table class="table">' + ezhuthuVagaigal + '</table>');
             }
         });
         $("#prosodyForm").submit(function () {
@@ -256,7 +295,7 @@
                 } else {
                     Utility.showCorrect("ezhuthu", ezhuthuExplanation);
                 }
-                Utility.showElement("result");
+                Utility.showResult();
             }
             else
             {

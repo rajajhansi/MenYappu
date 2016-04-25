@@ -258,7 +258,7 @@ namespace RjamSoft.Tamil.Grammar.Parser
         public List<Dictionary<string, double>> CalculateMathiraiForPaa(string prosodyText)
         {
             List<Dictionary<string, double>> mathiraiCountForEachSeerInAllLines = new List<Dictionary<string, double>>();
-            prosodyText = Regex.Replace(prosodyText, @"\(.*\)", ""); // remove paranthesized words
+            prosodyText = Regex.Replace(prosodyText, @"\(.*\)", ""); // remove parenthesized words
             prosodyText = RemovePunctuation(prosodyText); // remove Punctuation and reformatting the text.
             string[] lines = prosodyText.Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
                 // Separate lines of text
