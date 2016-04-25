@@ -1,0 +1,43 @@
+%important-transparent-bg {
+  background-color: transparent !important;
+}
+
+.blockUI.blockMsg {
+  border: 0 !important;
+  @extend %important-transparent-bg;
+}
+
+.blockOverlay {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.btn {
+  .blockOverlay {
+    @extend %important-transparent-bg;
+  }
+  .blockElement{
+    left: 0 !important;
+  }
+}
+
+.blockElement, .blockPage{
+  .progress-ring {
+    margin: 0 auto;
+  }
+}
+
+.progress-ring .progress-circle:after{
+  font-size: inherit;
+}
+
+.blockPage{
+  .progress-ring{
+    width: 150px;
+    height: 150px;
+    .progress-circle{
+      width: 150px;
+      height: 150px;
+      font-size: 30px;
+    }
+  }
+}

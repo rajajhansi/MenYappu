@@ -34,10 +34,15 @@ namespace Tamil.Grammar.Prosody.Parser.WebUI
             bundles.Add(new ScriptBundle("~/Scripts/toastrjs").Include(
                     "~/Scripts/toastr/toastr.js"
                     ));
+            // The BlockUI bundle
+            bundles.Add(new ScriptBundle("~/Scripts/blockui").Include(
+                    "~/Scripts/blockui/blockui.js"
+                    ));
 
             // BOGDAN UI BUNDLE
             bundles.Add(new ScriptBundle("~/Scripts/customui").Include(
-                    "~/Scripts/ui/ui.*"
+                    "~/Scripts/ui/customBlockUi.js",
+                    "~/Scripts/ui/ui.js"
                     ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
