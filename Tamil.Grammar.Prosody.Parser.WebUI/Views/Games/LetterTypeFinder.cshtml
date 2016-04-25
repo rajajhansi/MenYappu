@@ -12,31 +12,30 @@
             <li id="seyyul" class="k-state-active">
                 <form id="prosodyForm" class="form-horizontal" action="/api/Prosody/MathiraiCount" method="POST">
                     <div class="row row-sm">
-                        <div class="col-md-6">
-                            <h4 class="game-section-title">
+                        <div class="col-md-8">
+                            <h4 class="game-section-title text-center">
                                 சொல்
                             </h4>
                             <textarea class="panelbar-textarea" id="ProsodyText" rows="2"></textarea>
                         </div>
-                        <div class="col-md-4 hidden" id="ezhuthuCalculator">
-                            <h4 class="game-section-title">
-                                எழுத்துகளின் எண்ணிக்கை
-                            </h4>
-                            <span class="cspan" id="ezhuthuCount"></span>
-                        </div>
-                        <div class="col-md-6 hidden" id="ezhuthuTypeSelector">
-                            <h4 class="game-section-title">
+
+                        <div class="col-md-8 hidden" id="ezhuthuTypeSelector">
+                            <h4 class="game-section-title text-center">
                                 எழுத்து வகைகள்
                             </h4>
+                            <div id="ezhuthuCalculator" class="text-center tetx-t4">
+                                    <span>எண்ணிக்கை:</span>
+                                    <span id="ezhuthuCount"></span>
+                            </div>
                             <div id="ezhuthuTypes" class="type-t7">
 
                             </div>
                         </div>
-                        <div class="col-md-6 hidden" id="result">
+                        <div class="col-md-8 hidden" id="result">
                             <div class="flip-container_click">
                                 <div class="flipper">
                                     <div class="front">
-                                        <h4 class="game-section-title">
+                                        <h4 class="game-section-title text-center">
                                             முடிவு
                                         </h4>
                                         <div class="type-t5">
@@ -44,7 +43,7 @@
                                         </div>
                                     </div>
                                     <div class="back">
-                                        <h4 class="game-section-title">
+                                        <h4 class="game-section-title text-center">
                                             முடிவு
                                         </h4>
                                         <div class="type-t3">
@@ -238,7 +237,7 @@
             var mathiraiData = LetterType.getMathirai(data);
             var ezhuthuCount = mathiraiData ? mathiraiData["TotalLetterCount"] : 0;
             var detailedMathiraiCount = mathiraiData ? mathiraiData["DetailedMathiraiCount"] : null;
-            $("#ezhuthuCount").html('<div class="type-t3">' + ezhuthuCount + '</div>');
+            $("#ezhuthuCount").html(ezhuthuCount);
             Utility.showElement("ezhuthuCalculator");
             $("#ezhuthuTypes").empty();
             var ezhuthuVagaiSelectorTemplate = kendo.template($("#ezhuthuVagaiSelectorTemplate").html());
