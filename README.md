@@ -6,10 +6,11 @@ Since C# and .NET are my platform of choice, I started porting the PHP source co
 
 MenYappu is developed using ASP.NET MVC 5, C# 6.0 and JavaScript. The UI is developed using Telerik Kendo UI and jQuery libraries.
 
-In Phase 1, I'm planning to focus mainly writing some simple games to explain the parts of Prosody and write a simple tool to input poems in veNpA meter. The books I used to learn Tamil Prosody are:
-1. கவி பாடலாம் – கி.வா.ஜகந்நாதன்  2. கவிதை இயற்றிக் கலக்கு – பேராசிரியர் பசுபதி
+In Phase 1, I'm planning to focus mainly writing some simple games to explain the parts of Prosody and write a simple tool to input poems in veNpA meter. The books I used to learn Tamil Prosody are:  
+1. கவி பாடலாம் – கி.வா.ஜகந்நாதன்  
+2. கவிதை இயற்றிக் கலக்கு – பேராசிரியர் பசுபதி  
 
-The websites I frequently use as references to understand the nuances of Prosody are:
-1. http://www.tamilvu.org/ 
 
-2. http://noolaham.org/
+The websites I frequently use as references to understand the nuances of Prosody are:  
+1. http://www.tamilvu.org/  
+2. 2. http://noolaham.org/
