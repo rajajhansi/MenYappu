@@ -142,7 +142,7 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Core
                                                     {'க', "k"},
                                                     {'ங', "G"},
                                                     {'ச', "c"},
-                                                    {'ஞ', "j"},
+                                                    {'ஞ', "J"},
                                                     {'ட', "T"},
                                                     {'ண', "N"},
                                                     {'த', "t"},
