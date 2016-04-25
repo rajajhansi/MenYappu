@@ -13,4 +13,4 @@ In Phase 1, I'm planning to focus mainly writing some simple games to explain th
 
 The websites I frequently use as references to understand the nuances of Prosody are:  
 1. http://www.tamilvu.org/  
-2. 2. http://noolaham.org/
+2. http://noolaham.org/
