@@ -677,6 +677,7 @@
     <Content Include="Views\Home\Venpas.cshtml" />
     <Content Include="Views\Games\LetterTypeFinder.cshtml" />
     <Content Include="Views\Games\EthukaiMonaiFinder.cshtml" />
+    <Content Include="Views\Shared\_CommonKendoTemplates.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Gma.DataStructures.StringSearch\Gma.DataStructures.StringSearch.csproj">

@@ -12,41 +12,25 @@
             <li id="seyyul" class="k-state-active">
                 <form id="prosodyForm" class="form-horizontal" action="/api/Prosody/MathiraiCount" method="POST">
                     <div class="row row-sm">
-                        <div class="col-md-6">
+                        <div class="col-md-8">
                             <h4 class="game-section-title">
                                 வாக்கியம்
                             </h4>
                             <textarea class="panelbar-textarea" id="ProsodyText" rows="2"></textarea>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-8">
                             <h4 class="game-section-title">
                                 மாத்திரை எண்ணிக்கை
                             </h4>
                             <input type="text" id="MathiraiCount" class="panelbar-text form-control" />
                             <div id="rightMathiraiCount" class="type-t5 hidden">
                                 <div>சரியான மாத்திரை எண்ணிக்கை</div>
-                                @*<input type="text" id="CalculatedMathiraiCount" disabled="true" class="panelbar-text form-control" />*@
                                 <span class="cspan" id="CalculatedMathiraiCount"></span>
                             </div>
 
                         </div>
-                        <div class="col-md-6 hidden" id="result">
-                            <h4 class="game-section-title">
-                                முடிவு
-                            </h4>
-                            <div class="type-t3">
-                                <button id="mathirai-correct" class="right btn btn-success btn-with-glyph" aria-hidden="true" data-toggle="tooltip" data-placement="right"><i class="glyph glyph-checkmark"></i>சரி</button>
-                                <button id="mathirai-incorrect" class="wrong btn btn-warning btn-with-glyph" aria-hidden="true" data-toggle="tooltip" data-placement="right">
-                                    <i class="glyph glyph-cancel"></i>
-                                    தவறு
-                                </button>
-                                <a role="button" id="mathirai-explanation"
-                                   class="btn btn-primary btn-with-glyph"
-                                   tabindex="0"
-                                   data-toggle="popover"
-                                   data-trigger="focus"
-                                   data-content="அருமை"><i class="glyph glyph-message"></i>விளக்கம்</a>
-                            </div>
+                        <div class="col-md-8 hidden" id="result">
+
                         </div>
                     </div>
                     <div class="row row-sm">
@@ -170,6 +154,7 @@
         </div>
     </div>
 </script>
+@{ Html.RenderPartial("_CommonKendoTemplates"); }
 <script>
     $(document).ready(function () {
         // set the context help

@@ -12,56 +12,31 @@
             <li id="seyyul" class="k-state-active">
                 <form id="prosodyForm" class="form-horizontal" action="/api/Prosody/MathiraiCount" method="POST">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-8">
                             <h4 class="game-section-title">
                                 சீர்
                             </h4>
                             <textarea class="panelbar-textarea" id="ProsodyText" rows="6"></textarea>
-                        </div>
-                        <div class="col-md-4 hidden" id="asaiCalculator">
-                            <h4 class="game-section-title">
-                                அசைகளின் எண்ணிக்கை
-                            </h4>
-                            @*<input type="text" id="AsaiCount" disabled="true" class="panelbar-text form-control"/>*@
-                            <span class="cspan" id="AsaiCount"></span>
-                        </div>
-                        <div class="col-md-6 hidden" id="asaiSelector">
-                            <h4 class="game-section-title">
-                                அசை வகைகள்
-                            </h4>
-                            <div id="asaiTypes" class="type-t7">
-
-                            </div>
-
-                        </div>
-                        <div class="col-md-6 hidden" id="result">
-                            <h4 class="game-section-title">
-                                முடிவு
-                            </h4>
-                            <div class="type-t5">
-                                <p class="form-group-label">அசை</p>
-                                <button id="asai-correct" class="right btn btn-success btn-with-glyph" aria-hidden="true" data-toggle="tooltip" data-placement="right"><i class="glyph glyph-checkmark"></i>சரி</button>
-                                <button id="asai-incorrect" class="wrong btn btn-warning btn-with-glyph" aria-hidden="true" data-toggle="tooltip" data-placement="right">
-                                    <i class="glyph glyph-cancel"></i>
-                                    தவறு
-                                </button>
-                                <a role="button" id="asai-explanation"
-                                   class="btn btn-primary btn-with-glyph"
-                                   tabindex="0"
-                                   data-toggle="popover"
-                                   data-trigger="focus"
-                                   data-content="அருமை"><i class="glyph glyph-message"></i>விளக்கம்</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
                             <div class="control-group">
                                 <div class="controls">
                                     <button class="btn btn-primary btn-with-glyph" id="example"><i class="glyph glyph-import"></i>மாதிரி</button>
                                     <button type="submit" class="btn btn-primary btn-with-glyph"><i class="glyph glyph-arrow-right"></i>சரி பார்த்திடு</button>
                                 </div>
                             </div>
+                        </div>
+                        <div class="col-md-8 hidden" id="asaiSelector">
+                            <h4 class="game-section-title">
+                                அசை வகைகள்
+                            </h4>
+                            <div id="asaiCalculator" class="text-center tetx-t4">
+                                <span>எண்ணிக்கை:</span>
+                                <span id="AsaiCount"></span>
+                            </div>
+                            <div id="asaiTypes" class="type-t7">
+
+                            </div>
+                        </div>
+                        <div class="col-md-8 hidden" id="result">
                         </div>
                     </div>
                 </form>
@@ -137,7 +112,7 @@
     </table>
 
 </script>
-
+@{ Html.RenderPartial("_CommonKendoTemplates"); }
 <script type="text/x-kendo-template" id="asaiHelpTemplate">
     <div class="helptext">
         <span class="type-t6">அசை (Metric Syllable/Metreme)</span>
@@ -243,10 +218,22 @@
             var selText = $(this).text();
             $(this).parents('.dropdown').find('.dropdown-toggle').html(selText + ' <span class="caret"></span>');
         });
+        var resultTemplate = kendo.template($("#resultTemplate").html());
+        $("#result")
+            .append(resultTemplate({
+                part: "asai"
+            }));
+
         $("#ProsodyText").blur(function () {
+            if (!$('#ProsodyText').val().trim()) {
+                Utility.disableElement("checkResult");
+                return false;
+            }
+            Utility.enableElement("checkResult");
+            Utility.clearResult();
             var numSyllables = ($("#ProsodyText").val().match(/\//g) || []).length;
             numSyllables++;
-            $("#AsaiCount").html('<h1>' + numSyllables + '</h1>');
+            $("#AsaiCount").html(numSyllables);
             Utility.showElement("asaiCalculator");
             $("#asaiTypes").empty();
             var asaiTemplate = kendo.template($("#asaiTemplate").html());
@@ -295,7 +282,7 @@
                     } else {
                         Utility.showCorrect("asai", seerExplanation);
                     }
-                    Utility.showElement("result");
+                    Utility.showResult();
                 },
                 error: function (data) {
                     alert('error');

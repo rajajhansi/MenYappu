@@ -17,6 +17,12 @@
                                 சொல்
                             </h4>
                             <textarea class="panelbar-textarea" id="ProsodyText" rows="2"></textarea>
+                            <div class="control-group">
+                                <div class="controls">
+                                    <button class="btn btn-primary btn-with-glyph" id="example"><i class="glyph glyph-import "></i>மாதிரி</button>
+                                    <button type="submit" class="btn btn-primary btn-with-glyph" id="checkResult"><i class="glyph glyph-message"></i>சரி பார்த்திடு</button>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="col-md-8 hidden" id="ezhuthuTypeSelector">
@@ -24,54 +30,15 @@
                                 எழுத்து வகைகள்
                             </h4>
                             <div id="ezhuthuCalculator" class="text-center tetx-t4">
-                                    <span>எண்ணிக்கை:</span>
-                                    <span id="ezhuthuCount"></span>
+                                <span>எண்ணிக்கை:</span>
+                                <span id="ezhuthuCount"></span>
                             </div>
                             <div id="ezhuthuTypes" class="type-t7">
 
                             </div>
                         </div>
+
                         <div class="col-md-8 hidden" id="result">
-                            <div class="flip-container_click">
-                                <div class="flipper">
-                                    <div class="front">
-                                        <h4 class="game-section-title text-center">
-                                            முடிவு
-                                        </h4>
-                                        <div class="type-t5">
-                                            நீங்கள் விடையை உள்ளிட்டவுடன் “சரி பார்த்திடு” என்ற பொத்தானை அழுத்தினால் “முடிவு” தெரியும்.
-                                        </div>
-                                    </div>
-                                    <div class="back">
-                                        <h4 class="game-section-title text-center">
-                                            முடிவு
-                                        </h4>
-                                        <div class="type-t3">
-                                            <button id="ezhuthu-correct" class="right btn btn-success btn-with-glyph" aria-hidden="true" data-toggle="tooltip" data-placement="right"><i class="glyph glyph-checkmark"></i>சரி</button>
-                                            <button id="ezhuthu-incorrect" class="wrong btn btn-warning btn-with-glyph" aria-hidden="true" data-toggle="tooltip" data-placement="right">
-                                                <i class="glyph glyph-cancel"></i>
-                                                தவறு
-                                            </button>
-                                            <a role="button" id="ezhuthu-explanation"
-                                               class="btn btn-primary btn-with-glyph"
-                                               tabindex="0"
-                                               data-toggle="popover"
-                                               data-trigger="focus"
-                                               data-content="அருமை"><i class="glyph glyph-message"></i>விளக்கம்</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row row-sm">
-                        <div class="col-md-6">
-                            <div class="control-group">
-                                <div class="controls">
-                                    <button class="btn btn-primary btn-with-glyph" id="example"><i class="glyph glyph-import "></i>மாதிரி</button>
-                                    <button type="submit" class="btn btn-primary btn-with-glyph" id="checkResult"><i class="glyph glyph-message"></i>சரி பார்த்திடு</button>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </form>
@@ -123,6 +90,8 @@
     <span class="otru m-r-xxs type-t9">மெ – மெய்</span>
     <span class="aytham m-r-xxs type-t9">ஃ - ஆய்தம்</span>
 </script>
+
+@{ Html.RenderPartial("_CommonKendoTemplates"); }
 
 <script type="text/x-kendo-template" id="ezhuthuVagaiHelpTemplate">
     <audio id="aud-mathirai" preload="auto">
@@ -223,7 +192,11 @@
             var selText = $(this).text();
             $(this).parents('.dropdown').find('.dropdown-toggle').html(selText + ' <span class="caret"></span>');
         });
-
+        var resultTemplate = kendo.template($("#resultTemplate").html());
+        $("#result")
+            .append(resultTemplate({
+                part: "ezhuthu"
+            }));
 
         $("#ProsodyText").blur(function () {
             if (!$('#ProsodyText').val().trim()) {
