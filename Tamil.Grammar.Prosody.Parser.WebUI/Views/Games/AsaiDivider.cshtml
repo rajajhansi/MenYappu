@@ -16,6 +16,7 @@
                             <h4 class="game-section-title">
                                 சீர்
                             </h4>
+                            <span class="text-t9">அசைகளை ‘/’ என்ற குறியீடால் பிரிக்கவும். எ.கா. மனி/தம். இந்தச் சொல்லை ”மனி” / “தம்” என்று அசை பிரிக்கலாம்.</span>
                             <textarea class="panelbar-textarea" id="ProsodyText" rows="6"></textarea>
                             <div class="control-group">
                                 <div class="controls">
@@ -25,14 +26,14 @@
                             </div>
                         </div>
                         <div class="col-md-8 hidden" id="asaiSelector">
-                            <h4 class="game-section-title">
+                            <h4 class="game-section-title text-center">
                                 அசை வகைகள்
                             </h4>
-                            <div id="asaiCalculator" class="text-center tetx-t4">
+                            <div id="asaiCalculator" class="text-center text-t5">
                                 <span>எண்ணிக்கை:</span>
                                 <span id="AsaiCount"></span>
                             </div>
-                            <div id="asaiTypes" class="type-t7">
+                            <div id="asaiTypes" class="type-t7 text-center">
 
                             </div>
                         </div>
@@ -223,7 +224,7 @@
             .append(resultTemplate({
                 part: "asai"
             }));
-
+        Utility.clearResult();
         $("#ProsodyText").blur(function () {
             if (!$('#ProsodyText').val().trim()) {
                 Utility.disableElement("checkResult");

@@ -29,7 +29,7 @@
                             <h4 class="game-section-title text-center">
                                 எழுத்து வகைகள்
                             </h4>
-                            <div id="ezhuthuCalculator" class="text-center tetx-t4">
+                            <div id="ezhuthuCalculator" class="text-center text-t5 visible">
                                 <span>எண்ணிக்கை:</span>
                                 <span id="ezhuthuCount"></span>
                             </div>
@@ -60,10 +60,9 @@
                     எழுத்து வகையைத் தேர்ந்தெடு<span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="#= ezhuthuVagaiId #">
-                    <li><a href="\\#">குறில்</a></li>
-                    <li><a href="\\#">நெடில்</a></li>
-                    <li><a href="\\#">மெய்</a></li>
-                    <li><a href="\\#">ஆய்தம்</a></li>
+                    # $.each(LetterTypeFinder.letterTypes, function(letterTypeKey, letterTypeValue) { #
+                        <li><a href="\\#">#= letterTypeValue #</a></li>
+                    # }); #
                 </ul>
             </div>
         </td>
@@ -77,7 +76,7 @@
     # $.each(detailedMathiraiValue, function(mathiraiKey, mathiraiValue) { #
     # var rubyStyle = l === Object.keys(detailedMathiraiValue).length - 1 ? "margin-right:10px" : "margin-right:0px"; #
     # var letter = mathiraiKey.split(":")[1]; #
-    # mathiraiInSeer = mathiraiInSeer + '<ruby style="' + rubyStyle + '">'+'<span class="uiTrant type-t7">' + letter + '</span><rt class="' + LetterType.letterCssClasses[mathiraiValue.LetterType] + '">' + mathiraiValue.LetterType +  '</rt></ruby>  '; #
+    # mathiraiInSeer = mathiraiInSeer + '<ruby style="' + rubyStyle + '">'+'<span class="uiTrant type-t7">' + letter + '</span><rt class="' + LetterTypeFinder.letterCssClasses[mathiraiValue.LetterType] + '">' + mathiraiValue.LetterType +  '</rt></ruby>  '; #
     # l++; #
     # }) #
     # l = 0; key++; #
@@ -154,7 +153,7 @@
         </div>
     </div>
 </script>
-<script src="/Scripts/prosody/LetterType.js"></script>
+<script src="/Scripts/prosody/LetterTypeFinder.js"></script>
 <script>
     $(document).ready(function () {
         // set the context help
@@ -198,47 +197,20 @@
                 part: "ezhuthu"
             }));
 
-        $("#ProsodyText").blur(function () {
-            if (!$('#ProsodyText').val().trim()) {
-                Utility.disableElement("checkResult");
-                return false;
-            }
-            Utility.enableElement("checkResult");
-            Utility.clearResult();
-            var data = '{"InputText" : "' + $("#ProsodyText").val() + '"' +
-                '}';
-            var mathiraiData = LetterType.getMathirai(data);
-            var ezhuthuCount = mathiraiData ? mathiraiData["TotalLetterCount"] : 0;
-            var detailedMathiraiCount = mathiraiData ? mathiraiData["DetailedMathiraiCount"] : null;
-            $("#ezhuthuCount").html(ezhuthuCount);
-            Utility.showElement("ezhuthuCalculator");
-            $("#ezhuthuTypes").empty();
-            var ezhuthuVagaiSelectorTemplate = kendo.template($("#ezhuthuVagaiSelectorTemplate").html());
-            var ezhuthuIndex = 0;
-            var ezhuthuVagaigal = '';
-            if (detailedMathiraiCount) {
-                for(var word=0; word < detailedMathiraiCount.length; word++) {
-                    $.each(detailedMathiraiCount[word], function(detailedMathiraiKey, detailedMathiraiValue) {
-                        $.each(detailedMathiraiValue, function(mathiraiKey, mathiraiValue) {
-                            var ezhuthu = mathiraiKey.split(":")[1];
-                            var ezhuthuVagai = ezhuthuVagaiSelectorTemplate({
-                                ezhuthu: ezhuthu,
-                                ezhuthuVagaiIndex: ezhuthuIndex + 1
-                            });
-                            ezhuthuIndex++;
-                            ezhuthuVagaigal += ezhuthuVagai;
-                            Utility.showElement("ezhuthuTypeSelector");
-                        });
-                    });
-                }
-                $("#ezhuthuTypes").append('<table class="table">' + ezhuthuVagaigal + '</table>');
-            }
-        });
+
+
+        var delay = Utility.makeDelay(1000);
+        $("#ProsodyText")
+            .keyup(function() {
+                delay(LetterTypeFinder.funcShowInputAndResult);
+            });
+
+        $("#ProsodyText").blur(LetterTypeFinder.funcShowInputAndResult);
         $("#prosodyForm").submit(function () {
             Utility.hideResult();
             var inputData = '{"InputText" : "' + $("#ProsodyText").val() + '"' +
                 '}';
-            var data = LetterType.getMathirai(inputData);
+            var data = LetterTypeFinder.getMathirai(inputData);
             if (data) {
                 var ezhuthuVagaiTemplate = kendo.template($("#ezhuthuVagaiTemplate").html());
                 var ezhuthuCount = data["TotalEzhuthuCount"];
@@ -255,7 +227,7 @@
                 $.each(detailedMathiraiCount[0], function (detailedMathiraiKey, detailedMathiraiValue) {
                     $.each(detailedMathiraiValue, function (mathiraiKey, mathiraiValue) {
                         var chosenEzhuthuVagai = $("#ezhuthuVagai-dropdown-" + (l + 1)).text().trim();
-                        isAnyLetterTypeWrong = (LetterType.letterTypes[mathiraiValue.LetterType] !== chosenEzhuthuVagai);
+                        isAnyLetterTypeWrong = (LetterTypeFinder.letterTypes[mathiraiValue.LetterType] !== chosenEzhuthuVagai);
                         if (isAnyLetterTypeWrong)
                             return false;
                         l++;

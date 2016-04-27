@@ -12,18 +12,24 @@
             <li id="seyyul" class="k-state-active">
                 <form id="prosodyForm" class="form-horizontal" action="/api/Prosody/MathiraiCount" method="POST">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-8">
                             <h4 class="game-section-title">
                                 வாக்கியம்
                             </h4>
                             <textarea class="panelbar-textarea" id="ProsodyText" rows="6"></textarea>
+                            <div class="control-group">
+                                <div class="controls">
+                                    <button class="btn btn-primary btn-with-glyph" id="example"><i class="glyph glyph-import"></i>மாதிரி</button>
+                                    <button type="submit" class="btn btn-primary btn-with-glyph"><i class="glyph glyph-arrow-right"></i>சரி பார்த்திடு</button>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-md-6 hidden" id="thodaiSelector">
-                            <h4 class="game-section-title">
+                        <div class="col-md-8 hidden" id="thodaiSelector">
+                            <h4 class="game-section-title text-center">
                                 தொடை வகை
                             </h4>
 
-                            <div id="monaiType" class="type-t7">
+                            <div id="monaiType" class="type-t7 text-center">
                                 <p class="form-group-label">மோனை வகை</p>
                                 <div class="dropdown">
                                     <button id="monai-dropdown" class="btn btn-dropdown dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
@@ -45,7 +51,7 @@
                                         <li><a href="#">இடைப்புணர்</a></li>
                                     </ul>
                                 </div>
-                                <p class="form-group-label">எதுகை  வகை</p>
+                                <p class="form-group-label">எதுகை வகை</p>
                                 <div class="dropdown">
                                     <button id="ethukai-dropdown" class="btn btn-dropdown dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
                                         எதுகை வகையைத் தேர்ந்தெடு
@@ -66,7 +72,7 @@
                                         <li><a href="#">இடைப்புணர்</a></li>
                                     </ul>
                                 </div>
-                                <p class="form-group-label">இயைபு  வகை</p>
+                                <p class="form-group-label">இயைபு வகை</p>
                                 <div class="dropdown">
                                     <button id="iyaipu-dropdown" class="btn btn-dropdown dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
                                         இயைபு வகையைத் தேர்ந்தெடு
@@ -88,64 +94,8 @@
                                     </ul>
                                 </div>
                             </div>
-
                         </div>
-                        <div class="col-md-6 hidden" id="result">
-                            <h4 class="game-section-title">
-                                முடிவு
-                            </h4>
-                            <div class="type-t5">
-                                <p class="form-group-label">மோனை வகை</p>
-                                <button id="monai-correct" class="right btn btn-success btn-with-glyph" aria-hidden="true" data-toggle="tooltip" data-placement="right"><i class="glyph glyph-checkmark"></i>சரி</button>
-                                <button id="monai-incorrect" class="wrong btn btn-warning btn-with-glyph" aria-hidden="true" data-toggle="tooltip" data-placement="right">
-                                    <i class="glyph glyph-cancel"></i>
-                                    தவறு
-                                </button>
-                                <a role="button" id="monai-explanation"
-                                   class="btn btn-primary btn-with-glyph"
-                                   tabindex="0"
-                                   data-toggle="popover"
-                                   data-trigger="focus"
-                                   data-content="அருமை">விளக்கம்</a>
-                            </div>
-                            <div class="type-t5">
-                                <p class="form-group-label">எதுகை  வகை</p>
-                                <button id="ethukai-correct" class="right btn btn-success btn-with-glyph" aria-hidden="true" data-toggle="tooltip" data-placement="right"><i class="glyph glyph-checkmark"></i>சரி</button>
-                                <button id="ethukai-incorrect" class="wrong btn btn-warning btn-with-glyph" aria-hidden="true" data-toggle="tooltip" data-placement="right">
-                                    <i class="glyph glyph-cancel"></i>
-                                    தவறு
-                                </button>
-                                <a role="button" id="ethukai-explanation"
-                                   class="btn btn-primary btn-with-glyph"
-                                   tabindex="0"
-                                   data-toggle="popover"
-                                   data-trigger="focus"
-                                   data-content="அருமை">விளக்கம்</a>
-                            </div>
-                            <div class="type-t5">
-                                <p class="form-group-label">இயைபு  வகை</p>
-                                <button id="iyaipu-correct" class="right btn btn-success btn-with-glyph" aria-hidden="true" data-toggle="tooltip" data-placement="right"><i class="glyph glyph-checkmark"></i>சரி</button>
-                                <button id="iyaipu-incorrect" class="wrong btn btn-warning btn-with-glyph" aria-hidden="true" data-toggle="tooltip" data-placement="right">
-                                    <i class="glyph glyph-cancel"></i>
-                                    தவறு
-                                </button>
-                                <a role="button" id="iyaipu-explanation"
-                                   class="btn btn-primary btn-with-glyph"
-                                   tabindex="0"
-                                   data-toggle="popover"
-                                   data-trigger="focus"
-                                   data-content="அருமை"><i class="glyph glyph-message"></i>விளக்கம்</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="control-group">
-                                <div class="controls">
-                                    <button class="btn btn-primary btn-with-glyph" id="example"><i class="glyph glyph-import"></i>மாதிரி</button>
-                                    <button type="submit" class="btn btn-primary btn-with-glyph"><i class="glyph glyph-arrow-right"></i>சரி பார்த்திடு</button>
-                                </div>
-                            </div>
+                        <div class="col-md-8 hidden" id="result">
                         </div>
                     </div>
                 </form>
@@ -282,6 +232,9 @@
     # } #
     <br />
 </script>
+
+@{ Html.RenderPartial("_CommonKendoTemplates"); }
+
 <script type="text/x-kendo-template" id="thodaiHelpTemplate">
     <div class="helptext">
         <span class="type-t6" id="thodai">தொடை (Ornament/Ornamentation)</span>
@@ -535,6 +488,17 @@
         $("#ProsodyText").blur(function () {
             Utility.showElement("thodaiSelector");
         });
+
+        var resultTemplate = kendo.template($("#multiResultsTemplate").html());
+        $("#result")
+            .append(resultTemplate({
+                partInfos: [
+                            { part: "monai", partHeader: "மோனை வகைகள்" },
+                            { part: "ethukai", partHeader: "எதுகை வகைகள்" },
+                            { part: "iyaipu", partHeader: "இயைபு வகைகள்" }
+                ]
+            }));
+        Utility.clearResult();
         $("#prosodyForm").submit(function () {
             Utility.hideResult();
             var data = '{"InputText" : "' + $("#ProsodyText").val() + '"' + '}';
@@ -586,7 +550,7 @@
                     } else {
                         Utility.showIncorrect("iyaipu", iyaipuExplanation);
                     }
-                    Utility.showElement("result");
+                    Utility.showResult();
                 },
                 error: function (data) {
                     alert('error');

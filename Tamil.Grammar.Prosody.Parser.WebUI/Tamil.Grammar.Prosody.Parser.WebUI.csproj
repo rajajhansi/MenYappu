@@ -638,7 +638,7 @@
     <Content Include="Scripts\lodash.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\modernizr-2.7.2.js" />
-    <Content Include="Scripts\prosody\LetterType.js" />
+    <Content Include="Scripts\prosody\LetterTypeFinder.js" />
     <Content Include="Scripts\prosody\utilityfunctions.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />

@@ -17,30 +17,26 @@
                                 வாக்கியம்
                             </h4>
                             <textarea class="panelbar-textarea" id="ProsodyText" rows="2"></textarea>
-                        </div>
-                        <div class="col-md-8">
-                            <h4 class="game-section-title">
-                                மாத்திரை எண்ணிக்கை
-                            </h4>
-                            <input type="text" id="MathiraiCount" class="panelbar-text form-control" />
-                            <div id="rightMathiraiCount" class="type-t5 hidden">
-                                <div>சரியான மாத்திரை எண்ணிக்கை</div>
-                                <span class="cspan" id="CalculatedMathiraiCount"></span>
-                            </div>
-
-                        </div>
-                        <div class="col-md-8 hidden" id="result">
-
-                        </div>
-                    </div>
-                    <div class="row row-sm">
-                        <div class="col-md-6">
                             <div class="control-group">
                                 <div class="controls">
                                     <button class="btn btn-primary btn-with-glyph" id="example"><i class="glyph glyph-import "></i>மாதிரி</button>
                                     <button type="submit" class="btn btn-primary btn-with-glyph"><i class="glyph glyph-message"></i>சரி பார்த்திடு</button>
                                 </div>
                             </div>
+                        </div>
+                        <div class="col-md-8">
+                            <h4 class="game-section-title text-center">
+                                மாத்திரை எண்ணிக்கை
+                            </h4>
+                            <input type="text" id="MathiraiCount" class="panelbar-text form-control" />
+                            <div id="rightMathiraiCount" class="type-t5 hidden">
+                                <h4 class="game-section-title">சரியான மாத்திரை எண்ணிக்கை</h4>
+                                <span class="cspan" id="CalculatedMathiraiCount"></span>
+                            </div>
+
+                        </div>
+                        <div class="col-md-8 hidden" id="result">
+
                         </div>
                     </div>
                 </form>
@@ -187,6 +183,12 @@
         Utility.hideResult();
         Utility.hideElement("rightMathiraiCount");
         Utility.setupExample('/api/prosody/Seergal', 'seer');
+        var resultTemplate = kendo.template($("#resultTemplate").html());
+        $("#result")
+            .append(resultTemplate({
+                part: "mathirai"
+            }));
+        Utility.clearResult();
         $("#prosodyForm").submit(function () {
             Utility.hideResult();
 
@@ -207,14 +209,14 @@
                         totalMathiraiCount: data["TotalMathiraiCount"]
                     });
 
-                    $("#CalculatedMathiraiCount").html('<h1>' + data["TotalMathiraiCount"] + '</h1>');
+                    $("#CalculatedMathiraiCount").html(data["TotalMathiraiCount"]);
                     if (parseFloat($("#MathiraiCount").val()) !== data["TotalMathiraiCount"]) {
                         Utility.showElement("rightMathiraiCount");
                         Utility.showIncorrect("mathirai", mathiraiExplanation);
                     } else {
                         Utility.showCorrect("mathirai", mathiraiExplanation);
                     }
-                    Utility.showElement("result");
+                    Utility.showResult();
                 },
                 error: function (data) {
                     alert('error');

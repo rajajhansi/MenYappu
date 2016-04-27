@@ -12,18 +12,24 @@
             <li id="seyyul" class="k-state-active">
                 <form id="prosodyForm" class="form-horizontal" action="/api/Prosody/MathiraiCount" method="POST">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-8">
                             <h4 class="game-section-title">
                                 வாக்கியம்
                             </h4>
                             <textarea class="panelbar-textarea" id="ProsodyText" rows="6"></textarea>
+                            <div class="control-group">
+                                <div class="controls">
+                                    <button class="btn btn-primary btn-with-glyph" id="example"><i class="glyph glyph-import"></i>மாதிரி</button>
+                                    <button type="submit" class="btn btn-primary btn-with-glyph"><i class="glyph glyph-arrow-right"></i>சரி பார்த்திடு</button>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-md-6 hidden" id="thalaiSelector">
-                            <h4 class="game-section-title">
+                        <div class="col-md-8 hidden" id="thalaiSelector">
+                            <h4 class="game-section-title text-center">
                                 தளை வகை
                             </h4>
 
-                            <div id="monaiType" class="type-t7">
+                            <div id="thalaiType" class="type-t7 text-center">
                                 <p class="form-group-label">தளை வகை</p>
                                 <div class="dropdown">
                                     <button id="thalai-dropdown" class="btn btn-dropdown dropdown-toggle" type="button" data-toggle="dropdown"
@@ -42,33 +48,7 @@
                             </div>
 
                         </div>
-                        <div class="col-md-6 hidden" id="result">
-                            <h4 class="game-section-title">
-                                முடிவு
-                            </h4>
-                            <div class="type-t5">
-                                <p class="form-group-label">தளை வகை</p>
-                                <button id="thalai-correct" class="right btn btn-success btn-with-glyph" aria-hidden="true" data-toggle="tooltip" data-placement="right"><i class="glyph glyph-checkmark"></i>சரி</button>
-                                <button id="thalai-incorrect" class="wrong btn btn-warning btn-with-glyph" aria-hidden="true" data-toggle="tooltip" data-placement="right"><i class="glyph glyph-cancel"></i>
-                                    தவறு
-                                </button>
-                                <a role="button" id="thalai-explanation"
-                                   class="btn btn-primary btn-with-glyph"
-                                   tabindex="0"
-                                   data-toggle="popover"
-                                   data-trigger="focus"
-                                   data-content="அருமை"><i class="glyph glyph-message"></i>விளக்கம்</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="control-group">
-                                <div class="controls">
-                                    <button class="btn btn-primary btn-with-glyph" id="example"><i class="glyph glyph-import"></i>மாதிரி</button>
-                                    <button type="submit" class="btn btn-primary btn-with-glyph"><i class="glyph glyph-arrow-right"></i>சரி பார்த்திடு</button>
-                                </div>
-                            </div>
+                        <div class="col-md-8 hidden" id="result">
                         </div>
                     </div>
                 </form>
@@ -94,6 +74,8 @@
         # } #
     </table>
 </script>
+
+@{ Html.RenderPartial("_CommonKendoTemplates"); }
 
 <script type="text/x-kendo-template" id="thalaiHelpTemplate">
     <div class="helptext">
@@ -180,7 +162,12 @@
         $("#ProsodyText").blur(function () {
             Utility.showElement("thalaiSelector");
         });
-
+        var resultTemplate = kendo.template($("#resultTemplate").html());
+        $("#result")
+            .append(resultTemplate({
+                part: "thalai"
+            }));
+        Utility.clearResult();
         Utility.setupExample('/api/prosody/ThalaiSentences', 'sentence');
         $("#prosodyForm").submit(function () {
             Utility.hideResult();
@@ -204,7 +191,7 @@
                     } else {
                         Utility.showIncorrect("thalai", thalaiExplanation);
                     }
-                    Utility.showElement("result");
+                    Utility.showResult();
                 },
                 error: function (data) {
                     alert('error');
