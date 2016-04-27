@@ -83,7 +83,8 @@
         @*<script src="~/Scripts/bootstrap.min.js"></script>*@
 
         @RenderSection("scripts", required: false)
-        @Scripts.Render("~/Scripts/customui")
+        @Scripts.Render("~/Scripts/customUi")
+        @Scripts.Render("~/Scripts/ajaxHelpers")
         <script src="/Scripts/lodash.js"></script>
         <script src="/Scripts/prosody/utilityfunctions.js"></script>
         <script>
@@ -98,6 +99,9 @@
                     if (isCollapsedOnLoad['right']) {
                         container.find("#right-panelbar-innercontent").hide();
                     }
+                },
+                collapsedText: {
+                    'right': 'உதவி'
                 },
                 callbacks: {
                     beforeCollapse: {

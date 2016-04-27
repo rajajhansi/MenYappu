@@ -40,10 +40,15 @@ namespace Tamil.Grammar.Prosody.Parser.WebUI
                     ));
 
             // BOGDAN UI BUNDLE
-            bundles.Add(new ScriptBundle("~/Scripts/customui").Include(
+            bundles.Add(new ScriptBundle("~/Scripts/customUi").Include(
                     "~/Scripts/ui/customBlockUi.js",
                     "~/Scripts/ui/ui.js"
-                    ));
+            ));
+            bundles.Add(new ScriptBundle("~/Scripts/ajaxHelpers").Include(
+                    "~/Scripts/ajax/ajaxBase.js",
+                    "~/Scripts/ajax/ajaxHelpers.js",
+                    "~/Scripts/ajax/services/*.js"
+            ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                 "~/Content/site.css",

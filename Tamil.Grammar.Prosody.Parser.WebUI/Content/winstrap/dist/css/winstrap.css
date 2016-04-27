@@ -11254,6 +11254,16 @@ button.toast-close-button {
   overflow: auto;
   position: absolute; }
 
+.panel-collapsed-left .left-panelbar .panel-text-on-collapsed-wrap, .panel-collapsed-right .right-panelbar .panel-text-on-collapsed-wrap {
+  display: block;
+  margin-top: 30px; }
+  .panel-collapsed-left .left-panelbar .panel-text-on-collapsed-wrap .panel-text-on-collapsed, .panel-collapsed-right .right-panelbar .panel-text-on-collapsed-wrap .panel-text-on-collapsed {
+    font-size: 18px;
+    color: #fff; }
+
+.panel-text-on-collapsed-wrap {
+  display: none; }
+
 .left-panelbar {
   width: 280px;
   left: 0;
@@ -11267,6 +11277,8 @@ button.toast-close-button {
   top: 0;
   bottom: 0;
   background-image: url("../../www/images/night.jpg"); }
+  .right-panelbar .panel-text-on-collapsed {
+    transform: rotate(-90deg); }
 
 .center-panelbar {
   position: absolute;
@@ -11276,6 +11288,8 @@ button.toast-close-button {
   right: 280px;
   top: 0;
   bottom: 0; }
+  .center-panelbar .panel-text-on-collapsed {
+    transform: rotate(90deg); }
 
 .panel-collapsed-left .left-panelbar {
   width: 44px; }
@@ -11291,13 +11305,16 @@ button.toast-close-button {
 .panel-collapsed-right .center-panelbar {
   right: 44px; }
 
-.panel-collapsed .subitems-toggler {
+.panel-collapsed-left .subitems-toggler,
+.panel-collapsed-right .subitems-toggler {
   display: none; }
 
-.panel-collapsed .stacked-menus-items-submenu {
+.panel-collapsed-left .stacked-menus-items-submenu,
+.panel-collapsed-right .stacked-menus-items-submenu {
   border-top: 1px solid #dddddd;
   border-bottom: 1px solid #dddddd; }
-  .panel-collapsed .stacked-menus-items-submenu .stacked-menus-items a {
+  .panel-collapsed-left .stacked-menus-items-submenu .stacked-menus-items a,
+  .panel-collapsed-right .stacked-menus-items-submenu .stacked-menus-items a {
     padding-left: 10px; }
 
 .page-header {

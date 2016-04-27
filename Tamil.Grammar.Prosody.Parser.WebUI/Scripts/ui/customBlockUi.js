@@ -12,6 +12,7 @@
 
     $.blockUI.defaults.message = defaults.blockUIMsgString;
     $.blockUI.defaults.overlayCSS.opacity = 0.2;
+    $.blockUI.defaults.overlayCSS['z-index'] = 2147483647;
 
     var _handleAnimationSizing = function (size) {
         var sizes = {

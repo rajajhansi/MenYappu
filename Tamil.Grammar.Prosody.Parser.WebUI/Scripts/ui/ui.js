@@ -41,6 +41,10 @@
             collapsed: {
                 left: true,
                 right: true
+            },
+            collapsedText: {
+                left: '',
+                right: 'Help'
             }
         };
 
@@ -106,6 +110,15 @@
                 _handlePersistence(position, !isExpanding);
             });
         });
+
+        // INFO[burs]: adding the collapsed state text..
+        $.each(config.collapsedText, function (position, panelTextOnCollapsed) {
+            if($.trim(panelTextOnCollapsed)){
+                var textElem = $("<div class='panel-text-on-collapsed-wrap'><div class='panel-text-on-collapsed'>" + panelTextOnCollapsed + "</div></div>");
+
+                $(config['panels'][position]).append(textElem);
+            }
+        })
     };
 
     $.fn.panelSubmenus = function (params) {
