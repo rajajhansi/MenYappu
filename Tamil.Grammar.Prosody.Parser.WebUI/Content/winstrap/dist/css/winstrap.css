@@ -11305,16 +11305,13 @@ button.toast-close-button {
 .panel-collapsed-right .center-panelbar {
   right: 44px; }
 
-.panel-collapsed-left .subitems-toggler,
-.panel-collapsed-right .subitems-toggler {
+.panel-collapsed .subitems-toggler {
   display: none; }
 
-.panel-collapsed-left .stacked-menus-items-submenu,
-.panel-collapsed-right .stacked-menus-items-submenu {
+.panel-collapsed .stacked-menus-items-submenu {
   border-top: 1px solid #dddddd;
   border-bottom: 1px solid #dddddd; }
-  .panel-collapsed-left .stacked-menus-items-submenu .stacked-menus-items a,
-  .panel-collapsed-right .stacked-menus-items-submenu .stacked-menus-items a {
+  .panel-collapsed .stacked-menus-items-submenu .stacked-menus-items a {
     padding-left: 10px; }
 
 .page-header {
