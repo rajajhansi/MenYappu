@@ -35,7 +35,7 @@ namespace Tamil.Grammar.Prosody.Parser.WebUI
                     "~/Scripts/toastr/toastr.js"
                     ));
             // The BlockUI bundle
-            bundles.Add(new ScriptBundle("~/Scripts/blockui").Include(
+            bundles.Add(new ScriptBundle("~/Scripts/blockuijs").Include(
                     "~/Scripts/blockui/blockui.js"
                     ));
 
