@@ -20,6 +20,7 @@ $koovilam: $color-lightgreen;
 $karuvilam: $color-blue;
 $sari: $color-green;
 $thavaru: $color-darkred;
+$info-tip: rgba($color-accent, 0.7);
 
 .helptext {
     margin-left: 5px;
@@ -92,6 +93,13 @@ $thavaru: $color-darkred;
 }
 .thavaru {
     color: $thavaru;
+}
+
+.infotip {
+    border: solid 1px;
+    background-color: $info-tip;
+    color: white;
+    padding-left: 10px;
 }
 
 /* simple */

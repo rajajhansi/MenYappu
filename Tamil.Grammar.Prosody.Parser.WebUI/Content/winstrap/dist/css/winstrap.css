@@ -11664,6 +11664,12 @@ td {
 .thavaru {
   color: #A80000; }
 
+.infotip {
+  border: solid 1px;
+  background-color: rgba(0, 120, 215, 0.7);
+  color: white;
+  padding-left: 10px; }
+
 /* simple */
 .flip-container_click {
   height: 427px;

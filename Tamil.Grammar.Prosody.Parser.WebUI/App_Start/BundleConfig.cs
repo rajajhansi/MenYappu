@@ -39,6 +39,10 @@ namespace Tamil.Grammar.Prosody.Parser.WebUI
                     "~/Scripts/blockui/blockui.js"
                     ));
 
+            // The Parsely bundle
+            bundles.Add(new ScriptBundle("~/Scripts/parsleyjs").Include(
+                    "~/Scripts/parsley/parsley.js"
+                    ));
             // BOGDAN UI BUNDLE
             bundles.Add(new ScriptBundle("~/Scripts/customUi").Include(
                     "~/Scripts/ui/customBlockUi.js",

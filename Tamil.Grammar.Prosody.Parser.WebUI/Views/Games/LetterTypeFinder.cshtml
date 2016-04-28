@@ -13,9 +13,12 @@
                 <form id="prosodyForm" class="form-horizontal" action="/api/Prosody/MathiraiCount" method="POST">
                     <div class="row row-sm">
                         <div class="col-md-8">
-                            <h4 class="game-section-title text-center">
+                            <h4 class="game-section-title">
                                 சொல்
                             </h4>
+                            <div class="infotip">
+                                <span class="text-t9">ஒரேயொரு சொல்லை மட்டும் உள்ளிடவும்.</span>
+                            </div>
                             <textarea class="panelbar-textarea" id="ProsodyText" rows="2"></textarea>
                             <div class="control-group">
                                 <div class="controls">
@@ -210,41 +213,8 @@
             Utility.hideResult();
             var inputData = '{"InputText" : "' + $("#ProsodyText").val() + '"' +
                 '}';
-            var data = LetterTypeFinder.getMathirai(inputData);
-            if (data) {
-                var ezhuthuVagaiTemplate = kendo.template($("#ezhuthuVagaiTemplate").html());
-                var ezhuthuCount = data["TotalEzhuthuCount"];
-                var detailedMathiraiCount = data["DetailedMathiraiCount"];
-                var ezhuthuExplanation = ezhuthuVagaiTemplate({
-                    ezhuthuCount: data["TotalEzhuthuCount"],
-                    mathiraiCount: data["MathiraiCount"],
-                    detailedMathiraiCount: data["DetailedMathiraiCount"],
-                    totalMathiraiCount: data["TotalMathiraiCount"]
-                });
+            var data = LetterTypeFinder.getMathirai(inputData, LetterTypeFinder.funcShowOutputWithResult);
 
-                var isAnyLetterTypeWrong = false;
-                var l = 0;
-                $.each(detailedMathiraiCount[0], function (detailedMathiraiKey, detailedMathiraiValue) {
-                    $.each(detailedMathiraiValue, function (mathiraiKey, mathiraiValue) {
-                        var chosenEzhuthuVagai = $("#ezhuthuVagai-dropdown-" + (l + 1)).text().trim();
-                        isAnyLetterTypeWrong = (LetterTypeFinder.letterTypes[mathiraiValue.LetterType] !== chosenEzhuthuVagai);
-                        if (isAnyLetterTypeWrong)
-                            return false;
-                        l++;
-                    });
-                });
-
-                if (isAnyLetterTypeWrong) {
-                    Utility.showIncorrect("ezhuthu", ezhuthuExplanation);
-                } else {
-                    Utility.showCorrect("ezhuthu", ezhuthuExplanation);
-                }
-                Utility.showResult();
-            }
-            else
-            {
-                alert('error');
-            }
             return false;
         });
     });
