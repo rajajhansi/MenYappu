@@ -1,0 +1,240 @@
+﻿@{
+    ViewBag.Title = "மென்யாப்பு";
+}
+
+<ul class="kendo-panelbars-custom" id="seyyulbar">
+    <li>
+        <h4 class="main-title">
+            வாக்கியத்தை உள்ளிடவும்
+            <span class="main-title-icon glyph glyph-chevron-down"></span>
+        </h4>
+        <ul>
+            <li id="seyyul" class="k-state-active">
+                <form id="prosodyForm" class="form-horizontal" action="/api/Prosody/MathiraiCount" method="POST">
+                    <div class="row row-sm">
+                        <div class="col-md-8">
+                            <h4 class="game-section-title">
+                                வாக்கியம்
+                            </h4>
+                            <textarea class="panelbar-textarea" id="ProsodyText" rows="2"></textarea>
+                            <div class="control-group">
+                                <div class="controls">
+                                    <button class="btn btn-primary btn-with-glyph" id="example"><i class="glyph glyph-import "></i>மாதிரி</button>
+                                    <button type="submit" class="btn btn-primary btn-with-glyph"><i class="glyph glyph-message"></i>சரி பார்த்திடு</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <h4 class="game-section-title text-center">
+                                மாத்திரை எண்ணிக்கை
+                            </h4>
+                            <input type="text" id="MathiraiCount" class="panelbar-text form-control" />
+                            <div id="rightMathiraiCount" class="type-t5 hidden">
+                                <h4 class="game-section-title">சரியான மாத்திரை எண்ணிக்கை</h4>
+                                <span class="cspan" id="CalculatedMathiraiCount"></span>
+                            </div>
+
+                        </div>
+                        <div class="col-md-8 hidden" id="result">
+
+                        </div>
+                    </div>
+                </form>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<script type="text/x-kendo-template" id="detailedMathiraiTemplate">
+    # var mathiraiInSeer = ""; var key = 0; var l = 0; #
+    # var letterClass = { 'கு' : 'kuril', 'நெ' : 'nedil', 'மெ' : 'otru', 'ஃ' : 'aytham' }; #
+    # for(var w=0; w < detailedMathiraiCount.length; w++) { #
+    # $.each(detailedMathiraiCount[w], function(detailedMathiraiKey, detailedMathiraiValue) { #
+    # mathiraiInSeer = mathiraiInSeer + '&nbsp;' #
+    # $.each(detailedMathiraiValue, function(mathiraiKey, mathiraiValue) { #
+    # var rubyStyle = l === Object.keys(detailedMathiraiValue).length - 1 ? "m-r-xxs" : "m-r-n"; #
+    # var letter = mathiraiKey.split(":")[1]; #
+    # mathiraiInSeer = mathiraiInSeer + '<ruby class="' + rubyStyle + '"><div class="type-t9 text-center ' + letterClass[mathiraiValue.LetterType] +'"><rt>' + mathiraiValue.LetterType +'</rt></div><span class="uiTran type-t7">' + letter + '</span><rt>' + mathiraiValue.Mathirai +  '</rt></ruby>  '; #
+    # if(l !== Object.keys(detailedMathiraiValue).length - 1) { #
+    # mathiraiInSeer = mathiraiInSeer + '<ruby><div class="type-t9 text-center"><rt>&nbsp;</rt></div><span class="uiTrant type-t7">' + '&nbsp;' + '</span><rt>' + ' + ' +  '</rt></ruby>  '; #
+    # } #
+    # l++; #
+    # }) #
+    # l = 0; key++; #
+    # }) #
+    # mathiraiInSeer = mathiraiInSeer + '<ruby><div class="type-t8 text-center"><rt>&nbsp;</rt></div><span class="uiTrant">' + '&nbsp;' + ' </span><rt>' + ' = ' + totalMathiraiCount + '</rt></ruby><br />'; #
+    # } #
+    #= mathiraiInSeer #
+    <hr />
+    <span class="kuril m-r-xxs type-t9">கு – குறில்</span>
+    <span class="nedil m-r-xxs type-t9">நெ – நெடில்</span>
+    <span class="otru m-r-xxs type-t9">மெ – மெய்</span>
+    <span class="aytham m-r-xxs type-t9">ஃ - ஆய்தம்</span>
+</script>
+
+@*<script type="text/x-kendo-template" id="mathiraiTemplate">
+        # var mathiraiInSeer = ""; var key = 0; #
+        # for (var l=0; l < mathiraiCount.length; l++) { #
+        # $.each(mathiraiCount[l], function(mathiraiKey, mathiraiValue) { #
+        # if (key !== Object.keys(mathiraiCount[l]).length - 1) { #
+        # mathiraiInSeer = mathiraiInSeer + '<ruby class="type-t9"><div>s<span class="uiTrant">' + mathiraiKey + '</span><rt>' + mathiraiValue + ' + </rt></div></ruby>  '; #
+        # } else { #
+        # mathiraiInSeer = mathiraiInSeer + '<ruby class="type-t9"><div>s<span class="uiTrant">' + mathiraiKey + '</span><rt>' + mathiraiValue + ' + </rt></div></ruby>  '; #
+        # } #
+        # key++; #
+        # }) #
+        # mathiraiInSeer = mathiraiInSeer + '<ruby class="type-t9"><span class="uiTrant">' + '&nbsp;' + ' </span><rt>' + ' = ' + totalMathiraiCount + '</rt></ruby>
+        <br />'; #
+        # } #
+        #= mathiraiInSeer #
+    </script>*@
+
+<script type="text/x-kendo-template" id="mathiraiHelpTemplate">
+    <audio id="aud-mathirai" preload="auto">
+        <source src="/audio/mathirai.mp3" controls>
+        Your browser isn't invited for super fun audio time.
+    </audio>
+    <div class="helptext">
+        <span class="type-t6">மாத்திரை</span>
+        <br />
+        எழுத்து ஒலி அளவு மாத்திரை எனப்படும்.
+    </div>
+    <button id="play-mathirai" class="btn btn-primary btn-with-glyph"><i class="glyph glyph-play"></i>ஒலி</button>
+    <button id="play-mathirai" class="btn btn-primary btn-with-glyph" data-toggle="modal" data-target="\#modal-video-mathirai"><i class="glyph glyph-video"></i>நிகழ்படம்</button>
+    <br />
+    <br />
+    <table class="table theme-alt type-t9">
+        <thead>
+            <tr>
+                <th>எழுத்து</th>
+                <th>மாத்திரை</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="kuril">
+                <td>குறில்</td>
+                <td>1</td>
+            </tr>
+            <tr class="nedil">
+                <td>நெடில்</td>
+                <td>2</td>
+            </tr>
+            <tr class="otru">
+                <td>ஒற்று/மெய்</td>
+                <td>½</td>
+            </tr>
+            <tr class="aytham">
+                <td>ஆய்தம்</td>
+                <td>½</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="modal modal-center-vertical" id="modal-video-mathirai" tabindex="-1" role="dialog" aria-labelledby="modal-about-menyappu-label" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="modal-sample-label">
+                        மென் யாப்பு
+                    </h4>
+                </div>
+                <div class="modal-body text-center">
+                    <iframe width="420" height="315" src="https://www.youtube.com/embed/AH4bCeBXFm4?start=396" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">
+                        மூடு
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+@{ Html.RenderPartial("_CommonKendoTemplates"); }
+<script>
+    $(document).ready(function () {
+        // set the context help
+        var mathiraiHelpTemplate = kendo.template($("#mathiraiHelpTemplate").html());
+        Utility.setContextHelp(mathiraiHelpTemplate({}));
+        var audioMathirai = $("#aud-mathirai")[0];
+        $("#play-mathirai").mouseenter(function () {
+            audioMathirai.play();
+        });
+        $("#play-mathirai").mouseleave(function () {
+            audioMathirai.pause();
+        });
+        // event handler for select
+        var onSelect = function (e) {
+            // access the selected item via e.item (HTMLElement)
+            var item = e.sender.select();
+
+            if (item.hasClass("k-state-active")) {
+                e.sender.collapse(item);
+            } else {
+                e.sender.expand(item);
+            }
+        };
+        var seyyulPanelBar = $("#seyyulbar").kendoPanelBar({
+            expandMode: "single",
+            select: onSelect
+        }).data("kendoPanelBar");
+        seyyulPanelBar.expand($(".k-first"), true);
+
+        Utility.hideResult();
+        Utility.hideElement("rightMathiraiCount");
+        Utility.setupExample('/api/prosody/Seergal', 'seer');
+        var resultTemplate = kendo.template($("#resultTemplate").html());
+        $("#result")
+            .append(resultTemplate({
+                part: "mathirai"
+            }));
+        Utility.clearResult();
+        $("#prosodyForm").submit(function () {
+            Utility.hideResult();
+
+            var shouldCompareVenpaRules = $("#ShouldCompareVenpaRules").is(':checked');
+            var data = '{"InputText" : "' + $("#ProsodyText").val() + '"' +
+                '}';
+            $.ajax({
+                url: '/api/Prosody/MathiraiCount',
+                data: data,
+                contentType: 'application/json; charset=utf8',
+                type: 'POST',
+                async: false,
+                success: function (data) {
+                    var mathiraiTemplate = kendo.template($("#detailedMathiraiTemplate").html());
+                    var mathiraiExplanation = mathiraiTemplate({
+                        mathiraiCount: data["MathiraiCount"],
+                        detailedMathiraiCount: data["DetailedMathiraiCount"],
+                        totalMathiraiCount: data["TotalMathiraiCount"]
+                    });
+
+                    $("#CalculatedMathiraiCount").html(data["TotalMathiraiCount"]);
+                    if (parseFloat($("#MathiraiCount").val()) !== data["TotalMathiraiCount"]) {
+                        Utility.showElement("rightMathiraiCount");
+                        Utility.showIncorrect("mathirai", mathiraiExplanation);
+                    } else {
+                        Utility.showCorrect("mathirai", mathiraiExplanation);
+                    }
+                    Utility.showResult();
+                },
+                error: function (data) {
+                    alert('error');
+                }
+            });
+            return false;
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('#modal-video-mathirai').on('show.bs.modal', function (e) {
+            $(e.target).find('.modal-body').empty();
+            $(e.target).find('.modal-body').append('<iframe width="420" height="315" src="https://www.youtube.com/embed/AH4bCeBXFm4?start=396" frameborder="0" allowfullscreen></iframe>');
+        });
+        $('#modal-video-mathirai').on('hide.bs.modal', function (e) {
+            $(e.target).find('.modal-body').empty();
+        });
+    });
+</script>

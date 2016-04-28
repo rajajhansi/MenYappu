@@ -1,0 +1,194 @@
+﻿@{
+    ViewBag.Title = "மென்யாப்பு";
+}
+
+<ul class="kendo-panelbars-custom" id="seyyulbar">
+    <li>
+        <h4 class="main-title">
+            அடியை உள்ளிடவும் (குறைந்தது 1 சீர் அவசியம்)
+            <span class="main-title-icon glyph glyph-chevron-down"></span>
+        </h4>
+        <ul>
+            <li id="seyyul" class="k-state-active">
+                <form id="prosodyForm" class="form-horizontal" action="/api/Prosody/AdiMeasurer" method="POST">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h4 class="game-section-title">
+                                அடி
+                            </h4>
+                            <textarea class="panelbar-textarea" id="ProsodyText" rows="6"></textarea>
+                            <div class="control-group">
+                                <div class="controls">
+                                    <button class="btn btn-primary btn-with-glyph" id="example"><i class="glyph glyph-import"></i>மாதிரி</button>
+                                    <button type="submit" class="btn btn-primary btn-with-glyph"><i class="glyph glyph-arrow-right"></i>சரி பார்த்திடு</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8 hidden" id="adiSelector">
+                            <h4 class="game-section-title text-center">
+                                அடி வகை
+                            </h4>
+
+                            <div id="adiType" class="type-t7 text-center">
+                                <p class="form-group-label">அடி வகை</p>
+                                <div class="dropdown">
+                                    <button id="adi-dropdown" class="btn btn-dropdown dropdown-toggle" type="button" data-toggle="dropdown"
+                                            aria-haspopup="true" role="button" aria-expanded="false">அடி வகையைத் தேர்ந்தெடு<span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="adi-dropdown">
+                                        <li><a href="#">தனிச்சொல்</a></li>
+                                        <li><a href="#">குறளடி</a></li>
+                                        <li><a href="#">சிந்தடி</a></li>
+                                        <li><a href="#">அளவடி</a></li>
+                                        <li><a href="#">நெடிலடி</a></li>
+                                        <li><a href="#">கழிநெடிலடி</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-8 hidden" id="result">
+                        </div>
+                    </div>
+                </form>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<script type="text/x-kendo-template" id="adiTemplate">
+    <span class="type-t5">அடிகள் எண்ணிக்கை: #= adigal.length #</span>
+    <br />
+    <table border=0 cellspacing=10>
+        <tr>
+            <th>அடி</th>
+            <th>அடி வகை</th>
+        </tr>
+        # for (var i = 0; i < adigal.length; i++) { #
+        <tr>
+            <td> #= adigal[i] #</span></td>
+            <td> <span class="adi   "> #= adiVagaigal[i] # </span></td>
+        </tr>
+        # } #
+    </table>
+</script>
+@{ Html.RenderPartial("_CommonKendoTemplates"); }
+<script type="text/x-kendo-template" id="adiHelpTemplate">
+    <div class="helptext">
+        <span class="type-t6">அடி (Metrical line)</span>
+        <br />
+        சீர்கள் இணைந்து அடி ஆகும்.  செய்யுளில் இடம்பெறும் ஒரு வரியை அடி எனலாம். அடியில் வரும் சீர்களின் எண்ணிக்கைக்கு ஏற்ப அடிகள் பல வகைப்படும்.
+        <br/>
+        தளைகள் ஏழு வகைப்படும்.
+    </div>
+    <br />
+    <div class="helptext">
+        <span class="type-t6">அடி வகை</span>
+    </div>
+    <table class="table theme-alt type-t9">
+        <thead>
+            <tr>
+                <th>அடிகள் எண்ணிக்கை</th>
+                <th>அடி வகை</th>
+                <th>காட்டு</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="naal">
+                <td>ஒரு சீர் உள்ள அடி</td>
+                <td>தனிச்சொல்</td>
+                <td>மனிதம்</td>
+            </tr>
+            <tr class="malar">
+                <td>இரண்டு சீர்கள் உள்ள அடி</td>
+                <td>குறளடி</td>
+                <td>சுருங்கியது உலகமும்</td>
+            </tr>
+            <tr class="kaasu">
+                <td>மூன்று சீர்கள் உள்ள அடி</td>
+                <td>சிந்தடி</td>
+                <td>ஊரணியாய்த் தந்த கவி</td>
+            </tr>
+            <tr class="pirappu">
+                <td>நான்கு சீர்கள் உள்ள அடி</td>
+                <td>அளவடி</td>
+                <td>பாரதி தன்கவியால் பாரதில் தீந்தமிழை</td>
+            </tr>
+            <tr class="naal">
+                <td>ஐந்து சீர்கள் உள்ள அடி</td>
+                <td>நெடிலடி</td>
+                <td>பாரதி தன்கவியால் பாரதில் தீந்தமிழை ஊரணியாய்</td>
+            </tr>
+            <tr class="malar">
+                <td>ஆறு (அ) ஆறுக்கும் மேற்பட்ட சீர்கள் உள்ள அடி</td>
+                <td>கழிநெடிலடி</td>
+                <td>பாரதி தன்கவியால் பாரதில் தீந்தமிழை ஊரணியாய்த் தந்த</td>
+            </tr>
+        </tbody>
+    </table>
+</script>
+<script>
+    $(document).ready(function () {
+        // set the context help
+        var adiHelpTemplate = kendo.template($("#adiHelpTemplate").html());
+        Utility.setContextHelp(adiHelpTemplate({}));
+        // event handler for select
+        var onSelect = function (e) {
+            // access the selected item via e.item (HTMLElement)
+            var item = e.sender.select();
+
+            if (item.hasClass("k-state-active")) {
+                e.sender.collapse(item);
+            } else {
+                e.sender.expand(item);
+            }
+        };
+        var seyyulPanelBar = $("#seyyulbar").kendoPanelBar({
+            expandMode: "single",
+            select: onSelect
+        }).data("kendoPanelBar");
+        seyyulPanelBar.expand($(".k-first"), true);
+
+        Utility.hideResult();
+        var resultTemplate = kendo.template($("#resultTemplate").html());
+        $("#result")
+            .append(resultTemplate({
+                part: "adi"
+            }));
+        $("#ProsodyText").blur(function () {
+            Utility.showElement("adiSelector");
+        });
+        Utility.clearResult();
+        Utility.setupExample('/api/prosody/Adigal', 'adi');
+        $("#prosodyForm").submit(function () {
+            Utility.hideResult();
+            var data = '{"InputText" : "' + $("#ProsodyText").val() + '"' + '}';
+            $.ajax({
+                url: '/api/Prosody/AdiMeasurer',
+                data: data,
+                contentType: 'application/json; charset=utf8',
+                type: 'POST',
+                async: false,
+                success: function (data) {
+                    var adiTemplate = kendo.template($("#adiTemplate").html());
+                    var adiExplanation = adiTemplate({
+                        adigal: data["Lines"],
+                        adiVagaigal: data["LineClass"]
+                    });
+
+                    var chosenAdi = $("#adi-dropdown").text().trim();
+                    if (data["LineClass"][0].indexOf(chosenAdi) >= 0) {
+                        $("#adi-correct").attr('data-original-title', adiExplanation);
+                        Utility.showCorrect("adi", adiExplanation);
+                    } else {
+                        Utility.showIncorrect("adi", adiExplanation);
+                    }
+                    Utility.showResult();
+                },
+                error: function (data) {
+                    alert('error');
+                }
+            });
+            return false;
+        });
+    });</script>

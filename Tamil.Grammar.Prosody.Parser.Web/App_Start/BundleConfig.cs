@@ -9,7 +9,7 @@ namespace Tamil.Parody.Parser.Web
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+                        "~/Content/winstrap/dist/js/vendor/jquery.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
                         "~/Scripts/jquery-ui-{version}.js"));
@@ -22,11 +22,19 @@ namespace Tamil.Parody.Parser.Web
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
-            bundles.Add(new ScriptBundle("~/Scripts/bootstrap").Include("~/Scripts/bootstrap.js"));
+
+            bundles.Add(new ScriptBundle("~/Scripts/bootstrap").Include(
+                "~/Content/winstrap/dist/js/vendor/bootstrap.js"
+                ));
             // The Kendo JavaScript bundle
-            bundles.Add(new ScriptBundle("~/bundles/kendo").Include(
-                    "~/Scripts/kendo/2012.2.710/kendo.web.*"
+            bundles.Add(new ScriptBundle("~/Scripts/kendo").Include(
+                    "~/Scripts/kendo/2016.1/kendo.web.js"
                     ));
+
+            // BOGDAN UI BUNDLE
+            bundles.Add(new ScriptBundle("~/Scripts/customui").Include(
+                    "~/Scripts/ui/ui.*"
+                    ));            
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                 "~/Content/site.css",
@@ -54,6 +62,22 @@ namespace Tamil.Parody.Parser.Web
                 "~/Content/kendo/2012.2.710/kendo.common.*",
                 "~/Content/kendo/2012.2.710/kendo.default.*"
                 ));
+
+
+            // BOGDAN: kendoui without the theme
+            bundles.Add(new StyleBundle("~/Content/kendoui_notheme").Include(
+                "~/Content/kendo/2012.2.710/kendo.common.*"
+                ));
+            bundles.Add(new StyleBundle("~/Content/prosody").Include(
+                "~/Content/prosody.css"));
+            // Add winstrap
+            bundles.Add(new StyleBundle("~/Content/winstrapcss").Include(
+                "~/Content/winstrap/dist/css/winstrap.css"
+            ));
+
+            bundles.Add(new StyleBundle("~/Aurelia/styles").Include(
+            "~/Aurelia/node_modules/font-awesome/css/font-awesome.css",
+            "~/Aurelia/styles/styles.css"));
         }
     }
 }

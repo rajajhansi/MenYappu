@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+﻿﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -8,80 +8,179 @@
     <meta name="author" content="">
 
     <!-- Le styles -->
-    @Styles.Render("~/Content/themes/base/css",
-                    "~/Content/css",
-                    "~/Content/bootstrap",
-                    "~/Content/kendoui")
-    @Scripts.Render("~/bundles/jquery", "~/Scripts/bootstrap", "~/bundles/kendo")
+    @Styles.Render("~/Content/kendoui_notheme")
+    <link rel="stylesheet" href="~/Content/winstrap/dist/css/winstrap.css" />
+    @Styles.Render("~/Content/prosody")
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/Scripts/bootstrap")
+    @Scripts.Render("~/Scripts/kendo")
+
     @*<link href="~/Content/bootstrap.min.css" rel="stylesheet">*@
-    <style>
-        body
-        {
-            padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-        }
-    </style>
     @*<link href="~/Content/bootstrap-responsive.min.css" rel="stylesheet">*@
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
+      <![endif]-->
     <!-- Le fav and touch icons -->
     <link rel="shortcut icon" href="~/Content/icons/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="~/Content/icons/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="~/Content/icons/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="~/Content/icons/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="~/Content/icons/apple-touch-icon-57-precomposed.png">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="~/Content/icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="~/Content/icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="~/Content/icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="~/Content/icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="~/Content/icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="~/Content/icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="~/Content/icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="~/Content/icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="~/Content/icons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="~/Content/icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="~/Content/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="~/Content/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/Content/icons/favicon-16x16.png">
 </head>
 
 <body>
+    <div id="head-winstrap">
 
-    <div class="container-fluid">
+        <nav class="navbar navbar-default">
+            <div class="navbar-global theme-dark color-accent">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <i class="glyph glyph-hamburger"></i>
+                        </button>
 
-        <div class="row-fluid">
-            <div class="span2">
-                <br />
-                <!--Sidebar content-->
-                <ul id="panelbar">
-                    <li>மென்யாப்பு
-                    <ul>
-                        <li>மென்யாப்பு</li>
-                        <li>உதவி</li>
-                    </ul>
-                    <li>யாப்பிலக்கணம்
-                        <ul>
-                            <li>அசை</li>
-                            <li>சீர்</li>
-                            <li>தளை</li>
-                            <li>அடி</li>
-                            <li>தொடை</li>
+                        <a class="navbar-brand no-outline" href="#">மென்யாப்பு</a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a href="colors.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">யாப்பிலக்கணம் <i class="glyph glyph-chevron-down-2"></i></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">எழுத்து</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">அசை</a></li>
+                                    <li><a href="#">சீர்</a></li>
+                                    <li><a href="#">தளை</a></li>
+                                    <li><a href="#">அடி</a></li>
+                                    <li><a href="#">தொடை</a></li>
+                                    <li><a href="#">ஓசை</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">பா வகைகள் <i class="glyph glyph-chevron-down-2"></i></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">வெண்பா</a></li>
+                                    <li><a href="#">ஆசிரியப்பா</a></li>
+                                    <li><a href="#">கலிப்பா</a></li>
+                                    <li><a href="#">வஞ்சிப்பா</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">பாவினங்கள் <i class="glyph glyph-chevron-down-2"></i></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">வெண்பாவினம்</a></li>
+                                    <li><a href="#">ஆசிரியப்பாவினம்</a></li>
+                                    <li><a href="#">கலிப்பாவினம்</a></li>
+                                    <li><a href="#">வஞ்சிப்பாவினம்</a></li>
+                                </ul>
+                            </li>
                         </ul>
-                    </li>
-                </ul>
-                    
-                <div id="bottom"></div>
+                        <form class="navbar-form navbar-right" role="search">
+                            <div class="form-group navbar-search-wrap">
+                                <input type="search" class="form-control navbar-searchfield" placeholder="தேடு">
+                                <button type="submit" class="btn btn-default navbar-searchbtn"></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <div class="span10">
-                <br/>               
-                @RenderBody()
-            </div>
+        </nav>
+
+    </div>
+
+    <div class="container-wrap" id="container-wrapper-with-panels">
+        <div class="left-panelbar">
+            @{
+                Html.RenderPartial("_LeftNavigationBar");
+            }
+        </div>
+
+        <!-- About us Dialog -->
+
+        <div class="center-panelbar">
+            @RenderBody()
+        </div>
+
+        <div class="right-panelbar">
+            @{
+                            Html.RenderPartial("_RightBar");
+                        }
         </div>
 
         <!-- Le javascript
-    ================================================== -->
+        ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
-
         @*<script src="~/Scripts/bootstrap.min.js"></script>*@
-        <script>
-            $(document).ready(function () {
-                $("#panelbar").kendoPanelBar({
-                    expandMode: "single"
-                });
-            });
-        </script>
+
         @RenderSection("scripts", required: false)
+        @Scripts.Render("~/Scripts/customui")
+        <script src="/Scripts/lodash.js"></script>
+        <script src="/Scripts/prosody/utilityfunctions.js"></script>
+        <script>
+            $("#container-wrapper-with-panels").panelExpander({
+                persistState: {
+                    left: true
+                },
+                onLoad: function (isCollapsedOnLoad, container) {
+                    if (isCollapsedOnLoad['left']) {
+                        container.find('#left-panel-inwrap').find('.stacked-menu-items-text').hide();
+                    }
+                },
+                callbacks: {
+                    beforeCollapse: {
+                        left: function (e, container) {
+                            container.find('#left-panel-inwrap').find('.stacked-menu-items-text').hide();
+                        }
+                    },
+                    afterExpand: {
+                        left: function (e, container, ctx) {
+                            setTimeout(function (param) {
+                                container.find('#left-panel-inwrap').find('.stacked-menu-items-text').fadeIn(100);
+                            }, 100);
+                        }
+                    }
+                }
+            });
+
+            $(".stacked-menus").panelSubmenus();
+        </script>
     </div>
-    >
+    <div class="modal modal-center-vertical" id="modal-about-menyappu"
+         tabindex="-1" role="dialog"
+         aria-labelledby="modal-about-menyappu-label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="modal-sample-label">
+                        மென் யாப்பு
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    மென் யாப்பு என்பது செய்யுள் படிக்க படைக்க விரும்பும் தமிழார்வலர்களுக்கு எளிய வகையில் சந்திப் பிழை திருத்தி, யாப்பிலக்கண விளையாட்டுகள், பா இயற்றி, பா ஆராய்ச்சி சேவைகளை ஒருங்கிணைத்துத் தரும் ஒரு தளமாகும். இந்தத் தளத்தின் சேவைகள் வெப் சர்வீஸாகவும் அளிக்கப்படுவதால் ஆப்பிள், ஆண்ட்ராய்டு, விண்டோஸ் அலைபேசிப் பயனர்கள் அந்த வெப் சர்வீஸ்களைப் பயன்படுத்தி அவர்களே செயலிகளை உருவாக்கிக் கொள்ள முடியும்.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">
+                        மூடு
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

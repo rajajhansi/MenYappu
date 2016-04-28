@@ -1,0 +1,40 @@
+﻿.nerasai {
+color: crimson;
+}
+.niryasai {
+color: cornflowerblue;
+}
+.todaiindex {
+    color: #4169E1;
+}
+.todaiword {
+    color: darkred;
+}
+.talaiseer {
+    color: maroon;
+}
+.talaiasai {
+    color:darkslateblue
+}
+.talainame {
+    color:limegreen
+}
+.adi {
+    color:seagreen
+}
+.todaipattern {
+    color: #4682B4;
+}
+
+ruby > rt {
+    display: block;
+    font-size: 75%;
+    text-align: start;
+}
+rt {
+    line-height: normal;
+    -webkit-text-emphasis: none;
+}
+ruby, rt {
+    text-indent: 0px;
+}

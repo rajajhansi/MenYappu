@@ -1,0 +1,454 @@
+﻿@{
+    ViewBag.Title = "மென்யாப்பு";
+}
+
+<ul class="kendo-panelbars-custom" id="seyyulbar">
+    <li>
+        <h4 class="main-title">
+            ஒரேயொரு சீரை உள்ளிடவும்
+            <span class="main-title-icon glyph glyph-chevron-down"></span>
+        </h4>
+        <ul>
+            <li id="seyyul" class="k-state-active">
+                <form id="prosodyForm" class="form-horizontal" action="/api/Prosody/MathiraiCount" method="POST">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h4 class="game-section-title">
+                                சீர்
+                            </h4>
+                            <textarea class="panelbar-textarea" id="ProsodyText" rows="6"></textarea>
+                        </div>
+                        <div class="col-md-6 hidden" id="asaiSelector">
+                            <h4 class="game-section-title text-center">
+                                அசை வகைகள்
+                            </h4>
+                            <div id="asaiCalculator" class="text-center text-t5">
+                                <span>எண்ணிக்கை:</span>
+                                <span id="AsaiCount"></span>
+                            </div>
+                            <div id="asaiTypes" class="type-t7 text-center">
+
+                            </div>
+
+                        </div>
+                        <div class="col-md-8 hidden" id="result">
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="control-group">
+                                <div class="controls">
+                                    <button class="btn btn-primary btn-with-glyph" id="example"><i class="glyph glyph-import"></i>மாதிரி</button>
+                                    <button type="submit" class="btn btn-primary btn-with-glyph"><i class="glyph glyph-message"></i>சரி பார்த்திடு</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<script type="text/x-kendo-template" id="asaiTemplate">
+    # var asaiId = 'asai-dropdown-' + asaiIndex; #
+    <p class="form-group-label">அசை வகை</p>
+    <div class="dropdown">
+        <button id="#= asaiId #" class="btn btn-dropdown dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+            அசை வகையைத் தேர்ந்தெடு<span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="#= asaiId #">
+            <li><a href="\\#">நேர்</a></li>
+            <li><a href="\\#">நிரை</a></li>
+        </ul>
+    </div>
+</script>
+
+<script type="text/x-kendo-template" id="seerTemplate">
+    <p class="form-group-label">சீர் வகை</p>
+    <div class="dropdown">
+        <button id="seer-dropdown" class="btn btn-dropdown dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+            சீர் வகையைத் தேர்ந்தெடு<span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="seer-dropdown">
+            # if (asaiCount === 1) { #
+            <li><a href="\\#">நாள்</a></li>
+            <li><a href="\\#">மலர்</a></li>
+            <li><a href="\\#">காசு</a></li>
+            <li><a href="\\#">பிறப்பு</a></li>
+            # } #
+            # if (asaiCount === 2) { #
+            <li><a href="\\#">தேமா</a></li>
+            <li><a href="\\#">புளிமா</a></li>
+            <li><a href="\\#">கூவிளம்</a></li>
+            <li><a href="\\#">கருவிளம்</a></li>
+            # } #
+            # if (asaiCount === 3) { #
+            <li><a href="\\#">தேமாங்காய்</a></li>
+            <li><a href="\\#">புளிமாங்காய்</a></li>
+            <li><a href="\\#">கூவிளங்காய்</a></li>
+            <li><a href="\\#">கருவிளங்காய்</a></li>
+            <li><a href="\\#">தேமாங்கனி</a></li>
+            <li><a href="\\#">புளிமாங்கனி</a></li>
+            <li><a href="\\#">கூவிளங்கனி</a></li>
+            <li><a href="\\#">கருவிளங்கனி</a></li>
+            # } #
+            # if (asaiCount === 4) { #
+            <li><a href="\\#">தேமாந்தண்பூ</a></li>
+            <li><a href="\\#">புளிமாந்தண்பூ</a></li>
+            <li><a href="\\#">கூவிளந்தண்பூ</a></li>
+            <li><a href="\\#">கருவிளந்தண்பூ</a></li>
+            <li><a href="\\#">தேமாநறும்பூ</a></li>
+            <li><a href="\\#">புளிமாநறும்பூ</a></li>
+            <li><a href="\\#">கூவிளநறும்பூ </a></li>
+            <li><a href="\\#">கருவிளநறும்பூ</a></li>
+            <li><a href="\\#">தேமாநறுநிழல்</a></li>
+            <li><a href="\\#">புளிமாநறுநிழல்</a></li>
+            <li><a href="\\#">கூவிளநறுநிழல்</a></li>
+            <li><a href="\\#">கருவிளநறுநிழல்</a></li>
+            <li><a href="\\#">தேமாந்தண்ணிழல்</a></li>
+            <li><a href="\\#">புளிமாந்தண்ணிழல்</a></li>
+            <li><a href="\\#">கூவிளந்தண்ணிழல்</a></li>
+            <li><a href="\\#">கருவிளந்தண்ணிழல்</a></li>
+            # } #
+        </ul>
+    </div>
+</script>
+
+<script type="text/x-kendo-template" id="seerExplanationTemplate">
+    # if(paaVagai) { #
+    <h3 class="k-widget k-header">#= paaVagai #</h3>
+    <br />
+    # } #
+    <table border="0" cellspacing="15">
+        <tbody>
+
+            # $.each(parseTree, function(adiKey, adiValue) { #
+            # var paaAsaiInAdi = ""; var asigalInAdi = "";	var vaippaduInAdi = ""; #
+            # $.each(adiValue, function(seerKey, seerValue) { #
+            # paaAsaiInAdi = paaAsaiInAdi + '<td>' #
+            # asigalInAdi = asigalInAdi + '<td>'#
+            # vaippaduInAdi = vaippaduInAdi + '<td>'#
+            # $.each(seerValue, function(asaiKey, asaiValue) { #
+            # $.each(asaiValue, function(key, value) { #
+            # if(key != "meta" && key != "smeta") { #
+            # if(new RegExp("^நேர்").test(key)) {  #
+            # paaAsaiInAdi = paaAsaiInAdi + '<span class="nerasai">' + value + '</span>' #
+            # asigalInAdi = asigalInAdi + '<span class="nerasai">' + key #
+                # } else if(new RegExp("^நிரை").test(key)) { #
+                # paaAsaiInAdi = paaAsaiInAdi + '<span class="niryasai">' + value + '</span>' #
+                # asigalInAdi = asigalInAdi + '<span class="niryasai">' + key #
+                    # } else if( key == "பு") { #
+                    # var spanClass = new RegExp("^நேர்").test(venLastSyllable) ? "nerasai" : "niryasai"; #
+                    # paaAsaiInAdi = paaAsaiInAdi + '<span class="' + spanClass + '">' + value + '</span>' #
+                    # } #
+                    # } else { #
+                    # if(key == "meta") { #
+                    # paaAsaiInAdi = paaAsaiInAdi + '</td>' #
+        # asigalInAdi = asigalInAdi + '</td>'  #
+        # vaippaduInAdi = vaippaduInAdi + value + '</td>' #
+        # } #
+        # }	#
+        # }) #
+        # }) #
+        # }) #
+        # console.log("\r\n" + paaAsaiInAdi); console.log("\r\n" + asigalInAdi); console.log("\r\n" + vaippaduInAdi); #
+        <tr>
+            #= paaAsaiInAdi #
+        </tr>
+        <tr>
+            #= asigalInAdi #
+        </tr>
+        <tr>
+            #= vaippaduInAdi #
+        </tr>
+        #}) #
+        </tbody>
+    </table>
+
+</script>
+
+@{ Html.RenderPartial("_CommonKendoTemplates"); }
+
+<script type="text/x-kendo-template" id="seerHelpTemplate">
+    <div class="helptext">
+        <span class="type-t6" id="seer">சீர் (Metrical foot)</span>
+        <br />
+        அசையால் அமைவது சீர் ஆகும்.
+    </div>
+    <br />
+    <table class="table theme-alt type-t9">
+        <tbody>
+            <tr>
+                <td>1. ஓரசைச்சீர் <a href="\#orasai"><i class="glyph glyph-go"></i></a></td>
+            </tr>
+            <tr>
+                <td>2. ஈரசைச்சீர் <a href="\#eerasai"><i class="glyph glyph-go"></i></a></td>
+            </tr>
+            <tr>
+                <td>3. மூவசைச்சீர் <a href="\#moovasai"><i class="glyph glyph-go"></i></a></td>
+            </tr>
+            <tr>
+                <td>4. நாலசைச்சீர் <a href="\#naalasai"><i class="glyph glyph-go"></i></a></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="helptext">
+        <span class="type-t6" id="orasai">ஓரசைச்சீர் வகை<a href="\#seer"><i class="glyph glyph-up"></i></a></span>
+    </div>
+    <table class="table theme-alt type-t9">
+        <thead>
+            <tr>
+                <th>சீர்</th>
+                <th>வாய்ப்பாடு</th>
+                <th>காட்டு</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="naal">
+                <td>நாள்</td>
+                <td>நேரசை</td>
+                <td>கல்</td>
+            </tr>
+            <tr class="malar">
+                <td>மலர்</td>
+                <td>நிரையசை</td>
+                <td>தமிழ்</td>
+            </tr>
+            <tr class="kaasu">
+                <td>காசு</td>
+                <td>தனிக்குறில் தவிர நேரசையுடன் குற்றியலுகரம் சேர்ந்து நேர்பு ஆகும்</td>
+                <td>நன்று</td>
+            </tr>
+            <tr class="pirappu">
+                <td>பிறப்பு</td>
+                <td>நிரையசையுடன் குற்றியலுகரம் சேர்ந்தது நிரைபு ஆகும்</td>
+                <td>உலகு</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="helptext">
+        <span class="type-t6" id="eerasai">ஈரசைச்சீர் வகை: மாச்சீர், விளச்சீர்<a href="\#seer"><i class="glyph glyph-up"></i></a></span>
+    </div>
+    <table class="table theme-alt type-t9">
+        <thead>
+            <tr>
+                <th>சீர்</th>
+                <th>வாய்ப்பாடு</th>
+                <th>காட்டு</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="thema">
+                <td>தேமா</td>
+                <td>நேர்/நேர்</td>
+                <td>நாடு</td>
+            </tr>
+            <tr class="pulima">
+                <td>புளிமா</td>
+                <td>நிரை/நேர்</td>
+                <td>பொறுமை</td>
+            </tr>
+            <tr class="koovilam">
+                <td>கூவிளம்</td>
+                <td>நேர்/நிரை</td>
+                <td>யாரது</td>
+            </tr>
+            <tr class="karuvilam">
+                <td>கருவிளம்</td>
+                <td>நிரை/நிரை</td>
+                <td>புலிக்குகை</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="helptext">
+        <span class="type-t6" id="moovasai">மூவசைச்சீர் வகை: காய்ச்சீர், கனிச்சீர்<a href="\#seer"><i class="glyph glyph-up"></i></a></span>
+        <br/>
+        <br/>
+        <span class="type-t6">காய்ச்சீர் வகை</span>
+    </div>
+    <table class="table theme-alt type-t9">
+        <thead>
+            <tr>
+                <th>சீர்</th>
+                <th>வாய்ப்பாடு</th>
+                <th>காட்டு</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="thema">
+                <td>தேமாங்காய்</td>
+                <td>நேர்/நேர்/நேர்</td>
+                <td>ஆனந்தம்</td>
+            </tr>
+            <tr class="pulima">
+                <td>புளிமாங்காய்</td>
+                <td>நிரை/நேர்/நேர்</td>
+                <td>பணக்காரன்</td>
+            </tr>
+            <tr class="koovilam">
+                <td>கூவிளங்காய்</td>
+                <td>நேர்/நிரை/நேர்</td>
+                <td>யாரவர்கள்</td>
+            </tr>
+            <tr class="karuvilam">
+                <td>கருவிளம்</td>
+                <td>நிரை/நிரை/நேர்</td>
+                <td>புலிக்குகையில்</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="helptext">
+        <span class="type-t6" id="naalasai">கனிச்சீர் வகை<a href="\#seer"><i class="glyph glyph-up"></i></a></span>
+    </div>
+    <table class="table theme-alt type-t9">
+        <thead>
+            <tr>
+                <th>சீர்</th>
+                <th>வாய்ப்பாடு</th>
+                <th>காட்டு</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="thema">
+                <td>தேமாங்கனி</td>
+                <td>நேர்/நேர்/</td>
+                <td>ஆனந்தமோ</td>
+            </tr>
+            <tr class="pulima">
+                <td>புளிமாங்கனி</td>
+                <td>நிரை/நேர்/நிரை</td>
+                <td>பணக்காரனே</td>
+            </tr>
+            <tr class="koovilam">
+                <td>கூவிளங்கனி</td>
+                <td>நேர்/நிரை/நிரை</td>
+                <td>யாரவர்களை</td>
+            </tr>
+            <tr class="karuvilam">
+                <td>கருவிளங்கனி</td>
+                <td>நிரை/நிரை/நிரை</td>
+                <td>புலிக்குகையிலோர்</td>
+            </tr>
+        </tbody>
+    </table>
+</script>
+<script>
+    $(document).ready(function () {
+        // set the context help
+        var seerHelpTemplate = kendo.template($("#seerHelpTemplate").html());
+        Utility.setContextHelp(seerHelpTemplate({}));
+        var parsedData;
+        // event handler for select
+        var onSelect = function (e) {
+            // access the selected item via e.item (HTMLElement)
+            var item = e.sender.select();
+
+            if (item.hasClass("k-state-active")) {
+                e.sender.collapse(item);
+            } else {
+                e.sender.expand(item);
+            }
+        };
+        var seyyulPanelBar = $("#seyyulbar").kendoPanelBar({
+            expandMode: "single",
+            select: onSelect
+        }).data("kendoPanelBar");
+        seyyulPanelBar.expand($(".k-first"), true);
+
+        Utility.hideResult();
+        Utility.setupExample('/api/prosody/Seergal', 'seer');
+        $("#asaiTypes").on('click', '.dropdown-menu li a', function () {
+            var selText = $(this).text();
+            $(this).parents('.dropdown').find('.dropdown-toggle').html(selText + ' <span class="caret"></span>');
+        });
+
+        var resultTemplate = kendo.template($("#multiResultsTemplate").html());
+        $("#result")
+            .append(resultTemplate({
+                partInfos: [
+                            { part: "asai", partHeader: "அசை வகைகள்" },
+                            { part: "seer", partHeader: "சீர் வகைகள்" }
+                           ]
+            }));
+        Utility.clearResult();
+        $("#ProsodyText").blur(function () {
+            var numSyllables = ($("#ProsodyText").val().match(/\//g) || []).length;
+            numSyllables++;
+            $("#AsaiCount").html(numSyllables);
+            Utility.showElement("asaiCalculator");
+            $("#asaiTypes").empty();
+            var asaiTemplate = kendo.template($("#asaiTemplate").html());
+            for (var syllableIndex = 0; syllableIndex < numSyllables; syllableIndex++) {
+                var asai = asaiTemplate({
+                    asaiIndex: syllableIndex + 1
+                });
+                $("#asaiTypes").append(asai);
+            }
+            var seerTemplate = kendo.template($("#seerTemplate").html());
+            var seer = seerTemplate({
+                asaiCount: numSyllables
+            });
+
+            $("#asaiTypes").append(seer);
+            Utility.showElement("asaiSelector");
+        });
+
+        $("#prosodyForm").submit(function () {
+            Utility.hideResult();
+            var data = '{"InputText" : "' + $("#ProsodyText").val() + '"' + '}';
+            $.ajax({
+                url: '/api/Prosody/ThalaiFinder',
+                data: data,
+                contentType: 'application/json; charset=utf8',
+                type: 'POST',
+                async: false,
+                success: function (data) {
+                    parsedData = data;
+                    var seerExplanationTemplate = kendo.template($("#seerExplanationTemplate").html());
+                    var seerExplanation = seerExplanationTemplate({
+                        paaVagai: null,
+                        parseTree: data["ParseTree"],
+                        wordBond: data["WordBond"],
+                        venLastSyllable: ""
+                    });
+
+                    var isAnyAsaiWrong = false;
+                    var index = 0;
+                    var chosenSeer = $("#seer-dropdown").text().trim();
+                    var isSeerWrong = (data["ParseTree"]["aTi-1"]["cI_r-1"]["meta"]["meta"] !== chosenSeer);
+
+                    $.each(data["ParseTree"]["aTi-1"]["cI_r-1"], function (seerKey, seerValue) {
+                        $.each(seerValue, function (asaiKey, asaiValue) {
+                            var chosenAsai = $("#asai-dropdown-" + (index + 1)).text().trim();
+                            if (asaiKey !== 'meta' && chosenAsai !== asaiKey) {
+                                isAnyAsaiWrong = true;
+                                return false;
+                            }
+                        });
+                        index++;
+                    });
+
+                    if (isAnyAsaiWrong) {
+                        $("#asai-correct").attr('data-original-title', seerExplanation);
+                        Utility.showIncorrect("asai", seerExplanation);
+                    } else {
+                        Utility.showCorrect("asai", seerExplanation);
+                    }
+
+                    if (isSeerWrong) {
+                        $("#seer-correct").attr('data-original-title', seerExplanation);
+                        Utility.showIncorrect("seer", seerExplanation);
+                    } else {
+                        Utility.showCorrect("seer", seerExplanation);
+                    }
+                    Utility.showResult();
+                },
+                error: function (data) {
+                    alert('error');
+                }
+            });
+            return false;
+        });
+    });</script>

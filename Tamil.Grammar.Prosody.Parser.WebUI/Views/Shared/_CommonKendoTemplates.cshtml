@@ -1,0 +1,72 @@
+﻿<script type="text/x-kendo-template" id="resultTemplate">
+    # var partCorrect = part + "-correct"; var partIncorrect = part + "-incorrect"; var partExplanation = part + "-explanation" #
+    <div class="flip-container_click">
+        <div class="flipper">
+            <div class="front">
+                <h4 class="game-section-title text-center">
+                    முடிவு
+                </h4>
+                <div class="type-t5">
+                    நீங்கள் விடையை உள்ளிட்டவுடன் “சரி பார்த்திடு” என்ற பொத்தானை அழுத்தினால் “முடிவு” தெரியும்.
+                </div>
+            </div>
+            <div class="back">
+                <h4 class="game-section-title text-center">
+                    முடிவு
+                </h4>
+                <div class="type-t3 text-center">
+                    <button id="#= partCorrect #" class="right btn btn-success btn-with-glyph" aria-hidden="true" data-toggle="tooltip" data-placement="right"><i class="glyph glyph-checkmark"></i>சரி</button>
+                    <button id="#= partIncorrect #" class="wrong btn btn-warning btn-with-glyph" aria-hidden="true" data-toggle="tooltip" data-placement="right">
+                        <i class="glyph glyph-cancel"></i>
+                        தவறு
+                    </button>
+                    <a role="button" id="#= partExplanation #"
+                       class="btn btn-primary btn-with-glyph"
+                       tabindex="0"
+                       data-toggle="popover"
+                       data-trigger="focus"
+                       data-content="அருமை"><i class="glyph glyph-message"></i>விளக்கம்</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script type="text/x-kendo-template" id="multiResultsTemplate">
+    <div class="flip-container_click">
+        <div class="flipper">
+            <div class="front">
+                <h4 class="game-section-title text-center">
+                    முடிவு
+                </h4>
+                <div class="type-t5">
+                    நீங்கள் விடையை உள்ளிட்டவுடன் “சரி பார்த்திடு” என்ற பொத்தானை அழுத்தினால் “முடிவு” தெரியும்.
+                </div>
+            </div>
+            <div class="back">
+                <h4 class="game-section-title text-center">
+                    முடிவு
+                </h4>
+                # partInfos.forEach(function(partInfo) { #
+                # var partCorrect = partInfo.part + "-correct"; var partIncorrect = partInfo.part + "-incorrect"; var partExplanation = partInfo.part + "-explanation" #
+                # if(partInfo.partHeader) { #
+                <p class="form-group-label text-center">#= partInfo.partHeader #</p>
+                # } #
+                <div class="type-t3 text-center">
+                    <button id="#= partCorrect #" class="right btn btn-success btn-with-glyph" aria-hidden="true" data-toggle="tooltip" data-placement="right"><i class="glyph glyph-checkmark"></i>சரி</button>
+                    <button id="#= partIncorrect #" class="wrong btn btn-warning btn-with-glyph" aria-hidden="true" data-toggle="tooltip" data-placement="right">
+                        <i class="glyph glyph-cancel"></i>
+                        தவறு
+                    </button>
+                    <a role="button" id="#= partExplanation #"
+                       class="btn btn-primary btn-with-glyph"
+                       tabindex="0"
+                       data-toggle="popover"
+                       data-trigger="focus"
+                       data-content="அருமை"><i class="glyph glyph-message"></i>விளக்கம்</a>
+                </div>
+                # }); #
+            </div>
+        </div>
+    </div>
+</script>

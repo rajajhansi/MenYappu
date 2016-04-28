@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "வெண்பாக்கள்";
+}
+
+<div class="flexbox-height-parent">
+    <hgroup class="title flexbox-height-child">
+        <h1>@ViewBag.Title</h1>
+            <h3>வெண்பாக்கள்</h3>
+    </hgroup>
+
+    <article class="flexbox-height-child flexbox-height-child-main p-relative">
+        <div id="blogContent" class="p-absolute p-cover"></div>
+    </article>
+    <script>
+        document.getElementById("blogContent").innerHTML = '<object class="v-top fullwidth fullheight" type="text/html" data="http://thamizharvalan.blogspot.com/"></object>';
+    </script>
+</div>

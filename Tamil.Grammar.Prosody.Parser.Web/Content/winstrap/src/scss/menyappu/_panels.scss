@@ -1,0 +1,73 @@
+// generic panels
+
+%panelbar-common-styles{
+  @extend .fx-all;
+  @extend .noselect;
+  overflow: auto;
+  position: absolute;
+}
+
+.left-panelbar {
+  @extend %panelbar-common-styles;
+  width: $shame_leftpanelsize;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background-image: url('../../www/images/night.jpg');
+}
+
+.right-panelbar{
+  @extend %panelbar-common-styles;
+  width: $shame_rightpanelsize;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-image: url('../../www/images/night.jpg');
+}
+
+.center-panelbar {
+  @extend .fx-all;
+  position: absolute;
+  overflow: auto;
+  background: $shame_rpanelbg;
+  left: $shame_leftpanelsize;
+  right: $shame_rightpanelsize;
+  top: 0;
+  bottom: 0;
+}
+.panel-collapsed-left{
+  .left-panelbar {
+    width: $shame_leftpanelsize_collapsed;
+
+    .stacked-menu-items-text {
+      display: none;
+    }
+  }
+  .center-panelbar {
+    left: $shame_leftpanelsize_collapsed;
+  }
+}
+.panel-collapsed-right{
+  .right-panelbar {
+    width: $shame_rightpanelsize_collapsed;
+  }
+  .center-panelbar {
+    right: $shame_rightpanelsize_collapsed;
+  }
+}
+.panel-collapsed {
+  .subitems-toggler {
+    display: none;
+  }
+
+  .stacked-menus-items-submenu {
+    border-top: 1px solid $shame_bordercol;
+    border-bottom: 1px solid $shame_bordercol;
+
+    .stacked-menus-items {
+      a {
+        padding-left: 10px;
+      }
+    }
+  }
+}

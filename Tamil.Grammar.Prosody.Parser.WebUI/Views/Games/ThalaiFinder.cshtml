@@ -1,0 +1,202 @@
+﻿@{
+    ViewBag.Title = "மென்யாப்பு";
+}
+
+<ul class="kendo-panelbars-custom" id="seyyulbar">
+    <li>
+        <h4 class="main-title">
+            வாக்கியத்தை உள்ளிடவும் (குறைந்தது 2 சீர்கள் அவசியம்)
+            <span class="main-title-icon glyph glyph-chevron-down"></span>
+        </h4>
+        <ul>
+            <li id="seyyul" class="k-state-active">
+                <form id="prosodyForm" class="form-horizontal" action="/api/Prosody/MathiraiCount" method="POST">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h4 class="game-section-title">
+                                வாக்கியம்
+                            </h4>
+                            <textarea class="panelbar-textarea" id="ProsodyText" rows="6"></textarea>
+                            <div class="control-group">
+                                <div class="controls">
+                                    <button class="btn btn-primary btn-with-glyph" id="example"><i class="glyph glyph-import"></i>மாதிரி</button>
+                                    <button type="submit" class="btn btn-primary btn-with-glyph"><i class="glyph glyph-arrow-right"></i>சரி பார்த்திடு</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8 hidden" id="thalaiSelector">
+                            <h4 class="game-section-title text-center">
+                                தளை வகை
+                            </h4>
+
+                            <div id="thalaiType" class="type-t7 text-center">
+                                <p class="form-group-label">தளை வகை</p>
+                                <div class="dropdown">
+                                    <button id="thalai-dropdown" class="btn btn-dropdown dropdown-toggle" type="button" data-toggle="dropdown"
+                                            aria-haspopup="true" role="button" aria-expanded="false">தளை வகையைத் தேர்ந்தெடு<span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="thalai-dropdown">
+                                        <li><a href="#">நேரொன்றாசிரியத்தளை</a></li>
+                                        <li><a href="#">நிரையொன்றாசிரியத்தளை</a></li>
+                                        <li><a href="#">இயற்சீர் வெண்டளை</a></li>
+                                        <li><a href="#">வெண்சீர் வெண்டளை</a></li>
+                                        <li><a href="#">ஒன்றிய வஞ்சித்தளை</a></li>
+                                        <li><a href="#">ஒன்றா வஞ்சித்தளை</a></li>
+                                        <li><a href="#">கலித்தளை</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-8 hidden" id="result">
+                        </div>
+                    </div>
+                </form>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<script type="text/x-kendo-template" id="thalaiTemplate">
+    <br />
+    <table border=0 cellspacing=10>
+        <tr>
+            <th>சீர்கள்</th>
+            <th>வாய்ப்பாடு - அசை&nbsp;</th>
+            <th>தளை</th>
+        </tr>
+        # for (var i = 0; i < wordBond.length; i++) { #
+        <tr>
+            <td> <span class="talaiseer"> #= wordBond[i]["word1"] # - #= wordBond[i]["word2"] # </span></td>
+            <td> <span class="talaiasai"> #= wordBond[i]["class1"] # - #= wordBond[i]["class2"] # </span></td>
+            <td> <span class="talainame"> #= wordBond[i]["bond"] # </span></td>
+        </tr>
+        # } #
+    </table>
+</script>
+
+@{ Html.RenderPartial("_CommonKendoTemplates"); }
+
+<script type="text/x-kendo-template" id="thalaiHelpTemplate">
+    <div class="helptext">
+        <span class="type-t6">தளை (Linkage)</span>
+        <br />
+        இரண்டு சீர்களை இணைப்பது தளை ஆகும்.
+        <br/>
+        தளைகள் ஏழு வகைப்படும்.
+    </div>
+    <br />
+    <div class="helptext">
+        <span class="type-t6">தளை வகை</span>
+    </div>
+    <table class="table theme-alt type-t9">
+        <thead>
+            <tr>
+                <th>தளை</th>
+                <th>வாய்ப்பாடு</th>
+                <th>காட்டு</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="naal">
+                <td>நேரொன்றாசிரியத்தளை</td>
+                <td>மாச்சீர் + நேரசை</td>
+                <td>ராஜா வாடா  = தேமா நேர்</td>
+            </tr>
+            <tr class="malar">
+                <td>நிரையொன்றாசிரியத்தளை</td>
+                <td>விளச்சீர் + நிரையசை</td>
+                <td>பூங்குழல் அசைய  = கூவிளம் நிரை</td>
+            </tr>
+            <tr class="kaasu">
+                <td>இயற்சீர் வெண்டளை</td>
+                <td>மாச்சீர் + நிரையசை  (அ) <br/>விளச்சீர் + நேரசை</td>
+                <td>பூவிழி கண்டேன் = கூவிளம் நேர் <br/>அதித்தி வருக  = புளிமா நிரை</td>
+            </tr>
+            <tr class="pirappu">
+                <td>வெண்சீர் வெண்டளை</td>
+                <td>காய்ச்சீர் + நேரசை</td>
+                <td>மென்பொருளில் மூழ்கு = கூவிளங்காய்  நேர்</td>
+            </tr>
+            <tr class="naal">
+                <td>கலித்தளை</td>
+                <td>காய்ச்சீர் + நிரையசை</td>
+                <td>மென்பொருளால் வளம் = கூவிளங்காய்  நிரை</td>
+            </tr>
+            <tr class="malar">
+                <td>ஒன்றிய வஞ்சித்தளை</td>
+                <td>கனிச்சீர் + நிரையசை</td>
+                <td>குளிர்பனியினில் உறைந்தேன் = கருவிளங்கனி  நிரை</td>
+            </tr>
+            <tr class="kaasu">
+                <td>ஒன்றா வஞ்சித்தளை</td>
+                <td>கனிச்சீர் + நேரசை</td>
+                <td>குளிர்பனியினில் செல்லாதே = கருவிளங்கனி  நேர்</td>
+            </tr>
+        </tbody>
+    </table>
+</script>
+<script>
+    $(document).ready(function () {
+        // set the context help
+        var thalaiHelpTemplate = kendo.template($("#thalaiHelpTemplate").html());
+        Utility.setContextHelp(thalaiHelpTemplate({}));
+        // event handler for select
+        var onSelect = function (e) {
+            // access the selected item via e.item (HTMLElement)
+            var item = e.sender.select();
+
+            if (item.hasClass("k-state-active")) {
+                e.sender.collapse(item);
+            } else {
+                e.sender.expand(item);
+            }
+        };
+        var seyyulPanelBar = $("#seyyulbar").kendoPanelBar({
+            expandMode: "single",
+            select: onSelect
+        }).data("kendoPanelBar");
+        seyyulPanelBar.expand($(".k-first"), true);
+
+        Utility.hideResult();
+        $("#ProsodyText").blur(function () {
+            Utility.showElement("thalaiSelector");
+        });
+        var resultTemplate = kendo.template($("#resultTemplate").html());
+        $("#result")
+            .append(resultTemplate({
+                part: "thalai"
+            }));
+        Utility.clearResult();
+        Utility.setupExample('/api/prosody/ThalaiSentences', 'sentence');
+        $("#prosodyForm").submit(function () {
+            Utility.hideResult();
+            var data = '{"InputText" : "' + $("#ProsodyText").val() + '"' + '}';
+            $.ajax({
+                url: '/api/Prosody/ThalaiFinder',
+                data: data,
+                contentType: 'application/json; charset=utf8',
+                type: 'POST',
+                async: false,
+                success: function (data) {
+                    var thalaiTemplate = kendo.template($("#thalaiTemplate").html());
+                    var thalaiExplanation = thalaiTemplate({
+                        wordBond: data["WordBond"]
+                    });
+
+                    var chosenThalai = $("#thalai-dropdown").text().trim();
+                    if (chosenThalai === data["WordBond"][0]["bond"]) {
+                        $("#thalai-correct").attr('data-original-title', thalaiExplanation);
+                        Utility.showCorrect("thalai", thalaiExplanation);
+                    } else {
+                        Utility.showIncorrect("thalai", thalaiExplanation);
+                    }
+                    Utility.showResult();
+                },
+                error: function (data) {
+                    alert('error');
+                }
+            });
+            return false;
+        });
+    });</script>

@@ -1,0 +1,296 @@
+﻿@{
+    ViewBag.Title = "மென்யாப்பு";
+}
+
+<ul class="kendo-panelbars-custom" id="seyyulbar">
+    <li>
+        <h4 class="main-title">
+            ஒரேயொரு சீரை உள்ளிடவும்
+            <span class="main-title-icon glyph glyph-chevron-down"></span>
+        </h4>
+        <ul>
+            <li id="seyyul" class="k-state-active">
+                <form id="prosodyForm" class="form-horizontal" action="/api/Prosody/MathiraiCount" method="POST">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h4 class="game-section-title">
+                                சீர்
+                            </h4>
+                            <div class="infotip">
+                                <span class="text-t9">அசைகளை ‘/’ என்ற குறியீடால் பிரிக்கவும். எ.கா. மனி/தம். இந்தச் சொல்லை ”மனி” / “தம்” என்று அசை பிரிக்கலாம்.</span>
+                            </div>
+                            <textarea class="panelbar-textarea" id="ProsodyText" rows="6"></textarea>
+                            <div class="control-group">
+                                <div class="controls">
+                                    <button class="btn btn-primary btn-with-glyph" id="example"><i class="glyph glyph-import"></i>மாதிரி</button>
+                                    <button type="submit" class="btn btn-primary btn-with-glyph"><i class="glyph glyph-arrow-right"></i>சரி பார்த்திடு</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8 hidden" id="asaiSelector">
+                            <h4 class="game-section-title text-center">
+                                அசை வகைகள்
+                            </h4>
+                            <div id="asaiCalculator" class="text-center text-t5">
+                                <span>எண்ணிக்கை:</span>
+                                <span id="AsaiCount"></span>
+                            </div>
+                            <div id="asaiTypes" class="type-t7 text-center">
+
+                            </div>
+                        </div>
+                        <div class="col-md-8 hidden" id="result">
+                        </div>
+                    </div>
+                </form>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<script type="text/x-kendo-template" id="asaiTemplate">
+    # var asaiId = 'asai-dropdown-' + asaiIndex; #
+    <p class="form-group-label">அசை வகை</p>
+    <div class="dropdown">
+        <button id="#= asaiId #" class="btn btn-dropdown dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+            அசை வகையைத் தேர்ந்தெடு<span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="#= asaiId #">
+            <li><a href="\\#">நேர்</a></li>
+            <li><a href="\\#">நிரை</a></li>
+        </ul>
+    </div>
+
+</script>
+
+<script type="text/x-kendo-template" id="seerTemplate">
+    # if(paaVagai) { #
+    <h3 class="k-widget k-header">#= paaVagai #</h3>
+    <br />
+    # } #
+    <table border="0" cellspacing="15">
+        <tbody>
+
+            # $.each(parseTree, function(adiKey, adiValue) { #
+            # var paaAsaiInAdi = ""; var asigalInAdi = "";	var vaippaduInAdi = ""; #
+            # $.each(adiValue, function(seerKey, seerValue) { #
+            # paaAsaiInAdi = paaAsaiInAdi + '<td>' #
+            # asigalInAdi = asigalInAdi + '<td>'#
+            # vaippaduInAdi = vaippaduInAdi + '<td>'#
+            # $.each(seerValue, function(asaiKey, asaiValue) { #
+            # $.each(asaiValue, function(key, value) { #
+            # if(key != "meta" && key != "smeta") { #
+            # if(new RegExp("^நேர்").test(key)) {  #
+            # paaAsaiInAdi = paaAsaiInAdi + '<span class="nerasai">' + value + '</span>' #
+            # asigalInAdi = asigalInAdi + '<span class="nerasai">' + key #
+                # } else if(new RegExp("^நிரை").test(key)) { #
+                # paaAsaiInAdi = paaAsaiInAdi + '<span class="niryasai">' + value + '</span>' #
+                # asigalInAdi = asigalInAdi + '<span class="niryasai">' + key #
+                    # } else if( key == "பு") { #
+                    # var spanClass = new RegExp("^நேர்").test(venLastSyllable) ? "nerasai" : "niryasai"; #
+                    # paaAsaiInAdi = paaAsaiInAdi + '<span class="' + spanClass + '">' + value + '</span>' #
+                    # } #
+                    # } else { #
+                    # if(key == "meta") { #
+                    # paaAsaiInAdi = paaAsaiInAdi + '</td>' #
+        # asigalInAdi = asigalInAdi + '</td>'  #
+        # vaippaduInAdi = vaippaduInAdi + value + '</td>' #
+        # } #
+        # }	#
+        # }) #
+        # }) #
+        # }) #
+        # console.log("\r\n" + paaAsaiInAdi); console.log("\r\n" + asigalInAdi); console.log("\r\n" + vaippaduInAdi); #
+        <tr>
+            #= paaAsaiInAdi #
+        </tr>
+        <tr>
+            #= asigalInAdi #
+        </tr>
+        <tr>
+            #= vaippaduInAdi #
+        </tr>
+        #}) #
+        </tbody>
+    </table>
+
+</script>
+@{ Html.RenderPartial("_CommonKendoTemplates"); }
+<script type="text/x-kendo-template" id="asaiHelpTemplate">
+    <div class="helptext">
+        <span class="type-t6">அசை (Metric Syllable/Metreme)</span>
+        <br/>
+            எழுத்துகள் ஒன்றோ இரண்டோ அசைந்து இசைபட நிற்பது அசை ஆகும்.
+    </div>
+    <br/>
+    <div class="helptext">
+        <span class="type-t6">நேரசை (ஓருயிர்/தனி அசை)</span>
+            <br/>
+                குறில் அல்லது நெடில் தனித்தோ அல்லது ஒற்றடுத்தோ வருவது நேரசைகளாம். குறில் சீரின் கடைசியில் வரும்போதுதான் நேரசையாகும்.
+    </div>
+    <table class="table theme-alt type-t9">
+        <tbody>
+            <tr>
+                <td>1.</td>
+                <td>தனிக்குறில்</td>
+                <td>ம</td>
+            </tr>
+            <tr>
+                <td>2.</td>
+                <td>குறிலொற்று</td>
+                <td>மண்</td>
+            </tr>
+            <tr>
+                <td>3.</td>
+                <td>தனி நெடில்</td>
+                <td>மா</td>
+            </tr>
+            <tr>
+                <td>4.</td>
+                <td>நெடிலொற்று</td>
+                <td>மான்</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="helptext">
+        எ.கா.
+        <br/>
+        <span class="thaninedil">ரா</span>/<span class="thanikkuril">ணி</span> <span class="kurilotru">வந்</span>/<span class="nedilotru">தாள்</span> – <span class="thaninedil">தனி</span> <span class="thaninedil">நெடில்</span>/<span class="thanikkuril">தனிக்குறில்</span> 		<span class="kurilotru">குறிலொற்று</span>/<span class="nedilotru">நெடிலொற்று</span>
+    </div>
+    <br/>
+    <div class="helptext">
+        <span class="type-t6">நிரையசை (ஈருயிர் அசை)</span>
+        <br />
+        குறிலிணை அல்லது  குறிநெடில் தனித்தோ அல்லது ஒற்றடுத்தோ வருவது நிரையசைகளாம்.
+    </div>
+    <table class="table theme-alt type-t9">
+        <tbody>
+            <tr>
+                <td>1.</td>
+                <td>குறிலிணை</td>
+                <td>புலி</td>
+            </tr>
+            <tr>
+                <td>2.</td>
+                <td>குறிலிணையொற்று</td>
+                <td>முறம்</td>
+            </tr>
+            <tr>
+                <td>3.</td>
+                <td>குறிநெடில்</td>
+                <td>புறா</td>
+            </tr>
+            <tr>
+                <td>4.</td>
+                <td>குறிநெடிலொற்று</td>
+                <td>முகாம்</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="helptext">
+        எ.கா.
+        <br />
+        <span class="kurilinai">கவி</span>/<span class="kurinedil">நிலா</span> <span class="kurilinaiyotru">புலம்</span>/<span class="kurinedilotru">பினாள்</span> - <span class="kurilinai">குறிலிணை</span>/<span class="kurinedil">குறிநெடில்</span> <span class="kurilinaiyotru">குறிலிணையொற்று</span>/<span class="kurinedilotru">குறிநெடிலொற்று</span>
+</div>
+</script>
+<script>
+    $(document).ready(function () {
+        // set the context help
+        var asaiHelpTemplate = kendo.template($("#asaiHelpTemplate").html());
+        Utility.setContextHelp(asaiHelpTemplate({}));
+        // event handler for select
+        var onSelect = function (e) {
+            // access the selected item via e.item (HTMLElement)
+            var item = e.sender.select();
+
+            if (item.hasClass("k-state-active")) {
+                e.sender.collapse(item);
+            } else {
+                e.sender.expand(item);
+            }
+        };
+        var seyyulPanelBar = $("#seyyulbar").kendoPanelBar({
+            expandMode: "single",
+            select: onSelect
+        }).data("kendoPanelBar");
+        seyyulPanelBar.expand($(".k-first"), true);
+
+        Utility.hideResult();
+        Utility.setupExample('/api/prosody/Seergal', 'seer');
+        $("#asaiTypes").on('click', '.dropdown-menu li a', function () {
+            var selText = $(this).text();
+            $(this).parents('.dropdown').find('.dropdown-toggle').html(selText + ' <span class="caret"></span>');
+        });
+        var resultTemplate = kendo.template($("#resultTemplate").html());
+        $("#result")
+            .append(resultTemplate({
+                part: "asai"
+            }));
+        Utility.clearResult();
+        $("#ProsodyText").blur(function () {
+            if (!$('#ProsodyText').val().trim()) {
+                Utility.disableElement("checkResult");
+                return false;
+            }
+            Utility.enableElement("checkResult");
+            Utility.clearResult();
+            var numSyllables = ($("#ProsodyText").val().match(/\//g) || []).length;
+            numSyllables++;
+            $("#AsaiCount").html(numSyllables);
+            Utility.showElement("asaiCalculator");
+            $("#asaiTypes").empty();
+            var asaiTemplate = kendo.template($("#asaiTemplate").html());
+            for (var syllableIndex = 0; syllableIndex < numSyllables; syllableIndex++) {
+                var asai = asaiTemplate({
+                    asaiIndex: syllableIndex + 1
+                });
+                $("#asaiTypes").append(asai);
+                Utility.showElement("asaiSelector");
+            }
+        });
+
+        $("#prosodyForm").submit(function () {
+            Utility.hideResult();
+            var data = '{"InputText" : "' + $("#ProsodyText").val() + '"' + '}';
+            $.ajax({
+                url: '/api/Prosody/ThalaiFinder',
+                data: data,
+                contentType: 'application/json; charset=utf8',
+                type: 'POST',
+                async: false,
+                success: function (data) {
+                    var seerTemplate = kendo.template($("#seerTemplate").html());
+                    var seerExplanation = seerTemplate({
+                        paaVagai: null,
+                        parseTree: data["ParseTree"],
+                        wordBond: data["WordBond"],
+                        venLastSyllable: ""
+                    });
+
+                    var isAnyAsaiWrong = false;
+                    var index = 0;
+                    $.each(data["ParseTree"]["aTi-1"]["cI_r-1"], function (seerKey, seerValue) {
+                        $.each(seerValue, function (asaiKey, asaiValue) {
+                            var chosenAsai = $("#asai-dropdown-" + (index + 1)).text().trim();
+                            if (asaiKey !== 'meta' && chosenAsai !== asaiKey) {
+                                isAnyAsaiWrong = true;
+                                return false;
+                            }
+                        });
+                        index++;
+                    });
+                    if (isAnyAsaiWrong) {
+                        $("#asai-correct").attr('data-original-title', seerExplanation);
+                        Utility.showIncorrect("asai", seerExplanation);
+                    } else {
+                        Utility.showCorrect("asai", seerExplanation);
+                    }
+                    Utility.showResult();
+                },
+                error: function (data) {
+                    alert('error');
+                }
+            });
+            return false;
+        });
+    });</script>

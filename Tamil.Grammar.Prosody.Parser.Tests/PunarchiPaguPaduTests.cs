@@ -4,14 +4,14 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using NUnit.Framework;
+using RjamSoft.Tamil.Grammar.Prosody.Core;
+using Xunit;
 
 namespace RjamSoft.Tamil.Grammar.Parser.Tests
 {
-    [TestFixture]
     public class PunarchiPaguPaduTests
     {
-        [Test]
+        [Fact]
         public void TestIfPunarchiPaguPaduIsUyirMuthalUyirIru()
         {
             var words = new List<string> { "அன்பு", "அமிழ்து", "உணவு" };
@@ -30,13 +30,13 @@ namespace RjamSoft.Tamil.Grammar.Parser.Tests
                     throw new Exception("Parse Error");
                 }
                 int finalValue = (firstValue << 1) | lastValue;
-                Assert.AreEqual(TamilLanguageConstants.PunarchiPaguPadugal[Convert.ToString(finalValue, 2).PadLeft(2, '0')], "உயிர் முதல் உயிர் ஈறு");
-                Console.WriteLine(TamilLanguageConstants.PunarchiPaguPadugal[Convert.ToString(finalValue, 2).PadLeft(2, '0')]);                
+                Assert.Equal(TamilLanguageConstants.PunarchiPaguPadugal[Convert.ToString(finalValue, 2).PadLeft(2, '0')], "உயிர் முதல் உயிர் ஈறு");
+                Console.WriteLine(TamilLanguageConstants.PunarchiPaguPadugal[Convert.ToString(finalValue, 2).PadLeft(2, '0')]);
             }
-            
+
         }
 
-        [Test]
+        [Fact]
         public void TestIfPunarchiPaguPaduIsUyirMuthalMeiIru()
         {
             var words = new List<string> { "உயிர்", "உடல்", "ஊண்" };
@@ -55,13 +55,13 @@ namespace RjamSoft.Tamil.Grammar.Parser.Tests
                     throw new Exception("Parse Error");
                 }
                 int finalValue = (firstValue << 1) | lastValue;
-                Assert.AreEqual(TamilLanguageConstants.PunarchiPaguPadugal[Convert.ToString(finalValue, 2).PadLeft(2, '0')], "உயிர் முதல் மெய் ஈறு");
+                Assert.Equal(TamilLanguageConstants.PunarchiPaguPadugal[Convert.ToString(finalValue, 2).PadLeft(2, '0')], "உயிர் முதல் மெய் ஈறு");
                 Console.WriteLine(TamilLanguageConstants.PunarchiPaguPadugal[Convert.ToString(finalValue, 2).PadLeft(2, '0')]);
             }
 
         }
 
-        [Test]
+        [Fact]
         public void TestIfPunarchiPaguPaduIsMeiMuthalUyiIru()
         {
             var words = new List<string> { "குலவை", "பறவை", "செவிலி" };
@@ -80,13 +80,13 @@ namespace RjamSoft.Tamil.Grammar.Parser.Tests
                     throw new Exception("Parse Error");
                 }
                 int finalValue = (firstValue << 1) | lastValue;
-                Assert.AreEqual(TamilLanguageConstants.PunarchiPaguPadugal[Convert.ToString(finalValue, 2).PadLeft(2, '0')], "மெய் முதல் உயிர் ஈறு");
+                Assert.Equal(TamilLanguageConstants.PunarchiPaguPadugal[Convert.ToString(finalValue, 2).PadLeft(2, '0')], "மெய் முதல் உயிர் ஈறு");
                 Console.WriteLine(TamilLanguageConstants.PunarchiPaguPadugal[Convert.ToString(finalValue, 2).PadLeft(2, '0')]);
             }
 
         }
 
-        [Test]
+        [Fact]
         public void TestIfPunarchiPaguPaduIsMeiMuthalMeiIru()
         {
             var words = new List<string> { "குரல்", "சொந்தம்", "குயில்" };
@@ -105,7 +105,7 @@ namespace RjamSoft.Tamil.Grammar.Parser.Tests
                     throw new Exception("Parse Error");
                 }
                 int finalValue = (firstValue << 1) | lastValue;
-                Assert.AreEqual(TamilLanguageConstants.PunarchiPaguPadugal[Convert.ToString(finalValue, 2).PadLeft(2, '0')], "மெய் முதல் மெய் ஈறு");
+                Assert.Equal(TamilLanguageConstants.PunarchiPaguPadugal[Convert.ToString(finalValue, 2).PadLeft(2, '0')], "மெய் முதல் மெய் ஈறு");
                 Console.WriteLine(TamilLanguageConstants.PunarchiPaguPadugal[Convert.ToString(finalValue, 2).PadLeft(2, '0')]);
             }
 

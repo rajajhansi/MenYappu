@@ -28,5 +28,40 @@ namespace Tamil.Parody.Parser.Web.Controllers
 
             return View();
         }
+
+        public ActionResult MathiraiCount()
+        {
+            ViewBag.Message = "Mathirai Finder";
+
+            return View();
+        }
+
+        public ActionResult ThodaiFinder()
+        {
+            ViewBag.Message = "Thodai Finder";
+
+            return View();
+        }
+
+        public ActionResult ThalaiFinder()
+        {
+            ViewBag.Message = "Thalai Finder";
+
+            return View();
+        }
+
+        public ActionResult AsaiDivider()
+        {
+            ViewBag.Message = "Syllable Divider";
+
+            return View();
+        }
+
+        public ActionResult VaippaduFinder()
+        {
+            ViewBag.Message = "Vaippadu Finder";
+
+            return View();
+        }
     }
 }
