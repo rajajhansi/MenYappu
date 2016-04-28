@@ -10,7 +10,7 @@
         </h4>
         <ul>
             <li id="seyyul" class="k-state-active">
-                <form id="prosodyForm" class="form-horizontal" action="/api/Prosody/MathiraiCount" method="POST">
+                <form id="prosodyForm" data-parsley-validate="" class="form-horizontal" action="/api/Prosody/MathiraiCount" method="POST">
                     <div class="row row-sm">
                         <div class="col-md-8">
                             <h4 class="game-section-title">
@@ -19,7 +19,7 @@
                             <div class="infotip">
                                 <span class="text-t9">ஒரேயொரு சொல்லை மட்டும் உள்ளிடவும்.</span>
                             </div>
-                            <textarea class="panelbar-textarea" id="ProsodyText" rows="2"></textarea>
+                            <textarea class="panelbar-textarea" id="ProsodyText" rows="2" minlength="2"></textarea>
                             <div class="control-group">
                                 <div class="controls">
                                     <button class="btn btn-primary btn-with-glyph" id="example"><i class="glyph glyph-import "></i>மாதிரி</button>
@@ -157,8 +157,11 @@
     </div>
 </script>
 <script src="/Scripts/prosody/LetterTypeFinder.js"></script>
+<script src="/Scripts/parsley/i18n/ta.js"></script>
 <script>
     $(document).ready(function () {
+        //  Wire parsley js for validation
+        $('#prosodyForm').parsley();
         // set the context help
         var ezhuthuVagaiHelpTemplate = kendo.template($("#ezhuthuVagaiHelpTemplate").html());
         Utility.setContextHelp(ezhuthuVagaiHelpTemplate({}));
