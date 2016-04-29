@@ -83,10 +83,12 @@
         @*<script src="~/Scripts/bootstrap.min.js"></script>*@
 
         @RenderSection("scripts", required: false)
+        <script src="/Scripts/parsley/i18n/ta.js"></script>
         @Scripts.Render("~/Scripts/customUi")
         @Scripts.Render("~/Scripts/ajaxHelpers")
         <script src="/Scripts/lodash.js"></script>
         <script src="/Scripts/prosody/utilityfunctions.js"></script>
+        <script src="/Scripts/prosody/ProsodyService.js"></script>
         <script>
             $("#container-wrapper-with-panels").panelExpander({
                 persistState: {

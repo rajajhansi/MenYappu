@@ -723,6 +723,8 @@
     <Content Include="Scripts\parsley\i18n\zh_tw.js" />
     <Content Include="Scripts\parsley\parsley.js" />
     <Content Include="Scripts\prosody\LetterTypeFinder.js" />
+    <Content Include="Scripts\prosody\MathiraiCalculator.js" />
+    <Content Include="Scripts\prosody\ProsodyService.js" />
     <Content Include="Scripts\prosody\utilityfunctions.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -747,7 +749,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Games\AsaiDivider.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Games\MathiraiCount.cshtml" />
+    <Content Include="Views\Games\MathiraiCalculator.cshtml" />
     <Content Include="Views\Games\ThalaiFinder.cshtml" />
     <Content Include="Views\Games\ThodaiFinder.cshtml" />
     <Content Include="Views\Games\SeerFinder.cshtml" />

@@ -104,6 +104,24 @@
         };
     };
 
+    function initSeyyulbar() {
+        // event handler for select
+        var onSelect = function (e) {
+            // access the selected item via e.item (HTMLElement)
+            var item = e.sender.select();
+
+            if (item.hasClass("k-state-active")) {
+                e.sender.collapse(item);
+            } else {
+                e.sender.expand(item);
+            }
+        };
+        var seyyulPanelBar = $("#seyyulbar").kendoPanelBar({
+            expandMode: "single",
+            select: onSelect
+        }).data("kendoPanelBar");
+        seyyulPanelBar.expand($(".k-first"), true);
+    };
     return {
         stringStartsWith: stringStartsWith,
         getRandomNumber: getRandomNumber,
@@ -121,7 +139,8 @@
         flipFront: flipFront,
         setupExample: setupExample,
         setContextHelp: setContextHelp,
-        makeDelay: makeDelay
+        makeDelay: makeDelay,
+        initSeyyulbar: initSeyyulbar
     };
 })();
 
