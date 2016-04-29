@@ -10,13 +10,13 @@ namespace Tamil.Grammar.Prosody.Parser.WebUI.Controllers
     {
         public ActionResult LetterTypeFinder()
         {
-            ViewBag.Message = "Letter Type Finder";
+            ViewBag.Message = "எழுத்து வகைபிரி";
 
             return View();
         }
         public ActionResult MathiraiCalculator()
         {
-            ViewBag.Message = "Mathirai Calculator";
+            ViewBag.Message = "மாத்திரை எவ்வளவு?";
 
             return View();
         }
@@ -30,34 +30,34 @@ namespace Tamil.Grammar.Prosody.Parser.WebUI.Controllers
 
         public ActionResult EthukaiMonaiFinder()
         {
-            ViewBag.Message = "Ethukai Monai Finder";
+            ViewBag.Message = "எதுகை மோனை எழுது";
 
             return View();
         }
         public ActionResult ThalaiFinder()
         {
-            ViewBag.Message = "Thalai Finder";
+            ViewBag.Message = "தளை தட்டாதே";
 
             return View();
         }
 
         public ActionResult AsaiDivider()
         {
-            ViewBag.Message = "Syllable Divider";
+            ViewBag.Message = "அசை பிரி";
 
             return View();
         }
 
         public ActionResult SeerFinder()
         {
-            ViewBag.Message = "Seer Finder";
+            ViewBag.Message = "சீர் செய்";
 
             return View();
         }
 
         public ActionResult AdiMeasurer()
         {
-            ViewBag.Message = "Adi Measurer";
+            ViewBag.Message = "அடி அளவிடு";
             return View();
         }
     }
