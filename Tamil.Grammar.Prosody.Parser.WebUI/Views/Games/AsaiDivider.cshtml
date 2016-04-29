@@ -12,20 +12,8 @@
             <li id="seyyul" class="k-state-active">
                 <form id="prosodyForm" class="form-horizontal" action="/api/Prosody/MathiraiCount" method="POST">
                     <div class="row">
-                        <div class="col-md-8">
-                            <h4 class="game-section-title">
-                                சீர்
-                            </h4>
-                            <div class="infotip">
-                                <span class="text-t9">அசைகளை ‘/’ என்ற குறியீடால் பிரிக்கவும். எ.கா. மனி/தம். இந்தச் சொல்லை ”மனி” / “தம்” என்று அசை பிரிக்கலாம்.</span>
-                            </div>
-                            <textarea class="panelbar-textarea" id="ProsodyText" rows="6"></textarea>
-                            <div class="control-group">
-                                <div class="controls">
-                                    <button class="btn btn-primary btn-with-glyph" id="example"><i class="glyph glyph-import"></i>மாதிரி</button>
-                                    <button type="submit" class="btn btn-primary btn-with-glyph"><i class="glyph glyph-arrow-right"></i>சரி பார்த்திடு</button>
-                                </div>
-                            </div>
+                        <div class="col-md-8" id="input">
+
                         </div>
                         <div class="col-md-8 hidden" id="asaiSelector">
                             <h4 class="game-section-title text-center">
@@ -195,6 +183,14 @@
 </script>
 <script>
     $(document).ready(function () {
+        // render the inputTemplate
+        var inputTemplate = kendo.template($("#inputTemplate").html());
+        $("#input")
+            .append(inputTemplate({
+                inputTitle: "சீர்",
+                inputInfotip: "சீர் (அ) சொல்லிலுள்ள அசைகளை ‘/’ என்ற குறியீடால் பிரிக்கவும். எ.கா. மனி/தம். இந்தச் சொல்லை ”மனி” / “தம்” என்று அசை பிரிக்கலாம்.",
+                inputLines: 1
+            }));
         // set the context help
         var asaiHelpTemplate = kendo.template($("#asaiHelpTemplate").html());
         Utility.setContextHelp(asaiHelpTemplate({}));
@@ -226,7 +222,7 @@
             .append(resultTemplate({
                 part: "asai"
             }));
-        Utility.clearResult();
+
         $("#ProsodyText").blur(function () {
             if (!$('#ProsodyText').val().trim()) {
                 Utility.disableElement("checkResult");

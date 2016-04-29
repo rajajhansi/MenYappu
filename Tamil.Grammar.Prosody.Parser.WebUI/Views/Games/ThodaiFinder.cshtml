@@ -12,17 +12,8 @@
             <li id="seyyul" class="k-state-active">
                 <form id="prosodyForm" class="form-horizontal" action="/api/Prosody/MathiraiCount" method="POST">
                     <div class="row">
-                        <div class="col-md-8">
-                            <h4 class="game-section-title">
-                                வாக்கியம்
-                            </h4>
-                            <textarea class="panelbar-textarea" id="ProsodyText" rows="6"></textarea>
-                            <div class="control-group">
-                                <div class="controls">
-                                    <button class="btn btn-primary btn-with-glyph" id="example"><i class="glyph glyph-import"></i>மாதிரி</button>
-                                    <button type="submit" class="btn btn-primary btn-with-glyph"><i class="glyph glyph-arrow-right"></i>சரி பார்த்திடு</button>
-                                </div>
-                            </div>
+                        <div class="col-md-8" id="input">
+
                         </div>
                         <div class="col-md-8 hidden" id="thodaiSelector">
                             <h4 class="game-section-title text-center">
@@ -463,6 +454,14 @@
 </script>
 <script>
     $(document).ready(function () {
+        // render the inputTemplate
+        var inputTemplate = kendo.template($("#inputTemplate").html());
+        $("#input")
+            .append(inputTemplate({
+                inputTitle: "அடிகள்",
+                inputInfotip: "குறைந்தது ஒரு அடியை உள்ளிடவும். அந்த அடியில் குறைந்தது இரு சீர்களை உள்ளிடவும்.",
+                inputLines: 2
+            }));
         // set the context help
         var thodaiHelpTemplate = kendo.template($("#thodaiHelpTemplate").html());
         Utility.setContextHelp(thodaiHelpTemplate({}));
@@ -498,7 +497,7 @@
                             { part: "iyaipu", partHeader: "இயைபு வகைகள்" }
                 ]
             }));
-        Utility.clearResult();
+
         $("#prosodyForm").submit(function () {
             Utility.hideResult();
             var data = '{"InputText" : "' + $("#ProsodyText").val() + '"' + '}';

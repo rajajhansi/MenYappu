@@ -12,11 +12,8 @@
             <li id="seyyul" class="k-state-active">
                 <form id="prosodyForm" class="form-horizontal" action="/api/Prosody/MathiraiCount" method="POST">
                     <div class="row">
-                        <div class="col-md-8">
-                            <h4 class="game-section-title">
-                                சீர்
-                            </h4>
-                            <textarea class="panelbar-textarea" id="ProsodyText" rows="6"></textarea>
+                        <div class="col-md-8" id="input">
+
                         </div>
                         <div class="col-md-6 hidden" id="asaiSelector">
                             <h4 class="game-section-title text-center">
@@ -33,16 +30,6 @@
                         </div>
                         <div class="col-md-8 hidden" id="result">
 
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="control-group">
-                                <div class="controls">
-                                    <button class="btn btn-primary btn-with-glyph" id="example"><i class="glyph glyph-import"></i>மாதிரி</button>
-                                    <button type="submit" class="btn btn-primary btn-with-glyph"><i class="glyph glyph-message"></i>சரி பார்த்திடு</button>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </form>
@@ -336,6 +323,14 @@
 </script>
 <script>
     $(document).ready(function () {
+        // render the inputTemplate
+        var inputTemplate = kendo.template($("#inputTemplate").html());
+        $("#input")
+            .append(inputTemplate({
+                inputTitle: "சீர்",
+                inputInfotip: "சீர் (அ) சொல்லிலுள்ள அசைகளை ‘/’ என்ற குறியீடால் பிரிக்கவும். எ.கா. மனி/தம். இந்தச் சொல்லை ”மனி” / “தம்” என்று அசை பிரிக்கலாம்.",
+                inputLines: 1
+            }));
         // set the context help
         var seerHelpTemplate = kendo.template($("#seerHelpTemplate").html());
         Utility.setContextHelp(seerHelpTemplate({}));
@@ -372,7 +367,7 @@
                             { part: "seer", partHeader: "சீர் வகைகள்" }
                            ]
             }));
-        Utility.clearResult();
+
         $("#ProsodyText").blur(function () {
             var numSyllables = ($("#ProsodyText").val().match(/\//g) || []).length;
             numSyllables++;

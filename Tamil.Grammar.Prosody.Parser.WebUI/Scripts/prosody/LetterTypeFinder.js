@@ -8,22 +8,50 @@
 
     var letterCssClasses = { 'கு': 'kuril', 'நெ': 'nedil', 'ஒ': 'otru', 'ஆ': 'aytham' };
 
-    function getMathirai(data, callback) {
-        //var result;
-        $.customBlockUI();
-        $.ajax({
-                    url: '/api/Prosody/MathiraiCount',
-                    data: data,
-                    contentType: 'application/json; charset=utf8',
-                    type: 'POST'
-                }
-        ).done(function(data) {
-            callback(data);
-        }).fail(function(data) {
-            callback(null);
-        }).always(function(data) {
-            $.customUnblockUI();
+    function init() {
+        // render the inputTemplate
+        var inputTemplate = kendo.template($("#inputTemplate").html());
+        $("#input")
+            .append(inputTemplate({
+                inputTitle: "சொல்",
+                inputInfotip: "ஒரேயொரு சொல்லை மட்டும் உள்ளிடவும் (அ) கீழேயுள்ள “மாதிரி” பொத்தானை அழுத்தவும்.",
+                inputLines: 1
+            }));
+        //  Wire parsley js for validation
+        $('#prosodyForm').parsley();
+        // set the context help
+        var ezhuthuVagaiHelpTemplate = kendo.template($("#ezhuthuVagaiHelpTemplate").html());
+        Utility.setContextHelp(ezhuthuVagaiHelpTemplate({}));
+        var audioMathirai = $("#aud-mathirai")[0];
+        $("#play-mathirai").mouseenter(function () {
+            audioMathirai.play();
         });
+        $("#play-mathirai").mouseleave(function () {
+            audioMathirai.pause();
+        });
+
+        $('#modal-video-mathirai').on('show.bs.modal', function (e) {
+            $(e.target).find('.modal-body').empty();
+            $(e.target).find('.modal-body').append('<iframe width="420" height="315" src="https://www.youtube.com/embed/AH4bCeBXFm4?start=396" frameborder="0" allowfullscreen></iframe>');
+        });
+        $('#modal-video-mathirai').on('hide.bs.modal', function (e) {
+            $(e.target).find('.modal-body').empty();
+        });
+
+        Utility.initSeyyulbar();
+        Utility.disableElement("checkResult");
+        Utility.hideResult();
+        Utility.hideElement("rightMathiraiCount");
+        Utility.setupExample('/api/prosody/Seergal', 'seer');
+        $("#ezhuthuTypes").on('click', '.dropdown-menu li a', function () {
+            var selText = $(this).text();
+            $(this).parents('.dropdown').find('.dropdown-toggle').html(selText + ' <span class="caret"></span>');
+        });
+        var resultTemplate = kendo.template($("#resultTemplate").html());
+        $("#result")
+            .append(resultTemplate({
+                part: "ezhuthu"
+            }));
     }
 
     var funcShowInputAndResult = function () {
@@ -37,7 +65,7 @@
             $("#ProsodyText").val() +
             '"' +
             '}';
-        getMathirai(data, function(mathiraiData) {
+        ProsodyService.mathiraiCount(data, function(mathiraiData) {
             var ezhuthuCount = mathiraiData ? mathiraiData["TotalLetterCount"] : 0;
             var detailedMathiraiCount = mathiraiData ? mathiraiData["DetailedMathiraiCount"] : null;
             $("#ezhuthuCount").html(ezhuthuCount);
@@ -107,7 +135,7 @@
     return {
         letterTypes: letterTypes,
         letterCssClasses: letterCssClasses,
-        getMathirai: getMathirai,
+        init: init,
         funcShowInputAndResult: funcShowInputAndResult,
         funcShowOutputWithResult: funcShowOutputWithResult
     };

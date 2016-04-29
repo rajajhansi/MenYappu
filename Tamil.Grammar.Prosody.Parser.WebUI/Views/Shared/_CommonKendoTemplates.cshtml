@@ -1,4 +1,20 @@
-﻿<script type="text/x-kendo-template" id="resultTemplate">
+﻿<script type="text/x-kendo-template" id="inputTemplate">
+    <h4 class="game-section-title">
+        #= inputTitle #
+    </h4>
+    <div class="infotip">
+        <span class="text-t9">#= inputInfotip #</span>
+    </div>
+    <textarea class="panelbar-textarea" id="ProsodyText" rows="#= inputLines #" minlength="2"></textarea>
+    <div class="control-group">
+        <div class="controls">
+            <button class="btn btn-primary btn-with-glyph" id="example"><i class="glyph glyph-import "></i>மாதிரி</button>
+            <button type="submit" class="btn btn-primary btn-with-glyph" id="checkResult"><i class="glyph glyph-message"></i>சரி பார்த்திடு</button>
+        </div>
+    </div>
+</script>
+
+<script type="text/x-kendo-template" id="resultTemplate">
     # var partCorrect = part + "-correct"; var partIncorrect = part + "-incorrect"; var partExplanation = part + "-explanation" #
     <div class="flip-container_click">
         <div class="flipper">

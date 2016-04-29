@@ -14,9 +14,9 @@ namespace Tamil.Grammar.Prosody.Parser.WebUI.Controllers
 
             return View();
         }
-        public ActionResult MathiraiCount()
+        public ActionResult MathiraiCalculator()
         {
-            ViewBag.Message = "Mathirai Finder";
+            ViewBag.Message = "Mathirai Calculator";
 
             return View();
         }
