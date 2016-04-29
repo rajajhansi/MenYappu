@@ -12,17 +12,8 @@
             <li id="seyyul" class="k-state-active">
                 <form id="prosodyForm" class="form-horizontal" action="/api/Prosody/MathiraiCount" method="POST">
                     <div class="row">
-                        <div class="col-md-8">
-                            <h4 class="game-section-title">
-                                வாக்கியம்
-                            </h4>
-                            <textarea class="panelbar-textarea" id="ProsodyText" rows="6"></textarea>
-                            <div class="control-group">
-                                <div class="controls">
-                                    <button class="btn btn-primary btn-with-glyph" id="example"><i class="glyph glyph-import"></i>மாதிரி</button>
-                                    <button type="submit" class="btn btn-primary btn-with-glyph"><i class="glyph glyph-arrow-right"></i>சரி பார்த்திடு</button>
-                                </div>
-                            </div>
+                        <div class="col-md-8"id="input" >
+
                         </div>
                         <div class="col-md-8 hidden" id="thalaiSelector">
                             <h4 class="game-section-title text-center">
@@ -138,6 +129,14 @@
 </script>
 <script>
     $(document).ready(function () {
+        // render the inputTemplate
+        var inputTemplate = kendo.template($("#inputTemplate").html());
+        $("#input")
+            .append(inputTemplate({
+                inputTitle: "வாக்கியம்",
+                inputInfotip: "இரு சீர்களை மட்டும் உள்ளிடவும் (அ) கீழேயுள்ள “மாதிரி” பொத்தானை அழுத்தவும்.",
+                inputLines: 1
+            }));
         // set the context help
         var thalaiHelpTemplate = kendo.template($("#thalaiHelpTemplate").html());
         Utility.setContextHelp(thalaiHelpTemplate({}));
@@ -167,7 +166,6 @@
             .append(resultTemplate({
                 part: "thalai"
             }));
-        Utility.clearResult();
         Utility.setupExample('/api/prosody/ThalaiSentences', 'sentence');
         $("#prosodyForm").submit(function () {
             Utility.hideResult();

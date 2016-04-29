@@ -12,20 +12,8 @@
             <li id="seyyul" class="k-state-active">
                 <form id="prosodyForm" data-parsley-validate="" class="form-horizontal" action="/api/Prosody/MathiraiCount" method="POST">
                     <div class="row row-sm">
-                        <div class="col-md-8">
-                            <h4 class="game-section-title">
-                                சொல்
-                            </h4>
-                            <div class="infotip">
-                                <span class="text-t9">ஒரேயொரு சொல்லை மட்டும் உள்ளிடவும்.</span>
-                            </div>
-                            <textarea class="panelbar-textarea" id="ProsodyText" rows="2" minlength="2"></textarea>
-                            <div class="control-group">
-                                <div class="controls">
-                                    <button class="btn btn-primary btn-with-glyph" id="example"><i class="glyph glyph-import "></i>மாதிரி</button>
-                                    <button type="submit" class="btn btn-primary btn-with-glyph" id="checkResult"><i class="glyph glyph-message"></i>சரி பார்த்திடு</button>
-                                </div>
-                            </div>
+                        <div class="col-md-8" id="input">
+
                         </div>
 
                         <div class="col-md-8 hidden" id="ezhuthuTypeSelector">
@@ -160,6 +148,14 @@
 <script src="/Scripts/parsley/i18n/ta.js"></script>
 <script>
     $(document).ready(function () {
+        // render the inputTemplate
+        var inputTemplate = kendo.template($("#inputTemplate").html());
+        $("#input")
+            .append(inputTemplate({
+                inputTitle: "சொல்",
+                inputInfotip: "ஒரேயொரு சொல்லை மட்டும் உள்ளிடவும் (அ) கீழேயுள்ள “மாதிரி” பொத்தானை அழுத்தவும்.",
+                inputLines: 1
+            }));
         //  Wire parsley js for validation
         $('#prosodyForm').parsley();
         // set the context help

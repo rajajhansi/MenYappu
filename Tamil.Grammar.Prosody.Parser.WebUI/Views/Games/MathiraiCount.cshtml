@@ -12,23 +12,17 @@
             <li id="seyyul" class="k-state-active">
                 <form id="prosodyForm" class="form-horizontal" action="/api/Prosody/MathiraiCount" method="POST">
                     <div class="row row-sm">
-                        <div class="col-md-8">
-                            <h4 class="game-section-title">
-                                வாக்கியம்
-                            </h4>
-                            <textarea class="panelbar-textarea" id="ProsodyText" rows="2"></textarea>
-                            <div class="control-group">
-                                <div class="controls">
-                                    <button class="btn btn-primary btn-with-glyph" id="example"><i class="glyph glyph-import "></i>மாதிரி</button>
-                                    <button type="submit" class="btn btn-primary btn-with-glyph"><i class="glyph glyph-message"></i>சரி பார்த்திடு</button>
-                                </div>
-                            </div>
+                        <div class="col-md-8" id="input">
+
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-md-8" id="additionalInput">
                             <h4 class="game-section-title text-center">
                                 மாத்திரை எண்ணிக்கை
                             </h4>
-                            <input type="text" id="MathiraiCount" class="panelbar-text form-control" />
+                            <div class="infotip">
+                                <span class="text-t9">மாத்திரை எண்ணிக்கையை உள்ளிடவும். பிறகு “சரி பார்த்திடு” பொத்தானை அழுத்தவும்.</span>
+                            </div>
+                            <textarea class="panelbar-textarea" id="MathiraiCount" rows="1" minlength="1"></textarea>
                             <div id="rightMathiraiCount" class="type-t5 hidden">
                                 <h4 class="game-section-title">சரியான மாத்திரை எண்ணிக்கை</h4>
                                 <span class="cspan" id="CalculatedMathiraiCount"></span>
@@ -153,6 +147,14 @@
 @{ Html.RenderPartial("_CommonKendoTemplates"); }
 <script>
     $(document).ready(function () {
+        // render the inputTemplate
+        var inputTemplate = kendo.template($("#inputTemplate").html());
+        $("#input")
+            .append(inputTemplate({
+                inputTitle: "வாக்கியம்",
+                inputInfotip: "ஒரெயொரு சொல்லை (அ) வாக்கியத்தை உள்ளிடவும் (அ) கீழேயுள்ள “மாதிரி” பொத்தானை அழுத்தவும்.",
+                inputLines: 1
+            }));
         // set the context help
         var mathiraiHelpTemplate = kendo.template($("#mathiraiHelpTemplate").html());
         Utility.setContextHelp(mathiraiHelpTemplate({}));
@@ -188,7 +190,7 @@
             .append(resultTemplate({
                 part: "mathirai"
             }));
-        Utility.clearResult();
+
         $("#prosodyForm").submit(function () {
             Utility.hideResult();
 
