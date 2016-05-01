@@ -3,7 +3,8 @@
         "mathiraiCount": "/api/Prosody/MathiraiCount",
         "thalaiFinder": "/api/Prosody/ThalaiFinder",
         "adiMeasurer": "/api/Prosody/AdiMeasurer",
-        "thodaiChecker": "/api/Prosody/ThodaiChecker"
+        "thodaiChecker": "/api/Prosody/ThodaiChecker",
+        "thodaiFinder": "/api/Prosody/ThodaiFinder"
     }
     function invokeRestService(url, data, type, callback) {
         $.customBlockUI();
@@ -38,10 +39,14 @@
         invokeRestService(serviceUrls["thodaiChecker"], data, 'POST', callback);
     }
 
+    function thodaiFinder(data, callback) {
+        invokeRestService(serviceUrls["thodaiFinder"], data, 'POST', callback);
+    }
     return {
         mathiraiCount: mathiraiCount,
         thalaiFinder: thalaiFinder,
         adiMeasurer: adiMeasurer,
-        thodaiChecker: thodaiChecker
+        thodaiChecker: thodaiChecker,
+        thodaiFinder: thodaiFinder
     }
 })();

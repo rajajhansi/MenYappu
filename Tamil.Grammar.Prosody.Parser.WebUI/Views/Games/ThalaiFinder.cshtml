@@ -127,74 +127,15 @@
         </tbody>
     </table>
 </script>
+<script src="/Scripts/prosody/ThalaiFinder.js"></script>
 <script>
     $(document).ready(function () {
-        // render the inputTemplate
-        var inputTemplate = kendo.template($("#inputTemplate").html());
-        $("#input")
-            .append(inputTemplate({
-                inputTitle: "வாக்கியம்",
-                inputInfotip: "இரு சீர்களை மட்டும் உள்ளிடவும் (அ) கீழேயுள்ள “மாதிரி” பொத்தானை அழுத்தவும்.",
-                inputLines: 1
-            }));
-        // set the context help
-        var thalaiHelpTemplate = kendo.template($("#thalaiHelpTemplate").html());
-        Utility.setContextHelp(thalaiHelpTemplate({}));
-        // event handler for select
-        var onSelect = function (e) {
-            // access the selected item via e.item (HTMLElement)
-            var item = e.sender.select();
-
-            if (item.hasClass("k-state-active")) {
-                e.sender.collapse(item);
-            } else {
-                e.sender.expand(item);
-            }
-        };
-        var seyyulPanelBar = $("#seyyulbar").kendoPanelBar({
-            expandMode: "single",
-            select: onSelect
-        }).data("kendoPanelBar");
-        seyyulPanelBar.expand($(".k-first"), true);
-
-        Utility.hideResult();
-        $("#ProsodyText").blur(function () {
-            Utility.showElement("thalaiSelector");
-        });
-        var resultTemplate = kendo.template($("#resultTemplate").html());
-        $("#result")
-            .append(resultTemplate({
-                part: "thalai"
-            }));
-        Utility.setupExample('/api/prosody/ThalaiSentences', 'sentence');
+        ThalaiFinder.init();
         $("#prosodyForm").submit(function () {
             Utility.hideResult();
             var data = '{"InputText" : "' + $("#ProsodyText").val() + '"' + '}';
-            $.ajax({
-                url: '/api/Prosody/ThalaiFinder',
-                data: data,
-                contentType: 'application/json; charset=utf8',
-                type: 'POST',
-                async: false,
-                success: function (data) {
-                    var thalaiTemplate = kendo.template($("#thalaiTemplate").html());
-                    var thalaiExplanation = thalaiTemplate({
-                        wordBond: data["WordBond"]
-                    });
-
-                    var chosenThalai = $("#thalai-dropdown").text().trim();
-                    if (chosenThalai === data["WordBond"][0]["bond"]) {
-                        $("#thalai-correct").attr('data-original-title', thalaiExplanation);
-                        Utility.showCorrect("thalai", thalaiExplanation);
-                    } else {
-                        Utility.showIncorrect("thalai", thalaiExplanation);
-                    }
-                    Utility.showResult();
-                },
-                error: function (data) {
-                    alert('error');
-                }
-            });
+            ProsodyService.thalaiFinder(data, ThalaiFinder.showOutputWithResult);
             return false;
         });
-    });</script>
+    });
+</script>

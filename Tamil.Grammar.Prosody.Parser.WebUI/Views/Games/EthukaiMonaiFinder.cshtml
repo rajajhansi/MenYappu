@@ -290,45 +290,11 @@
         <br />
     </div>
 </script>
-
+<script src="/Scripts/prosody/EthukaiMonaiFinder.js"></script>
 <script>
     $(document).ready(function () {
-        // set the context help
-        var thodaiHelpTemplate = kendo.template($("#thodaiHelpTemplate").html());
-        Utility.setContextHelp(thodaiHelpTemplate({}));
-        // event handler for select
-        var onSelect = function (e) {
-            // access the selected item via e.item (HTMLElement)
-            var item = e.sender.select();
+        EthukaiMonaiFinder.init();
 
-            if (item.hasClass("k-state-active")) {
-                e.sender.collapse(item);
-            } else {
-                e.sender.expand(item);
-            }
-        };
-        var seyyulPanelBar = $("#seyyulbar").kendoPanelBar({
-            expandMode: "single",
-            select: onSelect
-        }).data("kendoPanelBar");
-        seyyulPanelBar.expand($(".k-first"), true);
-
-        Utility.hideResult();
-        Utility.setupExample('/api/prosody/Thodaigal', 'thodai');
-        //$("#ProsodyText").blur(function () {
-            Utility.showElement("thodaiSelector");
-        //});
-
-        var resultTemplate = kendo.template($("#multiResultsTemplate").html());
-        $("#result")
-            .append(resultTemplate({
-                partInfos: [
-                            { part: "monai", partHeader: "மோனை வகைகள்" },
-                            { part: "ethukai", partHeader: "எதுகை வகைகள்" },
-                            { part: "iyaipu", partHeader: "இயைபு வகைகள்" }
-                ]
-            }));
-        Utility.clearResult();
         $("#prosodyForm").submit(function () {
             Utility.hideResult();
             /*var data = '{"EthukaiPair" : { "InputText" : "' + $("#ethukaiInputText").val().trim() + '", "ThodaiText" : "' + $("#ethukaiText").val().trim() + '"},'
@@ -337,37 +303,7 @@
             var data = '{"ThodaiPairs" : [{ "InputText" : "' + $("#monaiInputText").val().trim() + '", "ThodaiText" : "' + $("#monaiText").val().trim() + '"},'
                 + '{ "InputText" : "' + $("#ethukaiInputText").val().trim() + '", "ThodaiText" : "' + $("#ethukaiText").val().trim() + '"},'
                 + '{ "InputText" : "' + $("#iyaipuInputText").val().trim() + '", "ThodaiText" : "' + $("#iyaipuText").val().trim() + '"}] }';
-            $.ajax({
-                url: '/api/Prosody/ThodaiChecker',
-                data: data,
-                contentType: 'application/json; charset=utf8',
-                type: 'POST',
-                async: false,
-                success: function (data) {
-                    var correct = '<div class="type-t8">அருமை</div>';
-                    var incorrect = '<div class="type-t8">எதுகை விளக்கத்தைப் படிக்கவும்</div>';
-
-                    var thodais = ["monai", "ethukai", "iyaipu"];
-                    var allThodaisExist = true;
-                    for (var thodaiIndex = 0; thodaiIndex < 3; thodaiIndex++) {
-                        if (data[thodaiIndex]["DoesThodaiExist"]) {
-                            Utility.showCorrect(thodais[thodaiIndex], '<div class="sari">' + data[thodaiIndex]["Explanation"] + '</div>');
-                        } else {
-                            allThodaisExist = false;
-                            Utility.showIncorrect(thodais[thodaiIndex], '<div class="thavaru">' + data[thodaiIndex]["Explanation"] + '</div>');
-                        }
-                    }
-                    Utility.showResult();
-                    if (allThodaisExist /*data["IsEthukai"] && data["IsMonai"] && data["IsIyaipu"]*/) {
-                        toastr.success("அருமை. உங்கள் விடைகளை “முடிவு” பத்தியில் சரி பார்க்கவும்.");
-                    } else {
-                        toastr.error("எதுகை, மோனை, இயைபு விளக்கத்தை வலப்புறமுள்ள ”உதவி” பகுதியில் படிக்கவும்");
-                    }
-                },
-                error: function (data) {
-                    alert('error');
-                }
-            });
+            ProsodyService.thodaiChecker(data, EthukaiMonaiFinder.showOutputWithResult);
             return false;
         });
     });

@@ -151,15 +151,15 @@
         var delay = Utility.makeDelay(1000);
         $("#ProsodyText")
             .keyup(function() {
-                delay(LetterTypeFinder.funcShowInputAndResult);
+                delay(LetterTypeFinder.showInputAndResult);
             });
 
-        $("#ProsodyText").blur(LetterTypeFinder.funcShowInputAndResult);
+        $("#ProsodyText").blur(LetterTypeFinder.showInputAndResult);
         $("#prosodyForm").submit(function () {
             Utility.hideResult();
             var inputData = '{"InputText" : "' + $("#ProsodyText").val() + '"' +
                 '}';
-            var data = ProsodyService.mathiraiCount(inputData, LetterTypeFinder.funcShowOutputWithResult);
+            var data = ProsodyService.mathiraiCount(inputData, LetterTypeFinder.showOutputWithResult);
 
             return false;
         });

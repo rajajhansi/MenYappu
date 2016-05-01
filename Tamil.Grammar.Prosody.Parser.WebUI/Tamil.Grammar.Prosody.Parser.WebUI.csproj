@@ -722,9 +722,15 @@
     <Content Include="Scripts\parsley\i18n\zh_cn.js" />
     <Content Include="Scripts\parsley\i18n\zh_tw.js" />
     <Content Include="Scripts\parsley\parsley.js" />
+    <Content Include="Scripts\prosody\AdiMeasurer.js" />
+    <Content Include="Scripts\prosody\AsaiDivider.js" />
+    <Content Include="Scripts\prosody\EthukaiMonaiFinder.js" />
     <Content Include="Scripts\prosody\LetterTypeFinder.js" />
     <Content Include="Scripts\prosody\MathiraiCalculator.js" />
     <Content Include="Scripts\prosody\ProsodyService.js" />
+    <Content Include="Scripts\prosody\SeerFinder.js" />
+    <Content Include="Scripts\prosody\ThalaiFinder.js" />
+    <Content Include="Scripts\prosody\ThodaiFinder.js" />
     <Content Include="Scripts\prosody\utilityfunctions.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />

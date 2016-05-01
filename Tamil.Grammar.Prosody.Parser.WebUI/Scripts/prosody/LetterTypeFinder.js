@@ -54,7 +54,7 @@
             }));
     }
 
-    var funcShowInputAndResult = function () {
+    var showInputAndResult = function () {
         if (!$('#ProsodyText').val().trim()) {
             Utility.disableElement("checkResult");
             return false;
@@ -97,7 +97,7 @@
 
     };
 
-    var funcShowOutputWithResult = function(data) {
+    var showOutputWithResult = function(data) {
         if (data) {
             var ezhuthuVagaiTemplate = kendo.template($("#ezhuthuVagaiTemplate").html());
             var ezhuthuCount = data["TotalEzhuthuCount"];
@@ -136,7 +136,7 @@
         letterTypes: letterTypes,
         letterCssClasses: letterCssClasses,
         init: init,
-        funcShowInputAndResult: funcShowInputAndResult,
-        funcShowOutputWithResult: funcShowOutputWithResult
+        showInputAndResult: showInputAndResult,
+        showOutputWithResult: showOutputWithResult
     };
 })();

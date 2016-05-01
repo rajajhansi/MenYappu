@@ -181,112 +181,22 @@
         <span class="kurilinai">கவி</span>/<span class="kurinedil">நிலா</span> <span class="kurilinaiyotru">புலம்</span>/<span class="kurinedilotru">பினாள்</span> - <span class="kurilinai">குறிலிணை</span>/<span class="kurinedil">குறிநெடில்</span> <span class="kurilinaiyotru">குறிலிணையொற்று</span>/<span class="kurinedilotru">குறிநெடிலொற்று</span>
 </div>
 </script>
+<script src="/Scripts/prosody/AsaiDivider.js"></script>
 <script>
     $(document).ready(function () {
-        // render the inputTemplate
-        var inputTemplate = kendo.template($("#inputTemplate").html());
-        $("#input")
-            .append(inputTemplate({
-                inputTitle: "சீர்",
-                inputInfotip: "சீர் (அ) சொல்லிலுள்ள அசைகளை ‘/’ என்ற குறியீடால் பிரிக்கவும். எ.கா. மனி/தம். இந்தச் சொல்லை ”மனி” / “தம்” என்று அசை பிரிக்கலாம்.",
-                inputLines: 1
-            }));
-        // set the context help
-        var asaiHelpTemplate = kendo.template($("#asaiHelpTemplate").html());
-        Utility.setContextHelp(asaiHelpTemplate({}));
-        // event handler for select
-        var onSelect = function (e) {
-            // access the selected item via e.item (HTMLElement)
-            var item = e.sender.select();
-
-            if (item.hasClass("k-state-active")) {
-                e.sender.collapse(item);
-            } else {
-                e.sender.expand(item);
-            }
-        };
-        var seyyulPanelBar = $("#seyyulbar").kendoPanelBar({
-            expandMode: "single",
-            select: onSelect
-        }).data("kendoPanelBar");
-        seyyulPanelBar.expand($(".k-first"), true);
-
-        Utility.hideResult();
-        Utility.setupExample('/api/prosody/Seergal', 'seer');
-        $("#asaiTypes").on('click', '.dropdown-menu li a', function () {
-            var selText = $(this).text();
-            $(this).parents('.dropdown').find('.dropdown-toggle').html(selText + ' <span class="caret"></span>');
-        });
-        var resultTemplate = kendo.template($("#resultTemplate").html());
-        $("#result")
-            .append(resultTemplate({
-                part: "asai"
-            }));
-
-        $("#ProsodyText").blur(function () {
-            if (!$('#ProsodyText').val().trim()) {
-                Utility.disableElement("checkResult");
-                return false;
-            }
-            Utility.enableElement("checkResult");
-            Utility.clearResult();
-            var numSyllables = ($("#ProsodyText").val().match(/\//g) || []).length;
-            numSyllables++;
-            $("#AsaiCount").html(numSyllables);
-            Utility.showElement("asaiCalculator");
-            $("#asaiTypes").empty();
-            var asaiTemplate = kendo.template($("#asaiTemplate").html());
-            for (var syllableIndex = 0; syllableIndex < numSyllables; syllableIndex++) {
-                var asai = asaiTemplate({
-                    asaiIndex: syllableIndex + 1
-                });
-                $("#asaiTypes").append(asai);
-                Utility.showElement("asaiSelector");
-            }
-        });
+        AsaiDivider.init();
+        var delay = Utility.makeDelay(1000);
+        $("#ProsodyText")
+            .keyup(function () {
+                delay(AsaiDivider.showInputAndResult);
+            });
+        $("#ProsodyText").blur(AsaiDivider.showInputAndResult);
 
         $("#prosodyForm").submit(function () {
             Utility.hideResult();
             var data = '{"InputText" : "' + $("#ProsodyText").val() + '"' + '}';
-            $.ajax({
-                url: '/api/Prosody/ThalaiFinder',
-                data: data,
-                contentType: 'application/json; charset=utf8',
-                type: 'POST',
-                async: false,
-                success: function (data) {
-                    var seerTemplate = kendo.template($("#seerTemplate").html());
-                    var seerExplanation = seerTemplate({
-                        paaVagai: null,
-                        parseTree: data["ParseTree"],
-                        wordBond: data["WordBond"],
-                        venLastSyllable: ""
-                    });
-
-                    var isAnyAsaiWrong = false;
-                    var index = 0;
-                    $.each(data["ParseTree"]["aTi-1"]["cI_r-1"], function (seerKey, seerValue) {
-                        $.each(seerValue, function (asaiKey, asaiValue) {
-                            var chosenAsai = $("#asai-dropdown-" + (index + 1)).text().trim();
-                            if (asaiKey !== 'meta' && chosenAsai !== asaiKey) {
-                                isAnyAsaiWrong = true;
-                                return false;
-                            }
-                        });
-                        index++;
-                    });
-                    if (isAnyAsaiWrong) {
-                        $("#asai-correct").attr('data-original-title', seerExplanation);
-                        Utility.showIncorrect("asai", seerExplanation);
-                    } else {
-                        Utility.showCorrect("asai", seerExplanation);
-                    }
-                    Utility.showResult();
-                },
-                error: function (data) {
-                    alert('error');
-                }
-            });
+            ProsodyService.thalaiFinder(data, AsaiDivider.showOutputWithResult);
             return false;
         });
-    });</script>
+    });
+</script>
