@@ -177,11 +177,20 @@
   <data name="Alliteration" xml:space="preserve">
     <value>மோனை</value>
   </data>
+  <data name="CheckAnswer" xml:space="preserve">
+    <value>சரி பார்த்திடு</value>
+  </data>
   <data name="Clear" xml:space="preserve">
     <value>நீக்குக</value>
   </data>
   <data name="CompareWithVenpaRules" xml:space="preserve">
     <value>வெண்பா விதிகளோடு ஒப்பிடுக</value>
+  </data>
+  <data name="Correct" xml:space="preserve">
+    <value>சரி</value>
+  </data>
+  <data name="Count" xml:space="preserve">
+    <value>எண்ணிக்கை</value>
   </data>
   <data name="DoNotParseShortUBeforeInitialVowels" xml:space="preserve">
     <value>உயிர்முன் குற்றியலுகரத்தை அலகிடாது விடுக</value>
@@ -192,11 +201,32 @@
   <data name="EndRhyme" xml:space="preserve">
     <value>இயைபு</value>
   </data>
+  <data name="Excellent" xml:space="preserve">
+    <value>அருமை</value>
+  </data>
+  <data name="Explanation" xml:space="preserve">
+    <value>விளக்கம்</value>
+  </data>
+  <data name="HowToSeeTheResult" xml:space="preserve">
+    <value>நீங்கள் விடையை உள்ளிட்டவுடன் “சரி பார்த்திடு” என்ற பொத்தானை அழுத்தினால் “முடிவு” தெரியும்.</value>
+  </data>
+  <data name="Incorrect" xml:space="preserve">
+    <value>தவறு</value>
+  </data>
   <data name="InputTheVerse" xml:space="preserve">
     <value>செய்யுளை உள்ளிடவும்</value>
   </data>
+  <data name="InputWord" xml:space="preserve">
+    <value>சொல்லை உள்ளிடவும்</value>
+  </data>
   <data name="Letter" xml:space="preserve">
     <value>எழுத்து</value>
+  </data>
+  <data name="LetterTypeFinderInfoTip" xml:space="preserve">
+    <value>ஒரேயொரு சொல்லை மட்டும் உள்ளிடவும் (அ) கீழேயுள்ள “மாதிரி” பொத்தானை அழுத்தவும்.</value>
+  </data>
+  <data name="LetterTypes" xml:space="preserve">
+    <value>எழுத்து வகைகள்</value>
   </data>
   <data name="Linkage" xml:space="preserve">
     <value>தளை</value>
@@ -213,10 +243,22 @@
   <data name="ParsedResults" xml:space="preserve">
     <value>பகுத்தல் முடிவுகள்</value>
   </data>
+  <data name="Result" xml:space="preserve">
+    <value>முடிவு</value>
+  </data>
   <data name="Rhyme" xml:space="preserve">
     <value>எதுகை</value>
   </data>
+  <data name="Sample" xml:space="preserve">
+    <value>மாதிரி</value>
+  </data>
+  <data name="SelectALetterType" xml:space="preserve">
+    <value>எழுத்து வகையைத் தேர்ந்தெடு</value>
+  </data>
   <data name="VenpaRulesComparison" xml:space="preserve">
     <value>விதி ஒப்பீடு</value>
+  </data>
+  <data name="Word" xml:space="preserve">
+    <value>சொல்</value>
   </data>
 </root>

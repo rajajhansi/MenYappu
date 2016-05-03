@@ -79,6 +79,15 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Check Answer.
+        /// </summary>
+        public static string CheckAnswer {
+            get {
+                return ResourceManager.GetString("CheckAnswer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Clear.
         /// </summary>
         public static string Clear {
@@ -93,6 +102,24 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         public static string CompareWithVenpaRules {
             get {
                 return ResourceManager.GetString("CompareWithVenpaRules", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Correct.
+        /// </summary>
+        public static string Correct {
+            get {
+                return ResourceManager.GetString("Correct", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Count.
+        /// </summary>
+        public static string Count {
+            get {
+                return ResourceManager.GetString("Count", resourceCulture);
             }
         }
         
@@ -133,6 +160,24 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Excellent.
+        /// </summary>
+        public static string Excellent {
+            get {
+                return ResourceManager.GetString("Excellent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Explanation.
+        /// </summary>
+        public static string Explanation {
+            get {
+                return ResourceManager.GetString("Explanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Feedback.
         /// </summary>
         public static string Feedback {
@@ -169,11 +214,38 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to After you enter the answer(s), click on &quot;Check Answer&quot; button to see the &quot;Result&quot;..
+        /// </summary>
+        public static string HowToSeeTheResult {
+            get {
+                return ResourceManager.GetString("HowToSeeTheResult", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Incorrect.
+        /// </summary>
+        public static string Incorrect {
+            get {
+                return ResourceManager.GetString("Incorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Input Verse.
         /// </summary>
         public static string InputTheVerse {
             get {
                 return ResourceManager.GetString("InputTheVerse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Input Word.
+        /// </summary>
+        public static string InputWord {
+            get {
+                return ResourceManager.GetString("InputWord", resourceCulture);
             }
         }
         
@@ -192,6 +264,24 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         public static string LetterTypeFinder {
             get {
                 return ResourceManager.GetString("LetterTypeFinder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Either enter only one word (or) click on &quot;Sample&quot; button below..
+        /// </summary>
+        public static string LetterTypeFinderInfoTip {
+            get {
+                return ResourceManager.GetString("LetterTypeFinderInfoTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Letter Types.
+        /// </summary>
+        public static string LetterTypes {
+            get {
+                return ResourceManager.GetString("LetterTypes", resourceCulture);
             }
         }
         
@@ -295,6 +385,15 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Result.
+        /// </summary>
+        public static string Result {
+            get {
+                return ResourceManager.GetString("Result", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Rhyme.
         /// </summary>
         public static string Rhyme {
@@ -309,6 +408,24 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         public static string RhymeAlliterationFinder {
             get {
                 return ResourceManager.GetString("RhymeAlliterationFinder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sample.
+        /// </summary>
+        public static string Sample {
+            get {
+                return ResourceManager.GetString("Sample", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select Letter Type.
+        /// </summary>
+        public static string SelectALetterType {
+            get {
+                return ResourceManager.GetString("SelectALetterType", resourceCulture);
             }
         }
         
@@ -354,6 +471,15 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         public static string Venpas {
             get {
                 return ResourceManager.GetString("Venpas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Word.
+        /// </summary>
+        public static string Word {
+            get {
+                return ResourceManager.GetString("Word", resourceCulture);
             }
         }
         

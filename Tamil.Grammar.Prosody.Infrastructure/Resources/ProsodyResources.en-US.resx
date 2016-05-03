@@ -177,11 +177,17 @@
   <data name="Alliteration" xml:space="preserve">
     <value>Alliteration</value>
   </data>
+  <data name="CheckAnswer" xml:space="preserve">
+    <value>Check Answer</value>
+  </data>
   <data name="Clear" xml:space="preserve">
     <value>Clear</value>
   </data>
   <data name="CompareWithVenpaRules" xml:space="preserve">
     <value>Compare with Venpa rules</value>
+  </data>
+  <data name="Count" xml:space="preserve">
+    <value>Count</value>
   </data>
   <data name="DoNotParseShortUBeforeInitialVowels" xml:space="preserve">
     <value>Do not parse short-u before initial vowels</value>
@@ -192,11 +198,23 @@
   <data name="EndRhyme" xml:space="preserve">
     <value>End Rhyme</value>
   </data>
+  <data name="HowToSeeTheResult" xml:space="preserve">
+    <value>After you enter the answer(s), click on "Check Answer" button to see the "Result".</value>
+  </data>
   <data name="InputTheVerse" xml:space="preserve">
     <value>Input Verse</value>
   </data>
+  <data name="InputWord" xml:space="preserve">
+    <value>Input Word</value>
+  </data>
   <data name="Letter" xml:space="preserve">
     <value>Letter</value>
+  </data>
+  <data name="LetterTypeFinderInfoTip" xml:space="preserve">
+    <value>Either enter only one word (or) click on "Sample" button below.</value>
+  </data>
+  <data name="LetterTypes" xml:space="preserve">
+    <value>Letter Types</value>
   </data>
   <data name="Linkage" xml:space="preserve">
     <value>Linkage</value>
@@ -213,10 +231,22 @@
   <data name="ParsedResults" xml:space="preserve">
     <value>Parsed Results</value>
   </data>
+  <data name="Result" xml:space="preserve">
+    <value>Result</value>
+  </data>
   <data name="Rhyme" xml:space="preserve">
     <value>Rhyme</value>
   </data>
+  <data name="Sample" xml:space="preserve">
+    <value>Sample</value>
+  </data>
+  <data name="SelectALetterType" xml:space="preserve">
+    <value>Select Letter Type</value>
+  </data>
   <data name="VenpaRulesComparison" xml:space="preserve">
     <value>Venpa Ruels Comparison</value>
+  </data>
+  <data name="Word" xml:space="preserve">
+    <value>Word</value>
   </data>
 </root>

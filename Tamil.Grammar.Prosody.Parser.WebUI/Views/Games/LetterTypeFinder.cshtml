@@ -1,167 +1,170 @@
 ﻿@{
     ViewBag.Title = "எழுத்து வகைபிரி";
 }
+<div id="letterTypeFinderGame">
 
-<ul class="kendo-panelbars-custom" id="seyyulbar">
-    <li>
-        <h4 class="main-title">
-            சொல்லை உள்ளிடவும்
-            <span class="main-title-icon glyph glyph-chevron-down"></span>
-        </h4>
-        <ul>
-            <li id="seyyul" class="k-state-active">
-                <form id="prosodyForm" data-parsley-validate="" class="form-horizontal" action="/api/Prosody/MathiraiCount" method="POST">
-                    <div class="row row-sm">
-                        <div class="col-md-8" id="input">
-
-                        </div>
-
-                        <div class="col-md-8 hidden" id="ezhuthuTypeSelector">
-                            <h4 class="game-section-title text-center">
-                                எழுத்து வகைகள்
-                            </h4>
-                            <div id="ezhuthuCalculator" class="text-center text-t5 visible">
-                                <span>எண்ணிக்கை:</span>
-                                <span id="ezhuthuCount"></span>
-                            </div>
-                            <div id="ezhuthuTypes" class="type-t7">
+</div>
+<script type="text/x-kendo-template" id="ezhuthuVagaiInputTemplate">
+    <ul class="kendo-panelbars-custom" id="seyyulbar">
+        <li>
+            <h4 class="main-title">
+                #= ProsodyResourceManager.get("InputWord") #
+                <span class="main-title-icon glyph glyph-chevron-down"></span>
+            </h4>
+            <ul>
+                <li id="seyyul" class="k-state-active">
+                    <form id="prosodyForm" data-parsley-validate="" class="form-horizontal" action="/api/Prosody/MathiraiCount" method="POST">
+                        <div class="row row-sm">
+                            <div class="col-md-8" id="input">
 
                             </div>
+
+                            <div class="col-md-8 hidden" id="ezhuthuTypeSelector">
+                                <h4 class="game-section-title text-center">
+                                    #= ProsodyResourceManager.get("LetterTypes") #
+                                </h4>
+                                <div id="ezhuthuCalculator" class="text-center text-t5 visible">
+                                    <span>#= ProsodyResourceManager.get("Count") #:</span>
+                                    <span id="ezhuthuCount"></span>
+                                </div>
+                                <div id="ezhuthuTypes" class="type-t7">
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-8 hidden" id="result">
+                            </div>
                         </div>
-
-                        <div class="col-md-8 hidden" id="result">
-                        </div>
-                    </div>
-                </form>
-            </li>
-        </ul>
-    </li>
-</ul>
-
-<script type="text/x-kendo-template" id="ezhuthuVagaiSelectorTemplate">
-    # var ezhuthuVagaiId = 'ezhuthuVagai-dropdown-' + ezhuthuVagaiIndex; #
-    <tr>
-        <td>
-            <div class="type-t5 text-right">#= ezhuthu + ':'#</div>
-        </td>
-        <td>
-            <!--<p class="form-group-label">எழுத்து வகைகள்</p>-->
-            <div class="dropdown">
-                <button id="#= ezhuthuVagaiId #" class="btn btn-dropdown dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
-                    எழுத்து வகையைத் தேர்ந்தெடு<span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="#= ezhuthuVagaiId #">
-                    # $.each(LetterTypeFinder.letterTypes, function(letterTypeKey, letterTypeValue) { #
-                        <li><a href="\\#">#= letterTypeValue #</a></li>
-                    # }); #
-                </ul>
-            </div>
-        </td>
-    </tr>
+                    </form>
+                </li>
+            </ul>
+        </li>
+    </ul>
 </script>
-<script type="text/x-kendo-template" id="ezhuthuVagaiTemplate">
-    # var mathiraiInSeer = ""; var key = 0; var l = 0; #
-    # for(var w=0; w < detailedMathiraiCount.length; w++) { #
-    # $.each(detailedMathiraiCount[w], function(detailedMathiraiKey, detailedMathiraiValue) { #
-    # mathiraiInSeer = mathiraiInSeer + '&nbsp;' #
-    # $.each(detailedMathiraiValue, function(mathiraiKey, mathiraiValue) { #
-    # var rubyStyle = l === Object.keys(detailedMathiraiValue).length - 1 ? "margin-right:10px" : "margin-right:0px"; #
-    # var letter = mathiraiKey.split(":")[1]; #
-    # mathiraiInSeer = mathiraiInSeer + '<ruby style="' + rubyStyle + '">'+'<span class="uiTrant type-t7">' + letter + '</span><rt class="' + LetterTypeFinder.letterCssClasses[mathiraiValue.LetterType] + '">' + mathiraiValue.LetterType +  '</rt></ruby>  '; #
-    # l++; #
-    # }) #
-    # l = 0; key++; #
-    # }) #
-    # } #
-    #= mathiraiInSeer #
-    <hr />
-    <span class="kuril m-r-xxs type-t9">கு – குறில்</span>
-    <span class="nedil m-r-xxs type-t9">நெ – நெடில்</span>
-    <span class="otru m-r-xxs type-t9">மெ – மெய்</span>
-    <span class="aytham m-r-xxs type-t9">ஃ - ஆய்தம்</span>
-</script>
-
-@{ Html.RenderPartial("_CommonKendoTemplates"); }
-
-<script type="text/x-kendo-template" id="ezhuthuVagaiHelpTemplate">
-    <audio id="aud-mathirai" preload="auto">
-        <source src="/audio/mathirai.mp3" controls>
-        Your browser isn't invited for super fun audio time.
-    </audio>
-    <div class="helptext">
-        <span class="type-t6">மாத்திரை</span>
-        <br />
-        எழுத்து ஒலி அளவு மாத்திரை எனப்படும்.
-    </div>
-    <button id="play-mathirai" class="btn btn-primary btn-with-glyph"><i class="glyph glyph-play"></i>ஒலி</button>
-    <button id="play-mathirai" class="btn btn-primary btn-with-glyph" data-toggle="modal" data-target="\#modal-video-mathirai"><i class="glyph glyph-video"></i>நிகழ்படம்</button>
-    <br />
-    <br />
-    <table class="table theme-alt type-t9">
-        <thead>
-            <tr>
-                <th>எழுத்து</th>
-                <th>மாத்திரை</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="kuril">
-                <td>குறில்</td>
-                <td>1</td>
-            </tr>
-            <tr class="nedil">
-                <td>நெடில்</td>
-                <td>2</td>
-            </tr>
-            <tr class="otru">
-                <td>ஒற்று/மெய்</td>
-                <td>½</td>
-            </tr>
-            <tr class="aytham">
-                <td>ஆய்தம்</td>
-                <td>½</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <div class="modal modal-center-vertical" id="modal-video-ezhuthuVagai" tabindex="-1" role="dialog" aria-labelledby="modal-about-menyappu-label" aria-hidden="true" style="display: none;">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="modal-sample-label">
-                        மென் யாப்பு
-                    </h4>
-                </div>
-                <div class="modal-body text-center">
-                    <iframe width="420" height="315" src="https://www.youtube.com/embed/AH4bCeBXFm4?start=212" frameborder="0" allowfullscreen></iframe>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">
-                        மூடு
+    <script type="text/x-kendo-template" id="ezhuthuVagaiSelectorTemplate">
+        # var ezhuthuVagaiId = 'ezhuthuVagai-dropdown-' + ezhuthuVagaiIndex; #
+        <tr>
+            <td>
+                <div class="type-t5 text-right">#= ezhuthu + ':'#</div>
+            </td>
+            <td>
+                <!--<p class="form-group-label">எழுத்து வகைகள்</p>-->
+                <div class="dropdown">
+                    <button id="#= ezhuthuVagaiId #" class="btn btn-dropdown dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+                        #= ProsodyResourceManager.get("SelectALetterType") #<span class="caret"></span>
                     </button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="#= ezhuthuVagaiId #">
+                        # $.each(LetterTypeFinder.letterTypes, function(letterTypeKey, letterTypeValue) { #
+                        <li><a href="\\#">#= letterTypeValue #</a></li>
+                        # }); #
+                    </ul>
+                </div>
+            </td>
+        </tr>
+    </script>
+    <script type="text/x-kendo-template" id="ezhuthuVagaiTemplate">
+        # var mathiraiInSeer = ""; var key = 0; var l = 0; #
+        # for(var w=0; w < detailedMathiraiCount.length; w++) { #
+        # $.each(detailedMathiraiCount[w], function(detailedMathiraiKey, detailedMathiraiValue) { #
+        # mathiraiInSeer = mathiraiInSeer + '&nbsp;' #
+        # $.each(detailedMathiraiValue, function(mathiraiKey, mathiraiValue) { #
+        # var rubyStyle = l === Object.keys(detailedMathiraiValue).length - 1 ? "margin-right:10px" : "margin-right:0px"; #
+        # var letter = mathiraiKey.split(":")[1]; #
+        # mathiraiInSeer = mathiraiInSeer + '<ruby style="' + rubyStyle + '">'+'<span class="uiTrant type-t7">' + letter + '</span><rt class="' + LetterTypeFinder.letterCssClasses[mathiraiValue.LetterType] + '">' + mathiraiValue.LetterType +  '</rt></ruby>  '; #
+        # l++; #
+        # }) #
+        # l = 0; key++; #
+        # }) #
+        # } #
+        #= mathiraiInSeer #
+        <hr />
+        <span class="kuril m-r-xxs type-t9">கு – குறில்</span>
+        <span class="nedil m-r-xxs type-t9">நெ – நெடில்</span>
+        <span class="otru m-r-xxs type-t9">மெ – மெய்</span>
+        <span class="aytham m-r-xxs type-t9">ஃ - ஆய்தம்</span>
+    </script>
+
+    @{ Html.RenderPartial("_CommonKendoTemplates"); }
+
+    <script type="text/x-kendo-template" id="ezhuthuVagaiHelpTemplate">
+        <audio id="aud-mathirai" preload="auto">
+            <source src="/audio/mathirai.mp3" controls>
+            Your browser isn't invited for super fun audio time.
+        </audio>
+        <div class="helptext">
+            <span class="type-t6">மாத்திரை</span>
+            <br />
+            எழுத்து ஒலி அளவு மாத்திரை எனப்படும்.
+        </div>
+        <button id="play-mathirai" class="btn btn-primary btn-with-glyph"><i class="glyph glyph-play"></i>ஒலி</button>
+        <button id="play-mathirai" class="btn btn-primary btn-with-glyph" data-toggle="modal" data-target="\#modal-video-mathirai"><i class="glyph glyph-video"></i>நிகழ்படம்</button>
+        <br />
+        <br />
+        <table class="table theme-alt type-t9">
+            <thead>
+                <tr>
+                    <th>எழுத்து</th>
+                    <th>மாத்திரை</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="kuril">
+                    <td>குறில்</td>
+                    <td>1</td>
+                </tr>
+                <tr class="nedil">
+                    <td>நெடில்</td>
+                    <td>2</td>
+                </tr>
+                <tr class="otru">
+                    <td>ஒற்று/மெய்</td>
+                    <td>½</td>
+                </tr>
+                <tr class="aytham">
+                    <td>ஆய்தம்</td>
+                    <td>½</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="modal modal-center-vertical" id="modal-video-ezhuthuVagai" tabindex="-1" role="dialog" aria-labelledby="modal-about-menyappu-label" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="modal-sample-label">
+                            மென் யாப்பு
+                        </h4>
+                    </div>
+                    <div class="modal-body text-center">
+                        <iframe width="420" height="315" src="https://www.youtube.com/embed/AH4bCeBXFm4?start=212" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">
+                            மூடு
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</script>
-<script src="/Scripts/prosody/LetterTypeFinder.js"></script>
-<script>
-    $(document).ready(function () {
-        LetterTypeFinder.init();
-        var delay = Utility.makeDelay(1000);
-        $("#ProsodyText")
-            .keyup(function() {
-                delay(LetterTypeFinder.showInputAndResult);
+    </script>
+    <script src="/Scripts/prosody/LetterTypeFinder.js"></script>
+    <script>
+        $(document).ready(function () {
+            LetterTypeFinder.init();
+            var delay = Utility.makeDelay(1000);
+            $("#ProsodyText")
+                .keyup(function () {
+                    delay(LetterTypeFinder.showInputAndResult);
+                });
+
+            $("#ProsodyText").blur(LetterTypeFinder.showInputAndResult);
+            $("#prosodyForm").submit(function () {
+                Utility.hideResult();
+                var inputData = '{"InputText" : "' + $("#ProsodyText").val() + '"' +
+                    '}';
+                var data = ProsodyService.mathiraiCount(inputData, LetterTypeFinder.showOutputWithResult);
+
+                return false;
             });
-
-        $("#ProsodyText").blur(LetterTypeFinder.showInputAndResult);
-        $("#prosodyForm").submit(function () {
-            Utility.hideResult();
-            var inputData = '{"InputText" : "' + $("#ProsodyText").val() + '"' +
-                '}';
-            var data = ProsodyService.mathiraiCount(inputData, LetterTypeFinder.showOutputWithResult);
-
-            return false;
         });
-    });
-</script>
+    </script>

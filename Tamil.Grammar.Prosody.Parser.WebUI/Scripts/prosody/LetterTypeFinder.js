@@ -9,12 +9,16 @@
     var letterCssClasses = { 'கு': 'kuril', 'நெ': 'nedil', 'ஒ': 'otru', 'ஆ': 'aytham' };
 
     function init() {
+        var ezhuthuVagaiInputTemplate = kendo.template($("#ezhuthuVagaiInputTemplate").html());
+        $("#letterTypeFinderGame").append(ezhuthuVagaiInputTemplate({}));
+        var word = ProsodyResourceManager.get("Word");
+        var letterTypeFinderInfoTip = ProsodyResourceManager.get("LetterTypeFinderInfoTip");
         // render the inputTemplate
         var inputTemplate = kendo.template($("#inputTemplate").html());
         $("#input")
             .append(inputTemplate({
-                inputTitle: "சொல்",
-                inputInfotip: "ஒரேயொரு சொல்லை மட்டும் உள்ளிடவும் (அ) கீழேயுள்ள “மாதிரி” பொத்தானை அழுத்தவும்.",
+                inputTitle: word,
+                inputInfotip: letterTypeFinderInfoTip,
                 inputLines: 1
             }));
         //  Wire parsley js for validation
