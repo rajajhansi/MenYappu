@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AboutMenYappu" xml:space="preserve">
+    <value>மென்யாப்பைப் பற்றி</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>பதிவிறக்கம்</value>
+  </data>
+  <data name="Feedback" xml:space="preserve">
+    <value>கருத்து</value>
+  </data>
+  <data name="Games" xml:space="preserve">
+    <value>விளையாட்டுகள்</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>உதவி</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>முகப்பு</value>
+  </data>
+  <data name="LetterTypeFinder" xml:space="preserve">
+    <value>எழுத்து வகைபிரி</value>
+  </data>
+  <data name="LinkageFinder" xml:space="preserve">
+    <value>தளை தட்டாதே</value>
+  </data>
+  <data name="MathiraiCalculator" xml:space="preserve">
+    <value>மாத்திரை எவ்வளவு?</value>
+  </data>
+  <data name="MenYappu" xml:space="preserve">
+    <value>மென்யாப்பு</value>
+  </data>
+  <data name="MetricalFootFinder" xml:space="preserve">
+    <value>சீர் செய்</value>
+  </data>
+  <data name="MetricalLineMeasurer" xml:space="preserve">
+    <value>அடி அளவிடு</value>
+  </data>
+  <data name="OrnamentationFinder" xml:space="preserve">
+    <value>தொடை தொடு</value>
+  </data>
+  <data name="RhymeAlliterationFinder" xml:space="preserve">
+    <value>எதுகை மோனை எழுது</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>அமைப்புகள்</value>
+  </data>
+  <data name="SyllableDivider" xml:space="preserve">
+    <value>அசை பிரி</value>
+  </data>
+  <data name="Venpas" xml:space="preserve">
+    <value>வெண்பாக்கள்</value>
+  </data>
+  <data name="VenpaConversations" xml:space="preserve">
+    <value>வெண்பா உரையாடல்கள்</value>
+  </data>
+  <data name="WriteAPaa" xml:space="preserve">
+    <value>பாவெழுது</value>
+  </data>
+  <data name="Alliteration" xml:space="preserve">
+    <value>மோனை</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>நீக்குக</value>
+  </data>
+  <data name="CompareWithVenpaRules" xml:space="preserve">
+    <value>வெண்பா விதிகளோடு ஒப்பிடுக</value>
+  </data>
+  <data name="DoNotParseShortUBeforeInitialVowels" xml:space="preserve">
+    <value>உயிர்முன் குற்றியலுகரத்தை அலகிடாது விடுக</value>
+  </data>
+  <data name="EliminateVilaankaayMetricalFeet" xml:space="preserve">
+    <value>விளாங்காய்ச்சீர்களை விலக்குக</value>
+  </data>
+  <data name="EndRhyme" xml:space="preserve">
+    <value>இயைபு</value>
+  </data>
+  <data name="InputTheVerse" xml:space="preserve">
+    <value>செய்யுளை உள்ளிடவும்</value>
+  </data>
+  <data name="Letter" xml:space="preserve">
+    <value>எழுத்து</value>
+  </data>
+  <data name="Linkage" xml:space="preserve">
+    <value>தளை</value>
+  </data>
+  <data name="MetremeAndMetricalFeet" xml:space="preserve">
+    <value>அசை-சீர்</value>
+  </data>
+  <data name="MetricalLine" xml:space="preserve">
+    <value>அடி</value>
+  </data>
+  <data name="Parse" xml:space="preserve">
+    <value>பகுத்திடுக</value>
+  </data>
+  <data name="ParsedResults" xml:space="preserve">
+    <value>பகுத்தல் முடிவுகள்</value>
+  </data>
+  <data name="Rhyme" xml:space="preserve">
+    <value>எதுகை</value>
+  </data>
+  <data name="VenpaRulesComparison" xml:space="preserve">
+    <value>விதி ஒப்பீடு</value>
+  </data>
+</root>

@@ -1,213 +1,233 @@
-﻿<div id="left-panel-inwrap">
-    <!--Sidebar content-->
-    <div class="stacked-menus">
-        <div class="clearfix">
-            <div id="stacked-menu-toggler-left" class="stacked-menus-toggler">
-                <span class="stacked-menu-items-icon">
-                    <span class="glyph glyph-hamburger"></span>
-                </span>
-            </div>
-        </div>
-        <div class="stacked-menus-items">
-            <a href="/Home/Index" data-toggle="tooltip" data-placement="right" title="முகப்பு" data-original-title="முகப்பு">
-                <span class="stacked-menu-items-icon">
-                    <span class="glyph glyph-home"></span>
-                </span>
-                <span class="stacked-menu-items-text">
-                    முகப்பு
-                </span>
-            </a>
-        </div>
-        <div class="stacked-menus-items" data-toggle="tooltip" data-placement="right" title="வெண்பாக்கள்" data-original-title="வெண்பாக்கள்">
-            <a href="/Home/Venpas">
-                <span class="stacked-menu-items-icon">
-                    <span class="glyph glyph-music-info"></span>
-                </span>
-                <span class="stacked-menu-items-text">
-                    வெண்பாக்கள்
-                </span>
-            </a>
-        </div>
-        <div class="stacked-menus-items" data-toggle="tooltip" data-placement="right" title="வெண்பா உரையாடல்" data-original-title="வெண்பா உரையாடல்">
-            <a href="/Home/VenpaConversations">
-                <span class="stacked-menu-items-icon">
-                    <span class="glyph glyph-message"></span>
-                </span>
-                <span class="stacked-menu-items-text">
-                    வெண்பா உரையாடல்
-                </span>
-            </a>
-        </div>
-        <div class="stacked-menus-items">
-            <a href="#" data-toggle="tooltip" data-placement="right" title="விளையாட்டுகள்" data-original-title="விளையாட்டுகள்">
-                <span class="stacked-menu-items-icon">
-                    <span class="glyph glyph-devices"></span>
-                </span>
-                <span class="stacked-menu-items-text">
-                    விளையாட்டுகள்
-                </span>
-            </a>
-            <div class="stacked-menus-items-submenu">
-                <div class="stacked-menus-items">
-                    <a href="/Games/LetterTypeFinder" data-toggle="tooltip" data-placement="right" title="எழுத்து வகைபிரி" data-original-title="மாத்திரை எவ்வளவு?">
-                        <span class="stacked-menu-items-icon">
-                            <span class="glyph glyph-devices"></span>
-                        </span>
-                        <span class="stacked-menu-items-text">
-                            எழுத்து வகைபிரி
-                        </span>
-                    </a>
+﻿<script type="text/x-kendo-template" id="leftNavigationBarTemplate">
+    <div id="left-panel-inwrap">
+        <!--Sidebar content-->
+        <div class="stacked-menus">
+            <div class="clearfix">
+                <div id="stacked-menu-toggler-left" class="stacked-menus-toggler">
+                    <span class="stacked-menu-items-icon">
+                        <span class="glyph glyph-hamburger"></span>
+                    </span>
                 </div>
             </div>
-            <div class="stacked-menus-items-submenu">
-                <div class="stacked-menus-items">
-                    <a href="/Games/MathiraiCalculator" data-toggle="tooltip" data-placement="right" title="மாத்திரை எவ்வளவு?" data-original-title="மாத்திரை எவ்வளவு?">
-                        <span class="stacked-menu-items-icon">
-                            <span class="glyph glyph-devices"></span>
-                        </span>
-                        <span class="stacked-menu-items-text">
-                            மாத்திரை எவ்வளவு?
-                        </span>
-                    </a>
+            # var home = ProsodyResourceManager.get("Home"); #
+            <div class="stacked-menus-items">
+                <a href="/Home/Index" data-toggle="tooltip" data-placement="right" title="#= home #" data-original-title="#= home #">
+                    <span class="stacked-menu-items-icon">
+                        <span class="glyph glyph-home"></span>
+                    </span>
+                    <span class="stacked-menu-items-text">
+                        #= home #
+                    </span>
+                </a>
+            </div>
+            # var venpas = ProsodyResourceManager.get("Venpas"); #
+            <div class="stacked-menus-items" data-toggle="tooltip" data-placement="right" title="#= venpas #" data-original-title="#= venpas #">
+                <a href="/Home/Venpas">
+                    <span class="stacked-menu-items-icon">
+                        <span class="glyph glyph-music-info"></span>
+                    </span>
+                    <span class="stacked-menu-items-text">
+                        #= venpas #
+                    </span>
+                </a>
+            </div>
+            # var venpaConversations = ProsodyResourceManager.get("VenpaConversations"); #
+            <div class="stacked-menus-items" data-toggle="tooltip" data-placement="right" title="#= venpaConversations #" data-original-title="#= venpaConversations #">
+                <a href="/Home/VenpaConversations">
+                    <span class="stacked-menu-items-icon">
+                        <span class="glyph glyph-message"></span>
+                    </span>
+                    <span class="stacked-menu-items-text">
+                        #= venpaConversations #
+                    </span>
+                </a>
+            </div>
+            # var games = ProsodyResourceManager.get("Games"); #
+            # var letterTypeFinder = ProsodyResourceManager.get("LetterTypeFinder"); #
+            # var mathiraiCalculator = ProsodyResourceManager.get("MathiraiCalculator"); #
+            # var syllableDivider = ProsodyResourceManager.get("SyllableDivider"); #
+            # var metricalFootFinder = ProsodyResourceManager.get("MetricalFootFinder"); #
+            # var linkageFinder = ProsodyResourceManager.get("LinkageFinder"); #
+            # var metricalLineMeasurer = ProsodyResourceManager.get("MetricalLineMeasurer"); #
+            # var rhymeAlliterationFinder = ProsodyResourceManager.get("RhymeAlliterationFinder"); #
+            # var ornamentationFinder = ProsodyResourceManager.get("OrnamentationFinder"); #
+            # var writeAPaa = ProsodyResourceManager.get("WriteAPaa"); #
+            <div class="stacked-menus-items">
+                <a href="\#" data-toggle="tooltip" data-placement="right" title="#= games#" data-original-title="#= games#">
+                    <span class="stacked-menu-items-icon">
+                        <span class="glyph glyph-devices"></span>
+                    </span>
+                    <span class="stacked-menu-items-text">
+                        #= games#
+                    </span>
+                </a>
+                <div class="stacked-menus-items-submenu">
+                    <div class="stacked-menus-items">
+                        <a href="/Games/LetterTypeFinder" data-toggle="tooltip" data-placement="right" title="#= letterTypeFinder #" data-original-title="#= letterTypeFinder #">
+                            <span class="stacked-menu-items-icon">
+                                <span class="glyph glyph-devices"></span>
+                            </span>
+                            <span class="stacked-menu-items-text">
+                                #= letterTypeFinder #
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="stacked-menus-items-submenu">
+                    <div class="stacked-menus-items">
+                        <a href="/Games/MathiraiCalculator" data-toggle="tooltip" data-placement="right" title="#= mathiraiCalculator #" data-original-title="#= mathiraiCalculator #">
+                            <span class="stacked-menu-items-icon">
+                                <span class="glyph glyph-devices"></span>
+                            </span>
+                            <span class="stacked-menu-items-text">
+                                #= mathiraiCalculator #
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="stacked-menus-items-submenu">
+                    <div class="stacked-menus-items">
+                        <a href="/Games/AsaiDivider" data-toggle="tooltip" data-placement="right" title="#= syllableDivider #" data-original-title="#= syllableDivider #">
+                            <span class="stacked-menu-items-icon">
+                                <span class="glyph glyph-devices"></span>
+                            </span>
+                            <span class="stacked-menu-items-text">
+                                #= syllableDivider #
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="stacked-menus-items-submenu">
+                    <div class="stacked-menus-items">
+                        <a href="/Games/SeerFinder" data-toggle="tooltip" data-placement="right" title="#= metricalFootFinder #" data-original-title="#= metricalFootFinder #">
+                            <span class="stacked-menu-items-icon">
+                                <span class="glyph glyph-devices"></span>
+                            </span>
+                            <span class="stacked-menu-items-text">
+                                #= metricalFootFinder #
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="stacked-menus-items-submenu">
+                    <div class="stacked-menus-items">
+                        <a href="/Games/ThalaiFinder" data-toggle="tooltip" data-placement="right" title="#= linkageFinder #" data-original-title="#= linkageFinder #">
+                            <span class="stacked-menu-items-icon">
+                                <span class="glyph glyph-devices"></span>
+                            </span>
+                            <span class="stacked-menu-items-text">
+                                #= linkageFinder #
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="stacked-menus-items-submenu">
+                    <div class="stacked-menus-items">
+                        <a href="/Games/AdiMeasurer" data-toggle="tooltip" data-placement="right" title="#= metricalLineMeasurer #" data-original-title="#= metricalLineMeasurer #">
+                            <span class="stacked-menu-items-icon">
+                                <span class="glyph glyph-devices"></span>
+                            </span>
+                            <span class="stacked-menu-items-text">
+                                #= metricalLineMeasurer #
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="stacked-menus-items-submenu">
+                    <div class="stacked-menus-items">
+                        <a href="/Games/EthukaiMonaiFinder" data-toggle="tooltip" data-placement="right" title="#= rhymeAlliterationFinder #" data-original-title="#= rhymeAlliterationFinder #">
+                            <span class="stacked-menu-items-icon">
+                                <span class="glyph glyph-devices"></span>
+                            </span>
+                            <span class="stacked-menu-items-text">
+                                #= rhymeAlliterationFinder #
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="stacked-menus-items-submenu">
+                    <div class="stacked-menus-items">
+                        <a href="/Games/ThodaiFinder" data-toggle="tooltip" data-placement="right" title="#= ornamentationFinder #" data-original-title="#= ornamentationFinder #">
+                            <span class="stacked-menu-items-icon">
+                                <span class="glyph glyph-devices"></span>
+                            </span>
+                            <span class="stacked-menu-items-text">
+                                #= ornamentationFinder #
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="stacked-menus-items-submenu">
+                    <div class="stacked-menus-items">
+                        <a href="/Home/Index" data-toggle="tooltip" data-placement="right" title="#= writeAPaa #" data-original-title="#= writeAPaa #">
+                            <span class="stacked-menu-items-icon">
+                                <span class="glyph glyph-devices"></span>
+                            </span>
+                            <span class="stacked-menu-items-text">
+                                #= writeAPaa #
+                            </span>
+                        </a>
+                    </div>
                 </div>
             </div>
-            <div class="stacked-menus-items-submenu">
-                <div class="stacked-menus-items">
-                    <a href="/Games/AsaiDivider" data-toggle="tooltip" data-placement="right" title="அசை பிரி" data-original-title="அசை பிரி">
-                        <span class="stacked-menu-items-icon">
-                            <span class="glyph glyph-devices"></span>
-                        </span>
-                        <span class="stacked-menu-items-text">
-                            அசை பிரி
-                        </span>
-                    </a>
-                </div>
+            # var download = ProsodyResourceManager.get("Download"); #
+            <div class="stacked-menus-items">
+                <a href="\#" data-toggle="tooltip" data-placement="right" title="#= download #" data-original-title="#= download #">
+                    <span class="stacked-menu-items-icon">
+                        <span class="glyph glyph-download"></span>
+                    </span>
+                    <span class="stacked-menu-items-text">
+                        #= download #
+                    </span>
+                </a>
             </div>
-            <div class="stacked-menus-items-submenu">
-                <div class="stacked-menus-items">
-                    <a href="/Games/SeerFinder" data-toggle="tooltip" data-placement="right" title="வாய்பாடு எழுது" data-original-title="வாய்பாடு எழுது">
-                        <span class="stacked-menu-items-icon">
-                            <span class="glyph glyph-devices"></span>
-                        </span>
-                        <span class="stacked-menu-items-text">
-                            சீர் செய்
-                        </span>
-                    </a>
-                </div>
+            # var help = ProsodyResourceManager.get("Help"); #
+            <div class="stacked-menus-items">
+                <a href="\#" data-toggle="tooltip" data-placement="right" title="#= help #" data-original-title="#= help #">
+                    <span class="stacked-menu-items-icon">
+                        <span class="glyph glyph-help"></span>
+                    </span>
+                    <span class="stacked-menu-items-text">
+                        #= help #
+                    </span>
+                </a>
             </div>
-            <div class="stacked-menus-items-submenu">
-                <div class="stacked-menus-items">
-                    <a href="/Games/ThalaiFinder" data-toggle="tooltip" data-placement="right" title="தளை தட்டாதே" data-original-title="தளை தட்டாதே">
-                        <span class="stacked-menu-items-icon">
-                            <span class="glyph glyph-devices"></span>
-                        </span>
-                        <span class="stacked-menu-items-text">
-                            தளை தட்டாதே
-                        </span>
-                    </a>
-                </div>
+            # var feedback = ProsodyResourceManager.get("Feedback"); #
+            <div class="stacked-menus-items">
+                <a href="\#" data-toggle="modal" data-placement="right" title="#= feedback #" data-original-title="#= feedback #">
+                    <span class="stacked-menu-items-icon">
+                        <span class="glyph glyph-comment"></span>
+                    </span>
+                    <span class="stacked-menu-items-text">
+                        #= feedback #
+                    </span>
+                </a>
             </div>
-            <div class="stacked-menus-items-submenu">
-                <div class="stacked-menus-items">
-                    <a href="/Games/AdiMeasurer" data-toggle="tooltip" data-placement="right" title="அடி அளவிடு" data-original-title="தொடை தொடு">
-                        <span class="stacked-menu-items-icon">
-                            <span class="glyph glyph-devices"></span>
-                        </span>
-                        <span class="stacked-menu-items-text">
-                            அடி அளவிடு
-                        </span>
-                    </a>
-                </div>
+            # var aboutMenYappu = ProsodyResourceManager.get("AboutMenYappu"); #
+            <div class="stacked-menus-items">
+                <a href="\#" data-toggle="modal" data-placement="right" title="#= aboutMenYappu #" data-original-title="#= aboutMenYappu #"
+                   data-target="\#modal-about-menyappu">
+                    <span class="stacked-menu-items-icon">
+                        <span class="glyph glyph-info"></span>
+                    </span>
+                    <span class="stacked-menu-items-text">
+                        #= aboutMenYappu #
+                    </span>
+                </a>
             </div>
-            <div class="stacked-menus-items-submenu">
-                <div class="stacked-menus-items">
-                    <a href="/Games/EthukaiMonaiFinder" data-toggle="tooltip" data-placement="right" title="எதுகை மோனை எழுது" data-original-title="தொடை தொடு">
-                        <span class="stacked-menu-items-icon">
-                            <span class="glyph glyph-devices"></span>
-                        </span>
-                        <span class="stacked-menu-items-text">
-                            எதுகை மோனை எழுது
-                        </span>
-                    </a>
-                </div>
-            </div>
-            <div class="stacked-menus-items-submenu">
-                <div class="stacked-menus-items">
-                    <a href="/Games/ThodaiFinder" data-toggle="tooltip" data-placement="right" title="தொடை தொடு" data-original-title="தொடை தொடு">
-                        <span class="stacked-menu-items-icon">
-                            <span class="glyph glyph-devices"></span>
-                        </span>
-                        <span class="stacked-menu-items-text">
-                            தொடை தொடு
-                        </span>
-                    </a>
-                </div>
-            </div>
-            <div class="stacked-menus-items-submenu">
-                <div class="stacked-menus-items">
-                    <a href="/Home/Index" data-toggle="tooltip" data-placement="right" title="தொடை தொடு" data-original-title="தொடை தொடு">
-                        <span class="stacked-menu-items-icon">
-                            <span class="glyph glyph-devices"></span>
-                        </span>
-                        <span class="stacked-menu-items-text">
-                            பாவெழுது
-                        </span>
-                    </a>
-                </div>
+            # var settings = ProsodyResourceManager.get("Settings"); #
+            <div class="stacked-menus-items">
+                <a href="\#" data-toggle="tooltip" data-placement="right" title="#= settings #" data-original-title="#= settings #">
+                    <span class="stacked-menu-items-icon">
+                        <span class="glyph glyph-settings"></span>
+                    </span>
+                    <span class="stacked-menu-items-text">
+                        #= settings #
+                    </span>
+                </a>
             </div>
         </div>
-        <div class="stacked-menus-items">
-            <a href="#" data-toggle="tooltip" data-placement="right" title="பதிவிறக்கம்" data-original-title="பதிவிறக்கம்">
-                <span class="stacked-menu-items-icon">
-                    <span class="glyph glyph-download"></span>
-                </span>
-                <span class="stacked-menu-items-text">
-                    பதிவிறக்கம்
-                </span>
-            </a>
-        </div>
-        <div class="stacked-menus-items">
-            <a href="#" data-toggle="tooltip" data-placement="right" title="உதவி" data-original-title="உதவி">
-                <span class="stacked-menu-items-icon">
-                    <span class="glyph glyph-help"></span>
-                </span>
-                <span class="stacked-menu-items-text">
-                    உதவி
-                </span>
-            </a>
-        </div>
-        <div class="stacked-menus-items">
-            <a href="#" data-toggle="modal" data-placement="right" title="கருத்து" data-original-title="கருத்து">
-                <span class="stacked-menu-items-icon">
-                    <span class="glyph glyph-comment"></span>
-                </span>
-                <span class="stacked-menu-items-text">
-                    கருத்து
-                </span>
-            </a>
-        </div>
-        <div class="stacked-menus-items">
-            <a href="#" data-toggle="modal" data-placement="right" title="மென்யாப்பைப் பற்றி" data-original-title="மென்யாப்பைப் பற்றி"
-               data-target="#modal-about-menyappu">
-                <span class="stacked-menu-items-icon">
-                    <span class="glyph glyph-info"></span>
-                </span>
-                <span class="stacked-menu-items-text">
-                    மென்யாப்பைப் பற்றி
-                </span>
-            </a>
-        </div>
-        <div class="stacked-menus-items">
-            <a href="#" data-toggle="tooltip" data-placement="right" title="அமைப்புகள்" data-original-title="அமைப்புகள்">
-                <span class="stacked-menu-items-icon">
-                    <span class="glyph glyph-settings"></span>
-                </span>
-                <span class="stacked-menu-items-text">
-                    அமைப்புகள்
-                </span>
-            </a>
-        </div>
-    </div>
 
-    <div id="bottom"></div>
-</div>
+        <div id="bottom"></div>
+    </div>
+</script>

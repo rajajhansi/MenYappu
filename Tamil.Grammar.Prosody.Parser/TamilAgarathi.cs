@@ -40,12 +40,17 @@ namespace Tamil.Grammar.Prosody.Parser
 
         private void BuildUpTamil(string fileName, ITrie<string> trie)
         {
-            IEnumerable<string> allWordsInFile = GetTamilWordsFromFile(fileName);
-            foreach (var word in allWordsInFile)
+            if (!_isLoaded)
             {
-                trie.Add(word, word);
+                IEnumerable<string> allWordsInFile = GetTamilWordsFromFile(fileName);
+                foreach (var word in allWordsInFile)
+                {
+                    trie.Add(word, word);
+                }
+
+                _isLoaded = true;
             }
-            _isLoaded = true;
+
         }
         public TamilAgarathi(string agarathiFileName= "agarathiValid.txt", int minimumSuffixLength = 1)
         {

@@ -1354,4 +1354,9 @@ namespace RjamSoft.Tamil.Grammar.Parser
         public string LetterType { get; set; }
         public double Mathirai { get; set; }
     }
+
+    public class StringResource
+    {
+        public string Language { get; set; }
+    }
 }

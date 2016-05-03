@@ -90,6 +90,22 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="ServiceStack.Common, Version=4.0.56.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Common.4.0.56\lib\net40\ServiceStack.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ServiceStack.Interfaces, Version=4.0.0.0, Culture=neutral, PublicKeyToken=e06fbc6124f57c43, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Interfaces.4.0.56\lib\portable-wp80+sl5+net40+win8+wpa81+monotouch+monoandroid+xamarin.ios10\ServiceStack.Interfaces.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ServiceStack.Redis, Version=4.0.56.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Redis.4.0.56\lib\net40\ServiceStack.Redis.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ServiceStack.Text, Version=4.0.56.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Text.4.0.56\lib\net40\ServiceStack.Text.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -727,6 +743,7 @@
     <Content Include="Scripts\prosody\EthukaiMonaiFinder.js" />
     <Content Include="Scripts\prosody\LetterTypeFinder.js" />
     <Content Include="Scripts\prosody\MathiraiCalculator.js" />
+    <Content Include="Scripts\prosody\ProsodyResourceManager.js" />
     <Content Include="Scripts\prosody\ProsodyService.js" />
     <Content Include="Scripts\prosody\SeerFinder.js" />
     <Content Include="Scripts\prosody\ThalaiFinder.js" />
@@ -737,7 +754,9 @@
     <Content Include="Scripts\toastr\toastr.js" />
     <Content Include="Scripts\ui\customBlockUi.js" />
     <Content Include="Scripts\ui\ui.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -780,6 +799,10 @@
     <ProjectReference Include="..\Tamil.Grammar.Prosody.Core\Tamil.Grammar.Prosody.Core.csproj">
       <Project>{9112bc2e-796d-47f6-a7c4-a25aaea9ef49}</Project>
       <Name>Tamil.Grammar.Prosody.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tamil.Grammar.Prosody.Infrastructure\Tamil.Grammar.Prosody.Infrastructure.csproj">
+      <Project>{f9819535-30c5-4b05-9cdf-ced2c2003489}</Project>
+      <Name>Tamil.Grammar.Prosody.Infrastructure</Name>
     </ProjectReference>
     <ProjectReference Include="..\Tamil.Grammar.Prosody.Parser\Tamil.Grammar.Prosody.Parser.csproj">
       <Project>{8154e335-1b53-4940-914e-a5e4a6612e0d}</Project>

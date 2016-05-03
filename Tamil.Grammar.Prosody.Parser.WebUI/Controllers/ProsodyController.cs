@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Http;
 using RjamSoft.Tamil.Grammar.Parser;
 using RjamSoft.Tamil.Grammar.Prosody.Core;
+using RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Contract;
 using Tamil.Grammar.Prosody.Parser;
 
 namespace Tamil.Parody.Parser.WebUI.Controllers
@@ -23,6 +24,7 @@ namespace Tamil.Parody.Parser.WebUI.Controllers
     public class ProsodyController : ApiController
     {
         private readonly ITamilAgarathi _tamilAgarathi;
+        private readonly ISharedResourceManager _sharedResourceManager;
         private readonly ProsodyParser _prosodyParser;
 
         private static readonly int Monai = 0;
@@ -67,9 +69,10 @@ namespace Tamil.Parody.Parser.WebUI.Controllers
         //{
 
         //}
-        public ProsodyController(ITamilAgarathi tamilAgarathi, ProsodyParser prosodyParser)
+        public ProsodyController(ITamilAgarathi tamilAgarathi, ISharedResourceManager sharedResourceManager, ProsodyParser prosodyParser)
         {
             _tamilAgarathi = tamilAgarathi;
+            _sharedResourceManager = sharedResourceManager;
             _prosodyParser = prosodyParser;
             _thodaiFunctionsAndMessagesDictionary =
                 new Dictionary<int, ThodaiFunctionsAndMessages>
@@ -105,6 +108,13 @@ namespace Tamil.Parody.Parser.WebUI.Controllers
                             }
                     },
                 };
+        }
+
+        [Route("StringResources")]
+        [HttpPost]
+        public IHttpActionResult StringResources(StringResource stringResource)
+        {
+            return Ok(_sharedResourceManager.GetAllStrings(stringResource.Language));
         }
 
         [Route("")]

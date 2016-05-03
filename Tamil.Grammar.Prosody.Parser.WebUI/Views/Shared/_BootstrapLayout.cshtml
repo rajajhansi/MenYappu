@@ -60,9 +60,7 @@
 
     <div class="container-wrap" id="container-wrapper-with-panels">
         <div class="left-panelbar">
-            @{
-                Html.RenderPartial("_LeftNavigationBar");
-            }
+
         </div>
 
         <!-- About us Dialog -->
@@ -77,6 +75,9 @@
                         }
         </div>
 
+        @{
+            Html.RenderPartial("_LeftNavigationBar");
+        }
         <!-- Le javascript
         ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
@@ -89,7 +90,12 @@
         <script src="/Scripts/lodash.js"></script>
         <script src="/Scripts/prosody/utilityfunctions.js"></script>
         <script src="/Scripts/prosody/ProsodyService.js"></script>
+        <script src="/Scripts/prosody/ProsodyResourceManager.js"></script>
         <script>
+            
+            var leftNavigationBarTemplate = kendo.template($("#leftNavigationBarTemplate").html());
+            $(".left-panelbar").append(leftNavigationBarTemplate({}));
+
             $("#container-wrapper-with-panels").panelExpander({
                 persistState: {
                     left: true

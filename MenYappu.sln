@@ -28,6 +28,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tamil.Grammar.Prosody.Infrastructure", "Tamil.Grammar.Prosody.Infrastructure\Tamil.Grammar.Prosody.Infrastructure.csproj", "{F9819535-30C5-4B05-9CDF-CED2C2003489}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tamil.Grammar.Prosody.Infrastructure.Tests", "Tamil.Grammar.Prosody.Infrastructure.Tests\Tamil.Grammar.Prosody.Infrastructure.Tests.csproj", "{B8B6B22A-ED35-4E79-89C9-8522695936F7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -108,6 +110,18 @@ Global
 		{F9819535-30C5-4B05-9CDF-CED2C2003489}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{F9819535-30C5-4B05-9CDF-CED2C2003489}.Release|x86.ActiveCfg = Release|Any CPU
 		{F9819535-30C5-4B05-9CDF-CED2C2003489}.Release|x86.Build.0 = Release|Any CPU
+		{B8B6B22A-ED35-4E79-89C9-8522695936F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8B6B22A-ED35-4E79-89C9-8522695936F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8B6B22A-ED35-4E79-89C9-8522695936F7}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{B8B6B22A-ED35-4E79-89C9-8522695936F7}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{B8B6B22A-ED35-4E79-89C9-8522695936F7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B8B6B22A-ED35-4E79-89C9-8522695936F7}.Debug|x86.Build.0 = Debug|Any CPU
+		{B8B6B22A-ED35-4E79-89C9-8522695936F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8B6B22A-ED35-4E79-89C9-8522695936F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8B6B22A-ED35-4E79-89C9-8522695936F7}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{B8B6B22A-ED35-4E79-89C9-8522695936F7}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{B8B6B22A-ED35-4E79-89C9-8522695936F7}.Release|x86.ActiveCfg = Release|Any CPU
+		{B8B6B22A-ED35-4E79-89C9-8522695936F7}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -119,5 +133,6 @@ Global
 		{17125877-2CF0-42B2-89D3-418E40BDE5D0} = {5F4756D0-22B1-4F0C-9B9F-933758276D6A}
 		{9112BC2E-796D-47F6-A7C4-A25AAEA9EF49} = {5F4756D0-22B1-4F0C-9B9F-933758276D6A}
 		{F9819535-30C5-4B05-9CDF-CED2C2003489} = {45938A4A-924D-4257-B222-5BA004530F6B}
+		{B8B6B22A-ED35-4E79-89C9-8522695936F7} = {8B8097AA-7514-491C-8DC6-55C523CA4ABE}
 	EndGlobalSection
 EndGlobal
