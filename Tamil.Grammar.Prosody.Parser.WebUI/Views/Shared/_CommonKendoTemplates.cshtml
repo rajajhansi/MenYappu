@@ -53,39 +53,76 @@
 </script>
 
 <script type="text/x-kendo-template" id="multiResultsTemplate">
+    # var result = ProsodyResourceManager.get("Result"); var howToSeeTheResult = ProsodyResourceManager.get("HowToSeeTheResult"); #
     <div class="flip-container_click">
         <div class="flipper">
             <div class="front">
                 <h4 class="game-section-title text-center">
-                    முடிவு
+                    #= result #
                 </h4>
                 <div class="type-t5">
-                    நீங்கள் விடையை உள்ளிட்டவுடன் “சரி பார்த்திடு” என்ற பொத்தானை அழுத்தினால் “முடிவு” தெரியும்.
+                    #= howToSeeTheResult #
                 </div>
             </div>
             <div class="back">
                 <h4 class="game-section-title text-center">
-                    முடிவு
+                    #= result #
                 </h4>
                 # partInfos.forEach(function(partInfo) { #
                 # var partCorrect = partInfo.part + "-correct"; var partIncorrect = partInfo.part + "-incorrect"; var partExplanation = partInfo.part + "-explanation" #
                 # if(partInfo.partHeader) { #
                 <p class="form-group-label text-center">#= partInfo.partHeader #</p>
                 # } #
+                # var correct =  ProsodyResourceManager.get("Correct"); var incorrect = ProsodyResourceManager.get("Incorrect"); #
+                # var explanation = ProsodyResourceManager.get("Explanation"); var excellent = ProsodyResourceManager.get("Excellent"); #
                 <div class="type-t3 text-center">
-                    <button id="#= partCorrect #" class="right btn btn-success btn-with-glyph" aria-hidden="true" data-toggle="tooltip" data-placement="right"><i class="glyph glyph-checkmark"></i>சரி</button>
+                    <button id="#= partCorrect #" class="right btn btn-success btn-with-glyph" aria-hidden="true" data-toggle="tooltip" data-placement="right"><i class="glyph glyph-checkmark"></i>#= correct #</button>
                     <button id="#= partIncorrect #" class="wrong btn btn-warning btn-with-glyph" aria-hidden="true" data-toggle="tooltip" data-placement="right">
                         <i class="glyph glyph-cancel"></i>
-                        தவறு
+                        #= incorrect #
                     </button>
                     <a role="button" id="#= partExplanation #"
                        class="btn btn-primary btn-with-glyph"
                        tabindex="0"
                        data-toggle="popover"
                        data-trigger="focus"
-                       data-content="அருமை"><i class="glyph glyph-message"></i>விளக்கம்</a>
+                       data-content="#= excellent #"><i class="glyph glyph-message"></i>#= explanation #</a>
                 </div>
                 # }); #
+            </div>
+        </div>
+    </div>
+</script>
+
+<script type="text/x-kendo-template" id="audioVideoHelpTemplate">
+    # var audioId = "aud-" + part; var audioFile = "/audio/" + part + ".mp3"; #
+    <audio id="#= audioId #" preload="auto">
+        <source src="#= audioFile #" controls>
+        Your browser isn't invited for super fun audio time.
+    </audio>
+    # var audio = ProsodyResourceManager.get("Audio"); var video = ProsodyResourceManager.get("Video"); #
+    # var audioButtonId = "play-audio-" + part; var videoButtonId = "play-video-" + part; #
+    # var modalVideoId = "\#modal-video-" + part; #
+    <button id="#= audioButtonId #" class="btn btn-primary btn-with-glyph"><i class="glyph glyph-play"></i>#= audio #</button>
+    <button id="#= videoButtonId #" class="btn btn-primary btn-with-glyph" data-toggle="modal" data-target="#= modalVideoId #"><i class="glyph glyph-video"></i>#= video #</button>
+</script>
+
+<script type="text/x-kendo-template" id="modalVideoHelpTemplate">
+    # var menYappu = ProsodyResourceManager.get("MenYappu"); var close = ProsodyResourceManager.get("Close"); #
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="modal-sample-label">
+                    #= menYappu #
+                </h4>
+            </div>
+            <div class="modal-body text-center">
+                <iframe width="420" height="315" src="#= videoUrl #" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">
+                    #= close #
+                </button>
             </div>
         </div>
     </div>

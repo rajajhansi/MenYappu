@@ -2,112 +2,126 @@
     ViewBag.Title = "மென்யாப்பு";
 }
 
-<ul class="kendo-panelbars-custom" id="seyyulbar">
-    <li>
-        <h4 class="main-title">
-            செய்யுளை உள்ளிடவும்
-            <span class="main-title-icon glyph glyph-chevron-down"></span>
-        </h4>
-        <ul>
-            <li id="seyyul" class="k-state-active">
-                <form id="prosodyForm" class="form-horizontal" action="/api/Prosody" method="POST">
-                    <div>
-                        <textarea class="panelbar-textarea" id="ProsodyText" rows="8"></textarea>
-                    </div>
-                    <div class="control-group">
-                        <div class="controls">
-                            <button type="submit" class="btn btn-primary">பகுத்திடுக</button>
-                            <button type="reset" class="btn btn-default">நீக்குக</button>
-                        </div>
-                        <div class="controls group-checkboxes-control">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" id="ShouldParseKutriyalukaram" name="ShouldParseKutriyalukaram" />
-                                    <span class="uiTran">உயிர்முன் குற்றியலுகரத்தை அலகிடாது விடுக </span>
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" id="ShouldParseVilaangaaySeer" name="ShouldParseVilaangaaySeer" />
-                                    <span class="uiTran">விளாங்காய்ச்சீர்களை விலக்குக </span>
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" id="ShouldCompareVenpaRules" name="ShouldCompareVenpaRules" />
-                                    <span class="uiTran">வெண்பா விதிகளோடு ஒப்பிடுக  </span>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </li>
-        </ul>
-    </li>
-</ul>
+<div id="poemComposerGame">
 
-<ul class="kendo-panelbars-custom" id="seyyulResult">
-    <li>
-        <h4 class="main-title">
-            பகுத்தல் முடிவுகள்
-            <span class="main-title-icon glyph glyph-chevron-down"></span>
-        </h4>
+</div>
 
-        <div id="tabstrip" class="menyappu-content-tabstrip">
+<script type="text/x-kendo-template" id="poemComposerInputTemplate">
+    # var inputTheVerse = ProsodyResourceManager.get("InputTheVerse"); var parse = ProsodyResourceManager.get("Parse"); #
+    # var clear = ProsodyResourceManager.get("Clear"); var doNotParseShortUBeforeInitialVowels = ProsodyResourceManager.get("DoNotParseShortUBeforeInitialVowels"); #
+    # var eliminateVilaankaayMetricalFeet = ProsodyResourceManager.get("EliminateVilaankaayMetricalFeet"); var compareWithVenpaaRules = ProsodyResourceManager.get("CompareWithVenpaaRules"); #
+    <ul class="kendo-panelbars-custom" id="seyyulbar">
+        <li>
+            <h4 class="main-title">
+                #= inputTheVerse #
+                <span class="main-title-icon glyph glyph-chevron-down"></span>
+            </h4>
             <ul>
-                <li class="k-state-active">
-                    எழுத்து
-                </li>
-                <li>
-                    அசை-சீர்
-                </li>
-                <li>
-                    தளை
-                </li>
-                <li>
-                    அடி
-                </li>
-                <li>
-                    மோனை
-                </li>
-                <li>
-                    எதுகை
-                </li>
-                <li>
-                    இயைபு
-                </li>
-                <li>
-                    விதி ஒப்பீடு
+                <li id="seyyul" class="k-state-active">
+                    <form id="prosodyForm" class="form-horizontal" action="/api/Prosody" method="POST">
+                        <div>
+                            <textarea class="panelbar-textarea" id="ProsodyText" rows="8"></textarea>
+                        </div>
+                        <div class="control-group">
+                            <div class="controls">
+                                <button type="submit" class="btn btn-primary">#= parse #</button>
+                                <button type="reset" class="btn btn-default">#= clear #</button>
+                            </div>
+                            <div class="controls group-checkboxes-control">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="ShouldParseKutriyalukaram" name="ShouldParseKutriyalukaram" />
+                                        <span class="uiTran">#= doNotParseShortUBeforeInitialVowels #</span>
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="ShouldParseVilaangaaySeer" name="ShouldParseVilaangaaySeer" />
+                                        <span class="uiTran">#= eliminateVilaankaayMetricalFeet #</span>
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="ShouldCompareVenpaRules" name="ShouldCompareVenpaRules" />
+                                        <span class="uiTran">#= compareWithVenpaaRules #</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </li>
             </ul>
-            <div>
-                எழுத்து
-            </div>
-            <div>
-                அசை-சீர்
-            </div>
-            <div>
-                தளை
-            </div>
-            <div>
-                அடி
-            </div>
-            <div>
-                மோனை
-            </div>
-            <div>
-                எதுகை
-            </div>
-            <div>
-                இயைபு
-            </div>
-            <div>
-                விதி ஒப்பீடு
-            </div>
-    </div>
-    </li>
-</ul>
+        </li>
+    </ul>
 
+    # var parsedResults = ProsodyResourceManager.get("ParsedResults"); var parse = ProsodyResourceManager.get("Parse"); #
+    # var letter = ProsodyResourceManager.get("Letter"); var metremeAndMetricalFeet = ProsodyResourceManager.get("MetremeAndMetricalFeet"); #
+    # var linkage = ProsodyResourceManager.get("Linkage"); var metricalLine = ProsodyResourceManager.get("MetricalLine"); #
+    # var alliteration = ProsodyResourceManager.get("Alliteration"); var rhyme = ProsodyResourceManager.get("Rhyme"); #
+    # var endRhyme = ProsodyResourceManager.get("EndRhyme"); var venpaaRulesComparison = ProsodyResourceManager.get("VenpaaRulesComparison"); #
+    <ul class="kendo-panelbars-custom" id="seyyulResult">
+        <li>
+            <h4 class="main-title">
+                #= parsedResults #
+                <span class="main-title-icon glyph glyph-chevron-down"></span>
+            </h4>
+
+            <div id="tabstrip" class="menyappu-content-tabstrip">
+                <ul>
+                    <li class="k-state-active">
+                        #= letter #
+                    </li>
+                    <li>
+                        #= metremeAndMetricalFeet #
+                    </li>
+                    <li>
+                        #= linkage #
+                    </li>
+                    <li>
+                        #= metricalLine #
+                    </li>
+                    <li>
+                        #= alliteration #
+                    </li>
+                    <li>
+                        #= rhyme #
+                    </li>
+                    <li>
+                        #= endRhyme #
+                    </li>
+                    <li>
+                        #= venpaaRulesComparison #
+                    </li>
+                </ul>
+                <div>
+                    #= letter #
+                </div>
+                <div>
+                    #= metremeAndMetricalFeet #
+                </div>
+                <div>
+                    #= linkage #
+                </div>
+                <div>
+                    #= metricalLine #
+                </div>
+                <div>
+                    #= alliteration #
+                </div>
+                <div>
+                    #= rhyme #
+                </div>
+                <div>
+                    #= endRhyme #
+                </div>
+                <div>
+                    #= venpaaRulesComparison #
+                </div>
+            </div>
+        </li>
+    </ul>
+
+</script>
 <script type="text/x-kendo-template" id="ezhuthuTemplate">
     <h3 class="k-widget k-header">எழுத்துகள் எண்ணிக்கை: #= uyirEzhuthugal + meyEzhuthugal + uyirMeyEzhuthugal + aydhaEzhuthu #</h3>
     <br />
@@ -134,9 +148,11 @@
     # var mathiraiInSeer = ""; #
     # for (var l=0; l < mathiraiCount.length; l++) { #
     # $.each(mathiraiCount[l], function(mathiraiKey, mathiraiValue) { #
-    # mathiraiInSeer = mathiraiInSeer + '<ruby><span class="uiTrant">' + mathiraiKey + '</span><rt>' + mathiraiValue + '</rt></ruby>  '; #
+    # mathiraiInSeer = mathiraiInSeer + '
+    <ruby><span class="uiTrant">' + mathiraiKey + '</span><rt>' + mathiraiValue + '</rt></ruby>  '; #
     # }) #
-    # mathiraiInSeer += '<br />'; #
+    # mathiraiInSeer += '
+    <br />'; #
     # } #
     #= mathiraiInSeer #
 </script>
@@ -150,44 +166,53 @@
             # $.each(parseTree, function(adiKey, adiValue) { #
             # var paaAsaiInAdi = ""; var asigalInAdi = "";	var vaippaduInAdi = ""; #
             # $.each(adiValue, function(seerKey, seerValue) { #
-            # paaAsaiInAdi = paaAsaiInAdi + '<td>' #
-            # asigalInAdi = asigalInAdi + '<td>'#
-            # vaippaduInAdi = vaippaduInAdi + '<td>'#
+            # paaAsaiInAdi = paaAsaiInAdi + '
+        <td>
+            ' #
+            # asigalInAdi = asigalInAdi + '
+        <td>
+            '#
+            # vaippaduInAdi = vaippaduInAdi + '
+        <td>
+            '#
             # $.each(seerValue, function(asaiKey, asaiValue) { #
             # $.each(asaiValue, function(key, value) { #
             # if(key != "meta" && key != "smeta") { #
             # if(new RegExp("^நேர்").test(key)) {  #
             # paaAsaiInAdi = paaAsaiInAdi + '<span class="nerasai">' + value + '</span>' #
-            # asigalInAdi = asigalInAdi + '<span class="nerasai">' + key #
-            # } else if(new RegExp("^நிரை").test(key)) { #
+            # asigalInAdi = asigalInAdi + '<span class="nerasai">
+                ' + key #
+                # } else if(new RegExp("^நிரை").test(key)) { #
                 # paaAsaiInAdi = paaAsaiInAdi + '<span class="niryasai">' + value + '</span>' #
-                # asigalInAdi = asigalInAdi + '<span class="niryasai">' + key #
-            # } else if( key == "பு") { #
-                # var spanClass = new RegExp("^நேர்").test(venLastSyllable) ? "nerasai" : "niryasai"; #
-                # paaAsaiInAdi = paaAsaiInAdi + '<span class="' + spanClass + '">' + value + '</span>' #
-            # } #
-                # } else { #
-                    # if(key == "meta") { #
-                        # paaAsaiInAdi = paaAsaiInAdi + '</td>' #
-                        # asigalInAdi = asigalInAdi + '</td>'  #
-                        # vaippaduInAdi = vaippaduInAdi + value + '</td>' #
+                # asigalInAdi = asigalInAdi + '<span class="niryasai">
+                    ' + key #
+                    # } else if( key == "பு") { #
+                    # var spanClass = new RegExp("^நேர்").test(venLastSyllable) ? "nerasai" : "niryasai"; #
+                    # paaAsaiInAdi = paaAsaiInAdi + '<span class="' + spanClass + '">' + value + '</span>' #
                     # } #
-                # }	#
-                # }) #
-                # }) #
-                # }) #
-                # console.log("\r\n" + paaAsaiInAdi); console.log("\r\n" + asigalInAdi); console.log("\r\n" + vaippaduInAdi); #
-                <tr>
-                    #= paaAsaiInAdi #
-                </tr>
-                <tr>
-                    #= asigalInAdi #
-                </tr>
-                <tr>
-                    #= vaippaduInAdi #
-                </tr>
-                #}) #
-                </tbody>
+                    # } else { #
+                    # if(key == "meta") { #
+                    # paaAsaiInAdi = paaAsaiInAdi + '
+        </td>' #
+        # asigalInAdi = asigalInAdi + '</td>'  #
+        # vaippaduInAdi = vaippaduInAdi + value + '</td>' #
+        # } #
+        # }	#
+        # }) #
+        # }) #
+        # }) #
+        # console.log("\r\n" + paaAsaiInAdi); console.log("\r\n" + asigalInAdi); console.log("\r\n" + vaippaduInAdi); #
+        <tr>
+            #= paaAsaiInAdi #
+        </tr>
+        <tr>
+            #= asigalInAdi #
+        </tr>
+        <tr>
+            #= vaippaduInAdi #
+        </tr>
+        #}) #
+        </tbody>
     </table>
 </script>
 
@@ -231,22 +256,26 @@
     மோனை #= seerMonaiWithinAdi[i][1][0] #
     <br />
     #} else { #
-        # var allMonais = ''; #
-        # for(var s = 0; s < seerMonaiWithinAdi[i][2].length; s++) { #
-            # console.log("|" + seerMonaiWithinAdi[i][2][s] + "|") #
-            # if( Utility.stringStartsWith(seerMonaiWithinAdi[i][2][s], "~")) { #
-                # allMonais += '<span class="todaiword">' + seerMonaiWithinAdi[i][2][s].substring(1) + '</span>' #
-            # } else if(!isNaN(parseInt(seerMonaiWithinAdi[i][2][s]))) { #
-                # allMonais += '<span class="todaiindex">' + seerMonaiWithinAdi[i][2][s] + '</span>' #
-            # } else { #
-                # allMonais += '<span>' + seerMonaiWithinAdi[i][2][s] + '</span>  ' #
-           # } #
-         # } #
-         #= allMonais #
-         | <span class="todaipattern">#=seerMonaiWithinAdi[i][1][0]#  மோனை </span>
-        # } #
-        <br />
-        # } #
+    # var allMonais = ''; #
+    # for(var s = 0; s < seerMonaiWithinAdi[i][2].length; s++) { #
+    # console.log("|" + seerMonaiWithinAdi[i][2][s] + "|") #
+    # if( Utility.stringStartsWith(seerMonaiWithinAdi[i][2][s], "~")) { #
+    # allMonais += '
+    <span class="todaiword">' + seerMonaiWithinAdi[i][2][s].substring(1) + '</span>' #
+    # } else if(!isNaN(parseInt(seerMonaiWithinAdi[i][2][s]))) { #
+    # allMonais += '
+    <span class="todaiindex">' + seerMonaiWithinAdi[i][2][s] + '</span>' #
+    # } else { #
+    # allMonais += '
+    <span>' + seerMonaiWithinAdi[i][2][s] + '</span>  ' #
+    # } #
+    # } #
+    #= allMonais #
+    |
+    <span class="todaipattern">#=seerMonaiWithinAdi[i][1][0]#  மோனை </span>
+    # } #
+    <br />
+    # } #
     <h2 class="k-widget k-header">அடி மோனை</h2>
     <br />
     # var output = ""; for (var i = 0; i < matchingAdiMonai.length; i++) { #
@@ -273,19 +302,20 @@
     எதுகை #= seerEthukaiWithinAdi[i][1][0] #
     <br />
     #} else { #
-        # for(var s = 0; s < seerEthukaiWithinAdi[i][2].length; s++) { #
-            # if( Utility.stringStartsWith(seerEthukaiWithinAdi[i][2][s], "~")) { #
-                <span class="todaiword"> #=seerEthukaiWithinAdi[i][2][s].substring(1)# </span>
-            # } else if(!isNaN(parseInt(seerEthukaiWithinAdi[i][2][s]))) { #
-                <span class="todaiindex"> #=seerEthukaiWithinAdi[i][2][s]# </span>
-            # } else { #
-                <span> #=seerEthukaiWithinAdi[i][2][s]# </span>
-           # } #
-         # } #
-         | <span class="todaipattern"> #= seerEthukaiWithinAdi[i][1][0] #  எதுகை </span>
-        # } #
-        <br />
-        # } #
+    # for(var s = 0; s < seerEthukaiWithinAdi[i][2].length; s++) { #
+    # if( Utility.stringStartsWith(seerEthukaiWithinAdi[i][2][s], "~")) { #
+    <span class="todaiword"> #=seerEthukaiWithinAdi[i][2][s].substring(1)# </span>
+    # } else if(!isNaN(parseInt(seerEthukaiWithinAdi[i][2][s]))) { #
+    <span class="todaiindex"> #=seerEthukaiWithinAdi[i][2][s]# </span>
+    # } else { #
+    <span> #=seerEthukaiWithinAdi[i][2][s]# </span>
+    # } #
+    # } #
+    |
+    <span class="todaipattern"> #= seerEthukaiWithinAdi[i][1][0] #  எதுகை </span>
+    # } #
+    <br />
+    # } #
     <h2 class="k-widget k-header">அடி எதுகை</h2>
     <br />
     # var output = ""; for (var i = 0; i < matchingAdiEthukai.length; i++) { #
@@ -312,19 +342,20 @@
     இயைபு #= seerIyaipuWithinAdi[i][1][0] #
     <br />
     #} else { #
-        # for(var s = 0; s < seerIyaipuWithinAdi[i][2].length; s++) { #
-            # if( Utility.stringStartsWith(seerIyaipuWithinAdi[i][2][s], "~")) { #
-                <span class="todaiword"> #=seerIyaipuWithinAdi[i][2][s].substring(1)# </span>
-            # } else if(!isNaN(parseInt(seerIyaipuWithinAdi[i][2][s]))) { #
-                <span class="todaiindex"> #=seerIyaipuWithinAdi[i][2][s]# </span>
-            # } else { #
-                <span> #=seerIyaipuWithinAdi[i][2][s]# </span>
-           # } #
-         # } #
-         | <span class="todaipattern"> #= seerIyaipuWithinAdi[i][1][0] #  இயைபு </span>
-        # } #
-        <br />
-        # } #
+    # for(var s = 0; s < seerIyaipuWithinAdi[i][2].length; s++) { #
+    # if( Utility.stringStartsWith(seerIyaipuWithinAdi[i][2][s], "~")) { #
+    <span class="todaiword"> #=seerIyaipuWithinAdi[i][2][s].substring(1)# </span>
+    # } else if(!isNaN(parseInt(seerIyaipuWithinAdi[i][2][s]))) { #
+    <span class="todaiindex"> #=seerIyaipuWithinAdi[i][2][s]# </span>
+    # } else { #
+    <span> #=seerIyaipuWithinAdi[i][2][s]# </span>
+    # } #
+    # } #
+    |
+    <span class="todaipattern"> #= seerIyaipuWithinAdi[i][1][0] #  இயைபு </span>
+    # } #
+    <br />
+    # } #
     <h2 class="k-widget k-header">அடி இயைபு</h2>
     <br />
     # var output = ""; for (var i = 0; i < matchingAdiIyaipu.length; i++) { #
@@ -368,8 +399,10 @@
 <script>
 
 
-    $(document).ready(function() {
+    $(document).ready(function () {
 
+        var poemComposerTemplate = kendo.template($("#poemComposerInputTemplate").html());
+        $("#poemComposerGame").append(poemComposerTemplate({}));
         var TabNames = {
             Letter: 0,
             Metreme: 1,
@@ -381,7 +414,7 @@
             VenpaRulesComparison: 7
         };
         // event handler for select
-        var onSelect = function(e) {
+        var onSelect = function (e) {
             // access the selected item via e.item (HTMLElement)
             var item = e.sender.select();
 
@@ -436,7 +469,7 @@
             }
         }
 
-        $("#prosodyForm").submit(function() {
+        $("#prosodyForm").submit(function () {
             var shouldCompareVenpaRules = $("#ShouldCompareVenpaRules").is(':checked');
             var data = '{"ProsodyText" : "' + $("#ProsodyText").val() + '"' +
                 ', "ShouldParseKutriyalukaram" : "' + $("#ShouldParseKutriyalukaram").is(':checked') + '"' +
@@ -449,7 +482,7 @@
                 contentType: 'application/json; charset=utf8',
                 type: 'POST',
                 async: false,
-                success: function(data) {
+                success: function (data) {
                     seyyulResultPanelBar.expand($(".k-first"), true);
                     tabStrip.select(0);
 

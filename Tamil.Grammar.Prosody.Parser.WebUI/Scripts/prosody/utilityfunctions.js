@@ -201,7 +201,43 @@
         language = !language ? 'ta' : language;
         $('#language').html(languages[language] + ' <span class="caret"></span>')
                 .attr('data-value', language);
-    }
+    };
+
+    function setHelpAudioVideo(part, videoUrl) {
+        setHelpAudio(part);
+        setHelpVideo(part, videoUrl);
+    };
+
+    function setHelpAudio(part) {
+        var audioDivId = "#audio-video-controls-" + part;
+        var audioTemplate = kendo.template($("#audioVideoHelpTemplate").html());
+        $(audioDivId).append(audioTemplate({ part: part }));
+        var audioControlId = "#aud-" + part;
+        var audioButtonId = "#play-audio-" + part;
+
+        var audioControl = $(audioControlId)[0];
+        $(audioButtonId).mouseenter(function () {
+            audioControl.play();
+        });
+        $(audioButtonId).mouseleave(function () {
+            audioControl.pause();
+        });
+    };
+
+    function setHelpVideo(part, videoUrl) {
+        var videoDivId = "#modal-video-" + part;
+        var videoTemplate = kendo.template($("#modalVideoHelpTemplate").html());
+        $(videoDivId).append(videoTemplate({ videoUrl: videoUrl }));
+
+        $(videoDivId).on('show.bs.modal', function (e) {
+            $(e.target).find('.modal-body').empty();
+            $(e.target).find('.modal-body').append('<iframe width="420" height="315" src="' + videoUrl + '" frameborder="0" allowfullscreen></iframe>');
+        });
+        $(videoDivId).on('hide.bs.modal', function (e) {
+            $(e.target).find('.modal-body').empty();
+        });
+    };
+
     return {
         languages: languages,
         stringStartsWith: stringStartsWith,
@@ -226,7 +262,8 @@
         setCookie: setCookie,
         getCookie: getCookie,
         checkCookie: checkCookie,
-        setLanguage: setLanguage
+        setLanguage: setLanguage,
+        setHelpAudioVideo: setHelpAudioVideo
     };
 })();
 

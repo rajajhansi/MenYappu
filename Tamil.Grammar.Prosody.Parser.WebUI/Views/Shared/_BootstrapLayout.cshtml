@@ -49,58 +49,109 @@
         <nav class="navbar navbar-default">
             <div class="navbar-global theme-dark color-accent">
                 <div class="container-fluid">
-                    @{
-                        Html.RenderPartial("_TopNavigationBar");
-                    }
+
                 </div>
             </div>
         </nav>
 
     </div>
 
-    <div class="container-wrap" id="container-wrapper-with-panels">
-        <div class="left-panelbar">
+<div class="container-wrap" id="container-wrapper-with-panels">
+    <div class="left-panelbar">
 
+    </div>
+
+    <!-- About us Dialog -->
+
+    <div class="center-panelbar">
+        @RenderBody()
+    </div>
+
+    <div class="right-panelbar">
+    </div>
+
+    @{
+        Html.RenderPartial("_TopNavigationBar");
+        Html.RenderPartial("_LeftNavigationBar");
+        Html.RenderPartial("_RightPanelBar");
+    }
+    <script type="text/x-kendo-template" id="aboutMenYappuTemplate">
+        # var menYappu = ProsodyResourceManager.get("MenYappu"); var aboutMenYappuDetails = ProsodyResourceManager.get("AboutMenYappuDetails"); #
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="modal-title" id="modal-sample-label">
+                        <b>#= menYappu #</b>
+                    </span>
+                </div>
+                <div class="modal-body">
+                    #= aboutMenYappuDetails #
+                </div>
+                <br />
+                <div>
+                    # var task = ProsodyResourceManager.get("Task"); var executor = ProsodyResourceManager.get("Executor"); #
+                    # var softwareDevelopment = ProsodyResourceManager.get("SoftwareDevelopment"); var design = ProsodyResourceManager.get("Design"); #
+                    # var inspirationAndMotivation = ProsodyResourceManager.get("InspirationAndMotivation"); var suggestionAndReview = ProsodyResourceManager.get("SuggestionAndReview"); #
+                    # var rajaMani = ProsodyResourceManager.get("RajaMani"); var bogdanUrs = ProsodyResourceManager.get("BogdanUrs"); #
+                    # var vinodRajan = ProsodyResourceManager.get("VinodRajan"); var kandasamyPalanisamy = ProsodyResourceManager.get("KandasamyPalanisamy"); #
+                    # var close = ProsodyResourceManager.get("Close"); #
+                    <table class="table">
+                        <thead>
+                            <tr><th>#= task #</th><th>#= executor #</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>#= softwareDevelopment #</td><td>#= rajaMani #</td></tr>
+                            <tr><td>#= design #</td><td>#= bogdanUrs #</td></tr>
+                            <tr><td>#= inspirationAndMotivation #</td><td>#= vinodRajan #</td></tr>
+                            <tr><td>#= suggestionAndReview #</td><td>#= kandasamyPalanisamy #</td></tr>
+                        </tbody>
+                    </table>
+                    <hr />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">
+                        #= close #
+                    </button>
+                </div>
+            </div>
         </div>
 
-        <!-- About us Dialog -->
+    </script>
+    <div class="modal modal-center-vertical" id="modal-about-menyappu"
+         tabindex="-1" role="dialog"
+         aria-labelledby="modal-about-menyappu-label" aria-hidden="true">
 
-        <div class="center-panelbar">
-            @RenderBody()
-        </div>
+    </div>
+    <!-- Le javascript
+    ================================================== -->
 
-        <div class="right-panelbar">
-            @{
-                            Html.RenderPartial("_RightBar");
-                        }
-        </div>
+    <!-- Placed at the end of the document so the pages load faster -->
+    @*<script src="~/Scripts/bootstrap.min.js"></script>*@
 
-        @{
-            Html.RenderPartial("_LeftNavigationBar");
-        }
-        <!-- Le javascript
-        ================================================== -->
-        <!-- Placed at the end of the document so the pages load faster -->
-        @*<script src="~/Scripts/bootstrap.min.js"></script>*@
+    @RenderSection("scripts", required: false)
+    <script src="/Scripts/parsley/i18n/ta.js"></script>
+    @Scripts.Render("~/Scripts/customUi")
+    @Scripts.Render("~/Scripts/ajaxHelpers")
+    <script src="/Scripts/lodash.js"></script>
+    <script src="/Scripts/prosody/utilityfunctions.js"></script>
+    <script src="/Scripts/prosody/ProsodyService.js"></script>
+    <script src="/Scripts/prosody/ProsodyResourceManager.js"></script>
+    <script>
+        var topNavigationBarTemplate = kendo.template($("#topNavigationBarTemplate").html());
+        $(".container-fluid").append(topNavigationBarTemplate({}));
+        var leftNavigationBarTemplate = kendo.template($("#leftNavigationBarTemplate").html());
+        $(".left-panelbar").append(leftNavigationBarTemplate({}));
+        var rightPanelBarTemplate = kendo.template($("#rightPanelBarTemplate").html());
+        $(".right-panelbar").append(rightPanelBarTemplate({}));
+        var aboutMenYappuTemplate = kendo.template($("#aboutMenYappuTemplate").html());
+        $("#modal-about-menyappu").append(aboutMenYappuTemplate({}));
 
-        @RenderSection("scripts", required: false)
-        <script src="/Scripts/parsley/i18n/ta.js"></script>
-        @Scripts.Render("~/Scripts/customUi")
-        @Scripts.Render("~/Scripts/ajaxHelpers")
-        <script src="/Scripts/lodash.js"></script>
-        <script src="/Scripts/prosody/utilityfunctions.js"></script>
-        <script src="/Scripts/prosody/ProsodyService.js"></script>
-        <script src="/Scripts/prosody/ProsodyResourceManager.js"></script>
-        <script>
-            
-            var leftNavigationBarTemplate = kendo.template($("#leftNavigationBarTemplate").html());
-            $(".left-panelbar").append(leftNavigationBarTemplate({}));
-
-            $("#container-wrapper-with-panels").panelExpander({
+        $("#container-wrapper-with-panels")
+            .panelExpander({
                 persistState: {
                     left: true
                 },
-                onLoad: function (isCollapsedOnLoad, container) {
+                onLoad: function(isCollapsedOnLoad, container) {
                     if (isCollapsedOnLoad['left']) {
                         container.find('#left-panel-inwrap').find('.stacked-menu-items-text').hide();
                     }
@@ -109,70 +160,36 @@
                     }
                 },
                 collapsedText: {
-                    'right': 'உதவி'
+                    'right': ProsodyResourceManager.get("Help")
                 },
                 callbacks: {
                     beforeCollapse: {
-                        left: function (e, container) {
+                        left: function(e, container) {
                             container.find('#left-panel-inwrap').find('.stacked-menu-items-text').hide();
                         },
-                        right: function (e, container) {
+                        right: function(e, container) {
                             container.find("#right-panelbar-innercontent").hide();
                         }
                     },
                     afterExpand: {
-                        left: function (e, container, ctx) {
-                            setTimeout(function (param) {
-                                container.find('#left-panel-inwrap').find('.stacked-menu-items-text').fadeIn(100);
-                            }, 100);
+                        left: function(e, container, ctx) {
+                            setTimeout(function(param) {
+                                    container.find('#left-panel-inwrap').find('.stacked-menu-items-text').fadeIn(100);
+                                },
+                                100);
                         },
-                        right: function (e, container, ctx) {
-                            setTimeout(function (param) {
-                                container.find("#right-panelbar-innercontent").fadeIn(100);
-                            }, 100);
+                        right: function(e, container, ctx) {
+                            setTimeout(function(param) {
+                                    container.find("#right-panelbar-innercontent").fadeIn(100);
+                                },
+                                100);
                         }
                     }
                 }
             });
 
-            $(".stacked-menus").panelSubmenus();
-        </script>
-    </div>
-    <div class="modal modal-center-vertical" id="modal-about-menyappu"
-         tabindex="-1" role="dialog"
-         aria-labelledby="modal-about-menyappu-label" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <span class="modal-title" id="modal-sample-label">
-                        <b>மென் யாப்பு</b>
-                    </span>
-                </div>
-                <div class="modal-body">
-                    மென் யாப்பு என்பது செய்யுள் படிக்க படைக்க விரும்பும் தமிழார்வலர்களுக்கு எளிய வகையில் சந்திப் பிழை திருத்தி, யாப்பிலக்கண விளையாட்டுகள், பா இயற்றி, பா ஆராய்ச்சி சேவைகளை ஒருங்கிணைத்துத் தரும் ஒரு தளமாகும். இந்தத் தளத்தின் சேவைகள் வெப் சர்வீஸாகவும் அளிக்கப்படுவதால் ஆப்பிள், ஆண்ட்ராய்டு, விண்டோஸ் அலைபேசிப் பயனர்கள் அந்த வெப் சர்வீஸ்களைப் பயன்படுத்தி அவர்களே செயலிகளை உருவாக்கிக் கொள்ள முடியும்.
-                </div>
-                <br/>
-                <div>
-                    <table class="table">
-                        <thead>
-                        <tr><th>பணி</th><th>செய்தவர்</th></tr>
-                        </thead>
-                        <tbody>
-                        <tr><td>மென்பொருள் உருவாக்கம்</td><td>திரு. ராஜா மணி</td></tr>
-                        <tr><td>வடிவமைப்பு</td><td>திரு. போக்டான் உர்ஸ்</td></tr>
-                        <tr><td>உந்துதல்/தூண்டுகோல்</td><td>திரு. வினோத் ராஜன்</td></tr>
-                        <tr><td>ஆலோசனை</td><td>திரு. கந்தசாமி</td></tr>
-                        </tbody>
-                    </table>
-                    <hr/>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">
-                        மூடு
-                    </button>
-                </div>
-            </div>
-        </div>
+        $(".stacked-menus").panelSubmenus();
+    </script>
     </div>
 </body>
 </html>

@@ -165,11 +165,11 @@
   <data name="SyllableDivider" xml:space="preserve">
     <value>Syllable Divider</value>
   </data>
-  <data name="Venpas" xml:space="preserve">
-    <value>Venpas</value>
+  <data name="Venpaas" xml:space="preserve">
+    <value>Venpaas</value>
   </data>
-  <data name="VenpaConversations" xml:space="preserve">
-    <value>Venpa Conversations</value>
+  <data name="VenpaaConversations" xml:space="preserve">
+    <value>Venpaa Conversations</value>
   </data>
   <data name="WriteAPaa" xml:space="preserve">
     <value>Paa Writer</value>
@@ -183,8 +183,8 @@
   <data name="Clear" xml:space="preserve">
     <value>Clear</value>
   </data>
-  <data name="CompareWithVenpaRules" xml:space="preserve">
-    <value>Compare with Venpa rules</value>
+  <data name="CompareWithVenpaaRules" xml:space="preserve">
+    <value>Compare with Venpaa rules</value>
   </data>
   <data name="Count" xml:space="preserve">
     <value>Count</value>
@@ -243,10 +243,103 @@
   <data name="SelectALetterType" xml:space="preserve">
     <value>Select Letter Type</value>
   </data>
-  <data name="VenpaRulesComparison" xml:space="preserve">
-    <value>Venpa Ruels Comparison</value>
+  <data name="VenpaaRulesComparison" xml:space="preserve">
+    <value>Venpaa Ruels Comparison</value>
   </data>
   <data name="Word" xml:space="preserve">
     <value>Word</value>
+  </data>
+  <data name="AboutMenYappuDetails" xml:space="preserve">
+    <value>MenYappu is a website that has all the services essential for poem writers like spell checker/corrector, prosody games, poem composer and poem analyzer integrated and presented in a very simple, intuitive user interface. Since the services are also exposed as web services, mobile phone users can write an app in their preferred platforms like Apple IOS, Android or Windows Mobile usiing these web services and consume them.</value>
+  </data>
+  <data name="Asiriyappaa" xml:space="preserve">
+    <value>Asiriyappaa</value>
+  </data>
+  <data name="Asiriyappaavinam" xml:space="preserve">
+    <value>Asiriyappaavinam</value>
+  </data>
+  <data name="Audio" xml:space="preserve">
+    <value>Audio</value>
+  </data>
+  <data name="BogdanUrs" xml:space="preserve">
+    <value>Mr. Bogdan Urs</value>
+  </data>
+  <data name="ClickThisButtonForHelp" xml:space="preserve">
+    <value>Click this button for help</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Design" xml:space="preserve">
+    <value>Design</value>
+  </data>
+  <data name="Executor" xml:space="preserve">
+    <value>Executor</value>
+  </data>
+  <data name="InspirationAndMotivation" xml:space="preserve">
+    <value>Inspiration/Motivation</value>
+  </data>
+  <data name="Kalippaa" xml:space="preserve">
+    <value>Kalippaa</value>
+  </data>
+  <data name="Kalippaavinam" xml:space="preserve">
+    <value>Kalippaavinam</value>
+  </data>
+  <data name="KandasamyPalanisamy" xml:space="preserve">
+    <value>Mr. Kandasamy Palanisamy</value>
+  </data>
+  <data name="Metreme" xml:space="preserve">
+    <value>Metreme</value>
+  </data>
+  <data name="MetricalFeet" xml:space="preserve">
+    <value>MetricalFeet</value>
+  </data>
+  <data name="Ornamentation" xml:space="preserve">
+    <value>Ornamentation</value>
+  </data>
+  <data name="PaaCategories" xml:space="preserve">
+    <value>Paa Categories</value>
+  </data>
+  <data name="PaaTypes" xml:space="preserve">
+    <value>Paa Types</value>
+  </data>
+  <data name="Prosody" xml:space="preserve">
+    <value>Prosody</value>
+  </data>
+  <data name="RajaMani" xml:space="preserve">
+    <value>Mr. Raja Mani</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="SoftwareDevelopment" xml:space="preserve">
+    <value>Software Development</value>
+  </data>
+  <data name="Sound" xml:space="preserve">
+    <value>Sound</value>
+  </data>
+  <data name="SuggestionAndReview" xml:space="preserve">
+    <value>Suggestion/Review</value>
+  </data>
+  <data name="Task" xml:space="preserve">
+    <value>Task</value>
+  </data>
+  <data name="Vanjippaa" xml:space="preserve">
+    <value>Vanjippaa</value>
+  </data>
+  <data name="Vanjippaavinam" xml:space="preserve">
+    <value>Vanjippaavinam</value>
+  </data>
+  <data name="Venpaa" xml:space="preserve">
+    <value>Venpaa</value>
+  </data>
+  <data name="Venpaavinam" xml:space="preserve">
+    <value>Venpaavinam</value>
+  </data>
+  <data name="Video" xml:space="preserve">
+    <value>Video</value>
+  </data>
+  <data name="VinodRajan" xml:space="preserve">
+    <value>Mr. Vinod Rajan</value>
   </data>
 </root>

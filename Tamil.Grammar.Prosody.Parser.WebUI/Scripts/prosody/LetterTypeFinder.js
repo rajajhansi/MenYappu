@@ -26,6 +26,7 @@
         // set the context help
         var ezhuthuVagaiHelpTemplate = kendo.template($("#ezhuthuVagaiHelpTemplate").html());
         Utility.setContextHelp(ezhuthuVagaiHelpTemplate({}));
+        Utility.setHelpAudioVideo('ezhuthuVagai', 'https://www.youtube.com/embed/AH4bCeBXFm4?start=212');
         var audioMathirai = $("#aud-mathirai")[0];
         $("#play-mathirai").mouseenter(function () {
             audioMathirai.play();

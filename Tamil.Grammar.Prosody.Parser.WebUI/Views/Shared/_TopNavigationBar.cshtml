@@ -1,60 +1,74 @@
-﻿<div class="navbar-header">
-    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <i class="glyph glyph-hamburger"></i>
-    </button>
+﻿<script type="text/x-kendo-template" id="topNavigationBarTemplate">
+    # var menYappu = ProsodyResourceManager.get("MenYappu"); #
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="\#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <i class="glyph glyph-hamburger"></i>
+        </button>
 
-    <a class="navbar-brand no-outline" href="#">மென்யாப்பு</a>
-</div>
-<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    <ul class="nav navbar-nav">
-        <li class="dropdown">
-            <a href="colors.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">யாப்பிலக்கணம் <i class="glyph glyph-chevron-down-2"></i></a>
-            <ul class="dropdown-menu nosel" role="menu">
-                <li><a href="#">எழுத்து</a></li>
-                <li class="divider"></li>
-                <li><a href="#">அசை</a></li>
-                <li><a href="#">சீர்</a></li>
-                <li><a href="#">தளை</a></li>
-                <li><a href="#">அடி</a></li>
-                <li><a href="#">தொடை</a></li>
-                <li><a href="#">ஓசை</a></li>
-            </ul>
-        </li>
+        <a class="navbar-brand no-outline" href="\#">#= menYappu #</a>
+    </div>
 
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">பா வகைகள் <i class="glyph glyph-chevron-down-2"></i></a>
-            <ul class="dropdown-menu nosel" role="menu">
-                <li><a href="#">வெண்பா</a></li>
-                <li><a href="#">ஆசிரியப்பா</a></li>
-                <li><a href="#">கலிப்பா</a></li>
-                <li><a href="#">வஞ்சிப்பா</a></li>
-            </ul>
-        </li>
-
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">பாவினங்கள் <i class="glyph glyph-chevron-down-2"></i></a>
-            <ul class="dropdown-menu nosel" role="menu">
-                <li><a href="#">வெண்பாவினம்</a></li>
-                <li><a href="#">ஆசிரியப்பாவினம்</a></li>
-                <li><a href="#">கலிப்பாவினம்</a></li>
-                <li><a href="#">வஞ்சிப்பாவினம்</a></li>
-            </ul>
-        </li>
-    </ul>
-    <form class="navbar-form navbar-right" role="search">
-        <div class="dropdown">
-            <button id="language" class="btn btn-dropdown dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
-                <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" role="menu" aria-labelledby="#= asaiId #">
-                <li><a href="#" data-value="en">English (English)</a></li>
-                <li><a href="#" data-value="ta">தமிழ் (Tamil)</a></li>
-            </ul>
-        </div>
-        <div class="form-group navbar-search-wrap">
-            <input type="search" class="form-control navbar-searchfield" placeholder="தேடு">
-            <button type="submit" class="btn btn-default navbar-searchbtn"></button>
-        </div>
-    </form>
-</div>
+    # var prosody = ProsodyResourceManager.get("Prosody"); #
+    # var letter = ProsodyResourceManager.get("Letter"); var metreme = ProsodyResourceManager.get("Metreme"); #
+    # var metricalFeet = ProsodyResourceManager.get("MetricalFeet");  var linkage = ProsodyResourceManager.get("Linkage"); #
+    # var metricalLine = ProsodyResourceManager.get("MetricalLine");  var ornamentation = ProsodyResourceManager.get("Ornamentation"); #
+    # var sound = ProsodyResourceManager.get("Sound"); #
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+            <li class="dropdown">
+                <a href="colors.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">#= prosody # <i class="glyph glyph-chevron-down-2"></i></a>
+                <ul class="dropdown-menu nosel" role="menu">
+                    <li><a href="\#">#= letter #</a></li>
+                    <li class="divider"></li>
+                    <li><a href="\#">#= metreme #</a></li>
+                    <li><a href="\#">#= metricalFeet #</a></li>
+                    <li><a href="\#">#= linkage #</a></li>
+                    <li><a href="\#">#= metricalLine #</a></li>
+                    <li><a href="\#">#= ornamentation #</a></li>
+                    <li><a href="\#">#= sound #</a></li>
+                </ul>
+            </li>
+            # var paaTypes = ProsodyResourceManager.get("PaaTypes"); #
+            # var venpaa = ProsodyResourceManager.get("Venpaa"); var asiriyappaa = ProsodyResourceManager.get("Asiriyappaa"); #
+            # var kalippaa = ProsodyResourceManager.get("Kalippaa");  var vanjippaa = ProsodyResourceManager.get("Vanjippaa"); #
+            <li class="dropdown">
+                <a href="\#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">#= paaTypes #<i class="glyph glyph-chevron-down-2"></i></a>
+                <ul class="dropdown-menu nosel" role="menu">
+                    <li><a href="\#">#= venpaa #</a></li>
+                    <li><a href="\#">#= asiriyappaa #</a></li>
+                    <li><a href="\#">#= kalippaa #</a></li>
+                    <li><a href="\#">#= vanjippaa #</a></li>
+                </ul>
+            </li>
+            # var paaCategories = ProsodyResourceManager.get("PaaCategories"); #
+            # var venpaavinam = ProsodyResourceManager.get("Venpaavinam");  var asiriyappaavinam = ProsodyResourceManager.get("Asiriyappaavinam"); #
+            # var kalippaavinam = ProsodyResourceManager.get("Kalippaavinam");  var vanjippaavinam = ProsodyResourceManager.get("Vanjippaavinam"); #
+            <li class="dropdown">
+                <a href="\#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">#= paaCategories # <i class="glyph glyph-chevron-down-2"></i></a>
+                <ul class="dropdown-menu nosel" role="menu">
+                    <li><a href="\#">#= venpaavinam #</a></li>
+                    <li><a href="\#">#= asiriyappaavinam #</a></li>
+                    <li><a href="\#">#= kalippaavinam #</a></li>
+                    <li><a href="\#">#= vanjippaavinam #</a></li>
+                </ul>
+            </li>
+        </ul>
+        # var search = ProsodyResourceManager.get("Search"); #
+        <form class="navbar-form navbar-right" role="search">
+            <div class="dropdown">
+                <button id="language" class="btn btn-dropdown dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="language">
+                    <li><a href="\#" data-value="en">English (English)</a></li>
+                    <li><a href="\#" data-value="ta">தமிழ் (Tamil)</a></li>
+                </ul>
+            </div>
+            <div class="form-group navbar-search-wrap">
+                <input type="search" class="form-control navbar-searchfield" placeholder="#= search #">
+                <button type="submit" class="btn btn-default navbar-searchbtn"></button>
+            </div>
+        </form>
+    </div>
+</script>

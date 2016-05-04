@@ -1,0 +1,18 @@
+﻿<script type="text/x-kendo-template" id="rightPanelBarTemplate">
+    <!--Sidebar content-->
+    # var clickThisButtonForHelp = ProsodyResourceManager.get("ClickThisButtonForHelp"); #
+    <div class="stacked-menus">
+        <div class="clearfix">
+            <div id="stacked-menu-toggler-right" class="stacked-menus-toggler" data-toggle="tooltip" data-placement="left" title="#= clickThisButtonForHelp #" data-original-title="#= clickThisButtonForHelp #">
+                <span class="stacked-menu-items-icon">
+                    <span class="glyph glyph-hamburger"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div id="right-panelbar-innercontent" class="panelbar-hide-on-collapse">
+        <div id="bottom"></div>
+        <div class="table-responsive" id="help"></div>
+    </div>
+</script>

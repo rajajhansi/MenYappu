@@ -281,6 +281,7 @@
   <ItemGroup>
     <Content Include="App_Data\agarathiValid.txt" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="audio\ezhuthuVagai.mp3" />
     <Content Include="audio\mathirai.mp3" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -782,7 +783,6 @@
     <Content Include="Views\Shared\_BootstrapLayout.cshtml" />
     <Content Include="Views\Shared\_LeftNavigationBar.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Shared\_RightBar.cshtml" />
     <Content Include="Views\Games\AdiMeasurer.cshtml" />
     <Content Include="Views\Shared\_TopNavigationBar.cshtml" />
     <Content Include="Views\Home\VenpaConversations.cshtml" />
@@ -790,6 +790,7 @@
     <Content Include="Views\Games\LetterTypeFinder.cshtml" />
     <Content Include="Views\Games\EthukaiMonaiFinder.cshtml" />
     <Content Include="Views\Shared\_CommonKendoTemplates.cshtml" />
+    <Content Include="Views\Shared\_RightPanelBar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Gma.DataStructures.StringSearch\Gma.DataStructures.StringSearch.csproj">
@@ -813,7 +814,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>

@@ -165,10 +165,10 @@
   <data name="SyllableDivider" xml:space="preserve">
     <value>அசை பிரி</value>
   </data>
-  <data name="Venpas" xml:space="preserve">
+  <data name="Venpaas" xml:space="preserve">
     <value>வெண்பாக்கள்</value>
   </data>
-  <data name="VenpaConversations" xml:space="preserve">
+  <data name="VenpaaConversations" xml:space="preserve">
     <value>வெண்பா உரையாடல்கள்</value>
   </data>
   <data name="WriteAPaa" xml:space="preserve">
@@ -183,7 +183,7 @@
   <data name="Clear" xml:space="preserve">
     <value>நீக்குக</value>
   </data>
-  <data name="CompareWithVenpaRules" xml:space="preserve">
+  <data name="CompareWithVenpaaRules" xml:space="preserve">
     <value>வெண்பா விதிகளோடு ஒப்பிடுக</value>
   </data>
   <data name="Correct" xml:space="preserve">
@@ -255,10 +255,103 @@
   <data name="SelectALetterType" xml:space="preserve">
     <value>எழுத்து வகையைத் தேர்ந்தெடு</value>
   </data>
-  <data name="VenpaRulesComparison" xml:space="preserve">
+  <data name="VenpaaRulesComparison" xml:space="preserve">
     <value>விதி ஒப்பீடு</value>
   </data>
   <data name="Word" xml:space="preserve">
     <value>சொல்</value>
+  </data>
+  <data name="AboutMenYappuDetails" xml:space="preserve">
+    <value>மென் யாப்பு என்பது செய்யுள் படிக்க படைக்க விரும்பும் தமிழார்வலர்களுக்கு எளிய வகையில் சந்திப் பிழை திருத்தி, யாப்பிலக்கண விளையாட்டுகள், பா இயற்றி, பா ஆராய்ச்சி சேவைகளை ஒருங்கிணைத்துத் தரும் ஒரு தளமாகும். இந்தத் தளத்தின் சேவைகள் வெப் சர்வீஸாகவும் அளிக்கப்படுவதால் ஆப்பிள், ஆண்ட்ராய்டு, விண்டோஸ் அலைபேசிப் பயனர்கள் அந்த வெப் சர்வீஸ்களைப் பயன்படுத்தி அவர்களே செயலிகளை உருவாக்கிக் கொள்ள முடியும்.</value>
+  </data>
+  <data name="Asiriyappaa" xml:space="preserve">
+    <value>ஆசிரியப்பா</value>
+  </data>
+  <data name="Asiriyappaavinam" xml:space="preserve">
+    <value>ஆசிரியப்பாவினம்</value>
+  </data>
+  <data name="Audio" xml:space="preserve">
+    <value>ஒலி</value>
+  </data>
+  <data name="BogdanUrs" xml:space="preserve">
+    <value>திரு. போக்டான் உர்ஸ்</value>
+  </data>
+  <data name="ClickThisButtonForHelp" xml:space="preserve">
+    <value>உதவிக்கு இந்தப் பொத்தானை அழுத்தவும்.</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>மூடு</value>
+  </data>
+  <data name="Design" xml:space="preserve">
+    <value>வடிவமைப்பு</value>
+  </data>
+  <data name="Executor" xml:space="preserve">
+    <value>செய்தவர்</value>
+  </data>
+  <data name="InspirationAndMotivation" xml:space="preserve">
+    <value>உந்துதல்/தூண்டுகோல்</value>
+  </data>
+  <data name="Kalippaa" xml:space="preserve">
+    <value>கலிப்பா</value>
+  </data>
+  <data name="Kalippaavinam" xml:space="preserve">
+    <value>கலிப்பாவினம்</value>
+  </data>
+  <data name="KandasamyPalanisamy" xml:space="preserve">
+    <value>திரு. கந்தசாமி பழனிச்சாமி</value>
+  </data>
+  <data name="Metreme" xml:space="preserve">
+    <value>அசை</value>
+  </data>
+  <data name="MetricalFeet" xml:space="preserve">
+    <value>சீர்</value>
+  </data>
+  <data name="Ornamentation" xml:space="preserve">
+    <value>தொடை</value>
+  </data>
+  <data name="PaaCategories" xml:space="preserve">
+    <value>பாவினங்கள்</value>
+  </data>
+  <data name="PaaTypes" xml:space="preserve">
+    <value>பா வகைகள்</value>
+  </data>
+  <data name="Prosody" xml:space="preserve">
+    <value>யாப்பிலக்கணம்</value>
+  </data>
+  <data name="RajaMani" xml:space="preserve">
+    <value>திரு. ராஜா மணி</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>தேடு</value>
+  </data>
+  <data name="SoftwareDevelopment" xml:space="preserve">
+    <value>மென்பொருள் உருவாக்கம்</value>
+  </data>
+  <data name="Sound" xml:space="preserve">
+    <value>ஓசை</value>
+  </data>
+  <data name="SuggestionAndReview" xml:space="preserve">
+    <value>ஆலோசனை</value>
+  </data>
+  <data name="Task" xml:space="preserve">
+    <value>பணி</value>
+  </data>
+  <data name="Vanjippaa" xml:space="preserve">
+    <value>வஞ்சிப்பா</value>
+  </data>
+  <data name="Vanjippaavinam" xml:space="preserve">
+    <value>வஞ்சிப்பாவினம்</value>
+  </data>
+  <data name="Venpaa" xml:space="preserve">
+    <value>வெண்பா</value>
+  </data>
+  <data name="Venpaavinam" xml:space="preserve">
+    <value>வெண்பாவினம்</value>
+  </data>
+  <data name="Video" xml:space="preserve">
+    <value>நிகழ்படம்</value>
+  </data>
+  <data name="VinodRajan" xml:space="preserve">
+    <value>திரு. வினோத் ராஜன்</value>
   </data>
 </root>

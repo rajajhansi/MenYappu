@@ -70,11 +70,56 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to MenYappu is a website that has all the services essential for poem writers like spell checker/corrector, prosody games, poem composer and poem analyzer integrated and presented in a very simple, intuitive user interface. Since the services are also exposed as web services, mobile phone users can write an app in their preferred platforms like Apple IOS, Android or Windows Mobile usiing these web services and consume them..
+        /// </summary>
+        public static string AboutMenYappuDetails {
+            get {
+                return ResourceManager.GetString("AboutMenYappuDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Alliteration.
         /// </summary>
         public static string Alliteration {
             get {
                 return ResourceManager.GetString("Alliteration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Asiriyappaa.
+        /// </summary>
+        public static string Asiriyappaa {
+            get {
+                return ResourceManager.GetString("Asiriyappaa", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Asiriyappaavinam.
+        /// </summary>
+        public static string Asiriyappaavinam {
+            get {
+                return ResourceManager.GetString("Asiriyappaavinam", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Audio.
+        /// </summary>
+        public static string Audio {
+            get {
+                return ResourceManager.GetString("Audio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mr. Bogdan Urs.
+        /// </summary>
+        public static string BogdanUrs {
+            get {
+                return ResourceManager.GetString("BogdanUrs", resourceCulture);
             }
         }
         
@@ -97,11 +142,29 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Compare with Venpa rules.
+        ///   Looks up a localized string similar to Click this button for help.
         /// </summary>
-        public static string CompareWithVenpaRules {
+        public static string ClickThisButtonForHelp {
             get {
-                return ResourceManager.GetString("CompareWithVenpaRules", resourceCulture);
+                return ResourceManager.GetString("ClickThisButtonForHelp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Close.
+        /// </summary>
+        public static string Close {
+            get {
+                return ResourceManager.GetString("Close", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Compare with Venpaa rules.
+        /// </summary>
+        public static string CompareWithVenpaaRules {
+            get {
+                return ResourceManager.GetString("CompareWithVenpaaRules", resourceCulture);
             }
         }
         
@@ -120,6 +183,15 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         public static string Count {
             get {
                 return ResourceManager.GetString("Count", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Design.
+        /// </summary>
+        public static string Design {
+            get {
+                return ResourceManager.GetString("Design", resourceCulture);
             }
         }
         
@@ -165,6 +237,15 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         public static string Excellent {
             get {
                 return ResourceManager.GetString("Excellent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Executor.
+        /// </summary>
+        public static string Executor {
+            get {
+                return ResourceManager.GetString("Executor", resourceCulture);
             }
         }
         
@@ -250,6 +331,42 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Inspiration/Motivation.
+        /// </summary>
+        public static string InspirationAndMotivation {
+            get {
+                return ResourceManager.GetString("InspirationAndMotivation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kalippaa.
+        /// </summary>
+        public static string Kalippaa {
+            get {
+                return ResourceManager.GetString("Kalippaa", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kalippaavinam.
+        /// </summary>
+        public static string Kalippaavinam {
+            get {
+                return ResourceManager.GetString("Kalippaavinam", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mr. Kandasamy Palanisamy.
+        /// </summary>
+        public static string KandasamyPalanisamy {
+            get {
+                return ResourceManager.GetString("KandasamyPalanisamy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Letter.
         /// </summary>
         public static string Letter {
@@ -322,11 +439,29 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Metreme.
+        /// </summary>
+        public static string Metreme {
+            get {
+                return ResourceManager.GetString("Metreme", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Metreme &amp; Metrical Feet.
         /// </summary>
         public static string MetremeAndMetricalFeet {
             get {
                 return ResourceManager.GetString("MetremeAndMetricalFeet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MetricalFeet.
+        /// </summary>
+        public static string MetricalFeet {
+            get {
+                return ResourceManager.GetString("MetricalFeet", resourceCulture);
             }
         }
         
@@ -358,11 +493,38 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ornamentation.
+        /// </summary>
+        public static string Ornamentation {
+            get {
+                return ResourceManager.GetString("Ornamentation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Oranamentation Finder.
         /// </summary>
         public static string OrnamentationFinder {
             get {
                 return ResourceManager.GetString("OrnamentationFinder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Paa Categories.
+        /// </summary>
+        public static string PaaCategories {
+            get {
+                return ResourceManager.GetString("PaaCategories", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Paa Types.
+        /// </summary>
+        public static string PaaTypes {
+            get {
+                return ResourceManager.GetString("PaaTypes", resourceCulture);
             }
         }
         
@@ -381,6 +543,24 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         public static string ParsedResults {
             get {
                 return ResourceManager.GetString("ParsedResults", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Prosody.
+        /// </summary>
+        public static string Prosody {
+            get {
+                return ResourceManager.GetString("Prosody", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mr. Raja Mani.
+        /// </summary>
+        public static string RajaMani {
+            get {
+                return ResourceManager.GetString("RajaMani", resourceCulture);
             }
         }
         
@@ -421,6 +601,15 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Search.
+        /// </summary>
+        public static string Search {
+            get {
+                return ResourceManager.GetString("Search", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select Letter Type.
         /// </summary>
         public static string SelectALetterType {
@@ -439,6 +628,33 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Software Development.
+        /// </summary>
+        public static string SoftwareDevelopment {
+            get {
+                return ResourceManager.GetString("SoftwareDevelopment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sound.
+        /// </summary>
+        public static string Sound {
+            get {
+                return ResourceManager.GetString("Sound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Suggestion/Review.
+        /// </summary>
+        public static string SuggestionAndReview {
+            get {
+                return ResourceManager.GetString("SuggestionAndReview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Syllable Divider.
         /// </summary>
         public static string SyllableDivider {
@@ -448,29 +664,92 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Venpa Conversations.
+        ///   Looks up a localized string similar to Task.
         /// </summary>
-        public static string VenpaConversations {
+        public static string Task {
             get {
-                return ResourceManager.GetString("VenpaConversations", resourceCulture);
+                return ResourceManager.GetString("Task", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Venpa Ruels Comparison.
+        ///   Looks up a localized string similar to Vanjippaa.
         /// </summary>
-        public static string VenpaRulesComparison {
+        public static string Vanjippaa {
             get {
-                return ResourceManager.GetString("VenpaRulesComparison", resourceCulture);
+                return ResourceManager.GetString("Vanjippaa", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Venpas.
+        ///   Looks up a localized string similar to Vanjippaavinam.
         /// </summary>
-        public static string Venpas {
+        public static string Vanjippaavinam {
             get {
-                return ResourceManager.GetString("Venpas", resourceCulture);
+                return ResourceManager.GetString("Vanjippaavinam", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Venpaa.
+        /// </summary>
+        public static string Venpaa {
+            get {
+                return ResourceManager.GetString("Venpaa", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Venpaa Conversations.
+        /// </summary>
+        public static string VenpaaConversations {
+            get {
+                return ResourceManager.GetString("VenpaaConversations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Venpaa Ruels Comparison.
+        /// </summary>
+        public static string VenpaaRulesComparison {
+            get {
+                return ResourceManager.GetString("VenpaaRulesComparison", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Venpaas.
+        /// </summary>
+        public static string Venpaas {
+            get {
+                return ResourceManager.GetString("Venpaas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Venpaavinam.
+        /// </summary>
+        public static string Venpaavinam {
+            get {
+                return ResourceManager.GetString("Venpaavinam", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Video.
+        /// </summary>
+        public static string Video {
+            get {
+                return ResourceManager.GetString("Video", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mr. Vinod Rajan.
+        /// </summary>
+        public static string VinodRajan {
+            get {
+                return ResourceManager.GetString("VinodRajan", resourceCulture);
             }
         }
         
