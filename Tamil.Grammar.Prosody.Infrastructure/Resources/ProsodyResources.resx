@@ -354,4 +354,19 @@
   <data name="VinodRajan" xml:space="preserve">
     <value>Mr. Vinod Rajan</value>
   </data>
+  <data name="CorrectDurationCount" xml:space="preserve">
+    <value>Correct Duration Count</value>
+  </data>
+  <data name="DurationCount" xml:space="preserve">
+    <value>Duration Count</value>
+  </data>
+  <data name="EnterDurationCountAndCheckResult" xml:space="preserve">
+    <value>Enter the Duration Count and click on "Check Answer" button to see the "Result". </value>
+  </data>
+  <data name="MathiraiCalculatorInfoTip" xml:space="preserve">
+    <value>Enter only one word (or) sentence (or) click on "Sample" button below.</value>
+  </data>
+  <data name="WordOrSentence" xml:space="preserve">
+    <value>Word (or) Sentence</value>
+  </data>
 </root>

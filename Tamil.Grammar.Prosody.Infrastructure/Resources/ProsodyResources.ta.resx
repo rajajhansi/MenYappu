@@ -282,8 +282,17 @@
   <data name="Close" xml:space="preserve">
     <value>மூடு</value>
   </data>
+  <data name="CorrectDurationCount" xml:space="preserve">
+    <value>சரியான மாத்திரை எண்ணிக்கை</value>
+  </data>
   <data name="Design" xml:space="preserve">
     <value>வடிவமைப்பு</value>
+  </data>
+  <data name="DurationCount" xml:space="preserve">
+    <value>மாத்திரை எண்ணிக்கை</value>
+  </data>
+  <data name="EnterDurationCountAndCheckResult" xml:space="preserve">
+    <value>மாத்திரை எண்ணிக்கையை உள்ளிடவும். பிறகு “சரி பார்த்திடு” பொத்தானை அழுத்தவும்.</value>
   </data>
   <data name="Executor" xml:space="preserve">
     <value>செய்தவர்</value>
@@ -299,6 +308,9 @@
   </data>
   <data name="KandasamyPalanisamy" xml:space="preserve">
     <value>திரு. கந்தசாமி பழனிச்சாமி</value>
+  </data>
+  <data name="MathiraiCalculatorInfoTip" xml:space="preserve">
+    <value>ஒரெயொரு சொல்லை (அ) வாக்கியத்தை உள்ளிடவும் (அ) கீழேயுள்ள “மாதிரி” பொத்தானை அழுத்தவும்.</value>
   </data>
   <data name="Metreme" xml:space="preserve">
     <value>அசை</value>
@@ -353,5 +365,8 @@
   </data>
   <data name="VinodRajan" xml:space="preserve">
     <value>திரு. வினோத் ராஜன்</value>
+  </data>
+  <data name="WordOrSentence" xml:space="preserve">
+    <value>சொல் (அ) வாக்கியம்</value>
   </data>
 </root>

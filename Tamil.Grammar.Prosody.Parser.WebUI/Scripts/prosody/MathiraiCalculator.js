@@ -1,30 +1,21 @@
 ﻿var MathiraiCalculator = (function() {
     function init() {
+        var mathiraiInputTemplate = kendo.template($("#mathiraiInputTemplate").html());
+        $("#mathiraiCalculatorGame").append(mathiraiInputTemplate({}));
+        var wordOrSentence = ProsodyResourceManager.get("WordOrSentence");
+        var mathiraiCalculatorInfoTip = ProsodyResourceManager.get("MathiraiCalculatorInfoTip");
         // render the inputTemplate
         var inputTemplate = kendo.template($("#inputTemplate").html());
         $("#input")
             .append(inputTemplate({
-                inputTitle: "வாக்கியம்",
-                inputInfotip: "ஒரெயொரு சொல்லை (அ) வாக்கியத்தை உள்ளிடவும் (அ) கீழேயுள்ள “மாதிரி” பொத்தானை அழுத்தவும்.",
+                inputTitle: wordOrSentence,
+                inputInfotip: mathiraiCalculatorInfoTip,
                 inputLines: 1
             }));
         // set the context help
         var mathiraiHelpTemplate = kendo.template($("#mathiraiHelpTemplate").html());
         Utility.setContextHelp(mathiraiHelpTemplate({}));
-        var audioMathirai = $("#aud-mathirai")[0];
-        $("#play-mathirai").mouseenter(function () {
-            audioMathirai.play();
-        });
-        $("#play-mathirai").mouseleave(function () {
-            audioMathirai.pause();
-        });
-        $('#modal-video-mathirai').on('show.bs.modal', function (e) {
-            $(e.target).find('.modal-body').empty();
-            $(e.target).find('.modal-body').append('<iframe width="420" height="315" src="https://www.youtube.com/embed/AH4bCeBXFm4?start=396" frameborder="0" allowfullscreen></iframe>');
-        });
-        $('#modal-video-mathirai').on('hide.bs.modal', function (e) {
-            $(e.target).find('.modal-body').empty();
-        });
+        Utility.setHelpAudioVideo('mathirai', 'https://www.youtube.com/embed/AH4bCeBXFm4?start=396');
 
         Utility.initSeyyulbar();
         Utility.hideResult();

@@ -178,6 +178,15 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Correct Duration Count.
+        /// </summary>
+        public static string CorrectDurationCount {
+            get {
+                return ResourceManager.GetString("CorrectDurationCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Count.
         /// </summary>
         public static string Count {
@@ -214,6 +223,15 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Duration Count.
+        /// </summary>
+        public static string DurationCount {
+            get {
+                return ResourceManager.GetString("DurationCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Elimiate Vilaankaay Metrica Feet.
         /// </summary>
         public static string EliminateVilaankaayMetricalFeet {
@@ -228,6 +246,15 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         public static string EndRhyme {
             get {
                 return ResourceManager.GetString("EndRhyme", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter the Duration Count and click on &quot;Check Answer&quot; button to see the &quot;Result&quot;. .
+        /// </summary>
+        public static string EnterDurationCountAndCheckResult {
+            get {
+                return ResourceManager.GetString("EnterDurationCountAndCheckResult", resourceCulture);
             }
         }
         
@@ -426,6 +453,15 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         public static string MathiraiCalculator {
             get {
                 return ResourceManager.GetString("MathiraiCalculator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter only one word (or) sentence (or) click on &quot;Sample&quot; button below..
+        /// </summary>
+        public static string MathiraiCalculatorInfoTip {
+            get {
+                return ResourceManager.GetString("MathiraiCalculatorInfoTip", resourceCulture);
             }
         }
         
@@ -759,6 +795,15 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         public static string Word {
             get {
                 return ResourceManager.GetString("Word", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Word (or) Sentence.
+        /// </summary>
+        public static string WordOrSentence {
+            get {
+                return ResourceManager.GetString("WordOrSentence", resourceCulture);
             }
         }
         

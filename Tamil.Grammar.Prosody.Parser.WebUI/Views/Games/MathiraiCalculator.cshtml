@@ -1,149 +1,115 @@
 ﻿@{
     ViewBag.Title = "மாத்திரை எவ்வளவு?";
 }
+<div id="mathiraiCalculatorGame">
 
-<ul class="kendo-panelbars-custom" id="seyyulbar">
-    <li>
-        <h4 class="main-title">
-            வாக்கியத்தை உள்ளிடவும்
-            <span class="main-title-icon glyph glyph-chevron-down"></span>
-        </h4>
-        <ul>
-            <li id="seyyul" class="k-state-active">
-                <form id="prosodyForm" class="form-horizontal" action="/api/Prosody/MathiraiCount" method="POST">
-                    <div class="row row-sm">
-                        <div class="col-md-8" id="input">
+</div>
+<script type="text/x-kendo-template" id="mathiraiInputTemplate">
+    <ul class="kendo-panelbars-custom" id="seyyulbar">
+        <li>
+            <h4 class="main-title">
+                #= ProsodyResourceManager.get("InputWord") #
+                <span class="main-title-icon glyph glyph-chevron-down"></span>
+            </h4>
+            <ul>
+                <li id="seyyul" class="k-state-active">
+                    <form id="prosodyForm" class="form-horizontal" action="/api/Prosody/MathiraiCount" method="POST">
+                        <div class="row row-sm">
+                            <div class="col-md-8" id="input">
 
-                        </div>
-                        <div class="col-md-8" id="additionalInput">
-                            <h4 class="game-section-title text-center">
-                                மாத்திரை எண்ணிக்கை
-                            </h4>
-                            <div class="infotip">
-                                <span class="text-t9">மாத்திரை எண்ணிக்கையை உள்ளிடவும். பிறகு “சரி பார்த்திடு” பொத்தானை அழுத்தவும்.</span>
                             </div>
-                            <textarea class="panelbar-textarea" id="MathiraiCount" rows="1" minlength="1"></textarea>
-                            <div id="rightMathiraiCount" class="type-t5 hidden">
-                                <h4 class="game-section-title">சரியான மாத்திரை எண்ணிக்கை</h4>
-                                <span class="cspan" id="CalculatedMathiraiCount"></span>
+                            <div class="col-md-8" id="additionalInput">
+                                <h4 class="game-section-title text-center">
+                                    #= ProsodyResourceManager.get("DurationCount") #
+                                </h4>
+                                <div class="infotip">
+                                    <span class="text-t9">#= ProsodyResourceManager.get("EnterDurationCountAndCheckResult") #</span>
+                                </div>
+                                <textarea class="panelbar-textarea" id="MathiraiCount" rows="1" minlength="1"></textarea>
+                                <div id="rightMathiraiCount" class="type-t5 hidden">
+                                    <h4 class="game-section-title">#= ProsodyResourceManager.get("CorrectDurationCount") #</h4>
+                                    <span class="cspan" id="CalculatedMathiraiCount"></span>
+                                </div>
+
                             </div>
+                            <div class="col-md-8 hidden" id="result">
 
+                            </div>
                         </div>
-                        <div class="col-md-8 hidden" id="result">
-
-                        </div>
-                    </div>
-                </form>
-            </li>
-        </ul>
-    </li>
-</ul>
+                    </form>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</script>
 
 <script type="text/x-kendo-template" id="detailedMathiraiTemplate">
-    # var mathiraiInSeer = ""; var key = 0; var l = 0; #
-    # var letterClass = { 'கு' : 'kuril', 'நெ' : 'nedil', 'மெ' : 'otru', 'ஃ' : 'aytham' }; #
-    # for(var w=0; w < detailedMathiraiCount.length; w++) { #
-    # $.each(detailedMathiraiCount[w], function(detailedMathiraiKey, detailedMathiraiValue) { #
-    # mathiraiInSeer = mathiraiInSeer + '&nbsp;' #
-    # $.each(detailedMathiraiValue, function(mathiraiKey, mathiraiValue) { #
-    # var rubyStyle = l === Object.keys(detailedMathiraiValue).length - 1 ? "m-r-xxs" : "m-r-n"; #
-    # var letter = mathiraiKey.split(":")[1]; #
-    # mathiraiInSeer = mathiraiInSeer + '<ruby class="' + rubyStyle + '"><div class="type-t9 text-center ' + letterClass[mathiraiValue.LetterType] +'"><rt>' + mathiraiValue.LetterType +'</rt></div><span class="uiTran type-t7">' + letter + '</span><rt>' + mathiraiValue.Mathirai +  '</rt></ruby>  '; #
-    # if(l !== Object.keys(detailedMathiraiValue).length - 1) { #
-    # mathiraiInSeer = mathiraiInSeer + '<ruby><div class="type-t9 text-center"><rt>&nbsp;</rt></div><span class="uiTrant type-t7">' + '&nbsp;' + '</span><rt>' + ' + ' +  '</rt></ruby>  '; #
-    # } #
-    # l++; #
-    # }) #
-    # l = 0; key++; #
-    # }) #
-    # mathiraiInSeer = mathiraiInSeer + '<ruby><div class="type-t8 text-center"><rt>&nbsp;</rt></div><span class="uiTrant">' + '&nbsp;' + ' </span><rt>' + ' = ' + totalMathiraiCount + '</rt></ruby><br />'; #
-    # } #
-    #= mathiraiInSeer #
-    <hr />
-    <span class="kuril m-r-xxs type-t9">கு – குறில்</span>
-    <span class="nedil m-r-xxs type-t9">நெ – நெடில்</span>
-    <span class="otru m-r-xxs type-t9">மெ – மெய்</span>
-    <span class="aytham m-r-xxs type-t9">ஃ - ஆய்தம்</span>
-</script>
-
-@*<script type="text/x-kendo-template" id="mathiraiTemplate">
-        # var mathiraiInSeer = ""; var key = 0; #
-        # for (var l=0; l < mathiraiCount.length; l++) { #
-        # $.each(mathiraiCount[l], function(mathiraiKey, mathiraiValue) { #
-        # if (key !== Object.keys(mathiraiCount[l]).length - 1) { #
-        # mathiraiInSeer = mathiraiInSeer + '<ruby class="type-t9"><div>s<span class="uiTrant">' + mathiraiKey + '</span><rt>' + mathiraiValue + ' + </rt></div></ruby>  '; #
-        # } else { #
-        # mathiraiInSeer = mathiraiInSeer + '<ruby class="type-t9"><div>s<span class="uiTrant">' + mathiraiKey + '</span><rt>' + mathiraiValue + ' + </rt></div></ruby>  '; #
+        # var mathiraiInSeer = ""; var key = 0; var l = 0; #
+        # var letterClass = { 'கு' : 'kuril', 'நெ' : 'nedil', 'மெ' : 'otru', 'ஃ' : 'aytham' }; #
+        # for(var w=0; w < detailedMathiraiCount.length; w++) { #
+        # $.each(detailedMathiraiCount[w], function(detailedMathiraiKey, detailedMathiraiValue) { #
+        # mathiraiInSeer = mathiraiInSeer + '&nbsp;' #
+        # $.each(detailedMathiraiValue, function(mathiraiKey, mathiraiValue) { #
+        # var rubyStyle = l === Object.keys(detailedMathiraiValue).length - 1 ? "m-r-xxs" : "m-r-n"; #
+        # var letter = mathiraiKey.split(":")[1]; #
+        # mathiraiInSeer = mathiraiInSeer + '<ruby class="' + rubyStyle + '"><div class="type-t9 text-center ' + letterClass[mathiraiValue.LetterType] +'"><rt>' + mathiraiValue.LetterType +'</rt></div><span class="uiTran type-t7">' + letter + '</span><rt>' + mathiraiValue.Mathirai +  '</rt></ruby>  '; #
+        # if(l !== Object.keys(detailedMathiraiValue).length - 1) { #
+        # mathiraiInSeer = mathiraiInSeer + '<ruby><div class="type-t9 text-center"><rt>&nbsp;</rt></div><span class="uiTrant type-t7">' + '&nbsp;' + '</span><rt>' + ' + ' +  '</rt></ruby>  '; #
         # } #
-        # key++; #
+        # l++; #
         # }) #
-        # mathiraiInSeer = mathiraiInSeer + '<ruby class="type-t9"><span class="uiTrant">' + '&nbsp;' + ' </span><rt>' + ' = ' + totalMathiraiCount + '</rt></ruby>
-        <br />'; #
+        # l = 0; key++; #
+        # }) #
+        # mathiraiInSeer = mathiraiInSeer + '<ruby><div class="type-t8 text-center"><rt>&nbsp;</rt></div><span class="uiTrant">' + '&nbsp;' + ' </span><rt>' + ' = ' + totalMathiraiCount + '</rt></ruby><br />'; #
         # } #
         #= mathiraiInSeer #
-    </script>*@
+        <hr />
+        <span class="kuril m-r-xxs type-t9">கு – குறில்</span>
+        <span class="nedil m-r-xxs type-t9">நெ – நெடில்</span>
+        <span class="otru m-r-xxs type-t9">மெ – மெய்</span>
+        <span class="aytham m-r-xxs type-t9">ஃ - ஆய்தம்</span>
+</script>
 
 <script type="text/x-kendo-template" id="mathiraiHelpTemplate">
-    <audio id="aud-mathirai" preload="auto">
-        <source src="/audio/mathirai.mp3" controls>
-        Your browser isn't invited for super fun audio time.
-    </audio>
-    <div class="helptext">
-        <span class="type-t6">மாத்திரை</span>
-        <br />
-        எழுத்து ஒலி அளவு மாத்திரை எனப்படும்.
-    </div>
-    <button id="play-mathirai" class="btn btn-primary btn-with-glyph"><i class="glyph glyph-play"></i>ஒலி</button>
-    <button id="play-mathirai" class="btn btn-primary btn-with-glyph" data-toggle="modal" data-target="\#modal-video-mathirai"><i class="glyph glyph-video"></i>நிகழ்படம்</button>
-    <br />
-    <br />
-    <table class="table theme-alt type-t9">
-        <thead>
-            <tr>
-                <th>எழுத்து</th>
-                <th>மாத்திரை</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="kuril">
-                <td>குறில்</td>
-                <td>1</td>
-            </tr>
-            <tr class="nedil">
-                <td>நெடில்</td>
-                <td>2</td>
-            </tr>
-            <tr class="otru">
-                <td>ஒற்று/மெய்</td>
-                <td>½</td>
-            </tr>
-            <tr class="aytham">
-                <td>ஆய்தம்</td>
-                <td>½</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <div class="modal modal-center-vertical" id="modal-video-mathirai" tabindex="-1" role="dialog" aria-labelledby="modal-about-menyappu-label" aria-hidden="true" style="display: none;">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="modal-sample-label">
-                        மென் யாப்பு
-                    </h4>
-                </div>
-                <div class="modal-body text-center">
-                    <iframe width="420" height="315" src="https://www.youtube.com/embed/AH4bCeBXFm4?start=396" frameborder="0" allowfullscreen></iframe>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">
-                        மூடு
-                    </button>
-                </div>
-            </div>
+        <div class="helptext">
+            <span class="type-t6">மாத்திரை</span>
+            <br />
+            எழுத்து ஒலி அளவு மாத்திரை எனப்படும்.
         </div>
-    </div>
-</script>
+        <div id="audio-video-controls-mathirai"></div>
+        <br />
+        <br />
+        <table class="table theme-alt type-t9">
+            <thead>
+                <tr>
+                    <th>எழுத்து</th>
+                    <th>மாத்திரை</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="kuril">
+                    <td>குறில்</td>
+                    <td>1</td>
+                </tr>
+                <tr class="nedil">
+                    <td>நெடில்</td>
+                    <td>2</td>
+                </tr>
+                <tr class="otru">
+                    <td>ஒற்று/மெய்</td>
+                    <td>½</td>
+                </tr>
+                <tr class="aytham">
+                    <td>ஆய்தம்</td>
+                    <td>½</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="modal modal-center-vertical" id="modal-video-mathirai" tabindex="-1" role="dialog" aria-labelledby="modal-about-menyappu-label" aria-hidden="true" style="display: none;">
+
+        </div>
+    </script>
 @{ Html.RenderPartial("_CommonKendoTemplates"); }
 <script src="/Scripts/prosody/MathiraiCalculator.js"></script>
 <script>
