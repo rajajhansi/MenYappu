@@ -148,11 +148,9 @@
     # var mathiraiInSeer = ""; #
     # for (var l=0; l < mathiraiCount.length; l++) { #
     # $.each(mathiraiCount[l], function(mathiraiKey, mathiraiValue) { #
-    # mathiraiInSeer = mathiraiInSeer + '
-    <ruby><span class="uiTrant">' + mathiraiKey + '</span><rt>' + mathiraiValue + '</rt></ruby>  '; #
+    # mathiraiInSeer = mathiraiInSeer + '<ruby><span class="uiTrant">' + mathiraiKey + '</span><rt>' + mathiraiValue + '</rt></ruby>  '; #
     # }) #
-    # mathiraiInSeer += '
-    <br />'; #
+    # mathiraiInSeer += '<br />'; #
     # } #
     #= mathiraiInSeer #
 </script>
@@ -166,34 +164,25 @@
             # $.each(parseTree, function(adiKey, adiValue) { #
             # var paaAsaiInAdi = ""; var asigalInAdi = "";	var vaippaduInAdi = ""; #
             # $.each(adiValue, function(seerKey, seerValue) { #
-            # paaAsaiInAdi = paaAsaiInAdi + '
-        <td>
-            ' #
-            # asigalInAdi = asigalInAdi + '
-        <td>
-            '#
-            # vaippaduInAdi = vaippaduInAdi + '
-        <td>
-            '#
+            # paaAsaiInAdi = paaAsaiInAdi + '<td>' #
+            # asigalInAdi = asigalInAdi + '<td>'#
+            # vaippaduInAdi = vaippaduInAdi + '<td>'#
             # $.each(seerValue, function(asaiKey, asaiValue) { #
             # $.each(asaiValue, function(key, value) { #
             # if(key != "meta" && key != "smeta") { #
             # if(new RegExp("^நேர்").test(key)) {  #
             # paaAsaiInAdi = paaAsaiInAdi + '<span class="nerasai">' + value + '</span>' #
-            # asigalInAdi = asigalInAdi + '<span class="nerasai">
-                ' + key #
+            # asigalInAdi = asigalInAdi + '<span class="nerasai">' + key #
                 # } else if(new RegExp("^நிரை").test(key)) { #
                 # paaAsaiInAdi = paaAsaiInAdi + '<span class="niryasai">' + value + '</span>' #
-                # asigalInAdi = asigalInAdi + '<span class="niryasai">
-                    ' + key #
+                # asigalInAdi = asigalInAdi + '<span class="niryasai">' + key #
                     # } else if( key == "பு") { #
                     # var spanClass = new RegExp("^நேர்").test(venLastSyllable) ? "nerasai" : "niryasai"; #
                     # paaAsaiInAdi = paaAsaiInAdi + '<span class="' + spanClass + '">' + value + '</span>' #
                     # } #
                     # } else { #
                     # if(key == "meta") { #
-                    # paaAsaiInAdi = paaAsaiInAdi + '
-        </td>' #
+                    # paaAsaiInAdi = paaAsaiInAdi + '</td>' #
         # asigalInAdi = asigalInAdi + '</td>'  #
         # vaippaduInAdi = vaippaduInAdi + value + '</td>' #
         # } #
