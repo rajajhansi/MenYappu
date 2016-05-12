@@ -46,6 +46,7 @@ namespace RjamSoft.Tamil.Grammar.Parser
         private bool WordBondClassCheck;
         private bool FinalSyllableClassCheck;
         private bool ThaniCholExists;
+        private bool IsLastSyllableSingleLetter = false;
 
         private bool ShouldParseKutriyalukaram = false;
         private bool ShouldParseVilaangaaySeer = false;
@@ -143,8 +144,39 @@ namespace RjamSoft.Tamil.Grammar.Parser
         }
         public ProsodyPart Parse(string prosodyText="")
         {
+            this.VenLastSyllable = string.Empty;
             InputSourceText = (prosodyText.Length > 0) ? prosodyText : InputSourceText;
             ProsodyText = Transliterator.Tamil2Latin(InputSourceText).Trim();
+            if (ShouldParseKutriyalukaram)
+            {
+                Regex kutriyalukaramRegex = new Regex(
+                  "([kcTpR]u)(\\s*)(_[aAiIuUeEoO])",
+                RegexOptions.IgnoreCase
+                | RegexOptions.Multiline
+                | RegexOptions.CultureInvariant
+                | RegexOptions.IgnorePatternWhitespace
+                | RegexOptions.Compiled
+                );
+                Regex kutriyalukaramAtEOLRegex = new Regex(
+                  "([kcTpR]u)(\\s*\\n)(_[aAiIuUeEoO])",
+                RegexOptions.IgnoreCase
+                | RegexOptions.Multiline
+                | RegexOptions.CultureInvariant
+                | RegexOptions.IgnorePatternWhitespace
+                | RegexOptions.Compiled
+                );
+                var regexReplacementString = "($1)$2$3";
+                ProsodyText = kutriyalukaramRegex.Replace(ProsodyText, regexReplacementString);
+                ProsodyText = kutriyalukaramAtEOLRegex.Replace(ProsodyText, regexReplacementString);
+
+                // Also make sure to run the kutriyalukam mun uyir test on each line of the paa
+                var lines = ProsodyText.Split(new string[] {"\n"}, StringSplitOptions.RemoveEmptyEntries);
+                for (int lineIndex = 0; lineIndex < lines.Length; lineIndex++)
+                {
+                    lines[lineIndex] = kutriyalukaramRegex.Replace(lines[lineIndex], regexReplacementString);
+                }
+                ProsodyText = string.Join("\n", lines);
+            }
             var tamilText = InputSourceText;
             this.LetterCount = GetLetterCount(tamilText);
             MathiraiCount = CalculateMathiraiForPaa(tamilText);
@@ -166,6 +198,7 @@ namespace RjamSoft.Tamil.Grammar.Parser
             this.WordBond = GetWordBond(this.ParseTreeRoot);
             this.LineClass = GetLineClass(this.ParseTreeRoot);
             this.MetreType = GetMetreType();
+
             return new ProsodyPart
                 {
                     MetreType = this.MetreType,
@@ -173,6 +206,7 @@ namespace RjamSoft.Tamil.Grammar.Parser
                     MathiraiCount = MathiraiCount,
                     TotalMathiraiCount = TotalMathiraiCount,
                     VenLastSyllable = VenLastSyllable,
+                    IsLastSyllableSingleLetter = IsLastSyllableSingleLetter,
                     ParseTree = this.ParseTreeRoot,
                     WordBond = this.WordBond,
                     Lines = this.InputSourceText.Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList<string>(),
@@ -792,8 +826,9 @@ namespace RjamSoft.Tamil.Grammar.Parser
             FinalSyllableClassCheck = (LastWord.Count == 2);
 
             // Check for nErpu and nirYpu
+            // I used to check only for Vallina Kutriyalugara Ezhuthugal
             if (LastWord.Count > 2 && LastWord["acY-2"].Values.ElementAt(0).Length == 2 &&
-                TamilLanguageConstants.VallinaKutriyalugaraEzhuthukal.IndexOf(
+                TamilLanguageConstants.KutriyalugaraEzhuthukal.IndexOf(
                 LastWord["acY-2"].Values.ElementAt(0).Substring(LastWord["acY-2"].Values.ElementAt(0).Length - 2)) >= 0)
             {
                 VenLastSyllable = LastWord["acY-1"].Keys.ElementAt(0) + "பு";
@@ -808,6 +843,11 @@ namespace RjamSoft.Tamil.Grammar.Parser
                 LastWord["meta"].Remove("meta");
                 LastWord["meta"].Add("meta", ProsodyGrammarConstants.VenpaTamilWordClass[VenLastSyllable]);
                 FinalSyllableClassCheck = true;
+            }
+            else
+            {
+                VenLastSyllable = LastWord["acY-1"].Keys.ElementAt(0);
+                IsLastSyllableSingleLetter = LastWord["acY-1"].Values.ElementAt(0).TamilLength() == 1;
             }
 
             HashSet<string> wrongBondsList = new HashSet<string>();

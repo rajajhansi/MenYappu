@@ -8,7 +8,7 @@
     <ul class="kendo-panelbars-custom" id="seyyulbar">
         <li>
             <h4 class="main-title">
-                #= ProsodyResourceManager.get("InputWord") #
+                #= ProsodyResourceManager.get("inputWord") #
                 <span class="main-title-icon glyph glyph-chevron-down"></span>
             </h4>
             <ul>
@@ -21,10 +21,10 @@
 
                             <div class="col-md-8 hidden" id="ezhuthuTypeSelector">
                                 <h4 class="game-section-title text-center">
-                                    #= ProsodyResourceManager.get("LetterTypes") #
+                                    #= ProsodyResourceManager.get("letterTypes") #
                                 </h4>
                                 <div id="ezhuthuCalculator" class="text-center text-t5 visible">
-                                    <span>#= ProsodyResourceManager.get("Count") #:</span>
+                                    <span>#= ProsodyResourceManager.get("count") #:</span>
                                     <span id="ezhuthuCount"></span>
                                 </div>
                                 <div id="ezhuthuTypes" class="type-t7">
@@ -51,7 +51,7 @@
                 <!--<p class="form-group-label">எழுத்து வகைகள்</p>-->
                 <div class="dropdown">
                     <button id="#= ezhuthuVagaiId #" class="btn btn-dropdown dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
-                        #= ProsodyResourceManager.get("SelectALetterType") #<span class="caret"></span>
+                        #= ProsodyResourceManager.get("selectALetterType") #<span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu" role="menu" aria-labelledby="#= ezhuthuVagaiId #">
                         # $.each(LetterTypeFinder.letterTypes, function(letterTypeKey, letterTypeValue) { #
@@ -69,8 +69,8 @@
         # mathiraiInSeer = mathiraiInSeer + '&nbsp;' #
         # $.each(detailedMathiraiValue, function(mathiraiKey, mathiraiValue) { #
         # var rubyStyle = l === Object.keys(detailedMathiraiValue).length - 1 ? "margin-right:10px" : "margin-right:0px"; #
-        # var letter = mathiraiKey.split(":")[1]; #
-        # mathiraiInSeer = mathiraiInSeer + '<ruby style="' + rubyStyle + '">'+'<span class="uiTrant type-t7">' + letter + '</span><rt class="' + LetterTypeFinder.letterCssClasses[mathiraiValue.LetterType] + '">' + mathiraiValue.LetterType +  '</rt></ruby>  '; #
+        # var letter = mathiraiKey.split(":")[1]; console.log(mathiraiKey + ' ' + letter); #
+        # mathiraiInSeer = mathiraiInSeer + '<ruby style="' + rubyStyle + '">'+'<span class="uiTrant type-t7">' + letter + '</span><rt class="' + LetterTypeFinder.letterCssClasses[mathiraiValue.letterType] + '">' + mathiraiValue.letterType +  '</rt></ruby>  '; #
         # l++; #
         # }) #
         # l = 0; key++; #
@@ -139,7 +139,7 @@
             $("#ProsodyText").blur(LetterTypeFinder.showInputAndResult);
             $("#prosodyForm").submit(function () {
                 Utility.hideResult();
-                var inputData = '{"InputText" : "' + $("#ProsodyText").val() + '"' +
+                var inputData = '{"inputText" : "' + $("#ProsodyText").val() + '"' +
                     '}';
                 var data = ProsodyService.mathiraiCount(inputData, LetterTypeFinder.showOutputWithResult);
 

@@ -330,7 +330,7 @@
 
         $("#prosodyForm").submit(function () {
             Utility.hideResult();
-            var data = '{"InputText" : "' + $("#ProsodyText").val() + '"' + '}';
+            var data = '{"inputText" : "' + $("#ProsodyText").val() + '"' + '}';
             ProsodyService.thalaiFinder(data, SeerFinder.showOutputWithResult);
             return false;
         });

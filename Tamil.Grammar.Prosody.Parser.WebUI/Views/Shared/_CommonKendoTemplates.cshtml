@@ -6,7 +6,7 @@
         <span class="text-t9">#= inputInfotip #</span>
     </div>
     <textarea class="panelbar-textarea" id="ProsodyText" rows="#= inputLines #" minlength="2"></textarea>
-    # var sample = ProsodyResourceManager.get("Sample"); var checkAnswer = ProsodyResourceManager.get("CheckAnswer"); #
+    # var sample = ProsodyResourceManager.get("sample"); var checkAnswer = ProsodyResourceManager.get("checkAnswer"); #
     <div class="control-group">
         <div class="controls">
             <button class="btn btn-primary btn-with-glyph" id="example"><i class="glyph glyph-import "></i>#= sample #</button>
@@ -17,7 +17,7 @@
 
 <script type="text/x-kendo-template" id="resultTemplate">
     # var partCorrect = part + "-correct"; var partIncorrect = part + "-incorrect"; var partExplanation = part + "-explanation"; #
-    # var result = ProsodyResourceManager.get("Result"); var howToSeeTheResult = ProsodyResourceManager.get("HowToSeeTheResult"); #
+    # var result = ProsodyResourceManager.get("result"); var howToSeeTheResult = ProsodyResourceManager.get("howToSeeTheResult"); #
     <div class="flip-container_click">
         <div class="flipper">
             <div class="front">
@@ -32,8 +32,8 @@
                 <h4 class="game-section-title text-center">
                     #= result #
                 </h4>
-                # var correct =  ProsodyResourceManager.get("Correct"); var incorrect = ProsodyResourceManager.get("Incorrect"); #
-                # var explanation = ProsodyResourceManager.get("Explanation"); var excellent = ProsodyResourceManager.get("Excellent"); #
+                # var correct =  ProsodyResourceManager.get("correct"); var incorrect = ProsodyResourceManager.get("incorrect"); #
+                # var explanation = ProsodyResourceManager.get("explanation"); var excellent = ProsodyResourceManager.get("excellent"); #
                 <div class="type-t3 text-center">
                     <button id="#= partCorrect #" class="right btn btn-success btn-with-glyph" aria-hidden="true" data-toggle="tooltip" data-placement="right"><i class="glyph glyph-checkmark"></i>#= correct #</button>
                     <button id="#= partIncorrect #" class="wrong btn btn-warning btn-with-glyph" aria-hidden="true" data-toggle="tooltip" data-placement="right">
@@ -53,7 +53,7 @@
 </script>
 
 <script type="text/x-kendo-template" id="multiResultsTemplate">
-    # var result = ProsodyResourceManager.get("Result"); var howToSeeTheResult = ProsodyResourceManager.get("HowToSeeTheResult"); #
+    # var result = ProsodyResourceManager.get("result"); var howToSeeTheResult = ProsodyResourceManager.get("howToSeeTheResult"); #
     <div class="flip-container_click">
         <div class="flipper">
             <div class="front">
@@ -73,8 +73,8 @@
                 # if(partInfo.partHeader) { #
                 <p class="form-group-label text-center">#= partInfo.partHeader #</p>
                 # } #
-                # var correct =  ProsodyResourceManager.get("Correct"); var incorrect = ProsodyResourceManager.get("Incorrect"); #
-                # var explanation = ProsodyResourceManager.get("Explanation"); var excellent = ProsodyResourceManager.get("Excellent"); #
+                # var correct =  ProsodyResourceManager.get("correct"); var incorrect = ProsodyResourceManager.get("incorrect"); #
+                # var explanation = ProsodyResourceManager.get("explanation"); var excellent = ProsodyResourceManager.get("excellent"); #
                 <div class="type-t3 text-center">
                     <button id="#= partCorrect #" class="right btn btn-success btn-with-glyph" aria-hidden="true" data-toggle="tooltip" data-placement="right"><i class="glyph glyph-checkmark"></i>#= correct #</button>
                     <button id="#= partIncorrect #" class="wrong btn btn-warning btn-with-glyph" aria-hidden="true" data-toggle="tooltip" data-placement="right">
@@ -100,7 +100,7 @@
         <source src="#= audioFile #" controls>
         Your browser isn't invited for super fun audio time.
     </audio>
-    # var audio = ProsodyResourceManager.get("Audio"); var video = ProsodyResourceManager.get("Video"); #
+    # var audio = ProsodyResourceManager.get("audio"); var video = ProsodyResourceManager.get("video"); #
     # var audioButtonId = "play-audio-" + part; var videoButtonId = "play-video-" + part; #
     # var modalVideoId = "\#modal-video-" + part; #
     <button id="#= audioButtonId #" class="btn btn-primary btn-with-glyph"><i class="glyph glyph-play"></i>#= audio #</button>
@@ -108,7 +108,7 @@
 </script>
 
 <script type="text/x-kendo-template" id="modalVideoHelpTemplate">
-    # var menYappu = ProsodyResourceManager.get("MenYappu"); var close = ProsodyResourceManager.get("Close"); #
+    # var menYappu = ProsodyResourceManager.get("menYappu"); var close = ProsodyResourceManager.get("close"); #
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">

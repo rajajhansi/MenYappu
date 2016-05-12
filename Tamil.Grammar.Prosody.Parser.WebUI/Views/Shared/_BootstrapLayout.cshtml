@@ -76,7 +76,7 @@
         Html.RenderPartial("_RightPanelBar");
     }
     <script type="text/x-kendo-template" id="aboutMenYappuTemplate">
-        # var menYappu = ProsodyResourceManager.get("MenYappu"); var aboutMenYappuDetails = ProsodyResourceManager.get("AboutMenYappuDetails"); #
+        # var menYappu = ProsodyResourceManager.get("menYappu"); var aboutMenYappuDetails = ProsodyResourceManager.get("aboutMenYappuDetails"); #
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -89,12 +89,12 @@
                 </div>
                 <br />
                 <div>
-                    # var task = ProsodyResourceManager.get("Task"); var executor = ProsodyResourceManager.get("Executor"); #
-                    # var softwareDevelopment = ProsodyResourceManager.get("SoftwareDevelopment"); var design = ProsodyResourceManager.get("Design"); #
-                    # var inspirationAndMotivation = ProsodyResourceManager.get("InspirationAndMotivation"); var suggestionAndReview = ProsodyResourceManager.get("SuggestionAndReview"); #
-                    # var rajaMani = ProsodyResourceManager.get("RajaMani"); var bogdanUrs = ProsodyResourceManager.get("BogdanUrs"); #
-                    # var vinodRajan = ProsodyResourceManager.get("VinodRajan"); var kandasamyPalanisamy = ProsodyResourceManager.get("KandasamyPalanisamy"); #
-                    # var close = ProsodyResourceManager.get("Close"); #
+                    # var task = ProsodyResourceManager.get("task"); var executor = ProsodyResourceManager.get("executor"); #
+                    # var softwareDevelopment = ProsodyResourceManager.get("softwareDevelopment"); var design = ProsodyResourceManager.get("design"); #
+                    # var inspirationAndMotivation = ProsodyResourceManager.get("inspirationAndMotivation"); var suggestionAndReview = ProsodyResourceManager.get("suggestionAndReview"); #
+                    # var rajaMani = ProsodyResourceManager.get("rajaMani"); var bogdanUrs = ProsodyResourceManager.get("bogdanUrs"); #
+                    # var vinodRajan = ProsodyResourceManager.get("vinodRajan"); var kandasamyPalanisamy = ProsodyResourceManager.get("kandasamyPalanisamy"); #
+                    # var close = ProsodyResourceManager.get("close"); #
                     <table class="table">
                         <thead>
                             <tr><th>#= task #</th><th>#= executor #</th></tr>
@@ -160,7 +160,7 @@
                     }
                 },
                 collapsedText: {
-                    'right': ProsodyResourceManager.get("Help")
+                    'right': ProsodyResourceManager.get("help")
                 },
                 callbacks: {
                     beforeCollapse: {

@@ -205,7 +205,7 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Do not parse short-u before initial vowels.
+        ///   Looks up a localized string similar to Do not parse initial vowels before short-u.
         /// </summary>
         public static string DoNotParseShortUBeforeInitialVowels {
             get {
@@ -705,6 +705,15 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         public static string Task {
             get {
                 return ResourceManager.GetString("Task", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Thirukkural Analysis.
+        /// </summary>
+        public static string ThirukkuralAnalysis {
+            get {
+                return ResourceManager.GetString("ThirukkuralAnalysis", resourceCulture);
             }
         }
         

@@ -1,5 +1,5 @@
 ﻿<script type="text/x-kendo-template" id="topNavigationBarTemplate">
-    # var menYappu = ProsodyResourceManager.get("MenYappu"); #
+    # var menYappu = ProsodyResourceManager.get("menYappu"); #
     <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="\#bs-example-navbar-collapse-1">
             <span class="sr-only">Toggle navigation</span>
@@ -9,11 +9,11 @@
         <a class="navbar-brand no-outline" href="\#">#= menYappu #</a>
     </div>
 
-    # var prosody = ProsodyResourceManager.get("Prosody"); #
-    # var letter = ProsodyResourceManager.get("Letter"); var metreme = ProsodyResourceManager.get("Metreme"); #
-    # var metricalFeet = ProsodyResourceManager.get("MetricalFeet");  var linkage = ProsodyResourceManager.get("Linkage"); #
-    # var metricalLine = ProsodyResourceManager.get("MetricalLine");  var ornamentation = ProsodyResourceManager.get("Ornamentation"); #
-    # var sound = ProsodyResourceManager.get("Sound"); #
+    # var prosody = ProsodyResourceManager.get("prosody"); #
+    # var letter = ProsodyResourceManager.get("letter"); var metreme = ProsodyResourceManager.get("metreme"); #
+    # var metricalFeet = ProsodyResourceManager.get("metricalFeet");  var linkage = ProsodyResourceManager.get("linkage"); #
+    # var metricalLine = ProsodyResourceManager.get("metricalLine");  var ornamentation = ProsodyResourceManager.get("ornamentation"); #
+    # var sound = ProsodyResourceManager.get("sound"); #
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
             <li class="dropdown">
@@ -29,9 +29,9 @@
                     <li><a href="\#">#= sound #</a></li>
                 </ul>
             </li>
-            # var paaTypes = ProsodyResourceManager.get("PaaTypes"); #
-            # var venpaa = ProsodyResourceManager.get("Venpaa"); var asiriyappaa = ProsodyResourceManager.get("Asiriyappaa"); #
-            # var kalippaa = ProsodyResourceManager.get("Kalippaa");  var vanjippaa = ProsodyResourceManager.get("Vanjippaa"); #
+            # var paaTypes = ProsodyResourceManager.get("paaTypes"); #
+            # var venpaa = ProsodyResourceManager.get("venpaa"); var asiriyappaa = ProsodyResourceManager.get("asiriyappaa"); #
+            # var kalippaa = ProsodyResourceManager.get("kalippaa");  var vanjippaa = ProsodyResourceManager.get("vanjippaa"); #
             <li class="dropdown">
                 <a href="\#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">#= paaTypes #<i class="glyph glyph-chevron-down-2"></i></a>
                 <ul class="dropdown-menu nosel" role="menu">
@@ -41,9 +41,9 @@
                     <li><a href="\#">#= vanjippaa #</a></li>
                 </ul>
             </li>
-            # var paaCategories = ProsodyResourceManager.get("PaaCategories"); #
-            # var venpaavinam = ProsodyResourceManager.get("Venpaavinam");  var asiriyappaavinam = ProsodyResourceManager.get("Asiriyappaavinam"); #
-            # var kalippaavinam = ProsodyResourceManager.get("Kalippaavinam");  var vanjippaavinam = ProsodyResourceManager.get("Vanjippaavinam"); #
+            # var paaCategories = ProsodyResourceManager.get("paaCategories"); #
+            # var venpaavinam = ProsodyResourceManager.get("venpaavinam");  var asiriyappaavinam = ProsodyResourceManager.get("asiriyappaavinam"); #
+            # var kalippaavinam = ProsodyResourceManager.get("kalippaavinam");  var vanjippaavinam = ProsodyResourceManager.get("vanjippaavinam"); #
             <li class="dropdown">
                 <a href="\#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">#= paaCategories # <i class="glyph glyph-chevron-down-2"></i></a>
                 <ul class="dropdown-menu nosel" role="menu">
@@ -54,7 +54,7 @@
                 </ul>
             </li>
         </ul>
-        # var search = ProsodyResourceManager.get("Search"); #
+        # var search = ProsodyResourceManager.get("search"); #
         <form class="navbar-form navbar-right" role="search">
             <div class="dropdown">
                 <button id="language" class="btn btn-dropdown dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">

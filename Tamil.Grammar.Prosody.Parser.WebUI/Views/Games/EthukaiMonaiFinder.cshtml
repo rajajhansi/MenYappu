@@ -300,9 +300,9 @@
             /*var data = '{"EthukaiPair" : { "InputText" : "' + $("#ethukaiInputText").val().trim() + '", "ThodaiText" : "' + $("#ethukaiText").val().trim() + '"},'
                 + '"MonaiPair" : { "InputText" : "' + $("#monaiInputText").val().trim() + '", "ThodaiText" : "' + $("#monaiText").val().trim() + '"},'
                 + '"IyaipuPair" : { "InputText" : "' + $("#iyaipuInputText").val().trim() + '", "ThodaiText" : "' + $("#iyaipuText").val().trim() + '"} }'; */
-            var data = '{"ThodaiPairs" : [{ "InputText" : "' + $("#monaiInputText").val().trim() + '", "ThodaiText" : "' + $("#monaiText").val().trim() + '"},'
-                + '{ "InputText" : "' + $("#ethukaiInputText").val().trim() + '", "ThodaiText" : "' + $("#ethukaiText").val().trim() + '"},'
-                + '{ "InputText" : "' + $("#iyaipuInputText").val().trim() + '", "ThodaiText" : "' + $("#iyaipuText").val().trim() + '"}] }';
+            var data = '{"thodaiPairs" : [{ "inputText" : "' + $("#monaiInputText").val().trim() + '", "thodaiText" : "' + $("#monaiText").val().trim() + '"},'
+                + '{ "inputText" : "' + $("#ethukaiInputText").val().trim() + '", "thodaiText" : "' + $("#ethukaiText").val().trim() + '"},'
+                + '{ "inputText" : "' + $("#iyaipuInputText").val().trim() + '", "thodaiText" : "' + $("#iyaipuText").val().trim() + '"}] }';
             ProsodyService.thodaiChecker(data, EthukaiMonaiFinder.showOutputWithResult);
             return false;
         });

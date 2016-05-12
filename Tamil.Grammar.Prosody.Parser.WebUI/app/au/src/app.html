@@ -1,0 +1,14 @@
+<template>
+  <require from="nav-bar.html"></require>
+<!--  <require from="bootstrap/dist/css/bootstrap.css"></require> -->
+  <require from="left-nav-bar.html"></require>
+ <div id="head-winstrap">
+    <nav-bar router.bind="router"></nav-bar>
+  </div>
+    <div class="container-wrap" id="container-wrapper-with-panels">
+        <router-view></router-view>
+        <left-nav-bar router.bind="router"></left-nav-bar>
+        <div class="right-panelbar">
+        </div>
+    </div>
+</template>

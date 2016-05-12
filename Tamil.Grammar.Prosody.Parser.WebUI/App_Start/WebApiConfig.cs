@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Web.Http;
 using Microsoft.Owin.Security.OAuth;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
 namespace Tamil.Grammar.Prosody.Parser.WebUI
@@ -17,6 +18,7 @@ namespace Tamil.Grammar.Prosody.Parser.WebUI
             config.SuppressDefaultHostAuthentication();
             config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
 
+            ConfigureCamelCaseSerialization(config);
             // Web API routes
             config.MapHttpAttributeRoutes();
 
@@ -25,6 +27,21 @@ namespace Tamil.Grammar.Prosody.Parser.WebUI
                 routeTemplate: "api/{controller}/{action}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+        }
+
+        private static void ConfigureCamelCaseSerialization(HttpConfiguration config)
+        {
+            var jsonFormatter = config.Formatters.JsonFormatter;
+            // This next line is not required for it to work, but here for completeness - ignore data contracts.
+            jsonFormatter.UseDataContractJsonSerializer = false;
+            var settings = jsonFormatter.SerializerSettings;
+#if DEBUG
+            // Pretty json for developers.
+            settings.Formatting = Formatting.Indented;
+#else
+        settings.Formatting = Formatting.None;
+#endif
+            settings.ContractResolver = new CamelCasePropertyNamesContractResolver();
         }
     }
 }

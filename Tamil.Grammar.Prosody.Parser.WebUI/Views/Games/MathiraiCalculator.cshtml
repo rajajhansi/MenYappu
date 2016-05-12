@@ -8,7 +8,7 @@
     <ul class="kendo-panelbars-custom" id="seyyulbar">
         <li>
             <h4 class="main-title">
-                #= ProsodyResourceManager.get("InputWord") #
+                #= ProsodyResourceManager.get("inputWord") #
                 <span class="main-title-icon glyph glyph-chevron-down"></span>
             </h4>
             <ul>
@@ -20,14 +20,14 @@
                             </div>
                             <div class="col-md-8" id="additionalInput">
                                 <h4 class="game-section-title text-center">
-                                    #= ProsodyResourceManager.get("DurationCount") #
+                                    #= ProsodyResourceManager.get("durationCount") #
                                 </h4>
                                 <div class="infotip">
-                                    <span class="text-t9">#= ProsodyResourceManager.get("EnterDurationCountAndCheckResult") #</span>
+                                    <span class="text-t9">#= ProsodyResourceManager.get("enterDurationCountAndCheckResult") #</span>
                                 </div>
                                 <textarea class="panelbar-textarea" id="MathiraiCount" rows="1" minlength="1"></textarea>
                                 <div id="rightMathiraiCount" class="type-t5 hidden">
-                                    <h4 class="game-section-title">#= ProsodyResourceManager.get("CorrectDurationCount") #</h4>
+                                    <h4 class="game-section-title">#= ProsodyResourceManager.get("correctDurationCount") #</h4>
                                     <span class="cspan" id="CalculatedMathiraiCount"></span>
                                 </div>
 
@@ -52,7 +52,7 @@
         # $.each(detailedMathiraiValue, function(mathiraiKey, mathiraiValue) { #
         # var rubyStyle = l === Object.keys(detailedMathiraiValue).length - 1 ? "m-r-xxs" : "m-r-n"; #
         # var letter = mathiraiKey.split(":")[1]; #
-        # mathiraiInSeer = mathiraiInSeer + '<ruby class="' + rubyStyle + '"><div class="type-t9 text-center ' + letterClass[mathiraiValue.LetterType] +'"><rt>' + mathiraiValue.LetterType +'</rt></div><span class="uiTran type-t7">' + letter + '</span><rt>' + mathiraiValue.Mathirai +  '</rt></ruby>  '; #
+        # mathiraiInSeer = mathiraiInSeer + '<ruby class="' + rubyStyle + '"><div class="type-t9 text-center ' + letterClass[mathiraiValue.letterType] +'"><rt>' + mathiraiValue.letterType +'</rt></div><span class="uiTran type-t7">' + letter + '</span><rt>' + mathiraiValue.mathirai +  '</rt></ruby>  '; #
         # if(l !== Object.keys(detailedMathiraiValue).length - 1) { #
         # mathiraiInSeer = mathiraiInSeer + '<ruby><div class="type-t9 text-center"><rt>&nbsp;</rt></div><span class="uiTrant type-t7">' + '&nbsp;' + '</span><rt>' + ' + ' +  '</rt></ruby>  '; #
         # } #
@@ -118,7 +118,7 @@
 
         $("#prosodyForm").submit(function () {
             Utility.hideResult();
-            var data = '{"InputText" : "' + $("#ProsodyText").val() + '"' +
+            var data = '{"inputText" : "' + $("#ProsodyText").val() + '"' +
                 '}';
             ProsodyService.mathiraiCount(data, MathiraiCalculator.showOutputWithResult);
             return false;

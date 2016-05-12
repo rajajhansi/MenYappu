@@ -123,7 +123,7 @@
         AdiMeasurer.init();
         $("#prosodyForm").submit(function () {
             Utility.hideResult();
-            var data = '{"InputText" : "' + $("#ProsodyText").val() + '"' + '}';
+            var data = '{"inputText" : "' + $("#ProsodyText").val() + '"' + '}';
             ProsodyService.adiMeasurer(data, AdiMeasurer.showOutputWithResult);
         });
         return false;

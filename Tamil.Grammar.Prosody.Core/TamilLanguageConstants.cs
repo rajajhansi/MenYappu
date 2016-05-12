@@ -254,6 +254,9 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Core
 
         public static List<string> VallinaKutriyalugaraEzhuthukal = new List<string>
             {"கு", "சு", "டு", "து", "பு", "று"};
+
+        public static List<string> KutriyalugaraEzhuthukal = new List<string>
+            { "கு", "சு", "டு", "து", "பு", "று", "ஙு", "ஞு", "ணு", "நு", "மு", "னு", "யு", "ரு", "லு", "வு", "ழு", "ளு", "று"};
         public static List<char> UyirMeyKurilEzuthukkal = new List<char>
         {
             /*'அ',  'இ',  'உ',  'எ',   'ஒ', */

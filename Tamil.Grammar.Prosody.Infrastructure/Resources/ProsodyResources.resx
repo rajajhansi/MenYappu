@@ -193,7 +193,7 @@
     <value>Count</value>
   </data>
   <data name="DoNotParseShortUBeforeInitialVowels" xml:space="preserve">
-    <value>Do not parse short-u before initial vowels</value>
+    <value>Do not parse initial vowels before short-u</value>
   </data>
   <data name="EliminateVilaankaayMetricalFeet" xml:space="preserve">
     <value>Elimiate Vilaankaay Metrica Feet</value>
@@ -368,5 +368,8 @@
   </data>
   <data name="WordOrSentence" xml:space="preserve">
     <value>Word (or) Sentence</value>
+  </data>
+  <data name="ThirukkuralAnalysis" xml:space="preserve">
+    <value>Thirukkural Analysis</value>
   </data>
 </root>

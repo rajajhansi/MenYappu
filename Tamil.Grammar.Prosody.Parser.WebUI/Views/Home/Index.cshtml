@@ -7,9 +7,9 @@
 </div>
 
 <script type="text/x-kendo-template" id="poemComposerInputTemplate">
-    # var inputTheVerse = ProsodyResourceManager.get("InputTheVerse"); var parse = ProsodyResourceManager.get("Parse"); #
-    # var clear = ProsodyResourceManager.get("Clear"); var doNotParseShortUBeforeInitialVowels = ProsodyResourceManager.get("DoNotParseShortUBeforeInitialVowels"); #
-    # var eliminateVilaankaayMetricalFeet = ProsodyResourceManager.get("EliminateVilaankaayMetricalFeet"); var compareWithVenpaaRules = ProsodyResourceManager.get("CompareWithVenpaaRules"); #
+    # var inputTheVerse = ProsodyResourceManager.get("inputTheVerse"); var parse = ProsodyResourceManager.get("parse"); #
+    # var clear = ProsodyResourceManager.get("clear"); var doNotParseShortUBeforeInitialVowels = ProsodyResourceManager.get("doNotParseShortUBeforeInitialVowels"); #
+    # var eliminateVilaankaayMetricalFeet = ProsodyResourceManager.get("eliminateVilaankaayMetricalFeet"); var compareWithVenpaaRules = ProsodyResourceManager.get("compareWithVenpaaRules"); #
     <ul class="kendo-panelbars-custom" id="seyyulbar">
         <li>
             <h4 class="main-title">
@@ -54,11 +54,11 @@
         </li>
     </ul>
 
-    # var parsedResults = ProsodyResourceManager.get("ParsedResults"); var parse = ProsodyResourceManager.get("Parse"); #
-    # var letter = ProsodyResourceManager.get("Letter"); var metremeAndMetricalFeet = ProsodyResourceManager.get("MetremeAndMetricalFeet"); #
-    # var linkage = ProsodyResourceManager.get("Linkage"); var metricalLine = ProsodyResourceManager.get("MetricalLine"); #
-    # var alliteration = ProsodyResourceManager.get("Alliteration"); var rhyme = ProsodyResourceManager.get("Rhyme"); #
-    # var endRhyme = ProsodyResourceManager.get("EndRhyme"); var venpaaRulesComparison = ProsodyResourceManager.get("VenpaaRulesComparison"); #
+    # var parsedResults = ProsodyResourceManager.get("parsedResults"); var parse = ProsodyResourceManager.get("parse"); #
+    # var letter = ProsodyResourceManager.get("letter"); var metremeAndMetricalFeet = ProsodyResourceManager.get("metremeAndMetricalFeet"); #
+    # var linkage = ProsodyResourceManager.get("linkage"); var metricalLine = ProsodyResourceManager.get("metricalLine"); #
+    # var alliteration = ProsodyResourceManager.get("alliteration"); var rhyme = ProsodyResourceManager.get("rhyme"); #
+    # var endRhyme = ProsodyResourceManager.get("endRhyme"); var venpaaRulesComparison = ProsodyResourceManager.get("venpaaRulesComparison"); #
     <ul class="kendo-panelbars-custom" id="seyyulResult">
         <li>
             <h4 class="main-title">
@@ -457,7 +457,7 @@
 
         $("#prosodyForm").submit(function () {
             var shouldCompareVenpaRules = $("#ShouldCompareVenpaRules").is(':checked');
-            var data = '{"ProsodyText" : "' + $("#ProsodyText").val() + '"' +
+            var data = '{"prosodyText" : "' + $("#ProsodyText").val() + '"' +
                 ', "ShouldParseKutriyalukaram" : "' + $("#ShouldParseKutriyalukaram").is(':checked') + '"' +
                 ', "ShouldParseVilaangaaySeer" : "' + $("#ShouldParseVilaangaaySeer").is(':checked') + '"' +
                 ', "ShouldCompareVenpaRules" : "' + shouldCompareVenpaRules + '"' +
@@ -475,60 +475,55 @@
                     var ezhuthuTemplate = kendo.template($("#ezhuthuTemplate").html());
 
                     $("#tabstrip-" + (TabNames.Letter + 1)).html(ezhuthuTemplate({
-                        uyirEzhuthugal: data["LetterCount"]["@TamilLanguageConstants.Vowel"],
-                        meyEzhuthugal: data["LetterCount"]["@TamilLanguageConstants.Consonant"],
-                        uyirMeyEzhuthugal: data["LetterCount"]["@TamilLanguageConstants.ConsonantVowel"],
-                        aydhaEzhuthu: data["LetterCount"]["@TamilLanguageConstants.Aytham"],
-                        kurilEzhuthugal: data["LetterCount"]["@TamilLanguageConstants.Kuril"],
-                        nedilEzhuthugal: data["LetterCount"]["@TamilLanguageConstants.Nedil"],
-                        mathiraiCount: data["MathiraiCount"],
-                        totalMathiraiCount: data["TotalMathiraiCount"]
+                        uyirEzhuthugal: data["letterCount"]["@TamilLanguageConstants.Vowel"],
+                        meyEzhuthugal: data["letterCount"]["@TamilLanguageConstants.Consonant"],
+                        uyirMeyEzhuthugal: data["letterCount"]["@TamilLanguageConstants.ConsonantVowel"],
+                        aydhaEzhuthu: data["letterCount"]["@TamilLanguageConstants.Aytham"],
+                        kurilEzhuthugal: data["letterCount"]["@TamilLanguageConstants.Kuril"],
+                        nedilEzhuthugal: data["letterCount"]["@TamilLanguageConstants.Nedil"],
+                        mathiraiCount: data["mathiraiCount"],
+                        totalMathiraiCount: data["totalMathiraiCount"]
                     }));
 
                     var seerTemplate = kendo.template($("#seerTemplate").html());
                     $("#tabstrip-" + (TabNames.Metreme + 1)).html(seerTemplate({
-                        paaVagai: data["MetreType"],
-                        parseTree: data["ParseTree"],
-                        venLastSyllable: data["VenLastSyllable"]
+                        paaVagai: data["metreType"],
+                        parseTree: data["parseTree"],
+                        venLastSyllable: data["venLastSyllable"]
                     }));
 
                     var thalaiTemplate = kendo.template($("#thalaiTemplate").html());
                     $("#tabstrip-" + (TabNames.Linkage + 1)).html(thalaiTemplate({
-                        wordBond: data["WordBond"]
+                        wordBond: data["wordBond"]
                     }));
                     var adiTemplate = kendo.template($("#adiTemplate").html());
                     $("#tabstrip-" + (TabNames.MetricalLine + 1)).html(adiTemplate({
-                        adigal: data["Lines"],
-                        adiVagaigal: data["LineClass"]
+                        adigal: data["lines"],
+                        adiVagaigal: data["lineClass"]
                     }));
                     var monaiTemplate = kendo.template($("#monaiTemplate").html());
                     $("#tabstrip-" + (TabNames.Alliteration + 1)).html(monaiTemplate({
-                        adigal: data["Lines"],
-                        seerMonaiWithinAdi: data["SeerMonaiWithinAdi"],
-                        matchingAdiMonai: data["MatchingAdiMonai"]
+                        adigal: data["lines"],
+                        seerMonaiWithinAdi: data["seerMonaiWithinAdi"],
+                        matchingAdiMonai: data["matchingAdiMonai"]
                     }));
                     var ethukaiTemplate = kendo.template($("#ethukaiTemplate").html());
                     $("#tabstrip-" + (TabNames.Rhyme + 1)).html(ethukaiTemplate({
-                        adigal: data["Lines"],
-                        seerEthukaiWithinAdi: data["SeerEthukaiWithinAdi"],
-                        matchingAdiEthukai: data["MatchingAdiEthukai"]
+                        adigal: data["lines"],
+                        seerEthukaiWithinAdi: data["seerEthukaiWithinAdi"],
+                        matchingAdiEthukai: data["matchingAdiEthukai"]
                     }));
                     var iyaipuTemplate = kendo.template($("#iyaipuTemplate").html());
                     $("#tabstrip-" + (TabNames.EndRhyme + 1)).html(iyaipuTemplate({
-                        adigal: data["Lines"],
-                        seerIyaipuWithinAdi: data["SeerIyaipuWithinAdi"],
-                        matchingAdiIyaipu: data["MatchingAdiIyaipu"]
+                        adigal: data["lines"],
+                        seerIyaipuWithinAdi: data["seerIyaipuWithinAdi"],
+                        matchingAdiIyaipu: data["matchingAdiIyaipu"]
                     }));
                     var vidhiOppeeduTemplate = kendo.template($("#vidhiOppeeduTemplate").html());
                     $("#tabstrip-" + (TabNames.VenpaRulesComparison + 1)).html(vidhiOppeeduTemplate({
-                        venpaError: data["VenpaError"]
+                        venpaError: data["venpaError"]
                     }));
                     toggleTab(TabNames.VenpaRulesComparison, shouldCompareVenpaRules);
-                    //if (shouldCompareVenpaRules) {
-                    //    showTab(TabNames.VenpaRulesComparison);
-                    //} else {
-                    //    hideTab(TabNames.VenpaRulesComparison);
-                    //}
                 },
                 error: function (data) {
                     alert('error');

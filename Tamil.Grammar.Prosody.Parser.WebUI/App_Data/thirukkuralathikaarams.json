@@ -1,0 +1,667 @@
+[
+  {
+    "id": "1.1.1",
+    "athikaaramNumber": "1",
+    "name": "கடவுள் வாழ்த்து"
+  },
+  {
+    "id": "1.1.2",
+    "athikaaramNumber": "2",
+    "name": "வான்சிறப்பு"
+  },
+  {
+    "id": "1.1.3",
+    "athikaaramNumber": "3",
+    "name": "நீத்தார் பெருமை"
+  },
+  {
+    "id": "1.1.4",
+    "athikaaramNumber": "4",
+    "name": "அறன்வலியுறுத்தல்"
+  },
+  {
+    "id": "1.2.1",
+    "athikaaramNumber": "5",
+    "name": "இல்வாழ்க்கை"
+  },
+  {
+    "id": "1.2.2",
+    "athikaaramNumber": "6",
+    "name": "வாழ்க்கைத் துணைநலம்"
+  },
+  {
+    "id": "1.2.3",
+    "athikaaramNumber": "7",
+    "name": "புதல்வரைப் பெறுதல்"
+  },
+  {
+    "id": "1.2.4",
+    "athikaaramNumber": "8",
+    "name": "அன்புடைமை"
+  },
+  {
+    "id": "1.2.5",
+    "athikaaramNumber": "9",
+    "name": "விருந்தோம்பல்"
+  },
+  {
+    "id": "1.2.6",
+    "athikaaramNumber": "10",
+    "name": "இனியவைகூறல்"
+  },
+  {
+    "id": "1.2.7",
+    "athikaaramNumber": "11",
+    "name": "செய்ந்நன்றி அறிதல்"
+  },
+  {
+    "id": "1.2.8",
+    "athikaaramNumber": "12",
+    "name": "நடுவு நிலைமை"
+  },
+  {
+    "id": "1.2.9",
+    "athikaaramNumber": "13",
+    "name": "அடக்கமுடைமை"
+  },
+  {
+    "id": "1.2.10",
+    "athikaaramNumber": "14",
+    "name": "ஒழுக்கமுடைமை"
+  },
+  {
+    "id": "1.2.11",
+    "athikaaramNumber": "15",
+    "name": "பிறனில் விழையாமை"
+  },
+  {
+    "id": "1.2.12",
+    "athikaaramNumber": "16",
+    "name": "பொறையுடைமை"
+  },
+  {
+    "id": "1.2.13",
+    "athikaaramNumber": "17",
+    "name": "அழுக்காறாமை"
+  },
+  {
+    "id": "1.2.14",
+    "athikaaramNumber": "18",
+    "name": "வெஃகாமை"
+  },
+  {
+    "id": "1.2.15",
+    "athikaaramNumber": "19",
+    "name": "புறங்கூறாமை"
+  },
+  {
+    "id": "1.2.16",
+    "athikaaramNumber": "20",
+    "name": "பயனில சொல்லாமை"
+  },
+  {
+    "id": "1.2.17",
+    "athikaaramNumber": "21",
+    "name": "தீவினையச்சம்"
+  },
+  {
+    "id": "1.2.18",
+    "athikaaramNumber": "22",
+    "name": "ஒப்புரவறிதல்"
+  },
+  {
+    "id": "1.2.19",
+    "athikaaramNumber": "23",
+    "name": "ஈகை"
+  },
+  {
+    "id": "1.2.20",
+    "athikaaramNumber": "24",
+    "name": "புகழ்"
+  },
+  {
+    "id": "1.3.1",
+    "athikaaramNumber": "25",
+    "name": "அருளுடைமை"
+  },
+  {
+    "id": "1.3.2",
+    "athikaaramNumber": "26",
+    "name": "புலான்மறுத்தல்"
+  },
+  {
+    "id": "1.3.3",
+    "athikaaramNumber": "27",
+    "name": "தவம்"
+  },
+  {
+    "id": "1.3.4",
+    "athikaaramNumber": "28",
+    "name": "கூடாவொழுக்கம்"
+  },
+  {
+    "id": "1.3.5",
+    "athikaaramNumber": "29",
+    "name": "கள்ளாமை"
+  },
+  {
+    "id": "1.3.6",
+    "athikaaramNumber": "30",
+    "name": "வாய்மை"
+  },
+  {
+    "id": "1.3.7",
+    "athikaaramNumber": "31",
+    "name": "வெகுளாமை"
+  },
+  {
+    "id": "1.3.8",
+    "athikaaramNumber": "32",
+    "name": "இன்னாசெய்யாமை"
+  },
+  {
+    "id": "1.3.9",
+    "athikaaramNumber": "33",
+    "name": "கொல்லாமை"
+  },
+  {
+    "id": "1.3.10",
+    "athikaaramNumber": "34",
+    "name": "நிலையாமை"
+  },
+  {
+    "id": "1.3.11",
+    "athikaaramNumber": "35",
+    "name": "துறவு"
+  },
+  {
+    "id": "1.3.12",
+    "athikaaramNumber": "36",
+    "name": "மெய்யுணர்தல்"
+  },
+  {
+    "id": "1.3.13",
+    "athikaaramNumber": "37",
+    "name": "அவாவறுத்தல்"
+  },
+  {
+    "id": "1.4.1",
+    "athikaaramNumber": "38",
+    "name": "ஊழ்"
+  },
+  {
+    "id": "2.1.1",
+    "athikaaramNumber": "39",
+    "name": "இறைமாட்சி"
+  },
+  {
+    "id": "2.1.2",
+    "athikaaramNumber": "40",
+    "name": "கல்வி"
+  },
+  {
+    "id": "2.1.3",
+    "athikaaramNumber": "41",
+    "name": "கல்லாமை"
+  },
+  {
+    "id": "2.1.4",
+    "athikaaramNumber": "42",
+    "name": "கேள்வி"
+  },
+  {
+    "id": "2.1.5",
+    "athikaaramNumber": "43",
+    "name": "அறிவுடைமை"
+  },
+  {
+    "id": "2.1.6",
+    "athikaaramNumber": "44",
+    "name": "குற்றங்கடிதல்"
+  },
+  {
+    "id": "2.1.7",
+    "athikaaramNumber": "45",
+    "name": "பெரியாரைத் துணைக்கோடல்"
+  },
+  {
+    "id": "2.1.8",
+    "athikaaramNumber": "46",
+    "name": "சிற்றினஞ்சேராமை"
+  },
+  {
+    "id": "2.1.9",
+    "athikaaramNumber": "47",
+    "name": "தெரிந்துசெயல்வகை"
+  },
+  {
+    "id": "2.1.10",
+    "athikaaramNumber": "48",
+    "name": "வலியறிதல்"
+  },
+  {
+    "id": "2.1.11",
+    "athikaaramNumber": "49",
+    "name": "காலமறிதல்"
+  },
+  {
+    "id": "2.1.12",
+    "athikaaramNumber": "50",
+    "name": "இடனறிதல்"
+  },
+  {
+    "id": "2.1.13",
+    "athikaaramNumber": "51",
+    "name": "தெரிந்துதெளிதல்"
+  },
+  {
+    "id": "2.1.14",
+    "athikaaramNumber": "52",
+    "name": "தெரிந்துவினையாடல்"
+  },
+  {
+    "id": "2.1.15",
+    "athikaaramNumber": "53",
+    "name": "சுற்றந்தழால்"
+  },
+  {
+    "id": "2.1.16",
+    "athikaaramNumber": "54",
+    "name": "பொச்சாவாமை"
+  },
+  {
+    "id": "2.1.17",
+    "athikaaramNumber": "55",
+    "name": "செங்கோன்மை"
+  },
+  {
+    "id": "2.1.18",
+    "athikaaramNumber": "56",
+    "name": "கொடுங்கோன்மை"
+  },
+  {
+    "id": "2.1.19",
+    "athikaaramNumber": "57",
+    "name": "வெருவந்தசெய்யாமை"
+  },
+  {
+    "id": "2.1.20",
+    "athikaaramNumber": "58",
+    "name": "கண்ணோட் டம்"
+  },
+  {
+    "id": "2.1.21",
+    "athikaaramNumber": "59",
+    "name": "ஒற்றாடல்"
+  },
+  {
+    "id": "2.1.22",
+    "athikaaramNumber": "60",
+    "name": "ஊக்கமுடைமை"
+  },
+  {
+    "id": "2.1.23",
+    "athikaaramNumber": "61",
+    "name": "மடியின்மை"
+  },
+  {
+    "id": "2.1.24",
+    "athikaaramNumber": "62",
+    "name": "ஆள்வினையுடைமை"
+  },
+  {
+    "id": "2.1.25",
+    "athikaaramNumber": "63",
+    "name": "இடுக்கணழியாமை"
+  },
+  {
+    "id": "2.2.1",
+    "athikaaramNumber": "64",
+    "name": "அமைச்சு"
+  },
+  {
+    "id": "2.2.2",
+    "athikaaramNumber": "65",
+    "name": "சொல்வன்மை"
+  },
+  {
+    "id": "2.2.3",
+    "athikaaramNumber": "66",
+    "name": "வினைத்தூய்மை"
+  },
+  {
+    "id": "2.2.4",
+    "athikaaramNumber": "67",
+    "name": "வினைத்திட்பம்"
+  },
+  {
+    "id": "2.2.5",
+    "athikaaramNumber": "68",
+    "name": "வினைசெயல்வகை"
+  },
+  {
+    "id": "2.2.6",
+    "athikaaramNumber": "69",
+    "name": "தூது"
+  },
+  {
+    "id": "2.2.7",
+    "athikaaramNumber": "70",
+    "name": "மன்னரைச் சேர்ந்தொழுதல்"
+  },
+  {
+    "id": "2.2.8",
+    "athikaaramNumber": "71",
+    "name": "குறிப்பறிதல்"
+  },
+  {
+    "id": "2.2.9",
+    "athikaaramNumber": "72",
+    "name": "அவையறிதல்"
+  },
+  {
+    "id": "2.2.10",
+    "athikaaramNumber": "73",
+    "name": "அவையஞ்சாமை"
+  },
+  {
+    "id": "2.3.1",
+    "athikaaramNumber": "74",
+    "name": "நாடு"
+  },
+  {
+    "id": "2.3.2",
+    "athikaaramNumber": "75",
+    "name": "அரண்"
+  },
+  {
+    "id": "2.3.3",
+    "athikaaramNumber": "76",
+    "name": "பொருள்செயல்வகை"
+  },
+  {
+    "id": "2.3.4",
+    "athikaaramNumber": "77",
+    "name": "படைமாட்சி"
+  },
+  {
+    "id": "2.3.5",
+    "athikaaramNumber": "78",
+    "name": "படைச்செருக்கு"
+  },
+  {
+    "id": "2.3.6",
+    "athikaaramNumber": "79",
+    "name": "நட்பு"
+  },
+  {
+    "id": "2.3.7",
+    "athikaaramNumber": "80",
+    "name": "நட்பாராய்தல்"
+  },
+  {
+    "id": "2.3.8",
+    "athikaaramNumber": "81",
+    "name": "பழைமை"
+  },
+  {
+    "id": "2.3.9",
+    "athikaaramNumber": "82",
+    "name": "தீ நட்பு"
+  },
+  {
+    "id": "2.3.10",
+    "athikaaramNumber": "83",
+    "name": "கூடாநட்பு"
+  },
+  {
+    "id": "2.3.11",
+    "athikaaramNumber": "84",
+    "name": "பேதைமை"
+  },
+  {
+    "id": "2.3.12",
+    "athikaaramNumber": "85",
+    "name": "புல்லறிவாண்மை"
+  },
+  {
+    "id": "2.3.13",
+    "athikaaramNumber": "86",
+    "name": "இகல்"
+  },
+  {
+    "id": "2.3.14",
+    "athikaaramNumber": "87",
+    "name": "பகைமாட்சி"
+  },
+  {
+    "id": "2.3.15",
+    "athikaaramNumber": "88",
+    "name": "பகைத்திறந்தெரிதல்"
+  },
+  {
+    "id": "2.3.16",
+    "athikaaramNumber": "89",
+    "name": "உட்பகை"
+  },
+  {
+    "id": "2.3.17",
+    "athikaaramNumber": "90",
+    "name": "பெரியாரைப் பிழையாமை"
+  },
+  {
+    "id": "2.3.18",
+    "athikaaramNumber": "91",
+    "name": "பெண்வழிச்சேறல்"
+  },
+  {
+    "id": "2.3.19",
+    "athikaaramNumber": "92",
+    "name": "வரைவின்மகளிர்"
+  },
+  {
+    "id": "2.3.20",
+    "athikaaramNumber": "93",
+    "name": "கள்ளுண்ணாமை"
+  },
+  {
+    "id": "2.3.21",
+    "athikaaramNumber": "94",
+    "name": "சூது"
+  },
+  {
+    "id": "2.3.22",
+    "athikaaramNumber": "95",
+    "name": "மருந்து"
+  },
+  {
+    "id": "2.4.1",
+    "athikaaramNumber": "96",
+    "name": "குடிமை"
+  },
+  {
+    "id": "2.4.2",
+    "athikaaramNumber": "97",
+    "name": "மானம்"
+  },
+  {
+    "id": "2.4.3",
+    "athikaaramNumber": "98",
+    "name": "பெருமை"
+  },
+  {
+    "id": "2.4.4",
+    "athikaaramNumber": "99",
+    "name": "சான்றாண்மை"
+  },
+  {
+    "id": "2.4.5",
+    "athikaaramNumber": "100",
+    "name": "பண்புடைமை"
+  },
+  {
+    "id": "2.4.6",
+    "athikaaramNumber": "101",
+    "name": "நன்றியில்செல்வம்"
+  },
+  {
+    "id": "2.4.7",
+    "athikaaramNumber": "102",
+    "name": "நாணுடைமை"
+  },
+  {
+    "id": "2.4.8",
+    "athikaaramNumber": "103",
+    "name": "குடிசெயல்வகை"
+  },
+  {
+    "id": "2.4.9",
+    "athikaaramNumber": "104",
+    "name": "உழவு"
+  },
+  {
+    "id": "2.4.10",
+    "athikaaramNumber": "105",
+    "name": "நல்குரவு"
+  },
+  {
+    "id": "2.4.11",
+    "athikaaramNumber": "106",
+    "name": "இரவு"
+  },
+  {
+    "id": "2.4.12",
+    "athikaaramNumber": "107",
+    "name": "இரவச்சம்"
+  },
+  {
+    "id": "2.4.13",
+    "athikaaramNumber": "108",
+    "name": "கயமை"
+  },
+  {
+    "id": "3.1.1",
+    "athikaaramNumber": "109",
+    "name": "தகையணங்குறுத்தல்"
+  },
+  {
+    "id": "3.1.2",
+    "athikaaramNumber": "110",
+    "name": "குறிப்பறிதல்"
+  },
+  {
+    "id": "3.1.3",
+    "athikaaramNumber": "111",
+    "name": "புணர்ச்சிமகிழ்தல்"
+  },
+  {
+    "id": "3.1.4",
+    "athikaaramNumber": "112",
+    "name": "நலம்புனைந்துரைத்தல்"
+  },
+  {
+    "id": "3.1.5",
+    "athikaaramNumber": "113",
+    "name": "காதற்சிறப்புரைத்தல்"
+  },
+  {
+    "id": "3.1.6",
+    "athikaaramNumber": "114",
+    "name": "நாணுத்துறவுரைத்தல்"
+  },
+  {
+    "id": "3.1.7",
+    "athikaaramNumber": "115",
+    "name": "அலரறிவுறுத்தல்"
+  },
+  {
+    "id": "3.2.2",
+    "athikaaramNumber": "116",
+    "name": "பிரிவாற்றாமை"
+  },
+  {
+    "id": "3.2.2",
+    "athikaaramNumber": "117",
+    "name": "படர்மெலிந்திரங்கல்"
+  },
+  {
+    "id": "3.2.3",
+    "athikaaramNumber": "118",
+    "name": "கண்விதுப்பழிதல்"
+  },
+  {
+    "id": "3.2.4",
+    "athikaaramNumber": "119",
+    "name": "பசப்புறுபருவரல்"
+  },
+  {
+    "id": "3.2.5",
+    "athikaaramNumber": "120",
+    "name": "தனிப்படர்மிகுதி"
+  },
+  {
+    "id": "3.2.6",
+    "athikaaramNumber": "121",
+    "name": "நினைந்தவர்புலம்பல்"
+  },
+  {
+    "id": "3.2.7",
+    "athikaaramNumber": "122",
+    "name": "கனவுநிலையுரைத்தல்"
+  },
+  {
+    "id": "3.2.8",
+    "athikaaramNumber": "123",
+    "name": "பொழுதுகண்டிரங்கல்"
+  },
+  {
+    "id": "3.2.9",
+    "athikaaramNumber": "124",
+    "name": "உறுப்புநலனழிதல்"
+  },
+  {
+    "id": "3.2.10",
+    "athikaaramNumber": "125",
+    "name": "நெஞ்சொடுகிளத்தல்"
+  },
+  {
+    "id": "3.2.11",
+    "athikaaramNumber": "126",
+    "name": "நிறையழிதல்"
+  },
+  {
+    "id": "3.2.12",
+    "athikaaramNumber": "127",
+    "name": "அவர்வயின்விதும்பல்"
+  },
+  {
+    "id": "3.2.13",
+    "athikaaramNumber": "128",
+    "name": "குறிப்பறிவுறுத்தல்"
+  },
+  {
+    "id": "3.2.14",
+    "athikaaramNumber": "129",
+    "name": "புணர்ச்சிவிதும்பல்"
+  },
+  {
+    "id": "3.2.15",
+    "athikaaramNumber": "130",
+    "name": "நெஞ்சொடுபுலத்தல்"
+  },
+  {
+    "id": "3.2.16",
+    "athikaaramNumber": "131",
+    "name": "புலவி"
+  },
+  {
+    "id": "3.2.17",
+    "athikaaramNumber": "132",
+    "name": "புலவி நுணுக்கம்"
+  },
+  {
+    "id": "3.2.18",
+    "athikaaramNumber": "133",
+    "name": "ஊடலுவகை"
+  }
+]

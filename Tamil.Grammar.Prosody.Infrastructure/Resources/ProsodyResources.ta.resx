@@ -193,7 +193,7 @@
     <value>எண்ணிக்கை</value>
   </data>
   <data name="DoNotParseShortUBeforeInitialVowels" xml:space="preserve">
-    <value>உயிர்முன் குற்றியலுகரத்தை அலகிடாது விடுக</value>
+    <value>குற்றியலுகரத்தின் முன் உயிரை அலகிடாது விடுக</value>
   </data>
   <data name="EliminateVilaankaayMetricalFeet" xml:space="preserve">
     <value>விளாங்காய்ச்சீர்களை விலக்குக</value>
@@ -368,5 +368,8 @@
   </data>
   <data name="WordOrSentence" xml:space="preserve">
     <value>சொல் (அ) வாக்கியம்</value>
+  </data>
+  <data name="ThirukkuralAnalysis" xml:space="preserve">
+    <value>திருக்குறள் பகுப்பாய்வு</value>
   </data>
 </root>
