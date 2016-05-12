@@ -232,7 +232,7 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Elimiate Vilaankaay Metrica Feet.
+        ///   Looks up a localized string similar to Eliminate Vilaankaay Metrica Feet.
         /// </summary>
         public static string EliminateVilaankaayMetricalFeet {
             get {

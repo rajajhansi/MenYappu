@@ -284,33 +284,6 @@
   <ItemGroup>
     <Content Include="app\au\build\index.html" />
     <Content Include="app\au\index.html" />
-    <Content Include="app\au\src\app.html" />
-    <Content Include="app\au\src\child-router.html" />
-    <Content Include="app\au\src\games\mathiraifinder.html" />
-    <Content Include="app\au\src\games\mathiraifinder.js" />
-    <Content Include="app\au\src\images\main-logo.svg" />
-    <Content Include="app\au\src\left-nav-bar.html" />
-    <Content Include="app\au\src\nav-bar.html" />
-    <Content Include="app\au\src\parts\introduction.html" />
-    <Content Include="app\au\src\parts\introduction.js" />
-    <Content Include="app\au\src\parts\letter.html" />
-    <Content Include="app\au\src\parts\letter.js" />
-    <Content Include="app\au\src\parts\metreme.html" />
-    <Content Include="app\au\src\parts\metreme.js" />
-    <Content Include="app\au\src\prosody\AdiMeasurer.js" />
-    <Content Include="app\au\src\prosody\AsaiDivider.js" />
-    <Content Include="app\au\src\prosody\EthukaiMonaiFinder.js" />
-    <Content Include="app\au\src\prosody\LetterTypeFinder.js" />
-    <Content Include="app\au\src\prosody\MathiraiCalculator.js" />
-    <Content Include="app\au\src\prosody\ProsodyResourceManager.js" />
-    <Content Include="app\au\src\prosody\ProsodyService.js" />
-    <Content Include="app\au\src\prosody\SeerFinder.js" />
-    <Content Include="app\au\src\prosody\ThalaiFinder.js" />
-    <Content Include="app\au\src\prosody\ThodaiFinder.js" />
-    <Content Include="app\au\src\prosody\utilityfunctions.js" />
-    <Content Include="app\au\src\ui\ui.js" />
-    <Content Include="app\au\src\users.html" />
-    <Content Include="app\au\src\welcome.html" />
     <Content Include="app\au\styles\bootstrap-theme.css" />
     <Content Include="app\au\styles\bootstrap-theme.min.css" />
     <Content Include="app\au\styles\bootstrap.css" />
@@ -9170,19 +9143,6 @@
     </Content>
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <TypeScriptCompile Include="app\au\src\app.ts" />
-    <TypeScriptCompile Include="app\au\src\blur-image.ts" />
-    <TypeScriptCompile Include="app\au\src\child-router.ts" />
-    <TypeScriptCompile Include="app\au\src\games\mathiraifinder.ts" />
-    <TypeScriptCompile Include="app\au\src\main.ts" />
-    <TypeScriptCompile Include="app\au\src\parts\introduction.ts" />
-    <TypeScriptCompile Include="app\au\src\parts\letter.ts" />
-    <TypeScriptCompile Include="app\au\src\parts\metreme.ts" />
-    <TypeScriptCompile Include="app\au\src\prosody\utility.ts" />
-    <TypeScriptCompile Include="app\au\src\users.ts" />
-    <TypeScriptCompile Include="app\au\src\welcome.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
