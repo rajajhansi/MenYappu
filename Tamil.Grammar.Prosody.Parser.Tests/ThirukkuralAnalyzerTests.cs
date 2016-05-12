@@ -53,7 +53,7 @@ namespace RjamSoft.Tamil.Grammar.Parser.Tests
                 thirukkurals = (Thirukkural[]) serializer.Deserialize(file, typeof(Thirukkural[]));
                 Assert.Equal(1330, thirukkurals.Length);
             }
-            var prosodyParser = new ProsodyParser();
+            var prosodyParser = new ProsodyParser("", true, false);
             var thirukkuralStatistics = new ThirukkuralStatistics();
             var wrongThirukkurals = new List<Thirukkural>();
 

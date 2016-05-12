@@ -318,7 +318,7 @@ namespace RjamSoft.Tamil.Grammar.Parser
 
         public Dictionary<string, Dictionary<string, Dictionary<string, Dictionary<string, string>>>> GetTextSyllablePattern(string prosodyText)
         {
-            prosodyText = Regex.Replace(prosodyText, @"\(.*\)", "");    // remove paranthesized words
+            prosodyText = Regex.Replace(prosodyText, @"(\(\w*\))", "");    // remove paranthesized words
             prosodyText = RemovePunctuation(prosodyText);               // remove Punctuation and reformatting the text.
             string[] lines = prosodyText.Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);    // Separate lines of text
             // remove unnecessary spaces
