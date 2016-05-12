@@ -193,7 +193,7 @@
     <value>Do not parse initial vowels before short-u</value>
   </data>
   <data name="EliminateVilaankaayMetricalFeet" xml:space="preserve">
-    <value>Eliminate Vilaankaay Metrica Feet</value>
+    <value>Eliminate Vilaankaay Metrical Feet</value>
   </data>
   <data name="EndRhyme" xml:space="preserve">
     <value>End Rhyme</value>
