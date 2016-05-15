@@ -73,6 +73,7 @@
     <Compile Include="AdiTests.cs" />
     <Compile Include="AgarathiTests.cs" />
     <Compile Include="AsaiTests.cs" />
+    <Compile Include="KutriyalikaramTests.cs" />
     <Compile Include="MathiraiTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PunarchiPaguPaduTests.cs" />

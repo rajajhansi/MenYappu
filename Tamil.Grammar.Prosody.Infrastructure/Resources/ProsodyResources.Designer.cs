@@ -205,7 +205,7 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Do not parse initial vowels before short-u.
+        ///   Looks up a localized string similar to Do not parse initial vowels or short-i before short-u.
         /// </summary>
         public static string DoNotParseShortUBeforeInitialVowels {
             get {

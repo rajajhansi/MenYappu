@@ -268,6 +268,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AureliaController.cs" />
     <Compile Include="Controllers\GamesController.cs" />
+    <Compile Include="Controllers\ProsodyHelpController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProsodyController.cs" />
     <Compile Include="Global.asax.cs">
@@ -663,7 +664,7 @@
     <Content Include="Content\winstrap\src\scss\menyappu\_others.scss" />
     <Content Include="Content\winstrap\src\scss\menyappu\_panels.scss" />
     <Content Include="Content\winstrap\src\scss\plugins\_toastr.scss" />
-    <Content Include="Content\winstrap\src\scss\override\_fame.scss" />    
+    <Content Include="Content\winstrap\src\scss\override\_fame.scss" />
     <Content Include="App_Data\thirukkural.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -799,6 +800,9 @@
     <Content Include="Views\Shared\_CommonKendoTemplates.cshtml" />
     <Content Include="Views\Shared\_RightPanelBar.cshtml" />
     <Content Include="Views\Aurelia\Index.cshtml" />
+    <Content Include="Views\ProsodyHelp\Letter.cshtml" />
+    <Content Include="Views\ProsodyHelp\Metreme.cshtml" />
+    <Content Include="Views\ProsodyHelp\MetricalFeet.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Gma.DataStructures.StringSearch\Gma.DataStructures.StringSearch.csproj">
@@ -831,6 +835,7 @@
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

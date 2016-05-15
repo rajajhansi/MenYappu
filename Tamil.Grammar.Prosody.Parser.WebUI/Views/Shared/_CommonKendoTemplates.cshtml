@@ -95,14 +95,14 @@
 </script>
 
 <script type="text/x-kendo-template" id="audioVideoHelpTemplate">
-    # var audioId = "aud-" + part; var audioFile = "/audio/" + part + ".mp3"; #
+    # var audioId = "aud-" + part + '-' + container; var audioFile = "/audio/" + part + ".mp3"; #
     <audio id="#= audioId #" preload="auto">
         <source src="#= audioFile #" controls>
         Your browser isn't invited for super fun audio time.
     </audio>
     # var audio = ProsodyResourceManager.get("audio"); var video = ProsodyResourceManager.get("video"); #
-    # var audioButtonId = "play-audio-" + part; var videoButtonId = "play-video-" + part; #
-    # var modalVideoId = "\#modal-video-" + part; #
+    # var audioButtonId = "play-audio-" + part + '-' + container; var videoButtonId = "play-video-" + part + '-' + container; #
+    # var modalVideoId = "\#modal-video-" + part + '-' + container; #
     <button id="#= audioButtonId #" class="btn btn-primary btn-with-glyph"><i class="glyph glyph-play"></i>#= audio #</button>
     <button id="#= videoButtonId #" class="btn btn-primary btn-with-glyph" data-toggle="modal" data-target="#= modalVideoId #"><i class="glyph glyph-video"></i>#= video #</button>
 </script>
@@ -126,4 +126,303 @@
             </div>
         </div>
     </div>
+</script>
+
+<!-- Help Templates-->
+<script type="text/x-kendo-template" id="ezhuthuVagaiHelpTemplate">
+    # var helptextClass = 'helptext-' + container; console.log(helptextClass); #
+    <div class="#= helptextClass #">
+        <span class="type-t6">மாத்திரை</span>
+        <br />
+        எழுத்து ஒலி அளவு மாத்திரை எனப்படும்.
+    </div>
+
+    # var audioVideoControlsId = 'audio-video-controls-ezhuthuVagai-' + container; console.log(audioVideoControlsId); #
+    <div id="#= audioVideoControlsId #"></div>
+    <br />
+    <br />
+
+    # var tableText = (container === 'main') ? 't7' : 't9'; #
+    # var tableClass = "table theme-alt type-" + tableText; console.log(tableClass);#
+    <table class="#= tableClass #">
+        <thead>
+            <tr>
+                <th>எழுத்து</th>
+                <th>மாத்திரை</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="kuril">
+                <td class="col-md-3">குறில்</td>
+                <td>1</td>
+            </tr>
+            <tr class="nedil">
+                <td>நெடில்</td>
+                <td>2</td>
+            </tr>
+            <tr class="otru">
+                <td>ஒற்று/மெய்</td>
+                <td>½</td>
+            </tr>
+            <tr class="aytham">
+                <td>ஆய்தம்</td>
+                <td>½</td>
+            </tr>
+        </tbody>
+    </table>
+    # var videoModalDialogId = 'modal-video-ezhuthuVagai-' + container; #
+    <div class="modal modal-center-vertical" id="#= videoModalDialogId #" tabindex="-1" role="dialog" aria-labelledby="modal-about-menyappu-label" aria-hidden="true" style="display: none;">
+
+    </div>
+
+</script>
+
+<script type="text/x-kendo-template" id="asaiHelpTemplate">
+    # var helptextClass = 'helptext-' + container; console.log(helptextClass); #
+    <div class="#= helptextClass #">
+        <span class="type-t6">அசை (Metric Syllable/Metreme)</span>
+        <br />
+        எழுத்துகள் ஒன்றோ இரண்டோ அசைந்து இசைபட நிற்பது அசை ஆகும்.
+    </div>
+    <br />
+    <div class="#= helptextClass #">
+        <span class="type-t6">நேரசை (ஓருயிர்/தனி அசை)</span>
+        <br />
+        குறில் அல்லது நெடில் தனித்தோ அல்லது ஒற்றடுத்தோ வருவது நேரசைகளாம். குறில் சீரின் கடைசியில் வரும்போதுதான் நேரசையாகும்.
+    </div>
+    # var tableText = (container === 'main') ? 't7' : 't9'; #
+    # var tableClass = "table theme-alt type-" + tableText; console.log(tableClass);#
+    <table class="#= tableClass #">
+        <tbody>
+            <tr>
+                <td class="col-md-1">1.</td>
+                <td class="col-md-6">தனிக்குறில்</td>
+                <td>ம</td>
+            </tr>
+            <tr>
+                <td>2.</td>
+                <td>குறிலொற்று</td>
+                <td>மண்</td>
+            </tr>
+            <tr>
+                <td>3.</td>
+                <td>தனி நெடில்</td>
+                <td>மா</td>
+            </tr>
+            <tr>
+                <td>4.</td>
+                <td>நெடிலொற்று</td>
+                <td>மான்</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="#= helptextClass #">
+        எ.கா.
+        <br />
+        <span class="thaninedil">ரா</span>/<span class="thanikkuril">ணி</span> <span class="kurilotru">வந்</span>/<span class="nedilotru">தாள்</span> – <span class="thaninedil">தனி</span> <span class="thaninedil">நெடில்</span>/<span class="thanikkuril">தனிக்குறில்</span> 		<span class="kurilotru">குறிலொற்று</span>/<span class="nedilotru">நெடிலொற்று</span>
+    </div>
+    <br />
+    <div class="#= helptextClass #">
+        <span class="type-t6">நிரையசை (ஈருயிர் அசை)</span>
+        <br />
+        குறிலிணை அல்லது  குறிநெடில் தனித்தோ அல்லது ஒற்றடுத்தோ வருவது நிரையசைகளாம்.
+    </div>
+    <table class="#= tableClass #">
+        <tbody>
+            <tr>
+                <td class="col-md-1">1.</td>
+                <td class="col-md-6">குறிலிணை</td>
+                <td>புலி</td>
+            </tr>
+            <tr>
+                <td>2.</td>
+                <td>குறிலிணையொற்று</td>
+                <td>முறம்</td>
+            </tr>
+            <tr>
+                <td>3.</td>
+                <td>குறிநெடில்</td>
+                <td>புறா</td>
+            </tr>
+            <tr>
+                <td>4.</td>
+                <td>குறிநெடிலொற்று</td>
+                <td>முகாம்</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="#= helptextClass #">
+        எ.கா.
+        <br />
+        <span class="kurilinai">கவி</span>/<span class="kurinedil">நிலா</span> <span class="kurilinaiyotru">புலம்</span>/<span class="kurinedilotru">பினாள்</span> - <span class="kurilinai">குறிலிணை</span>/<span class="kurinedil">குறிநெடில்</span> <span class="kurilinaiyotru">குறிலிணையொற்று</span>/<span class="kurinedilotru">குறிநெடிலொற்று</span>
+    </div>
+
+</script>
+
+<script type="text/x-kendo-template" id="seerHelpTemplate">
+    # var helptextClass = 'helptext-' + container; console.log(helptextClass); #
+    <div class="#= helptextClass #">
+        <span class="type-t6" id="seer">சீர் (Metrical foot)</span>
+        <br />
+        அசையால் அமைவது சீர் ஆகும்.
+    </div>
+    <br />
+    # var tableText = (container === 'main') ? 't7' : 't9'; #
+    # var tableClass = "table theme-alt type-" + tableText; console.log(tableClass);#
+    <table class="#= tableClass #">
+        <tbody>
+            <tr>
+                <td class="col-md-8">1. ஓரசைச்சீர் <a href="\#orasai"><i class="glyph glyph-go"></i></a></td>
+            </tr>
+            <tr>
+                <td>2. ஈரசைச்சீர் <a href="\#eerasai"><i class="glyph glyph-go"></i></a></td>
+            </tr>
+            <tr>
+                <td>3. மூவசைச்சீர் <a href="\#moovasai"><i class="glyph glyph-go"></i></a></td>
+            </tr>
+            <tr>
+                <td>4. நாலசைச்சீர் <a href="\#naalasai"><i class="glyph glyph-go"></i></a></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="#= helptextClass #">
+        <span class="type-t6" id="orasai">ஓரசைச்சீர் வகை<a href="\#seer"><i class="glyph glyph-up"></i></a></span>
+    </div>
+    <table class="#= tableClass #">
+        <thead>
+            <tr>
+                <th>சீர்</th>
+                <th>வாய்ப்பாடு</th>
+                <th>காட்டு</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="naal">
+                <td class="col-md-4">நாள்</td>
+                <td class="col-md-4">நேரசை</tdclass="col-md-4">
+                <td>கல்</td>
+            </tr>
+            <tr class="malar">
+                <td>மலர்</td>
+                <td>நிரையசை</td>
+                <td>தமிழ்</td>
+            </tr>
+            <tr class="kaasu">
+                <td>காசு</td>
+                <td>தனிக்குறில் தவிர நேரசையுடன் குற்றியலுகரம் சேர்ந்து நேர்பு ஆகும்</td>
+                <td>நன்று</td>
+            </tr>
+            <tr class="pirappu">
+                <td>பிறப்பு</td>
+                <td>நிரையசையுடன் குற்றியலுகரம் சேர்ந்தது நிரைபு ஆகும்</td>
+                <td>உலகு</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="#= helptextClass #">
+        <span class="type-t6" id="eerasai">ஈரசைச்சீர் வகை: மாச்சீர், விளச்சீர்<a href="\#seer"><i class="glyph glyph-up"></i></a></span>
+    </div>
+    <table class="#= tableClass #">
+        <thead>
+            <tr>
+                <th>சீர்</th>
+                <th>வாய்ப்பாடு</th>
+                <th>காட்டு</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="thema">
+                <td class="col-md-4">தேமா</td>
+                <td class="col-md-4">நேர்/நேர்</td>
+                <td>நாடு</td>
+            </tr>
+            <tr class="pulima">
+                <td>புளிமா</td>
+                <td>நிரை/நேர்</td>
+                <td>பொறுமை</td>
+            </tr>
+            <tr class="koovilam">
+                <td>கூவிளம்</td>
+                <td>நேர்/நிரை</td>
+                <td>யாரது</td>
+            </tr>
+            <tr class="karuvilam">
+                <td>கருவிளம்</td>
+                <td>நிரை/நிரை</td>
+                <td>புலிக்குகை</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="#= helptextClass #">
+        <span class="type-t6" id="moovasai">மூவசைச்சீர் வகை: காய்ச்சீர், கனிச்சீர்<a href="\#seer"><i class="glyph glyph-up"></i></a></span>
+        <br />
+        <br />
+        <span class="type-t6">காய்ச்சீர் வகை</span>
+    </div>
+    <table class="#= tableClass #">
+        <thead>
+            <tr>
+                <th>சீர்</th>
+                <th>வாய்ப்பாடு</th>
+                <th>காட்டு</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="thema">
+                <td>தேமாங்காய்</td>
+                <td>நேர்/நேர்/நேர்</td>
+                <td>ஆனந்தம்</td>
+            </tr>
+            <tr class="pulima">
+                <td>புளிமாங்காய்</td>
+                <td>நிரை/நேர்/நேர்</td>
+                <td>பணக்காரன்</td>
+            </tr>
+            <tr class="koovilam">
+                <td>கூவிளங்காய்</td>
+                <td>நேர்/நிரை/நேர்</td>
+                <td>யாரவர்கள்</td>
+            </tr>
+            <tr class="karuvilam">
+                <td>கருவிளம்</td>
+                <td>நிரை/நிரை/நேர்</td>
+                <td>புலிக்குகையில்</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="#= helptextClass #">
+        <span class="type-t6" id="naalasai">கனிச்சீர் வகை<a href="\#seer"><i class="glyph glyph-up"></i></a></span>
+    </div>
+    <table class="#= tableClass #">
+        <thead>
+            <tr>
+                <th>சீர்</th>
+                <th>வாய்ப்பாடு</th>
+                <th>காட்டு</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="thema">
+                <td>தேமாங்கனி</td>
+                <td>நேர்/நேர்/</td>
+                <td>ஆனந்தமோ</td>
+            </tr>
+            <tr class="pulima">
+                <td>புளிமாங்கனி</td>
+                <td>நிரை/நேர்/நிரை</td>
+                <td>பணக்காரனே</td>
+            </tr>
+            <tr class="koovilam">
+                <td>கூவிளங்கனி</td>
+                <td>நேர்/நிரை/நிரை</td>
+                <td>யாரவர்களை</td>
+            </tr>
+            <tr class="karuvilam">
+                <td>கருவிளங்கனி</td>
+                <td>நிரை/நிரை/நிரை</td>
+                <td>புலிக்குகையிலோர்</td>
+            </tr>
+        </tbody>
+    </table>
+
 </script>

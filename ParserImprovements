@@ -1,0 +1,52 @@
+Bugs:
+தொடிற்சுடின் அல்லது காமநோய் போல
+
+விடிற்சுடல் ஆற்றுமோ தீ  (Index out of bounds in CheckThodai)
+
+aukaarakkuRukkam not calculating the asai for kouvai correctly
+தாம்வேண்டின் நல்குவர் காதலர் யாம்வேண்டும்
+
+கெளவை எடுக்குவ் வூர்.     1150
+
+Kural that requires kutRiyalukarap puNarchi for ai and au
+வன்கண் குடிகாத்தல் கற்றறிதல் ஆள்வினையோடு
+ஐந்துடன் மாண்டது அமைச்சு.           632
+
+பொருள்கருவி காலம் வினையிடனொடு ஐந்தும்
+இருள்தீர எண்ணிச் செயல் 	675
+
+Kural that requires vagara puNarchi to parse correctly
+பெண்ணியலார் எல்லாரும் கண்ணின் பொதுஉண்பர்
+நண்ணேன் பரத்தநின் மார்பு.     1311
+
+காமம் விடுஒன்றோ நாண்விடு நன்னெஞ்சே
+யானோ பொறேன்இவ் விரண்டு.    1247
+
+Kural that parse well after kutRiyalukarap puNarchi
+(\(([kcTpR])u?\)(\s*)((_)([a-zA-Z])))
+
+தாமின் புறுவது உலகின் புறக்கண்டு
+காமுறுவர் கற்றறிந் தார்
+
+tAmi_V puRuvatu _ulaki_V puRa_k ka_NTu\nkAmuruvar
+
+அகன்அமர்ந்து ஈதலின் நன்றே முகனமர்ந்து
+இன்சொலன் ஆகப் பெறின்  92
+
+_a_KkAmY ce_lva_tti_Rku yAteVi_V ve_KkAmY\nvE_NTu_m piRa_VkY_p poru_L
+
+Kural that requires double pass after applying kutriyalukara punarchi and will yet not parse without explicitly indicating kutRiyalikaram:
+அஃகாமை செல்வத்திற்கு யாதெனின் வெஃகாமை
+ வேண்டும் பிறன்கைப் பொருள்  178
+ 
+அருளல்லது  யாதெனின் கொல்லாமை கோறல்
+பொருளல்லது அவ்வூன் தினல். 254
+
+வாய்மை எனப்படுவது யாதெனின் யாதொன்றும்
+தீமை இலாத சொலல்.   291
+
+நல்லாறு எனப்படுவது யாதெனின் யாதொன்றும்
+கொல்லாமை சூழும் நெறி 324
+
+கடாஅ உருவொடு கண்ணஞ்சாது யாண்டும்
+உகாஅமை வல்லதே ஒற்று.          585

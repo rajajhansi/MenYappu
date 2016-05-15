@@ -11592,7 +11592,12 @@ td {
       top: 0;
       right: 0; } }
 
-.helptext {
+.helptext-main {
+  margin-left: 5px;
+  margin-bottom: 5px;
+  font-size: 11px; }
+
+.helptext-side {
   margin-left: 5px;
   margin-bottom: 5px;
   font-size: 11px;

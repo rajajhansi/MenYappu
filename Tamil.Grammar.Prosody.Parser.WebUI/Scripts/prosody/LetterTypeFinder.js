@@ -25,8 +25,8 @@
         $('#prosodyForm').parsley();
         // set the context help
         var ezhuthuVagaiHelpTemplate = kendo.template($("#ezhuthuVagaiHelpTemplate").html());
-        Utility.setContextHelp(ezhuthuVagaiHelpTemplate({}));
-        Utility.setHelpAudioVideo('ezhuthuVagai', 'https://www.youtube.com/embed/AH4bCeBXFm4?start=212');
+        Utility.setContextHelp(ezhuthuVagaiHelpTemplate({ container: 'side'}));
+        Utility.setHelpAudioVideo('ezhuthuVagai', 'https://www.youtube.com/embed/AH4bCeBXFm4?start=212', 'side');
 
         Utility.initSeyyulbar();
         Utility.disableElement("checkResult");

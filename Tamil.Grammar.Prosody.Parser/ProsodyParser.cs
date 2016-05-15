@@ -149,33 +149,27 @@ namespace RjamSoft.Tamil.Grammar.Parser
             ProsodyText = Transliterator.Tamil2Latin(InputSourceText).Trim();
             if (ShouldParseKutriyalukaram)
             {
-                Regex kutriyalukaramRegex = new Regex(
-                  "([kcTpR]u)(\\s*)(_[aAiIuUeEoO])",
-                RegexOptions.IgnoreCase
-                | RegexOptions.Multiline
-                | RegexOptions.CultureInvariant
-                | RegexOptions.IgnorePatternWhitespace
-                | RegexOptions.Compiled
-                );
-                Regex kutriyalukaramAtEOLRegex = new Regex(
-                  "([kcTpR]u)(\\s*\\n)(_[aAiIuUeEoO])",
-                RegexOptions.IgnoreCase
-                | RegexOptions.Multiline
-                | RegexOptions.CultureInvariant
-                | RegexOptions.IgnorePatternWhitespace
-                | RegexOptions.Compiled
-                );
-                var regexReplacementString = "($1)$2$3";
-                ProsodyText = kutriyalukaramRegex.Replace(ProsodyText, regexReplacementString);
-                ProsodyText = kutriyalukaramAtEOLRegex.Replace(ProsodyText, regexReplacementString);
+                //var regexReplacementString = "$4$2$7";//"($1)$2$3";
+                ProsodyText = ProsodyGrammarConstants.AsaiRegularExpressions.KutriyalukaramRegex.Replace(ProsodyText,
+                    ProsodyGrammarConstants.AsaiRegularExpressions.KutriyalukaramRegexReplacementString);
+                ProsodyText = ProsodyGrammarConstants.AsaiRegularExpressions.KutriyalukaramAtEOLRegex.Replace(ProsodyText,
+                    ProsodyGrammarConstants.AsaiRegularExpressions.KutriyalukaramRegexReplacementString);
 
                 // Also make sure to run the kutriyalukam mun uyir test on each line of the paa
                 var lines = ProsodyText.Split(new string[] {"\n"}, StringSplitOptions.RemoveEmptyEntries);
                 for (int lineIndex = 0; lineIndex < lines.Length; lineIndex++)
                 {
-                    lines[lineIndex] = kutriyalukaramRegex.Replace(lines[lineIndex], regexReplacementString);
+                    lines[lineIndex] = ProsodyGrammarConstants.AsaiRegularExpressions.KutriyalukaramRegex.Replace(lines[lineIndex],
+                        ProsodyGrammarConstants.AsaiRegularExpressions.KutriyalukaramRegexReplacementString);
                 }
                 ProsodyText = string.Join("\n", lines);
+#if APPLY_KUTRIYALIKARAM
+                // Apply the KutriyalikaramRegex
+                ProsodyText = ProsodyGrammarConstants.AsaiRegularExpressions.KutriyalikaramPunarchiRegex.Replace(ProsodyText,
+                    ProsodyGrammarConstants.AsaiRegularExpressions.KutriyalikaramPunarchiRegexReplacementString);
+                ProsodyText = ProsodyGrammarConstants.AsaiRegularExpressions.KutriyalikaramRegex.Replace(ProsodyText,
+                    ProsodyGrammarConstants.AsaiRegularExpressions.KutriyalikaramRegexReplacementString);
+#endif // APPLY_KUTRIYALIKARAM
             }
             var tamilText = InputSourceText;
             this.LetterCount = GetLetterCount(tamilText);
@@ -387,7 +381,8 @@ namespace RjamSoft.Tamil.Grammar.Parser
                         if ( ShouldParseVilaangaaySeer &&
                             (Syllable.Count == 3) &&
                             (Syllable["acY-2"].Keys.ElementAt(0) == "நிரை") &&
-                            (Transliterator.Tamil2Latin(Syllable["acY-2"]["நிரை"]).Substring(3, 1).IndexOfAny("AIUEOQYBW".ToCharArray()) == 0))
+                            (Transliterator.Tamil2Latin(Syllable["acY-2"]["நிரை"]).
+                            Substring(3, 1).IndexOfAny("AIUEOQBW".ToCharArray()) == 0)) // Make sure to exclude 'Y' because aikaarakkurukkam needs to be applied
                         {
                             wordPattern = wordPattern.Insert(8, "2");
                         }

@@ -64,7 +64,8 @@ RegexOptions.IgnorePatternWhitespace
             while(enumerator.MoveNext())
             {
                 var dictionaryItem = enumerator.Current;
-                text = text.Replace(new string(dictionaryItem.Key, 1), dictionaryItem.Value);
+                var char2Replace = new string(dictionaryItem.Key, 1);
+                text = text.Replace(char2Replace, dictionaryItem.Value);
             }
 
             text = MeyRegex.Replace(text, MeyRegexReplace);

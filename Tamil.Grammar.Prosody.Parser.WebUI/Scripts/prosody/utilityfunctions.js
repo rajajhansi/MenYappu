@@ -100,6 +100,9 @@
         $("#help").append(helpText);
     }
 
+    function setMainHelp(helpText) {
+        $("#mainHelp").append(helpText);
+    }
     function makeDelay(ms) {
         var timer = 0;
         return function (callback) {
@@ -203,17 +206,17 @@
                 .attr('data-value', language);
     };
 
-    function setHelpAudioVideo(part, videoUrl) {
-        setHelpAudio(part);
-        setHelpVideo(part, videoUrl);
+    function setHelpAudioVideo(part, videoUrl, container) {
+        setHelpAudio(part, container);
+        setHelpVideo(part, videoUrl, container);
     };
 
-    function setHelpAudio(part) {
-        var audioDivId = "#audio-video-controls-" + part;
+    function setHelpAudio(part, container) {
+        var audioDivId = "#audio-video-controls-" + part + '-' + container;
         var audioTemplate = kendo.template($("#audioVideoHelpTemplate").html());
-        $(audioDivId).append(audioTemplate({ part: part }));
-        var audioControlId = "#aud-" + part;
-        var audioButtonId = "#play-audio-" + part;
+        $(audioDivId).append(audioTemplate({ part: part, container: container }));
+        var audioControlId = "#aud-" + part + '-' + container;
+        var audioButtonId = "#play-audio-" + part + '-' + container;
 
         var audioControl = $(audioControlId)[0];
         $(audioButtonId).mouseenter(function () {
@@ -224,8 +227,8 @@
         });
     };
 
-    function setHelpVideo(part, videoUrl) {
-        var videoDivId = "#modal-video-" + part;
+    function setHelpVideo(part, videoUrl, container) {
+        var videoDivId = "#modal-video-" + part + '-' + container;
         var videoTemplate = kendo.template($("#modalVideoHelpTemplate").html());
         $(videoDivId).append(videoTemplate({ videoUrl: videoUrl }));
 
@@ -256,6 +259,7 @@
         flipFront: flipFront,
         setupExample: setupExample,
         setContextHelp: setContextHelp,
+        setMainHelp: setMainHelp,
         makeDelay: makeDelay,
         initSeyyulbar: initSeyyulbar,
         waitUntil: waitUntil,

@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "எழுத்து வகைபிரி";
+}
+<div id="mainHelp" class="p-md">
+
+</div>
+@{ Html.RenderPartial("_CommonKendoTemplates"); }
+<script>
+    $(document).ready(function () {
+            // set the context help
+        var asaiHelpTemplate = kendo.template($("#asaiHelpTemplate").html());
+        Utility.setMainHelp(asaiHelpTemplate({ container: 'main' }));
+        //Utility.setHelpAudioVideo('ezhuthuVagai', 'https://www.youtube.com/embed/AH4bCeBXFm4?start=212', 'main');
+    });
+</script>

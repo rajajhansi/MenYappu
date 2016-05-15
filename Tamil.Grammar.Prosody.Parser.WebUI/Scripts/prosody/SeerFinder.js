@@ -10,7 +10,7 @@
             }));
         // set the context help
         var seerHelpTemplate = kendo.template($("#seerHelpTemplate").html());
-        Utility.setContextHelp(seerHelpTemplate({}));
+        Utility.setContextHelp(seerHelpTemplate({ container: 'side'}));
         Utility.initSeyyulbar();
 
         Utility.hideResult();

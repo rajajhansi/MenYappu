@@ -22,7 +22,13 @@ $sari: $color-green;
 $thavaru: $color-darkred;
 $info-tip: rgba($color-accent, 0.7);
 
-.helptext {
+.helptext-main {
+    margin-left: 5px;
+    margin-bottom: 5px;
+    font-size: 11px;
+}
+
+.helptext-side {
     margin-left: 5px;
     margin-bottom: 5px;
     font-size: 11px;

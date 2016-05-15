@@ -16,7 +16,23 @@ namespace RjamSoft.Tamil.Grammar.Parser
                                                         RegexOptions.IgnorePatternWhitespace);
             public static Regex NerpuAsai = new Regex("[kGcJTNtnpmyrlvZLRVjSsh]?_?[AIUEOQYBW](_[KkGcJTNtnpmyrlvZLRVjSsh])*([kGcJTNtnpmyrlvZLRVjSsh]u)",
                                                         RegexOptions.IgnorePatternWhitespace);
+            public static Regex KutriyalukaramRegex = new Regex("(([kcTtpR])(u))(\\s*)((_)([aAiIuUeEoO]))",
+                RegexOptions.Multiline | RegexOptions.CultureInvariant
+                | RegexOptions.IgnorePatternWhitespace | RegexOptions.Compiled);
+            public static Regex KutriyalukaramAtEOLRegex = new Regex("(([kcTtpR])(u))(\\s*\\n)((_)([aAiIuUeEoO]))",
+                RegexOptions.Multiline | RegexOptions.CultureInvariant
+                | RegexOptions.IgnorePatternWhitespace | RegexOptions.Compiled);
+            public static Regex KutriyalikaramPunarchiRegex = new Regex("(([kcTtpR])(u)\\b)(\\s*)((y[A]))",
+                RegexOptions.Multiline | RegexOptions.CultureInvariant
+                | RegexOptions.IgnorePatternWhitespace | RegexOptions.Compiled);
+            public static string KutriyalukaramRegexReplacementString = "$4$2$7";//"($1)$2$3";
+            public static string KutriyalikaramPunarchiRegexReplacementString = "$4($2i)$6";
+            public static Regex KutriyalikaramRegex = new Regex("(([kcTtpR])(i))(\\s*)((y[A]))",
+                RegexOptions.Multiline | RegexOptions.CultureInvariant
+                | RegexOptions.IgnorePatternWhitespace | RegexOptions.Compiled
+                );
 
+            public static string KutriyalikaramRegexReplacementString = "($1)$4$5";
             public static Regex TamilNiraiAsai = new Regex("([கஙசஞடணதநபமயரலவழளறனஜஶஷஸ]?_?[aiueoBQ])([கஙசஞடணதநபமயரலவழளறனஜஶஷஸ][அஆஇஈஉஊஎஏஐஒளBQ])(_[கஙசஞடணதநபமயரலவழளறனஜஶஷஸ])*",
                                                         RegexOptions.CultureInvariant | RegexOptions.IgnorePatternWhitespace | RegexOptions.Compiled);
             public static Regex TamilNerAsai = new Regex("[கஙசஞடணதநபமயரலவழளறனஜஶஷஸ]?_?[aAiIuUeEoOQYBW](_[ஃகஙசஞடணதநபமயரலவழளறனஜஶஷஸ])*",
