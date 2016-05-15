@@ -10,7 +10,7 @@
             }));
         // set the context help
         var adiHelpTemplate = kendo.template($("#adiHelpTemplate").html());
-        Utility.setContextHelp(adiHelpTemplate({}));
+        Utility.setContextHelp(adiHelpTemplate({ container: 'side'}));
         // event handler for select
         Utility.initSeyyulbar();
 

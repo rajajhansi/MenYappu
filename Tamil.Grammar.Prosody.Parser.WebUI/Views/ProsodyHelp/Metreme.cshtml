@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "எழுத்து வகைபிரி";
+    ViewBag.Title = "அசை";
 }
 <div id="mainHelp" class="p-md">
 
@@ -7,9 +7,6 @@
 @{ Html.RenderPartial("_CommonKendoTemplates"); }
 <script>
     $(document).ready(function () {
-            // set the context help
-        var asaiHelpTemplate = kendo.template($("#asaiHelpTemplate").html());
-        Utility.setMainHelp(asaiHelpTemplate({ container: 'main' }));
-        //Utility.setHelpAudioVideo('ezhuthuVagai', 'https://www.youtube.com/embed/AH4bCeBXFm4?start=212', 'main');
+        Utility.setHelp('asai', 'https://www.youtube.com/embed/AH4bCeBXFm4?start=548');
     });
 </script>

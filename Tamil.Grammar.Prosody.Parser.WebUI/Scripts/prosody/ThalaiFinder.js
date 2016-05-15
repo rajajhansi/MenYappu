@@ -10,7 +10,7 @@
             }));
         // set the context help
         var thalaiHelpTemplate = kendo.template($("#thalaiHelpTemplate").html());
-        Utility.setContextHelp(thalaiHelpTemplate({}));
+        Utility.setContextHelp(thalaiHelpTemplate({ container: 'side' }));
         // event handler for select
         Utility.initSeyyulbar();
 

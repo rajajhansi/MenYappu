@@ -95,7 +95,16 @@
             return false;
         });
     }
-
+    function setHelp(helpTopic, videoUrl) {
+        // set the context help
+        var helpTemplate = kendo.template($("#" + helpTopic + "HelpTemplate").html());
+        Utility.setMainHelp(helpTemplate({ container: 'main' }));
+        Utility.setContextHelp(helpTemplate({ container: 'side' }));
+        if (videoUrl) {
+            Utility.setHelpAudioVideo(helpTopic, videoUrl, 'main');
+            Utility.setHelpAudioVideo(helpTopic, videoUrl, 'side');
+        }
+    }
     function setContextHelp(helpText) {
         $("#help").append(helpText);
     }
@@ -258,6 +267,7 @@
         flipBack: flipBack,
         flipFront: flipFront,
         setupExample: setupExample,
+        setHelp: setHelp,
         setContextHelp: setContextHelp,
         setMainHelp: setMainHelp,
         makeDelay: makeDelay,

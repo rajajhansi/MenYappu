@@ -803,6 +803,18 @@
     <Content Include="Views\ProsodyHelp\Letter.cshtml" />
     <Content Include="Views\ProsodyHelp\Metreme.cshtml" />
     <Content Include="Views\ProsodyHelp\MetricalFeet.cshtml" />
+    <Content Include="Views\ProsodyHelp\Linkage.cshtml" />
+    <Content Include="Views\ProsodyHelp\Ornamentation.cshtml" />
+    <Content Include="Views\ProsodyHelp\MetricalLine.cshtml" />
+    <Content Include="Views\ProsodyHelp\Sound.cshtml" />
+    <Content Include="Views\ProsodyHelp\Venpaa.cshtml" />
+    <Content Include="Views\ProsodyHelp\Asiriyappaa.cshtml" />
+    <Content Include="Views\ProsodyHelp\Kalippaa.cshtml" />
+    <Content Include="Views\ProsodyHelp\Vanjippaa.cshtml" />
+    <Content Include="Views\ProsodyHelp\Asiriyappaavinam.cshtml" />
+    <Content Include="Views\ProsodyHelp\Kalippaavinam.cshtml" />
+    <Content Include="Views\ProsodyHelp\Vanjippaavinam.cshtml" />
+    <Content Include="Views\ProsodyHelp\Venpaavinam.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Gma.DataStructures.StringSearch\Gma.DataStructures.StringSearch.csproj">

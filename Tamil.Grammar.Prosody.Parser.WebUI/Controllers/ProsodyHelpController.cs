@@ -43,5 +43,41 @@ namespace Tamil.Grammar.Prosody.Parser.WebUI.Controllers
         {
             return View();
         }
+
+        public ActionResult Venpaa()
+        {
+            return View();
+        }
+
+        public ActionResult Asiriyappaa()
+        {
+            return View();
+        }
+
+        public ActionResult Kalippaa()
+        {
+            return View();
+        }
+
+        public ActionResult Vanjippaa()
+        {
+            return View();
+        }
+        public ActionResult Venpaavinam()
+        {
+            return View();
+        }
+        public ActionResult Asiriyappaavinam()
+        {
+            return View();
+        }
+        public ActionResult Kalippaavinam()
+        {
+            return View();
+        }
+        public ActionResult Vanjippaavinam()
+        {
+            return View();
+        }
     }
 }

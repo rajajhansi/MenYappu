@@ -10,7 +10,7 @@
             }));
         // set the context help
         var thodaiHelpTemplate = kendo.template($("#thodaiHelpTemplate").html());
-        Utility.setContextHelp(thodaiHelpTemplate({}));
+        Utility.setContextHelp(thodaiHelpTemplate({ container: 'side' }));
         // event handler for select
         Utility.initSeyyulbar();
 
