@@ -9,8 +9,8 @@
                 inputLines: 1
             }));
         // set the context help
-        var asaiHelpTemplate = kendo.template($("#asaiHelpTemplate").html());
-        Utility.setContextHelp(asaiHelpTemplate({ container: 'side'}));
+        Utility.setHelp('asai', 'https://www.youtube.com/embed/AH4bCeBXFm4?start=548');
+
         // event handler for select
         Utility.initSeyyulbar();
         Utility.hideResult();

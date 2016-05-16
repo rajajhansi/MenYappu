@@ -285,10 +285,13 @@
   <ItemGroup>
     <Content Include="App_Data\agarathiValid.txt" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="audio\adi.mp3" />
     <Content Include="audio\asai.mp3" />
     <Content Include="audio\ezhuthuVagai.mp3" />
     <Content Include="audio\mathirai.mp3" />
     <Content Include="audio\seer.mp3" />
+    <Content Include="audio\thalai.mp3" />
+    <Content Include="audio\thodai.mp3" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />

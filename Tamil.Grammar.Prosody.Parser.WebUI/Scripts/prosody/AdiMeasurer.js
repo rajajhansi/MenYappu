@@ -9,8 +9,7 @@
                 inputLines: 2
             }));
         // set the context help
-        var adiHelpTemplate = kendo.template($("#adiHelpTemplate").html());
-        Utility.setContextHelp(adiHelpTemplate({ container: 'side'}));
+        Utility.setHelp('adi', 'https://www.youtube.com/embed/k3Ad5SMGwUo?start=570');
         // event handler for select
         Utility.initSeyyulbar();
 

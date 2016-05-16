@@ -14,8 +14,8 @@
             }));
         // set the context help
         var mathiraiHelpTemplate = kendo.template($("#mathiraiHelpTemplate").html());
-        Utility.setContextHelp(mathiraiHelpTemplate({}));
-        Utility.setHelpAudioVideo('mathirai', 'https://www.youtube.com/embed/AH4bCeBXFm4?start=396');
+        Utility.setContextHelp(mathiraiHelpTemplate({ container: 'side'}));
+        Utility.setHelpAudioVideo('mathirai', 'https://www.youtube.com/embed/AH4bCeBXFm4?start=396', 'side');
 
         Utility.initSeyyulbar();
         Utility.hideResult();

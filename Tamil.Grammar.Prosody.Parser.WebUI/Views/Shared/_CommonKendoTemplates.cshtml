@@ -128,8 +128,69 @@
     </div>
 </script>
 
+<script type="text/x-kendo-template" id="helpVariablesTemplate">
+    # var helptextClass = 'helptext-' + container; console.log(helptextClass); #
+    # var audioVideoControlsId = 'audio-video-controls-' + part + '-' + container; console.log(audioVideoControlsId); #
+    <div class="m-l-xxs" id="#= audioVideoControlsId #"></div>
+    <br />
+    <br />
+    # var videoModalDialogId = 'modal-video-' + part + '-' + container; #
+    <div class="modal modal-center-vertical" id="#= videoModalDialogId #" tabindex="-1" role="dialog" aria-labelledby="modal-about-menyappu-label" aria-hidden="true" style="display: none;">
+
+    </div>
+    # var tableText = (container === 'main') ? 't7' : 't9'; #
+    # var tableClass = "table theme-alt type-" + tableText; console.log(tableClass);#
+</script>
 <!-- Help Templates-->
 <script type="text/x-kendo-template" id="ezhuthuVagaiHelpTemplate">
+    # var helptextClass = 'helptext-' + container; console.log(helptextClass); #
+    # var audioVideoControlsId = 'audio-video-controls-' + part + '-' + container; console.log(audioVideoControlsId); #
+    <div class="m-l-xxs" id="#= audioVideoControlsId #"></div>
+    <br />
+    <br />
+    # var videoModalDialogId = 'modal-video-' + part + '-' + container; #
+    <div class="modal modal-center-vertical" id="#= videoModalDialogId #" tabindex="-1" role="dialog" aria-labelledby="modal-about-menyappu-label" aria-hidden="true" style="display: none;">
+
+    </div>
+    # var tableText = (container === 'main') ? 't7' : 't9'; #
+    # var tableClass = "table theme-alt type-" + tableText; console.log(tableClass);#
+    <div class="#= helptextClass #">
+        <span class="type-t6">மாத்திரை</span>
+        <br />
+        எழுத்து ஒலி அளவு மாத்திரை எனப்படும்.
+    </div>
+
+    <table class="#= tableClass #">
+        <thead>
+            <tr>
+                <th>எழுத்து</th>
+                <th>மாத்திரை</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="kuril">
+                <td class="col-md-3">குறில்</td>
+                <td>1</td>
+            </tr>
+            <tr class="nedil">
+                <td>நெடில்</td>
+                <td>2</td>
+            </tr>
+            <tr class="otru">
+                <td>ஒற்று/மெய்</td>
+                <td>½</td>
+            </tr>
+            <tr class="aytham">
+                <td>ஆய்தம்</td>
+                <td>½</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+</script>
+
+<script type="text/x-kendo-template" id="mathiraiHelpTemplate">
     # var helptextClass = 'helptext-' + container; console.log(helptextClass); #
     <div class="#= helptextClass #">
         <span class="type-t6">மாத்திரை</span>
@@ -137,11 +198,14 @@
         எழுத்து ஒலி அளவு மாத்திரை எனப்படும்.
     </div>
 
-    # var audioVideoControlsId = 'audio-video-controls-ezhuthuVagai-' + container; console.log(audioVideoControlsId); #
+    # var audioVideoControlsId = 'audio-video-controls-mathirai-' + container; console.log(audioVideoControlsId); #
     <div id="#= audioVideoControlsId #"></div>
     <br />
     <br />
+    # var videoModalDialogId = 'modal-video-mathirai-' + container; #
+    <div class="modal modal-center-vertical" id="#= videoModalDialogId #" tabindex="-1" role="dialog" aria-labelledby="modal-about-menyappu-label" aria-hidden="true" style="display: none;">
 
+    </div>
     # var tableText = (container === 'main') ? 't7' : 't9'; #
     # var tableClass = "table theme-alt type-" + tableText; console.log(tableClass);#
     <table class="#= tableClass #">
@@ -170,31 +234,27 @@
             </tr>
         </tbody>
     </table>
-    # var videoModalDialogId = 'modal-video-ezhuthuVagai-' + container; #
-    <div class="modal modal-center-vertical" id="#= videoModalDialogId #" tabindex="-1" role="dialog" aria-labelledby="modal-about-menyappu-label" aria-hidden="true" style="display: none;">
-
-    </div>
-
 </script>
 
 <script type="text/x-kendo-template" id="asaiHelpTemplate">
     # var helptextClass = 'helptext-' + container; console.log(helptextClass); #
     # var tableText = (container === 'main') ? 't7' : 't9'; #
     # var tableClass = "table theme-alt type-" + tableText; console.log(tableClass);#
-    <div class="#= helptextClass #">
-        <span class="type-t6">அசை (Metric Syllable/Metreme)</span>
-        <br />
-        எழுத்துகள் ஒன்றோ இரண்டோ அசைந்து இசைபட நிற்பது அசை ஆகும்.
-    </div>
-    <br />
     # var audioVideoControlsId = 'audio-video-controls-asai-' + container; console.log(audioVideoControlsId); #
-    <div id="#= audioVideoControlsId #"></div>
+    <div class="m-l-xxs" id="#= audioVideoControlsId #"></div>
     <br />
     <br />
     # var videoModalDialogId = 'modal-video-asai-' + container; #
     <div class="modal modal-center-vertical" id="#= videoModalDialogId #" tabindex="-1" role="dialog" aria-labelledby="modal-about-menyappu-label" aria-hidden="true" style="display: none;">
 
     </div>
+    <div class="#= helptextClass #">
+        <span class="type-t6">அசை (Metric Syllable/Metreme)</span>
+        <br />
+        எழுத்துகள் ஒன்றோ இரண்டோ அசைந்து இசைபட நிற்பது அசை ஆகும்.
+    </div>
+    <br />
+
     <div class="#= helptextClass #">
         <span class="type-t6">நேரசை (ஓருயிர்/தனி அசை)</span>
         <br />
@@ -270,12 +330,6 @@
 
 <script type="text/x-kendo-template" id="seerHelpTemplate">
     # var helptextClass = 'helptext-' + container; console.log(helptextClass); #
-    <div class="#= helptextClass #">
-        <span class="type-t6" id="seer">சீர் (Metrical foot)</span>
-        <br />
-        அசையால் அமைவது சீர் ஆகும்.
-    </div>
-    <br />
     # var audioVideoControlsId = 'audio-video-controls-seer-' + container; console.log(audioVideoControlsId); #
     <div id="#= audioVideoControlsId #"></div>
     <br />
@@ -286,6 +340,13 @@
     </div>
     # var tableText = (container === 'main') ? 't7' : 't9'; #
     # var tableClass = "table theme-alt type-" + tableText; console.log(tableClass);#
+    <div class="#= helptextClass #">
+        <span class="type-t6" id="seer">சீர் (Metrical foot)</span>
+        <br />
+        அசையால் அமைவது சீர் ஆகும்.
+    </div>
+    <br />
+
     <table class="#= tableClass #">
         <tbody>
             <tr>
@@ -446,6 +507,14 @@
 
 <script type="text/x-kendo-template" id="thalaiHelpTemplate">
     # var helptextClass = 'helptext-' + container; console.log(helptextClass); #
+    # var audioVideoControlsId = 'audio-video-controls-thalai-' + container; console.log(audioVideoControlsId); #
+    <div id="#= audioVideoControlsId #"></div>
+    <br />
+    <br />
+    # var videoModalDialogId = 'modal-video-thalai-' + container; #
+    <div class="modal modal-center-vertical" id="#= videoModalDialogId #" tabindex="-1" role="dialog" aria-labelledby="modal-about-menyappu-label" aria-hidden="true" style="display: none;">
+
+    </div>
     # var tableText = (container === 'main') ? 't7' : 't9'; #
     # var tableClass = "table theme-alt type-" + tableText; console.log(tableClass);#
     <div class="#= helptextClass #">
@@ -741,6 +810,14 @@
 
 <script type="text/x-kendo-template" id="adiHelpTemplate">
     # var helptextClass = 'helptext-' + container; console.log(helptextClass); #
+    # var audioVideoControlsId = 'audio-video-controls-adi-' + container; console.log(audioVideoControlsId); #
+    <div id="#= audioVideoControlsId #"></div>
+    <br />
+    <br />
+    # var videoModalDialogId = 'modal-video-adi-' + container; #
+    <div class="modal modal-center-vertical" id="#= videoModalDialogId #" tabindex="-1" role="dialog" aria-labelledby="modal-about-menyappu-label" aria-hidden="true" style="display: none;">
+
+    </div>
     # var tableText = (container === 'main') ? 't7' : 't9'; #
     # var tableClass = "table theme-alt type-" + tableText; console.log(tableClass);#
     <div class="#= helptextClass #">
@@ -748,7 +825,6 @@
         <br />
         சீர்கள் இணைந்து அடி ஆகும்.  செய்யுளில் இடம்பெறும் ஒரு வரியை அடி எனலாம். அடியில் வரும் சீர்களின் எண்ணிக்கைக்கு ஏற்ப அடிகள் பல வகைப்படும்.
         <br />
-        தளைகள் ஏழு வகைப்படும்.
     </div>
     <br />
     <div class="#= helptextClass #">

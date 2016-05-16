@@ -24,9 +24,7 @@
         //  Wire parsley js for validation
         $('#prosodyForm').parsley();
         // set the context help
-        var ezhuthuVagaiHelpTemplate = kendo.template($("#ezhuthuVagaiHelpTemplate").html());
-        Utility.setContextHelp(ezhuthuVagaiHelpTemplate({ container: 'side'}));
-        Utility.setHelpAudioVideo('ezhuthuVagai', 'https://www.youtube.com/embed/AH4bCeBXFm4?start=212', 'side');
+        Utility.setHelp('ezhuthuVagai', 'https://www.youtube.com/embed/AH4bCeBXFm4?start=212');
 
         Utility.initSeyyulbar();
         Utility.disableElement("checkResult");

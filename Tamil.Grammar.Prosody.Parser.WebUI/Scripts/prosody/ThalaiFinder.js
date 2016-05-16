@@ -9,8 +9,7 @@
                 inputLines: 1
             }));
         // set the context help
-        var thalaiHelpTemplate = kendo.template($("#thalaiHelpTemplate").html());
-        Utility.setContextHelp(thalaiHelpTemplate({ container: 'side' }));
+        Utility.setHelp('thalai', 'https://www.youtube.com/embed/k3Ad5SMGwUo?start=75');
         // event handler for select
         Utility.initSeyyulbar();
 

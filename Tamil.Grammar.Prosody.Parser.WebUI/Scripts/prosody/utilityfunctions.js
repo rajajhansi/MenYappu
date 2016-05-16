@@ -95,21 +95,28 @@
             return false;
         });
     }
+
+    function renderHelpVariablesTemplate(part, container) {
+        return kendo.Template.compile($("#helpVariablesTemplate").html())({ part: part, container: container });
+    }
     function setHelp(helpTopic, videoUrl) {
         // set the context help
+        var helpVariablesTemplate = kendo.template($("#helpVariablesTemplate").html());
         var helpTemplate = kendo.template($("#" + helpTopic + "HelpTemplate").html());
-        Utility.setMainHelp(helpTemplate({ container: 'main' }));
-        Utility.setContextHelp(helpTemplate({ container: 'side' }));
+        Utility.setMainHelp(helpVariablesTemplate({ part: helpTopic, container: 'main' }), helpTemplate({ part: helpTopic, container: 'main' }));
+        Utility.setContextHelp(helpVariablesTemplate({ part: helpTopic, container: 'main' }), helpTemplate({ part: helpTopic, container: 'side' }));
         if (videoUrl) {
             Utility.setHelpAudioVideo(helpTopic, videoUrl, 'main');
             Utility.setHelpAudioVideo(helpTopic, videoUrl, 'side');
         }
     }
-    function setContextHelp(helpText) {
+    function setContextHelp(helpVariablesText, helpText) {
+        $("#helpVariables").append(helpVariablesText);
         $("#help").append(helpText);
     }
 
-    function setMainHelp(helpText) {
+    function setMainHelp(helpVariablesText, helpText) {
+        $("#helpVariables").append(helpVariablesText);
         $("#mainHelp").append(helpText);
     }
     function makeDelay(ms) {
@@ -267,6 +274,7 @@
         flipBack: flipBack,
         flipFront: flipFront,
         setupExample: setupExample,
+        renderHelpVariablesTemplate: renderHelpVariablesTemplate,
         setHelp: setHelp,
         setContextHelp: setContextHelp,
         setMainHelp: setMainHelp,

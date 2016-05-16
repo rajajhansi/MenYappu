@@ -9,8 +9,7 @@
                 inputLines: 1
             }));
         // set the context help
-        var seerHelpTemplate = kendo.template($("#seerHelpTemplate").html());
-        Utility.setContextHelp(seerHelpTemplate({ container: 'side'}));
+        Utility.setHelp('seer', 'https://www.youtube.com/embed/a0ueXiAs6i4?start=62');
         Utility.initSeyyulbar();
 
         Utility.hideResult();
