@@ -139,12 +139,26 @@
                 e.sender.expand(item);
             }
         };
+
+        var tabStrip = $("#tabstrip").kendoTabStrip({
+            animation: {
+                open: {
+                    effects: "fadeIn"
+                }
+            }
+        }).data("kendoTabStrip");
+
         var seyyulPanelBar = $("#seyyulbar").kendoPanelBar({
             expandMode: "single",
             select: onSelect
         }).data("kendoPanelBar");
         seyyulPanelBar.expand($(".k-first"), true);
-    };
+        var seyyulResultPanelBar = $("#seyyulResult").kendoPanelBar({
+            expandMode: "single",
+            select: onSelect
+        }).data("kendoPanelBar");
+        tabStrip.select(0);
+   };
 
     function loadResourceStrings(language)
     {

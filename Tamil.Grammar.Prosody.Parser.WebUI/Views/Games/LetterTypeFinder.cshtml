@@ -40,50 +40,96 @@
             </ul>
         </li>
     </ul>
+
+    <ul class="kendo-panelbars-custom" id="seyyulResult">
+        <li>
+            <h4 class="main-title">
+                Additional Resources
+                <span class="main-title-icon glyph glyph-chevron-down"></span>
+            </h4>
+
+            <div id="tabstrip" class="menyappu-content-tabstrip">
+                <ul>
+                    <li class="k-state-active">
+                        Quiz
+                    </li>
+                    <li>
+                        FAQ
+                    </li>
+                </ul>
+                <div>
+
+                </div>
+                <div>
+                    FAQ
+                </div>
+            </div>
+        </li>
+    </ul>
+</script>
+
+<script type="text/x-kendo-template" id="ezhuthuVagaiFaqTemplate">
+    <a class="btn btn-lightweight no-outline navigation-btn">Question1</a>
+    <ul role="navigation" id="sidenav-small" class="nav side-navigation side-navigation-small theme-default">
+        <button type="button" class="close" data-dismiss="side-navigation" aria-label="close">
+            <i class="glyph glyph-cancel"></i>
+        </button>
+        # $.each(data.letter, function(index, value) { #
+            # console.log(value['q'] + ' - '  + value['a']); #
+        # var questionid = '\#question-' + index; console.log(questionid); #
+        <li class="active side-nav-c2">
+            <a data-toggle="collapse" data-parent="\#sidenav-small" href="#= questionid #" aria-expanded="true" aria-controls="#= questionid #">#= value["q"] #</a>
+            <ul class="nav collapse in" id="#= 'question-' + index #">
+                <li><a href="\#sidenav-small">#= value['a'] #</a></li>
+            </ul>
+        </li>
+        # }); #
+    </ul>
+
 </script>
 <script type="text/x-kendo-template" id="ezhuthuVagaiSelectorTemplate">
-        # var ezhuthuVagaiId = 'ezhuthuVagai-dropdown-' + ezhuthuVagaiIndex; #
-        <tr>
-            <td>
-                <div class="type-t5 text-right">#= ezhuthu + ':'#</div>
-            </td>
-            <td>
-                <!--<p class="form-group-label">எழுத்து வகைகள்</p>-->
-                <div class="dropdown">
-                    <button id="#= ezhuthuVagaiId #" class="btn btn-dropdown dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
-                        #= ProsodyResourceManager.get("selectALetterType") #<span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" role="menu" aria-labelledby="#= ezhuthuVagaiId #">
-                        # $.each(LetterTypeFinder.letterTypes, function(letterTypeKey, letterTypeValue) { #
-                        <li><a href="\\#">#= letterTypeValue #</a></li>
-                        # }); #
-                    </ul>
-                </div>
-            </td>
-        </tr>
-    </script>
+    # var ezhuthuVagaiId = 'ezhuthuVagai-dropdown-' + ezhuthuVagaiIndex; #
+    <tr>
+        <td>
+            <div class="type-t5 text-right">#= ezhuthu + ':'#</div>
+        </td>
+        <td>
+            <!--<p class="form-group-label">எழுத்து வகைகள்</p>-->
+            <div class="dropdown">
+                <button id="#= ezhuthuVagaiId #" class="btn btn-dropdown dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+                    #= ProsodyResourceManager.get("selectALetterType") #<span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="#= ezhuthuVagaiId #">
+                    # $.each(LetterTypeFinder.letterTypes, function(letterTypeKey, letterTypeValue) { #
+                    <li><a href="\\#">#= letterTypeValue #</a></li>
+                    # }); #
+                </ul>
+            </div>
+        </td>
+    </tr>
+</script>
 <script type="text/x-kendo-template" id="ezhuthuVagaiTemplate">
-        # var mathiraiInSeer = ""; var key = 0; var l = 0; #
-        # for(var w=0; w < detailedMathiraiCount.length; w++) { #
-        # $.each(detailedMathiraiCount[w], function(detailedMathiraiKey, detailedMathiraiValue) { #
-        # mathiraiInSeer = mathiraiInSeer + '&nbsp;' #
-        # $.each(detailedMathiraiValue, function(mathiraiKey, mathiraiValue) { #
-        # var rubyStyle = l === Object.keys(detailedMathiraiValue).length - 1 ? "margin-right:10px" : "margin-right:0px"; #
-        # var letter = mathiraiKey.split(":")[1]; console.log(mathiraiKey + ' ' + letter); #
-        # mathiraiInSeer = mathiraiInSeer + '<ruby style="' + rubyStyle + '">'+'<span class="uiTrant type-t7">' + letter + '</span><rt class="' + LetterTypeFinder.letterCssClasses[mathiraiValue.letterType] + '">' + mathiraiValue.letterType +  '</rt></ruby>  '; #
-        # l++; #
-        # }) #
-        # l = 0; key++; #
-        # }) #
-        # } #
-        #= mathiraiInSeer #
-        <hr />
-        <span class="kuril m-r-xxs type-t9">கு – குறில்</span>
-        <span class="nedil m-r-xxs type-t9">நெ – நெடில்</span>
-        <span class="otru m-r-xxs type-t9">மெ – மெய்</span>
-        <span class="aytham m-r-xxs type-t9">ஃ - ஆய்தம்</span>
-    </script>
-
+    # var mathiraiInSeer = ""; var key = 0; var l = 0; #
+    # for(var w=0; w < detailedMathiraiCount.length; w++) { #
+    # $.each(detailedMathiraiCount[w], function(detailedMathiraiKey, detailedMathiraiValue) { #
+    # mathiraiInSeer = mathiraiInSeer + '&nbsp;' #
+    # $.each(detailedMathiraiValue, function(mathiraiKey, mathiraiValue) { #
+    # var rubyStyle = l === Object.keys(detailedMathiraiValue).length - 1 ? "margin-right:10px" : "margin-right:0px"; #
+    # var letter = mathiraiKey.split(":")[1]; console.log(mathiraiKey + ' ' + letter); #
+    # mathiraiInSeer = mathiraiInSeer + '
+    <ruby style="' + rubyStyle + '">'+'<span class="uiTrant type-t7">' + letter + '</span><rt class="' + LetterTypeFinder.letterCssClasses[mathiraiValue.letterType] + '">' + mathiraiValue.letterType +  '</rt></ruby>  '; #
+    # l++; #
+    # }) #
+    # l = 0; key++; #
+    # }) #
+    # } #
+    #= mathiraiInSeer #
+    <hr />
+    <span class="kuril m-r-xxs type-t9">கு – குறில்</span>
+    <span class="nedil m-r-xxs type-t9">நெ – நெடில்</span>
+    <span class="otru m-r-xxs type-t9">மெ – மெய்</span>
+    <span class="aytham m-r-xxs type-t9">ஃ - ஆய்தம்</span>
+</script>
 @{ Html.RenderPartial("_CommonKendoTemplates"); }
 
 
@@ -96,6 +142,15 @@
                 .keyup(function () {
                     delay(LetterTypeFinder.showInputAndResult);
                 });
+
+            var ezhuthuVagaiFaqTemplate = kendo.template($("#ezhuthuVagaiFaqTemplate").html());
+            var input = '{"prosodyType": "' + 'letter' + '"' + '}';
+            var additionalInfo = QaService.questions(input,
+                function(data) {
+                    console.log(data);
+                    $("#tabstrip-2").html(ezhuthuVagaiFaqTemplate({ data: data }));
+                });
+
 
             $("#ProsodyText").blur(LetterTypeFinder.showInputAndResult);
             $("#prosodyForm").submit(function () {
