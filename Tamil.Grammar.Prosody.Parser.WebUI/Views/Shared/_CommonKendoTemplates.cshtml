@@ -874,3 +874,59 @@
 
 </script>
 
+<script type="text/x-kendo-template" id="osaiHelpTemplate">
+    # var helptextClass = 'helptext-' + container; console.log(helptextClass); #
+    # var audioVideoControlsId = 'audio-video-controls-osai-' + container; console.log(audioVideoControlsId); #
+    <div id="#= audioVideoControlsId #"></div>
+    <br />
+    <br />
+    # var videoModalDialogId = 'modal-video-osai-' + container; #
+    <div class="modal modal-center-vertical" id="#= videoModalDialogId #" tabindex="-1" role="dialog" aria-labelledby="modal-about-menyappu-label" aria-hidden="true" style="display: none;">
+
+    </div>
+    # var tableText = (container === 'main') ? 't7' : 't9'; #
+    # var tableClass = "table theme-alt type-" + tableText; console.log(tableClass);#
+    <div class="#= helptextClass #">
+        <span class="type-t6">ஓசை (Sound)</span>
+        <br />
+        ஒவ்வொரு வகைப் பாவுக்கும் ஒவ்வோர் ஓசை உண்டு. ஓசை என்பது யாப்பின் உறுப்பென வெளிப்படையாகக் குறிப்பிடாவிட்டாலும் ஓசையை விடுத்து யாப்பிலக்கணத்தைப் பற்றிப் பேசவோ கற்கவோ இயலாது.
+        <br />
+    </div>
+    <br />
+    <div class="#= helptextClass #">
+        <span class="type-t6">ஓசை வகை</span>
+    </div>
+    <table class="#= tableClass #">
+        <thead>
+            <tr>
+                <th>ஓசை</th>
+                <th>விளக்கம்</th>
+                <th>பா
+</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="naal">
+                <td class="col-md-4">அகவலோசை</td>
+                <td class="col-md-4">ஒருவர் சொற்பொழிவாற்றுவது போன்ற ஓசை</td>
+                <td>ஆசிரியப்பா</td>
+            </tr>
+            <tr class="malar">
+                <td>செப்பலோசை</td>
+                <td>இருவர் பேசுவது போன்ற ஓசை</td>
+                <td>வெண்பா</td>
+            </tr>
+            <tr class="kaasu">
+                <td>துள்ளலோசை</td>
+                <td>சீர்தோறும் துள்ளிவரும் ஓசை</td>
+                <td>கலிப்பா</td>
+            </tr>
+            <tr class="pirappu">
+                <td>தூங்கலோசை</td>
+                <td>சீர்தோறும் ஏறியிறங்காது தாழ்ந்தே வரும் ஓசை</td>
+                <td>வஞ்சிப்பா</td>
+            </tr>
+        </tbody>
+    </table>
+
+</script>

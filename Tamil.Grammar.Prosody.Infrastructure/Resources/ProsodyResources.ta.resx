@@ -372,4 +372,28 @@
   <data name="ThirukkuralAnalysis" xml:space="preserve">
     <value>திருக்குறள் பகுப்பாய்வு</value>
   </data>
+  <data name="PaaSound" xml:space="preserve">
+    <value>ஓசை வரும் பா</value>
+  </data>
+  <data name="SelectAPaaWithSound" xml:space="preserve">
+    <value>ஓசை வரும் பாவைத் தேர்ந்தெடு</value>
+  </data>
+  <data name="SelectASound" xml:space="preserve">
+    <value>ஓசை வகையைத் தேர்ந்தெடு</value>
+  </data>
+  <data name="SelectASoundDefinition" xml:space="preserve">
+    <value>ஓசை விளக்கத்தைத் தேர்ந்தெடு                                                  </value>
+  </data>
+  <data name="SoundDefinition" xml:space="preserve">
+    <value>ஓசை விளக்கம்</value>
+  </data>
+  <data name="SoundMatcher" xml:space="preserve">
+    <value>பாவின் ஓசை</value>
+  </data>
+  <data name="SoundMatcherInfoTip" xml:space="preserve">
+    <value>ஒரு ஓசை வகையைத் தேர்ந்தெடுத்த பின் அதற்கான சரியான விளக்கத்தையும் அந்த ஓசை வரும் பாவையும் தேர்ந்தெடுத்த பின் “சரி பார்த்திடு” என்ற பொத்தானை அழுத்தினால் “முடிவு” தெரியும்.</value>
+  </data>
+  <data name="SoundTypes" xml:space="preserve">
+    <value>ஓசை வகைகள்</value>
+  </data>
 </root>

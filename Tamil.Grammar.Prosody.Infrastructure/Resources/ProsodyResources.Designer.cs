@@ -556,6 +556,15 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Paa&apos;s Sound.
+        /// </summary>
+        public static string PaaSound {
+            get {
+                return ResourceManager.GetString("PaaSound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Paa Types.
         /// </summary>
         public static string PaaTypes {
@@ -655,6 +664,33 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select a Paa with Selected Sound.
+        /// </summary>
+        public static string SelectAPaaWithSound {
+            get {
+                return ResourceManager.GetString("SelectAPaaWithSound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select Sound Type.
+        /// </summary>
+        public static string SelectASound {
+            get {
+                return ResourceManager.GetString("SelectASound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select a Sound Definition                          .
+        /// </summary>
+        public static string SelectASoundDefinition {
+            get {
+                return ResourceManager.GetString("SelectASoundDefinition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Settings.
         /// </summary>
         public static string Settings {
@@ -678,6 +714,42 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         public static string Sound {
             get {
                 return ResourceManager.GetString("Sound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sound Definition.
+        /// </summary>
+        public static string SoundDefinition {
+            get {
+                return ResourceManager.GetString("SoundDefinition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sound of Paa.
+        /// </summary>
+        public static string SoundMatcher {
+            get {
+                return ResourceManager.GetString("SoundMatcher", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to After selecting a sound, choose the correct definition, paa with that sound and click on &quot;Check Answer&quot; button to see the &quot;Result&quot;..
+        /// </summary>
+        public static string SoundMatcherInfoTip {
+            get {
+                return ResourceManager.GetString("SoundMatcherInfoTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sound Types.
+        /// </summary>
+        public static string SoundTypes {
+            get {
+                return ResourceManager.GetString("SoundTypes", resourceCulture);
             }
         }
         

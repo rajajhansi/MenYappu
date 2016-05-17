@@ -257,6 +257,40 @@
         });
     };
 
+    function wireDropdownTooltipAndPopoverHandlers() {
+        Utility.setLanguage();
+        $('#language + ul li').on('click', function () {
+            var language = $(this)[0].childNodes[0].getAttribute('data-value');
+            Utility.setCookie('__APPLICATION_LANGUAGE', language);
+            location.reload();
+        });
+
+        $('.dropdown-menu li a').on('click', function () {
+            if (!$(this).parents('.dropdown-menu').hasClass('nosel')) {
+                var selText = $(this).text();
+                var selValue = $(this).attr('data-value') ? $(this).attr('data-value') : selText;
+                $(this).parents('.dropdown').find('.dropdown-toggle').html(selText + ' <span class="caret"></span>')
+                    .attr('data-value', selValue);
+            }
+        });
+
+        $('[data-toggle="popover"]').each(function () {
+            var $element = $(this);
+
+            $element.popover({
+                template: '<div class="popover" role="tooltip"><div class="popover-content"></div></div>',
+                container: 'body',
+                html: 'true'
+            }).data('bs.popover').tip().addClass($element.data("theme"));
+        });
+
+
+        $('[data-toggle="tooltip"]').tooltip({
+            template: '<div class="tooltip" role="tooltip"><div class="tooltip-inner"></div></div>',
+            container: 'body',
+            html: 'true'
+        });
+    }
     return {
         languages: languages,
         stringStartsWith: stringStartsWith,
@@ -285,43 +319,7 @@
         getCookie: getCookie,
         checkCookie: checkCookie,
         setLanguage: setLanguage,
-        setHelpAudioVideo: setHelpAudioVideo
+        setHelpAudioVideo: setHelpAudioVideo,
+        wireDropdownTooltipAndPopoverHandlers: wireDropdownTooltipAndPopoverHandlers
     };
 })();
-
-
-$(document).ready(function () {
-    Utility.setLanguage();
-    $('#language + ul li').on('click', function () {
-        var language = $(this)[0].childNodes[0].getAttribute('data-value');
-        Utility.setCookie('__APPLICATION_LANGUAGE', language);
-        location.reload();
-    });
-
-    $('.dropdown-menu li a').on('click', function () {
-        if (!$(this).parents('.dropdown-menu').hasClass('nosel')) {
-            var selText = $(this).text();
-            var selValue = $(this).attr('data-value') ? $(this).attr('data-value') : selText;
-            $(this).parents('.dropdown').find('.dropdown-toggle').html(selText + ' <span class="caret"></span>')
-                .attr('data-value', selValue);
-        }
-    });
-
-    $('[data-toggle="popover"]').each(function () {
-        var $element = $(this);
-
-        $element.popover({
-            template: '<div class="popover" role="tooltip"><div class="popover-content"></div></div>',
-            container: 'body',
-            html: 'true'
-        }).data('bs.popover').tip().addClass($element.data("theme"));
-    });
-
-
-    $('[data-toggle="tooltip"]').tooltip({
-        template: '<div class="tooltip" role="tooltip"><div class="tooltip-inner"></div></div>',
-        container: 'body',
-        html: 'true'
-    });
-
-});

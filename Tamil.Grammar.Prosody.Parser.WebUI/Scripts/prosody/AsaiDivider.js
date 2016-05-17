@@ -24,6 +24,7 @@
             .append(resultTemplate({
                 part: "asai"
             }));
+        Utility.wireDropdownTooltipAndPopoverHandlers();
     }
 
     function showInputAndResult() {

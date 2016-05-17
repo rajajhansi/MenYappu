@@ -26,6 +26,7 @@
             .append(resultTemplate({
                 part: "mathirai"
             }));
+        Utility.wireDropdownTooltipAndPopoverHandlers();
     }
 
     function showOutputWithResult(data) {

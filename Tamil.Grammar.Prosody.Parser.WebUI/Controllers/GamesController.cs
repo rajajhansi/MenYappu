@@ -60,5 +60,11 @@ namespace Tamil.Grammar.Prosody.Parser.WebUI.Controllers
             ViewBag.Message = "அடி அளவிடு";
             return View();
         }
+
+        public ActionResult OsaiMatcher()
+        {
+            ViewBag.Message = "பாவின் ஓசை";
+            return View();
+        }
     }
 }

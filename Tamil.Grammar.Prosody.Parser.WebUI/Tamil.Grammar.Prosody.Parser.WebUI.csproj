@@ -289,6 +289,7 @@
     <Content Include="audio\asai.mp3" />
     <Content Include="audio\ezhuthuVagai.mp3" />
     <Content Include="audio\mathirai.mp3" />
+    <Content Include="audio\osai.mp3" />
     <Content Include="audio\seer.mp3" />
     <Content Include="audio\thalai.mp3" />
     <Content Include="audio\thodai.mp3" />
@@ -755,6 +756,7 @@
     <Content Include="Scripts\prosody\AdiMeasurer.js" />
     <Content Include="Scripts\prosody\AsaiDivider.js" />
     <Content Include="Scripts\prosody\EthukaiMonaiFinder.js" />
+    <Content Include="Scripts\prosody\OsaiMatcher.js" />
     <Content Include="Scripts\prosody\LetterTypeFinder.js" />
     <Content Include="Scripts\prosody\MathiraiCalculator.js" />
     <Content Include="Scripts\prosody\ProsodyResourceManager.js" />
@@ -820,6 +822,7 @@
     <Content Include="Views\ProsodyHelp\Kalippaavinam.cshtml" />
     <Content Include="Views\ProsodyHelp\Vanjippaavinam.cshtml" />
     <Content Include="Views\ProsodyHelp\Venpaavinam.cshtml" />
+    <Content Include="Views\Games\OsaiMatcher.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Gma.DataStructures.StringSearch\Gma.DataStructures.StringSearch.csproj">

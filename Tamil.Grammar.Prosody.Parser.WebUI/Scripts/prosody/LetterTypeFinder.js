@@ -40,6 +40,7 @@
             .append(resultTemplate({
                 part: "ezhuthu"
             }));
+        Utility.wireDropdownTooltipAndPopoverHandlers();
     }
 
     var showInputAndResult = function () {

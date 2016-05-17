@@ -27,6 +27,7 @@
                             { part: "seer", partHeader: "சீர் வகைகள்" }
                 ]
             }));
+        Utility.wireDropdownTooltipAndPopoverHandlers();
     }
 
     function showInputAndResult() {

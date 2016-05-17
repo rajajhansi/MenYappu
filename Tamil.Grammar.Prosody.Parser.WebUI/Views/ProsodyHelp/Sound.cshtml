@@ -1,3 +1,12 @@
-﻿<div>
-    <h1>Under Construction</h1>
+﻿@{
+    ViewBag.Title = "ஓசை";
+}
+<div id="mainHelp" class="p-md">
+
 </div>
+@{ Html.RenderPartial("_CommonKendoTemplates"); }
+<script>
+    $(document).ready(function () {
+        Utility.setHelp('osai', 'https://www.youtube.com/embed/k3Ad5SMGwUo?start=570');
+    });
+</script>

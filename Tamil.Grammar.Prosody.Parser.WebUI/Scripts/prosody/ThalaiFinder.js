@@ -23,6 +23,7 @@
                 part: "thalai"
             }));
         Utility.setupExample('/api/prosody/ThalaiSentences', 'sentence');
+        Utility.wireDropdownTooltipAndPopoverHandlers();
     }
 
     function showInputAndResult() {

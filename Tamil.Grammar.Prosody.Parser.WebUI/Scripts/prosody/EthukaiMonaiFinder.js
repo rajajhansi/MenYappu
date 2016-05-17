@@ -21,6 +21,7 @@
                             { part: "iyaipu", partHeader: "இயைபு வகைகள்" }
                 ]
             }));
+        Utility.wireDropdownTooltipAndPopoverHandlers();
     }
 
     function showInputAndResult() {

@@ -23,6 +23,7 @@
             Utility.showElement("adiSelector");
         });
         Utility.setupExample('/api/prosody/Adigal', 'adi');
+        Utility.wireDropdownTooltipAndPopoverHandlers();
     }
 
     function showInputAndResult() {

@@ -18,6 +18,9 @@
     @Scripts.Render("~/Scripts/toastrjs")
     @Scripts.Render("~/Scripts/blockuijs")
     @Scripts.Render("~/Scripts/parsleyjs")
+    <script src="/Scripts/prosody/utilityfunctions.js"></script>
+    <script src="/Scripts/prosody/ProsodyService.js"></script>
+    <script src="/Scripts/prosody/ProsodyResourceManager.js"></script>
     @*<link href="~/Content/bootstrap.min.css" rel="stylesheet">*@
     @*<link href="~/Content/bootstrap-responsive.min.css" rel="stylesheet">*@
 
@@ -56,140 +59,139 @@
 
     </div>
 
-<div class="container-wrap" id="container-wrapper-with-panels">
-    <div class="left-panelbar">
+    <div class="container-wrap" id="container-wrapper-with-panels">
+        <div class="left-panelbar">
 
-    </div>
-
-    <!-- About us Dialog -->
-
-    <div class="center-panelbar">
-        @RenderBody()
-    </div>
-
-    <div class="right-panelbar">
-    </div>
-
-    @{
-        Html.RenderPartial("_TopNavigationBar");
-        Html.RenderPartial("_LeftNavigationBar");
-        Html.RenderPartial("_RightPanelBar");
-    }
-    <script type="text/x-kendo-template" id="aboutMenYappuTemplate">
-        # var menYappu = ProsodyResourceManager.get("menYappu"); var aboutMenYappuDetails = ProsodyResourceManager.get("aboutMenYappuDetails"); #
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <span class="modal-title" id="modal-sample-label">
-                        <b>#= menYappu #</b>
-                    </span>
-                </div>
-                <div class="modal-body">
-                    #= aboutMenYappuDetails #
-                </div>
-                <br />
-                <div>
-                    # var task = ProsodyResourceManager.get("task"); var executor = ProsodyResourceManager.get("executor"); #
-                    # var softwareDevelopment = ProsodyResourceManager.get("softwareDevelopment"); var design = ProsodyResourceManager.get("design"); #
-                    # var inspirationAndMotivation = ProsodyResourceManager.get("inspirationAndMotivation"); var suggestionAndReview = ProsodyResourceManager.get("suggestionAndReview"); #
-                    # var rajaMani = ProsodyResourceManager.get("rajaMani"); var bogdanUrs = ProsodyResourceManager.get("bogdanUrs"); #
-                    # var vinodRajan = ProsodyResourceManager.get("vinodRajan"); var kandasamyPalanisamy = ProsodyResourceManager.get("kandasamyPalanisamy"); #
-                    # var close = ProsodyResourceManager.get("close"); #
-                    <table class="table">
-                        <thead>
-                            <tr><th>#= task #</th><th>#= executor #</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>#= softwareDevelopment #</td><td>#= rajaMani #</td></tr>
-                            <tr><td>#= design #</td><td>#= bogdanUrs #</td></tr>
-                            <tr><td>#= inspirationAndMotivation #</td><td>#= vinodRajan #</td></tr>
-                            <tr><td>#= suggestionAndReview #</td><td>#= kandasamyPalanisamy #</td></tr>
-                        </tbody>
-                    </table>
-                    <hr />
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">
-                        #= close #
-                    </button>
-                </div>
-            </div>
         </div>
 
-    </script>
-    <div class="modal modal-center-vertical" id="modal-about-menyappu"
-         tabindex="-1" role="dialog"
-         aria-labelledby="modal-about-menyappu-label" aria-hidden="true">
+        <!-- About us Dialog -->
 
-    </div>
-    <!-- Le javascript
-    ================================================== -->
+        <div class="center-panelbar">
+            @RenderBody()
+        </div>
 
-    <!-- Placed at the end of the document so the pages load faster -->
-    @*<script src="~/Scripts/bootstrap.min.js"></script>*@
+        <div class="right-panelbar">
+        </div>
 
-    @RenderSection("scripts", required: false)
-    <script src="/Scripts/parsley/i18n/ta.js"></script>
-    @Scripts.Render("~/Scripts/customUi")
-    @Scripts.Render("~/Scripts/ajaxHelpers")
-    <script src="/Scripts/lodash.js"></script>
-    <script src="/Scripts/prosody/utilityfunctions.js"></script>
-    <script src="/Scripts/prosody/ProsodyService.js"></script>
-    <script src="/Scripts/prosody/ProsodyResourceManager.js"></script>
-    <script>
-        var topNavigationBarTemplate = kendo.template($("#topNavigationBarTemplate").html());
-        $(".container-fluid").append(topNavigationBarTemplate({}));
-        var leftNavigationBarTemplate = kendo.template($("#leftNavigationBarTemplate").html());
-        $(".left-panelbar").append(leftNavigationBarTemplate({}));
-        var rightPanelBarTemplate = kendo.template($("#rightPanelBarTemplate").html());
-        $(".right-panelbar").append(rightPanelBarTemplate({}));
-        var aboutMenYappuTemplate = kendo.template($("#aboutMenYappuTemplate").html());
-        $("#modal-about-menyappu").append(aboutMenYappuTemplate({}));
+        @{
+            Html.RenderPartial("_TopNavigationBar");
+            Html.RenderPartial("_LeftNavigationBar");
+            Html.RenderPartial("_RightPanelBar");
+        }
+        <script type="text/x-kendo-template" id="aboutMenYappuTemplate">
+            # var menYappu = ProsodyResourceManager.get("menYappu"); var aboutMenYappuDetails = ProsodyResourceManager.get("aboutMenYappuDetails"); #
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span class="modal-title" id="modal-sample-label">
+                            <b>#= menYappu #</b>
+                        </span>
+                    </div>
+                    <div class="modal-body">
+                        #= aboutMenYappuDetails #
+                    </div>
+                    <br />
+                    <div>
+                        # var task = ProsodyResourceManager.get("task"); var executor = ProsodyResourceManager.get("executor"); #
+                        # var softwareDevelopment = ProsodyResourceManager.get("softwareDevelopment"); var design = ProsodyResourceManager.get("design"); #
+                        # var inspirationAndMotivation = ProsodyResourceManager.get("inspirationAndMotivation"); var suggestionAndReview = ProsodyResourceManager.get("suggestionAndReview"); #
+                        # var rajaMani = ProsodyResourceManager.get("rajaMani"); var bogdanUrs = ProsodyResourceManager.get("bogdanUrs"); #
+                        # var vinodRajan = ProsodyResourceManager.get("vinodRajan"); var kandasamyPalanisamy = ProsodyResourceManager.get("kandasamyPalanisamy"); #
+                        # var close = ProsodyResourceManager.get("close"); #
+                        <table class="table">
+                            <thead>
+                                <tr><th>#= task #</th><th>#= executor #</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>#= softwareDevelopment #</td><td>#= rajaMani #</td></tr>
+                                <tr><td>#= design #</td><td>#= bogdanUrs #</td></tr>
+                                <tr><td>#= inspirationAndMotivation #</td><td>#= vinodRajan #</td></tr>
+                                <tr><td>#= suggestionAndReview #</td><td>#= kandasamyPalanisamy #</td></tr>
+                            </tbody>
+                        </table>
+                        <hr />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">
+                            #= close #
+                        </button>
+                    </div>
+                </div>
+            </div>
 
-        $("#container-wrapper-with-panels")
-            .panelExpander({
-                persistState: {
-                    left: true
-                },
-                onLoad: function(isCollapsedOnLoad, container) {
-                    if (isCollapsedOnLoad['left']) {
-                        container.find('#left-panel-inwrap').find('.stacked-menu-items-text').hide();
-                    }
-                    if (isCollapsedOnLoad['right']) {
-                        container.find("#right-panelbar-innercontent").hide();
-                    }
-                },
-                collapsedText: {
-                    'right': ProsodyResourceManager.get("help")
-                },
-                callbacks: {
-                    beforeCollapse: {
-                        left: function(e, container) {
+        </script>
+        <div class="modal modal-center-vertical" id="modal-about-menyappu"
+             tabindex="-1" role="dialog"
+             aria-labelledby="modal-about-menyappu-label" aria-hidden="true">
+
+        </div>
+        <!-- Le javascript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        @*<script src="~/Scripts/bootstrap.min.js"></script>*@
+
+        @RenderSection("scripts", required: false)
+        <script src="/Scripts/parsley/i18n/ta.js"></script>
+        @Scripts.Render("~/Scripts/customUi")
+        @Scripts.Render("~/Scripts/ajaxHelpers")
+        <script src="/Scripts/lodash.js"></script>
+
+
+        <script>
+            var topNavigationBarTemplate = kendo.template($("#topNavigationBarTemplate").html());
+            $(".container-fluid").append(topNavigationBarTemplate({}));
+            var leftNavigationBarTemplate = kendo.template($("#leftNavigationBarTemplate").html());
+            $(".left-panelbar").append(leftNavigationBarTemplate({}));
+            var rightPanelBarTemplate = kendo.template($("#rightPanelBarTemplate").html());
+            $(".right-panelbar").append(rightPanelBarTemplate({}));
+            var aboutMenYappuTemplate = kendo.template($("#aboutMenYappuTemplate").html());
+            $("#modal-about-menyappu").append(aboutMenYappuTemplate({}));
+
+            $("#container-wrapper-with-panels")
+                .panelExpander({
+                    persistState: {
+                        left: true
+                    },
+                    onLoad: function (isCollapsedOnLoad, container) {
+                        if (isCollapsedOnLoad['left']) {
                             container.find('#left-panel-inwrap').find('.stacked-menu-items-text').hide();
-                        },
-                        right: function(e, container) {
+                        }
+                        if (isCollapsedOnLoad['right']) {
                             container.find("#right-panelbar-innercontent").hide();
                         }
                     },
-                    afterExpand: {
-                        left: function(e, container, ctx) {
-                            setTimeout(function(param) {
+                    collapsedText: {
+                        'right': ProsodyResourceManager.get("help")
+                    },
+                    callbacks: {
+                        beforeCollapse: {
+                            left: function (e, container) {
+                                container.find('#left-panel-inwrap').find('.stacked-menu-items-text').hide();
+                            },
+                            right: function (e, container) {
+                                container.find("#right-panelbar-innercontent").hide();
+                            }
+                        },
+                        afterExpand: {
+                            left: function (e, container, ctx) {
+                                setTimeout(function (param) {
                                     container.find('#left-panel-inwrap').find('.stacked-menu-items-text').fadeIn(100);
                                 },
-                                100);
-                        },
-                        right: function(e, container, ctx) {
-                            setTimeout(function(param) {
+                                    100);
+                            },
+                            right: function (e, container, ctx) {
+                                setTimeout(function (param) {
                                     container.find("#right-panelbar-innercontent").fadeIn(100);
                                 },
-                                100);
+                                    100);
+                            }
                         }
                     }
-                }
-            });
+                });
 
-        $(".stacked-menus").panelSubmenus();
-    </script>
+            $(".stacked-menus").panelSubmenus();
+
+        </script>
     </div>
 </body>
 </html>

@@ -372,4 +372,28 @@
   <data name="ThirukkuralAnalysis" xml:space="preserve">
     <value>Thirukkural Analysis</value>
   </data>
+  <data name="PaaSound" xml:space="preserve">
+    <value>Paa's Sound</value>
+  </data>
+  <data name="SelectAPaaWithSound" xml:space="preserve">
+    <value>Select a Paa with Selected Sound</value>
+  </data>
+  <data name="SelectASound" xml:space="preserve">
+    <value>Select Sound Type</value>
+  </data>
+  <data name="SelectASoundDefinition" xml:space="preserve">
+    <value>Select a Sound Definition                          </value>
+  </data>
+  <data name="SoundDefinition" xml:space="preserve">
+    <value>Sound Definition</value>
+  </data>
+  <data name="SoundMatcher" xml:space="preserve">
+    <value>Sound of Paa</value>
+  </data>
+  <data name="SoundMatcherInfoTip" xml:space="preserve">
+    <value>After selecting a sound, choose the correct definition, paa with that sound and click on "Check Answer" button to see the "Result".</value>
+  </data>
+  <data name="SoundTypes" xml:space="preserve">
+    <value>Sound Types</value>
+  </data>
 </root>
