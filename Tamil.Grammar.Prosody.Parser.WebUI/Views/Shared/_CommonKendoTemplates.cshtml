@@ -15,6 +15,84 @@
     </div>
 </script>
 
+<script type="text/x-kendo-template" id="additionalInfoTemplate">
+    <ul class="kendo-panelbars-custom" id="seyyulResult">
+        <li>
+            <h4 class="main-title">
+                #= ProsodyResourceManager.get("additionalInformation") #
+                <span class="main-title-icon glyph glyph-chevron-down"></span>
+            </h4>
+
+            <div id="tabstrip" class="menyappu-content-tabstrip">
+                <ul>
+                    <li class="k-state-active">
+                        #= ProsodyResourceManager.get("quiz") #
+                    </li>
+                    <li>
+                        #= ProsodyResourceManager.get("faq") #
+                    </li>
+                </ul>
+                <div>
+                    #= ProsodyResourceManager.get("comingSoon") #
+                </div>
+                <div>
+                    #= ProsodyResourceManager.get("faq") #
+                </div>
+            </div>
+        </li>
+    </ul>
+</script>
+
+<script type="text/x-kendo-template" id="quizTemplate">
+    <br/>
+
+    # $.each(data, function(index, value) { #
+    <a href="\#"><span class="questionNumber unanswered text-t5">#= index + 1 #</span></a>
+    # }); #
+    # $.each(data, function(index, value) { #
+    <div id="#= 'q-' + (index + 1) #" class="hidden">
+        <br />
+        #= (index + 1) + '. ' + value['q'] #
+        # console.log(data[index]['t']); console.log(data[index]['c']); #
+        # var controlType = (data[index]['t'] === "ஒ") ? "radio" : (data[index]['t'] === "ப" ? "checkbox" : "radio"); #
+        <div class="form-group">
+            <p class="form-group-label"></p>
+            # $.each(data[index]['c'], function(cindex, cvalue) { #
+            <div class="#= controlType #">
+                <label>
+                    <input type="#= controlType #" name="#= 'answer-' + (index + 1) #">
+                    <span>#= cvalue[cindex + 1] #</span>
+                </label>
+            </div>
+            # }); #
+        </div>
+    </div>
+    # }); #
+</script>
+
+<script type="text/x-kendo-template" id="faqTemplate">
+    # var expandAllButtonId = 'expandAllFaq-' + part; var collapseAllButtonId = 'collapseAllFaq-' + part; #
+    <button id="#= expandAllButtonId #" class="btn btn-primary btn-with-glyph"><i class="glyph glyph-expand"></i>#= ProsodyResourceManager.get("expandAll") #</button>
+    <button id="#= collapseAllButtonId #" class="btn btn-primary btn-with-glyph"><i class="glyph glyph-collapse"></i>#= ProsodyResourceManager.get("collapseAll") #</button>
+    <a class="btn btn-lightweight no-outline navigation-btn">Question1</a>
+    <ul role="navigation" id="sidenav-small" class="nav side-navigation side-navigation-small theme-default">
+        <button type="button" class="close" data-dismiss="side-navigation" aria-label="close">
+            <i class="glyph glyph-cancel"></i>
+        </button>
+        # $.each(data, function(index, value) { #
+        # console.log(value['q'] + ' - '  + value['a']); #
+        # var questionid = '\#question-' + index; console.log(questionid); #
+        <li class="active side-nav-c2">
+            <a data-toggle="collapse" data-parent="\#sidenav-small" href="#= questionid #" aria-expanded="true" aria-controls="#= questionid #">
+                <i class="glyph glyph-collapse"></i>#= value["q"] #
+            </a>
+            <ul class="nav collapse in" id="#= 'question-' + index #">
+                <li><a href="\#sidenav-small">#= value['a'] #</a></li>
+            </ul>
+        </li>
+        # }); #
+    </ul>
+</script>
 <script type="text/x-kendo-template" id="resultTemplate">
     # var partCorrect = part + "-correct"; var partIncorrect = part + "-incorrect"; var partExplanation = part + "-explanation"; #
     # var result = ProsodyResourceManager.get("result"); var howToSeeTheResult = ProsodyResourceManager.get("howToSeeTheResult"); #
@@ -901,8 +979,9 @@
             <tr>
                 <th>ஓசை</th>
                 <th>விளக்கம்</th>
-                <th>பா
-</th>
+                <th>
+                    பா
+                </th>
             </tr>
         </thead>
         <tbody>

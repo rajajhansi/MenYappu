@@ -79,6 +79,15 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Additional Information.
+        /// </summary>
+        public static string AdditionalInformation {
+            get {
+                return ResourceManager.GetString("AdditionalInformation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Alliteration.
         /// </summary>
         public static string Alliteration {
@@ -156,6 +165,24 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         public static string Close {
             get {
                 return ResourceManager.GetString("Close", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Collapse All.
+        /// </summary>
+        public static string CollapseAll {
+            get {
+                return ResourceManager.GetString("CollapseAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Coming soon....
+        /// </summary>
+        public static string ComingSoon {
+            get {
+                return ResourceManager.GetString("ComingSoon", resourceCulture);
             }
         }
         
@@ -277,11 +304,29 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Expand All.
+        /// </summary>
+        public static string ExpandAll {
+            get {
+                return ResourceManager.GetString("ExpandAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Explanation.
         /// </summary>
         public static string Explanation {
             get {
                 return ResourceManager.GetString("Explanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FAQ.
+        /// </summary>
+        public static string Faq {
+            get {
+                return ResourceManager.GetString("Faq", resourceCulture);
             }
         }
         
@@ -597,6 +642,15 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         public static string Prosody {
             get {
                 return ResourceManager.GetString("Prosody", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quiz.
+        /// </summary>
+        public static string Quiz {
+            get {
+                return ResourceManager.GetString("Quiz", resourceCulture);
             }
         }
         

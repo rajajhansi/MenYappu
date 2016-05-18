@@ -764,6 +764,7 @@
     <Content Include="Scripts\prosody\ProsodyResourceManager.js" />
     <Content Include="Scripts\prosody\ProsodyService.js" />
     <Content Include="Scripts\prosody\QaService.js" />
+    <Content Include="Scripts\prosody\QuizManager.js" />
     <Content Include="Scripts\prosody\SeerFinder.js" />
     <Content Include="Scripts\prosody\ServiceBase.js" />
     <Content Include="Scripts\prosody\ThalaiFinder.js" />

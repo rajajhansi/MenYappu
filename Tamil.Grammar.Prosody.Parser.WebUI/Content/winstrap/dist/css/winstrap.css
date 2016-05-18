@@ -11800,6 +11800,33 @@ textarea.parsley-error {
 .parsley-errors-list.filled {
   opacity: 1; }
 
+.questionNumber {
+  border-radius: 0.8em;
+  -moz-border-radius: 0.8em;
+  -webkit-border-radius: 0.8em;
+  color: #ffffff;
+  display: inline-block;
+  font-weight: bold;
+  line-height: 1.6em;
+  margin-right: 15px;
+  text-align: center;
+  width: 1.6em;
+  -webkit-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+  box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75); }
+
+.unanswered {
+  background: #0078D7; }
+
+.answered {
+  background: #FF8C00; }
+
+.correct {
+  background: #BAD80A; }
+
+.incorrect {
+  background: #A80000; }
+
 #glyphs span[class*="glyph-"] {
   font-size: 2em; }
 

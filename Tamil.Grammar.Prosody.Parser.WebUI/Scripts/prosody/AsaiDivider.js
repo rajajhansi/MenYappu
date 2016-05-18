@@ -11,6 +11,20 @@
         // set the context help
         Utility.setHelp('asai', 'https://www.youtube.com/embed/AH4bCeBXFm4?start=548');
 
+        var additionalInfoTemplate = kendo.template($("#additionalInfoTemplate").html());
+        $("#additionalInfo").append(additionalInfoTemplate({}));
+        Utility.initSeyyulResultbar();
+        Utility.initSeyyulbar();
+        Utility.initSeyyulbar();
+
+        var asaiFaqTemplate = kendo.template($("#faqTemplate").html());
+        var input = '{"prosodyType": "' + 'asai' + '"' + '}';
+        var additionalInfo = QaService.questions(input,
+            function (data) {
+                console.log(data);
+                $("#tabstrip-2").html(asaiFaqTemplate({ part: 'asai', data: data }));
+                Utility.setFaq('asai');
+            });
         // event handler for select
         Utility.initSeyyulbar();
         Utility.hideResult();

@@ -25,8 +25,12 @@
         $('#prosodyForm').parsley();
         // set the context help
         Utility.setHelp('ezhuthuVagai', 'https://www.youtube.com/embed/AH4bCeBXFm4?start=212');
-
+        var additionalInfoTemplate = kendo.template($("#additionalInfoTemplate").html());
+        $("#additionalInfo").append(additionalInfoTemplate({}));
+        Utility.initSeyyulResultbar();
         Utility.initSeyyulbar();
+        Utility.initAdditionalInfo('letter');
+
         Utility.disableElement("checkResult");
         Utility.hideResult();
         Utility.hideElement("rightMathiraiCount");

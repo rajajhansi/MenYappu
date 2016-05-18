@@ -8,6 +8,7 @@ using System.Text;
 using System.Web;
 using System.Web.Http;
 using System.Web.UI.WebControls;
+using Newtonsoft.Json.Linq;
 
 namespace Tamil.Grammar.Prosody.Parser.WebUI.Controllers
 {
@@ -18,6 +19,12 @@ namespace Tamil.Grammar.Prosody.Parser.WebUI.Controllers
     [RoutePrefix("api/qa")]
     public class QaController : ApiController
     {
+        private JObject ReadJsonFileAsJsonObject(string fileName)
+        {
+            var json = File.ReadAllText(HttpContext.Current.Server.MapPath(fileName));
+
+            return JObject.Parse(json);
+        }
         private HttpResponseMessage ReadJsonFile(string fileName)
         {
             var json = File.ReadAllText(HttpContext.Current.Server.MapPath(fileName));
@@ -33,7 +40,13 @@ namespace Tamil.Grammar.Prosody.Parser.WebUI.Controllers
         [HttpPost]
         public HttpResponseMessage GetQuestions(QuestionType questionTypes)
         {
-            return ReadJsonFile(@"~/App_Data/qa.json");
+            var json =  ReadJsonFileAsJsonObject(@"~/App_Data/qa.json");
+            JArray questionsArray = (JArray) json[questionTypes.ProsodyType];
+            return new HttpResponseMessage()
+            {
+                Content = new StringContent(questionsArray.ToString(), Encoding.UTF8, "application/json"),
+                StatusCode = HttpStatusCode.OK
+            };
         }
     }
 }

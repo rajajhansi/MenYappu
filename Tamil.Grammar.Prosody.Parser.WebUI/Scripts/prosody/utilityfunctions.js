@@ -140,13 +140,7 @@
             }
         };
 
-        var tabStrip = $("#tabstrip").kendoTabStrip({
-            animation: {
-                open: {
-                    effects: "fadeIn"
-                }
-            }
-        }).data("kendoTabStrip");
+
 
         var seyyulPanelBar = $("#seyyulbar").kendoPanelBar({
             expandMode: "single",
@@ -157,9 +151,33 @@
             expandMode: "single",
             select: onSelect
         }).data("kendoPanelBar");
-        tabStrip.select(0);
+
    };
 
+    function initSeyyulResultbar() {
+        var tabStrip = $("#tabstrip").kendoTabStrip({
+            animation: {
+                open: {
+                    effects: "fadeIn"
+                }
+            }
+        }).data("kendoTabStrip");
+        tabStrip.select(0);
+    }
+
+    function initAdditionalInfo(part) {
+        var quizTemplate = kendo.template($("#quizTemplate").html());
+        var faqTemplate = kendo.template($("#faqTemplate").html());
+        var input = '{"prosodyType": "' + part + '"' + '}';
+        var additionalInfo = QaService.questions(input,
+            function (data) {
+                console.log(data);
+                $("#tabstrip-1").html(quizTemplate({ part: part, data: data }));
+                $("#tabstrip-2").html(faqTemplate({ part: part, data: data }));
+                Utility.setFaq(part);
+                QuizManager.init();
+            });
+    }
     function loadResourceStrings(language)
     {
         ProsodyResourceManager.load(language);
@@ -236,6 +254,16 @@
                 .attr('data-value', language);
     };
 
+    function setFaq(part) {
+        $('#expandAllFaq-' + part).on('click', function() {
+            $('li.side-nav-c2 ul').addClass('in');
+            $('li.side-nav-c2 a > i').removeClass('glyph-expand').addClass('glyph-collapse');
+        });
+        $('#collapseAllFaq-' + part).on('click', function () {
+            $('li.side-nav-c2 ul').removeClass('in');
+            $('li.side-nav-c2 a > i').removeClass('glyph-collapse').addClass('glyph-expand');
+        });
+    }
     function setHelpAudioVideo(part, videoUrl, container) {
         setHelpAudio(part, container);
         setHelpVideo(part, videoUrl, container);
@@ -328,11 +356,14 @@
         setMainHelp: setMainHelp,
         makeDelay: makeDelay,
         initSeyyulbar: initSeyyulbar,
+        initSeyyulResultbar: initSeyyulResultbar,
+        initAdditionalInfo: initAdditionalInfo,
         waitUntil: waitUntil,
         setCookie: setCookie,
         getCookie: getCookie,
         checkCookie: checkCookie,
         setLanguage: setLanguage,
+        setFaq: setFaq,
         setHelpAudioVideo: setHelpAudioVideo,
         wireDropdownTooltipAndPopoverHandlers: wireDropdownTooltipAndPopoverHandlers
     };

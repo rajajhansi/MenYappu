@@ -17,7 +17,13 @@
         Utility.setContextHelp(mathiraiHelpTemplate({ container: 'side'}));
         Utility.setHelpAudioVideo('mathirai', 'https://www.youtube.com/embed/AH4bCeBXFm4?start=396', 'side');
 
+        var additionalInfoTemplate = kendo.template($("#additionalInfoTemplate").html());
+        $("#additionalInfo").append(additionalInfoTemplate({}));
+        Utility.initSeyyulResultbar();
         Utility.initSeyyulbar();
+        Utility.initSeyyulbar();
+        Utility.initAdditionalInfo('mathirai');
+
         Utility.hideResult();
         Utility.hideElement("rightMathiraiCount");
         Utility.setupExample('/api/prosody/Seergal', 'seer');

@@ -9,7 +9,7 @@ namespace Tamil.Grammar.Prosody.Parser.WebUI
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Content/winstrap/dist/js/vendor/jquery.js"));
+                        "~/Scripts/jquery-{version}.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
                         "~/Scripts/jquery-ui-{version}.js"));
@@ -24,8 +24,8 @@ namespace Tamil.Grammar.Prosody.Parser.WebUI
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/Scripts/bootstrap").Include(
-                "~/Content/winstrap/dist/js/vendor/bootstrap.js"
-                ));
+                "~/Scripts/bootstrap.js"
+                )); 
             // The Kendo JavaScript bundle
             bundles.Add(new ScriptBundle("~/Scripts/kendojs").Include(
                     "~/Scripts/kendo/2016.1/kendo.web.js"

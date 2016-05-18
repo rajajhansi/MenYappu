@@ -381,4 +381,22 @@
   <data name="SoundTypes" xml:space="preserve">
     <value>Sound Types</value>
   </data>
+  <data name="AdditionalInformation" xml:space="preserve">
+    <value>Additional Information</value>
+  </data>
+  <data name="CollapseAll" xml:space="preserve">
+    <value>Collapse All</value>
+  </data>
+  <data name="ComingSoon" xml:space="preserve">
+    <value>Coming soon...</value>
+  </data>
+  <data name="ExpandAll" xml:space="preserve">
+    <value>Expand All</value>
+  </data>
+  <data name="Faq" xml:space="preserve">
+    <value>FAQ</value>
+  </data>
+  <data name="Quiz" xml:space="preserve">
+    <value>Quiz</value>
+  </data>
 </root>
