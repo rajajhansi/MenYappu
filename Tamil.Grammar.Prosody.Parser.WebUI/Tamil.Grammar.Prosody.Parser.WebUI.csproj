@@ -364,8 +364,6 @@
     <Content Include="Content\winstrap\dist\css\winstrap.css" />
     <Content Include="Content\winstrap\dist\css\winstrap.min.css" />
     <Content Include="Content\winstrap\dist\fonts\LICENSE.txt" />
-    <Content Include="Content\winstrap\dist\js\vendor\bootstrap.js" />
-    <Content Include="Content\winstrap\dist\js\vendor\jquery.js" />
     <Content Include="Content\winstrap\Gruntfile.js" />
     <Content Include="Content\winstrap\handlebars-helpers\inArrayJson.js" />
     <Content Include="Content\winstrap\src\fonts\LICENSE.txt" />
@@ -463,7 +461,6 @@
     <Content Include="Content\winstrap\dist\fonts\selawksb.ttf" />
     <Content Include="Content\winstrap\dist\fonts\selawksl.eot" />
     <Content Include="Content\winstrap\dist\fonts\selawksl.ttf" />
-    <Content Include="Content\winstrap\dist\js\vendor\jquery.min.map" />
     <Content Include="Content\winstrap\LICENSE.md" />
     <Content Include="Content\winstrap\package.json" />
     <Content Include="Content\winstrap\README.md" />
@@ -860,7 +857,9 @@
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Content\winstrap\dist\js\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

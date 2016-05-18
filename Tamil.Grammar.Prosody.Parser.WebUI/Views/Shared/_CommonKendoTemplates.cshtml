@@ -45,7 +45,9 @@
 
 <script type="text/x-kendo-template" id="quizTemplate">
     <br/>
-
+    # var expandAllButtonId = 'expandAllFaq-' + part; var collapseAllButtonId = 'collapseAllFaq-' + part; #
+    <button id="#= expandAllButtonId #" class="btn btn-primary btn-with-glyph"><i class="glyph glyph-expand"></i>#= ProsodyResourceManager.get("expandAll") #</button>
+    <button id="#= collapseAllButtonId #" class="btn btn-primary btn-with-glyph"><i class="glyph glyph-collapse"></i>#= ProsodyResourceManager.get("collapseAll") #</button>
     # $.each(data, function(index, value) { #
     <a href="\#"><span class="questionNumber unanswered text-t5">#= index + 1 #</span></a>
     # }); #
