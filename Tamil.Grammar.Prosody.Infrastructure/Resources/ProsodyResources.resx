@@ -414,4 +414,13 @@
   <data name="Quiz" xml:space="preserve">
     <value>Quiz</value>
   </data>
+  <data name="Finish" xml:space="preserve">
+    <value>Finish</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Prev</value>
+  </data>
 </root>

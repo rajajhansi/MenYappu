@@ -14,7 +14,7 @@
         }
         if (!currentLanguageResources) {
             //console.log('Loading strings from ' + currentLanguage);
-            var language = Utility.getCookie('__APPLICATION_LANGUAGE');
+            var language = CookieService.getCookie('__APPLICATION_LANGUAGE');
             load(language);
         }
         return currentLanguageResources[key];

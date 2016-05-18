@@ -340,6 +340,15 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Finish.
+        /// </summary>
+        public static string Finish {
+            get {
+                return ResourceManager.GetString("Finish", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Games.
         /// </summary>
         public static string Games {
@@ -574,6 +583,15 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Next.
+        /// </summary>
+        public static string Next {
+            get {
+                return ResourceManager.GetString("Next", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ornamentation.
         /// </summary>
         public static string Ornamentation {
@@ -633,6 +651,15 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         public static string ParsedResults {
             get {
                 return ResourceManager.GetString("ParsedResults", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Prev.
+        /// </summary>
+        public static string Previous {
+            get {
+                return ResourceManager.GetString("Previous", resourceCulture);
             }
         }
         

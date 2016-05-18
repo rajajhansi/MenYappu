@@ -754,6 +754,7 @@
     <Content Include="Scripts\parsley\parsley.js" />
     <Content Include="Scripts\prosody\AdiMeasurer.js" />
     <Content Include="Scripts\prosody\AsaiDivider.js" />
+    <Content Include="Scripts\prosody\CookieService.js" />
     <Content Include="Scripts\prosody\EthukaiMonaiFinder.js" />
     <Content Include="Scripts\prosody\OsaiMatcher.js" />
     <Content Include="Scripts\prosody\LetterTypeFinder.js" />

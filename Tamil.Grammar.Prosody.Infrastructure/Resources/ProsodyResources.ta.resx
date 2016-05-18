@@ -414,4 +414,13 @@
   <data name="Quiz" xml:space="preserve">
     <value>வினாடி வினா</value>
   </data>
+  <data name="Finish" xml:space="preserve">
+    <value>முடி</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>அடுத்த</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>முந்தைய</value>
+  </data>
 </root>
