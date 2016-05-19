@@ -11827,6 +11827,27 @@ textarea.parsley-error {
 .incorrect {
   background: #A80000; }
 
+.correctAnswer {
+  color: #BAD80A;
+  margin: 2px 2px 2px 10px;
+  font-size: 25px;
+  font-weight: bold; }
+
+.incorrectAnswer {
+  color: #A80000;
+  margin: 2px 2px 2px 10px;
+  font-size: 25px;
+  font-weight: bold; }
+
+.qAnswered {
+  color: #FF8C00; }
+
+.qCorrectAnswer {
+  color: #BAD80A; }
+
+.qIncorrectAnswer {
+  color: #A80000; }
+
 #glyphs span[class*="glyph-"] {
   font-size: 2em; }
 

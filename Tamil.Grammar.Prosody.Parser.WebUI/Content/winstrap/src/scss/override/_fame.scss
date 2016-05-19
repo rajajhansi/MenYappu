@@ -297,3 +297,29 @@ textarea.parsley-error {
 .incorrect {
     background: $color-darkred;
 }
+
+.correctAnswer {
+    color: $color-lightgreen;
+    margin: 2px 2px 2px 10px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.incorrectAnswer {
+    color: $color-darkred;
+    margin: 2px 2px 2px 10px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.qAnswered {
+    color: $color-lightorange;
+}
+
+.qCorrectAnswer {
+    color: $color-lightgreen;
+}
+
+.qIncorrectAnswer {
+    color: $color-darkred;
+}

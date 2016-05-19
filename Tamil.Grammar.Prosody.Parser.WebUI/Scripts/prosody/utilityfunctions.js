@@ -175,7 +175,7 @@
                 $("#tabstrip-1").html(quizTemplate({ part: part, data: data }));
                 $("#tabstrip-2").html(faqTemplate({ part: part, data: data }));
                 Utility.setFaq(part);
-                QuizManager.init();
+                QuizManager.init(part, data);
             });
     }
     function loadResourceStrings(language)
