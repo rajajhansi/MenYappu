@@ -89,6 +89,7 @@
     width: $shame_leftpanelsize_collapsed;
     @extend %show-collapsed-text;
     @extend %panel-collapsed-menu-subitems;
+    overflow-x: hidden;
   }
   .center-panelbar {
     left: $shame_leftpanelsize_collapsed;
@@ -100,6 +101,7 @@
     width: $shame_rightpanelsize_collapsed;
     @extend %show-collapsed-text;
     @extend %panel-collapsed-menu-subitems;
+    overflow-x: hidden;
   }
   .center-panelbar {
     right: $shame_rightpanelsize_collapsed;
@@ -117,7 +119,7 @@
     color: $shame_white;
 
     &:hover {
-      background: $shame_hoverlue;
+      background: $shame_hoverlue !important;
       text-decoration: none !important;
     }
 
@@ -233,10 +235,12 @@ $alt-txt-col: #333;
   .left-panelbar {
     color: $alt-txt-col;
     @extend %alt-bg-styles;
+    border-right: 1px solid $shame_bordercol;
   }
   .right-panelbar {
     color: $alt-txt-col;
     @extend %alt-bg-styles;
+    border-left: 1px solid $shame_bordercol;
   }
   .stacked-menus-toggler {
     &:hover{
@@ -252,6 +256,12 @@ $alt-txt-col: #333;
       &:hover{
         color: $shame_white;
       }
+    }
+  }
+
+  .stacked-menus-items-link{
+    &.selected{
+      background: $selected-def-bg-color;
     }
   }
 }
