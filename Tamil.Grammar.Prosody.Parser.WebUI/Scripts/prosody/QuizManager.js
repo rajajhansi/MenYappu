@@ -1,10 +1,9 @@
 ﻿var QuizManager = (function() {
     var lastQuestionIndex = 0;
-    var totalNumberOfAnsweredQuestions = 0;
     var numberOfCorrectAnswers = 0;
     var numberOfIncorrectAnswers = 0;
     var totalNumberOfQuestions = 0;
-    var correctAnswers = [];
+    var answers = [];
     var part = '';
     var previousQuestionButtonId = 'previousQuestion-';
     var nextQuestionButtonId = 'nextQuestion-';
@@ -12,7 +11,7 @@
     function init(partToQuiz, quizInfo) {
         part = partToQuiz;
         $.each(quizInfo,function(index, value) {
-            correctAnswers.push(value['a']);
+            answers.push({ answer: value['a'], isAnswered: false });
         });
         totalNumberOfQuestions = quizInfo.length;
         numberOfCorrectAnswers = 0;
@@ -26,8 +25,13 @@
         setupNavigationButtons();
     }
 
+    function totalNumberOfAnsweredQuestions() {
+        return answers.filter(function(answerItem) {
+                return answerItem.isAnswered;
+            }).length;
+    }
     function setupNavigationButtons() {
-        if (totalNumberOfAnsweredQuestions === 0 || totalNumberOfAnsweredQuestions < totalNumberOfQuestions - 1) {
+        if (totalNumberOfAnsweredQuestions() === 0 || totalNumberOfAnsweredQuestions() < totalNumberOfQuestions - 1) {
             Utility.disableElement(finishQuestionButtonId);
         } else {
             Utility.enableElement(finishQuestionButtonId);
@@ -58,7 +62,7 @@
                 if (el.length === 0) {
                     return false;
                 }
-                totalNumberOfAnsweredQuestions++;
+                answers[lastQuestionIndex - 1].isAnswered = true;
                 var previousQuestionElement = $('a > span.questionNumber:contains("' + lastQuestionIndex + '")');
                 previousQuestionElement.removeClass('unanswered');
                 previousQuestionElement.addClass('answered');
@@ -90,6 +94,8 @@
     }
     function evaluateAnswers() {
         for (var qindex = 1; qindex <= totalNumberOfQuestions; qindex++) {
+            // Clear all selections first
+            $('input[name="answer-' + qindex + '"]').siblings().children().addClass('hidden');
             // get the selected answer element
             var el = $('input[name="answer-' + qindex + '"]').filter(':checked');
             var answer = '';
@@ -98,21 +104,23 @@
                 $.each(el, function(index, value) {
                         answer += (index < el.length - 1) ? ($(value).val().trim() + ', ') : ($(value).val().trim());
                 });
-                correctAnswer = correctAnswers[qindex - 1].join(', ');
+                correctAnswer = answers[qindex - 1].answer.join(', ');
             } else {
                 answer = el.val().trim();
-                correctAnswer = correctAnswers[qindex - 1];
+                correctAnswer = answers[qindex - 1].answer;
             }
             var sel = 'a > span.questionNumber:contains("' + qindex  + '")';
             if (answer === correctAnswer) {
                 $(sel).removeClass('answered');
                 $(sel).addClass('correct');
-                el.next().append("<i class='correctAnswer glyph glyph-accept'></i>");
+                //el.next().append("<i class='correctAnswer glyph glyph-accept'></i>");
+                el.next().children('.correctAnswer').removeClass('hidden');
                 numberOfCorrectAnswers++;
             } else {
                 $(sel).removeClass('answered');
                 $(sel).addClass('incorrect');
-                el.next().append("<i class='incorrectAnswer glyph glyph-cancel'></i>");
+                //el.next().append("<i class='incorrectAnswer glyph glyph-cancel'></i>");
+                el.next().children('.incorrectAnswer').removeClass('hidden')
                 numberOfIncorrectAnswers++;
             }
         }

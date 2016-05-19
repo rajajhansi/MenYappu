@@ -44,7 +44,7 @@
 </script>
 
 <script type="text/x-kendo-template" id="quizTemplate">
-    <br/>
+    <br />
     # $.each(data, function(index, value) { #
     <a href="\#"><span class="questionNumber unanswered text-t5">#= index + 1 #</span></a>
     # }); #
@@ -67,7 +67,11 @@
             <div class="#= controlType #">
                 <label>
                     <input type="#= controlType #" name="#= 'answer-' + (index + 1) #" value="#= cvalue[cindex + 1] #">
-                    <span>#= cvalue[cindex + 1] #</span>
+                    <span>
+                        #= cvalue[cindex + 1] #
+                        <i class="correctAnswer hidden glyph glyph-accept"></i>
+                        <i class="incorrectAnswer hidden glyph glyph-cancel"></i>
+                    </span>
                 </label>
             </div>
             # }); #
