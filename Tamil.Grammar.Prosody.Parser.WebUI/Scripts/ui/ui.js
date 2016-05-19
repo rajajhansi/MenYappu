@@ -51,8 +51,8 @@
         var config = $.extend(true, defaults, params);
 
         var localStorageIdentifier = 'pagepanel-' + elem.attr('id');
-        if(!localStorage.getItem(localStorageIdentifier)){
-            localStorage.setItem(localStorageIdentifier, JSON.stringify({ collapsed: config.collapsed}));
+        if (!localStorage.getItem(localStorageIdentifier)) {
+            localStorage.setItem(localStorageIdentifier, JSON.stringify({collapsed: config.collapsed}));
         }
         var isCollapsedOnLoad = {};
 
@@ -113,7 +113,7 @@
 
         // INFO[burs]: adding the collapsed state text..
         $.each(config.collapsedText, function (position, panelTextOnCollapsed) {
-            if($.trim(panelTextOnCollapsed)){
+            if ($.trim(panelTextOnCollapsed)) {
                 var textElem = $("<div class='panel-text-on-collapsed-wrap'><div class='panel-text-on-collapsed'>" + panelTextOnCollapsed + "</div></div>");
 
                 $(config['panels'][position]).append(textElem);
@@ -151,6 +151,21 @@
                 .toggleClass('glyph-chevron-up');
 
             e.preventDefault();
+        });
+    };
+
+    $.highlightCurrentPageInMenu = function () {
+        var currentPageUrl = window.location.href;
+
+        $(".page-link").each(function (idx, anchorTag) {
+            var jqAnchorTag = $(anchorTag);
+            var linkUrl = jqAnchorTag.attr('href');
+            var found = currentPageUrl.indexOf(linkUrl) > -1;
+
+            if (found) {
+                jqAnchorTag.addClass('selected');
+                return false;
+            }
         });
     };
 

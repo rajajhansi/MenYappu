@@ -11783,13 +11783,15 @@ button.toast-close-button {
     transform: rotate(90deg); }
 
 .panel-collapsed-left .left-panelbar {
-  width: 44px; }
+  width: 44px;
+  overflow-x: hidden; }
 
 .panel-collapsed-left .center-panelbar {
   left: 44px; }
 
 .panel-collapsed-right .right-panelbar {
-  width: 44px; }
+  width: 44px;
+  overflow-x: hidden; }
 
 .panel-collapsed-right .center-panelbar {
   right: 44px; }
@@ -11802,7 +11804,7 @@ button.toast-close-button {
     outline: none;
     color: #fff; }
     .stacked-menus-toggler a:hover, .stacked-menus-items a:hover {
-      background: #0161b2;
+      background: #0161b2 !important;
       text-decoration: none !important; }
     .stacked-menus-toggler a:focus, .stacked-menus-items a:focus {
       text-decoration: none !important; }
@@ -11875,10 +11877,12 @@ button.toast-close-button {
   background-color: #E7FEFF; }
 
 .alt .left-panelbar {
-  color: #333; }
+  color: #333;
+  border-right: 1px solid #dddddd; }
 
 .alt .right-panelbar {
-  color: #333; }
+  color: #333;
+  border-left: 1px solid #dddddd; }
 
 .alt .stacked-menus-toggler:hover {
   color: #fff; }
@@ -11890,6 +11894,9 @@ button.toast-close-button {
   color: #333; }
   .alt .stacked-menus-items a:hover {
     color: #fff; }
+
+.alt .stacked-menus-items-link.selected {
+  background: #BCDBF7; }
 
 .page-header {
   margin: 0;
