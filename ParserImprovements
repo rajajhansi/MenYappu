@@ -1,11 +1,12 @@
 Bugs:
 தொடிற்சுடின் அல்லது காமநோய் போல
-
 விடிற்சுடல் ஆற்றுமோ தீ  (Index out of bounds in CheckThodai)
+
+பேதைமையுள் எல்லாம் பேதைமை காதன்மை
+கையல்ல தன்கட் செயல் 831
 
 aukaarakkuRukkam not calculating the asai for kouvai correctly
 தாம்வேண்டின் நல்குவர் காதலர் யாம்வேண்டும்
-
 கெளவை எடுக்குவ் வூர்.     1150
 
 Kural that requires kutRiyalukarap puNarchi for ai and au
@@ -35,6 +36,12 @@ tAmi_V puRuvatu _ulaki_V puRa_k ka_NTu\nkAmuruvar
 
 _a_KkAmY ce_lva_tti_Rku yAteVi_V ve_KkAmY\nvE_NTu_m piRa_VkY_p poru_L
 
+Kural that requires replacing 'ak' with 'ku'
+வேண்டாமை அன்ன விழுச்செல்வம் ஈண்டில்லை
+ஆண்டும் அஃதொப்பது இல்  	363
+
+இழுக்காமை யார்மாட்டும் என்றும் வழுக்காமை
+வாயின் அஃதொப்பது இல்	536
 Kural that requires double pass after applying kutriyalukara punarchi and will yet not parse without explicitly indicating kutRiyalikaram:
 அஃகாமை செல்வத்திற்கு யாதெனின் வெஃகாமை
  வேண்டும் பிறன்கைப் பொருள்  178

@@ -19,9 +19,14 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Core
       "(_[kGcJTNtnpmyrlvZLRVjSsh])(_[aAiIuUeEoOYW])",
     RegexOptions.IgnorePatternWhitespace
     );
+    public static Regex AukaramRegex = new Regex(
+          "(([kGcJTNtnpmyrlvZLRVjSsh]) (eLa))",
+        RegexOptions.CultureInvariant
+        | RegexOptions.IgnorePatternWhitespace
+        | RegexOptions.Compiled
+        );
 
-
-    public static Regex MeyTamilRegex = new Regex(
+        public static Regex MeyTamilRegex = new Regex(
           "([கஙசஞடணதநபமயரலவழளறனஜஶஷஸ])்",
         RegexOptions.IgnorePatternWhitespace
         );
@@ -42,6 +47,7 @@ RegexOptions.IgnorePatternWhitespace
         public static string AgaramRegexReplace = "$1a";
         public static string AgaramTamilRegexReplace = "$1a";
 		public static string JoinRegexReplace = "$1_$2";
+        public static string AukaramRegexReplace = "$2W";
         public static string MeyTamilRegexReplace2 = "$1்";
 
         public static string Tamil2LatinTamil(string text)
@@ -71,6 +77,7 @@ RegexOptions.IgnorePatternWhitespace
             text = MeyRegex.Replace(text, MeyRegexReplace);
             text = AgaramRegex.Replace(text, AgaramRegexReplace);
             text = JoinRegex.Replace(text, JoinRegexReplace);
+            text = AukaramRegex.Replace(text, AukaramRegexReplace);
             return text;
         }
 
