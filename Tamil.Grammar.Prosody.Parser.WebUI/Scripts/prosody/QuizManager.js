@@ -111,13 +111,13 @@
             }
             var sel = 'a > span.questionNumber:contains("' + qindex  + '")';
             if (answer === correctAnswer) {
-                $(sel).removeClass('answered');
+                $(sel).removeClass('answered').removeClass('incorrect');
                 $(sel).addClass('correct');
                 //el.next().append("<i class='correctAnswer glyph glyph-accept'></i>");
                 el.next().children('.correctAnswer').removeClass('hidden');
                 numberOfCorrectAnswers++;
             } else {
-                $(sel).removeClass('answered');
+                $(sel).removeClass('answered').removeClass('correct');
                 $(sel).addClass('incorrect');
                 //el.next().append("<i class='incorrectAnswer glyph glyph-cancel'></i>");
                 el.next().children('.incorrectAnswer').removeClass('hidden')
