@@ -255,13 +255,30 @@
     };
 
     function setFaq(part) {
-        $('#expandAllFaq-' + part).on('click', function() {
+        $('#expandAllFaq-' + part).on('click', function () {
+            $('li.side-nav-c2 a').removeClass('collapsed');
             $('li.side-nav-c2 ul').addClass('in');
             $('li.side-nav-c2 a > i').removeClass('glyph-expand').addClass('glyph-collapse');
         });
         $('#collapseAllFaq-' + part).on('click', function () {
+            $('li.side-nav-c2 a').addClass('collapsed');
             $('li.side-nav-c2 ul').removeClass('in');
             $('li.side-nav-c2 a > i').removeClass('glyph-collapse').addClass('glyph-expand');
+        });
+
+        $('a[href^="#question"]').on('click', function () {
+            var parentElement = $(this).parent(':first');
+
+            var el = $(this).children(':first');
+            if (el.hasClass('glyph-expand')) {
+                $(this).removeClass('collapsed');
+                el.removeClass('glyph-expand').addClass('glyph-collapse');
+                $(parentElement).removeClass('in');
+            } else {
+                $(this).addClass('collapsed');
+                el.removeClass('glyph-collapse').addClass('glyph-expand');
+                $(parentElement).addClass('in');
+            }
         });
     }
     function setHelpAudioVideo(part, videoUrl, container) {
