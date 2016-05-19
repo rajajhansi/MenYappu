@@ -70,7 +70,7 @@ a.navigation-btn {
                 word-break: normal;
                 list-style-type: none;
                 .active {
-                    @extend .text-base;
+                    @extend .text-base !optional;
                 }
             }
         }
