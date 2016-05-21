@@ -25,9 +25,11 @@ namespace Tamil.Grammar.Prosody.Parser
             var thodaisInTamil = new List<string>();
             thodaisInTamil.Add(String.Concat(adiWithThodai, " "));
             thodaisInTamil.Add(Transliterator.Latin2Tamil(thodaiInAdi.Substring(0, 2)));
-            thodaisInTamil.Add(String.Concat("~", Transliterator.Latin2Tamil(thodaiInAdi.Substring(position * 2, 2))));
-            thodaisInTamil.Add(Transliterator.Latin2Tamil(thodaiInAdi.Substring((position * 2) + 2)));
-
+            if (thodaiInAdi.Length > 2)
+            {
+                thodaisInTamil.Add(String.Concat("~", Transliterator.Latin2Tamil(thodaiInAdi.Substring(position * 2, 2))));
+                thodaisInTamil.Add(Transliterator.Latin2Tamil(thodaiInAdi.Substring((position * 2) + 2)));
+            }
             return thodaisInTamil;
         }
 

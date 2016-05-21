@@ -603,7 +603,7 @@ namespace RjamSoft.Tamil.Grammar.Parser
             string SecondWordInitialLetter = SecondWord.Substring(1, 1);
 
             string FirstWordSecondLetter = FirstWord.Substring(2, 2);
-            string SecondWordSecondLetter = SecondWord.Substring(2, 2);
+            string SecondWordSecondLetter = (SecondWord.Length > 2) ? SecondWord.Substring(2, 2) : SecondWord.Substring(0,2);
 
             bool InLongVowels = (LongVowels.Find(l => l == FirstWordInitialLetter) == FirstWordInitialLetter) &&
                                 ((LongVowels.Find(l => l == SecondWordInitialLetter) == SecondWordInitialLetter));

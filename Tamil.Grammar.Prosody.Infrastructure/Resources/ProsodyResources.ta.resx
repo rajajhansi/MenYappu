@@ -178,7 +178,7 @@
     <value>மோனை</value>
   </data>
   <data name="CheckAnswer" xml:space="preserve">
-    <value>சரி பார்த்திடு</value>
+    <value>சரி பார்த்திடுக</value>
   </data>
   <data name="Clear" xml:space="preserve">
     <value>நீக்குக</value>
@@ -415,12 +415,21 @@
     <value>வினாடி வினா</value>
   </data>
   <data name="Finish" xml:space="preserve">
-    <value>முடி</value>
+    <value>முடித்திடுக</value>
   </data>
   <data name="Next" xml:space="preserve">
-    <value>அடுத்த</value>
+    <value>பின்</value>
   </data>
   <data name="Previous" xml:space="preserve">
-    <value>முந்தைய</value>
+    <value>முன்</value>
+  </data>
+  <data name="Introduction" xml:space="preserve">
+    <value>அறிமுகம்</value>
+  </data>
+  <data name="QuizInfoTip" xml:space="preserve">
+    <value>தயவு செய்து எல்லாக் கேள்விகளுக்கும் விடையளித்த பின்பு “முடி” என்ற பொத்தானை அழுத்தினால் நீங்கள் பெற்ற புள்ளிகள் எவ்வளவு என்பது தெரியும்.</value>
+  </data>
+  <data name="Score" xml:space="preserve">
+    <value>நீங்கள் பெற்ற புள்ளிகள்: {1}/{2}</value>
   </data>
 </root>

@@ -10,6 +10,10 @@ namespace Tamil.Grammar.Prosody.Parser.WebUI.Controllers
 {
     public class ProsodyHelpController : Controller
     {
+        public ActionResult Introduction()
+        {
+            return View();
+        }
         public ActionResult Letter()
         {
             return View();

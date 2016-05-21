@@ -20,13 +20,9 @@
                 <li id="seyyul" class="k-state-active">
                     <form id="prosodyForm" class="form-horizontal" action="/api/Prosody" method="POST">
                         <div>
-                            <textarea class="panelbar-textarea" id="ProsodyText" rows="8"></textarea>
+                            <textarea class="panelbar-textarea" id="ProsodyText" rows="6"></textarea>
                         </div>
                         <div class="control-group">
-                            <div class="controls">
-                                <button type="submit" class="btn btn-primary">#= parse #</button>
-                                <button type="reset" class="btn btn-default">#= clear #</button>
-                            </div>
                             <div class="controls group-checkboxes-control">
                                 <div class="checkbox">
                                     <label>
@@ -46,6 +42,10 @@
                                         <span class="uiTran">#= compareWithVenpaaRules #</span>
                                     </label>
                                 </div>
+                            </div>
+                            <div class="controls">
+                                <button type="submit" class="btn btn-primary">#= parse #</button>
+                                <button type="reset" class="btn btn-default">#= clear #</button>
                             </div>
                         </div>
                     </form>
@@ -531,7 +531,9 @@
             });
             return false;
         });
+        Utility.wireDropdownTooltipAndPopoverHandlers();
     });
+
 </script>
 
 

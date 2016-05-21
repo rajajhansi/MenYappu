@@ -1,18 +1,26 @@
 ﻿<script type="text/x-kendo-template" id="inputTemplate">
-    <h4 class="game-section-title">
+    # var help = ProsodyResourceManager.get("help"); var quiz = ProsodyResourceManager.get("quiz"); #
+    <div class="text-t5">
         #= inputTitle #
-    </h4>
+    </div>
+    <div class="m-b-md">
+        <button class="btn btn-primary btn-with-glyph pull-right" id="btn-quiz"><i class="glyph glyph-show-results "></i>#= quiz #</button>
+        <button class="btn btn-primary btn-with-glyph pull-right" id="btn-help"><i class="glyph glyph-help "></i>#= help #</button>
+    </div>
     <div class="infotip">
         <span class="text-t9">#= inputInfotip #</span>
     </div>
     <textarea class="panelbar-textarea" id="ProsodyText" rows="#= inputLines #" minlength="2"></textarea>
     # var sample = ProsodyResourceManager.get("sample"); var checkAnswer = ProsodyResourceManager.get("checkAnswer"); #
+    # var clear = ProsodyResourceManager.get("clear"); #
     <div class="control-group">
         <div class="controls">
             <button class="btn btn-primary btn-with-glyph" id="example"><i class="glyph glyph-import "></i>#= sample #</button>
+            <button type="reset" class="btn btn-default">#= clear #</button>
             <button type="submit" class="btn btn-primary btn-with-glyph" id="checkResult"><i class="glyph glyph-message"></i>#= checkAnswer #</button>
         </div>
     </div>
+
 </script>
 
 <script type="text/x-kendo-template" id="additionalInfoTemplate">
@@ -33,10 +41,22 @@
                     </li>
                 </ul>
                 <div>
-                    #= ProsodyResourceManager.get("comingSoon") #
+                    <div class="container-fluid">
+                        <div class="col-md-12">
+                        #= ProsodyResourceManager.get("comingSoon") #
+                        </div>
+                        <div class="col-md-12">
+                            Results tab
+                        </div>
+                    </div>
                 </div>
                 <div>
-                    #= ProsodyResourceManager.get("faq") #
+                    <div class="container-fluid">
+                        <div class="col-md-12">
+                            #= ProsodyResourceManager.get("faq") #
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </li>
@@ -44,7 +64,9 @@
 </script>
 
 <script type="text/x-kendo-template" id="quizTemplate">
-    <br />
+    <div class="infotip">
+        <span class="text-t9">#= ProsodyResourceManager.get("quizInfoTip") #</span>
+    </div>
     # $.each(data, function(index, value) { #
     <a href="\#"><span class="questionNumber unanswered text-t5">#= index + 1 #</span></a>
     # }); #
@@ -58,7 +80,43 @@
     # $.each(data, function(index, value) { #
     <div id="#= 'q-' + (index + 1) #" class="hidden">
         <br />
-        #= (index + 1) + '. ' + value['q'] #
+        <a href="\#"><span class="questionNumber unanswered text-t5">#= index + 1 #</span></a>#= value['q'] #
+        # console.log(data.length); console.log(data[index]['t']); console.log(data[index]['c']); #
+        # var controlType = (data[index]['t'] === "ஒ") ? "radio" : (data[index]['t'] === "ப" ? "checkbox" : "radio"); #
+        <div class="form-group">
+            <p class="form-group-label"></p>
+            # $.each(data[index]['c'], function(cindex, cvalue) { #
+            <div class="#= controlType #">
+                <label>
+                    <input type="#= controlType #" name="#= 'answer-' + (index + 1) #" value="#= cvalue[cindex + 1] #">
+                    <span>
+                        #= cvalue[cindex + 1] #
+                        <i class="correctAnswer hidden glyph glyph-accept"></i>
+                        <i class="incorrectAnswer hidden glyph glyph-cancel"></i>
+                    </span>
+                </label>
+            </div>
+            # }); #
+        </div>
+    </div>
+    # }); #
+</script>
+
+<script type="text/x-kendo-template" id="quizResultTemplate">
+    <div class="text-t3 text-center">#= ProsodyResourceManager.get("result") #</div>
+    <br/>
+    <div id="score" class="text-t5 text-right"></div>
+    <br/>
+    # $.each(data, function(index, value) { #
+    <a href="\#"><span class="questionNumber unanswered text-t5">#= index + 1 #</span></a>
+    # }); #
+    <br />
+    <br />
+
+    # $.each(data, function(index, value) { #
+    <div id="#= 'q-' + (index + 1) #" >
+        <br />
+        <a href="\#"><span class="questionNumber unanswered text-t5">#= index + 1 #</span></a>#= value['q'] #
         # console.log(data.length); console.log(data[index]['t']); console.log(data[index]['c']); #
         # var controlType = (data[index]['t'] === "ஒ") ? "radio" : (data[index]['t'] === "ப" ? "checkbox" : "radio"); #
         <div class="form-group">
@@ -230,6 +288,20 @@
     # var tableClass = "table theme-alt type-" + tableText; console.log(tableClass);#
 </script>
 <!-- Help Templates-->
+<script type="text/x-kendo-template" id="introductionHelpTemplate">
+    <h2>அறிமுகம்</h2>
+    <div class="container-fluid">
+        <div class="row">
+            <p>
+                மரபுக் கவிதை இயற்றும் முறையை எடுத்துரைப்பது யாப்பிலக்கணமாகும்.
+            </p>
+            <p>
+                யாப்பு - கட்டுதல்
+                <br /> யாப்பு, பாட்டு, தூக்கு, தொடர்பு, கவி, செய்யுள் – ஒரு பொருட் சொற்கள்
+
+        </div>
+    </div>
+</script>
 <script type="text/x-kendo-template" id="ezhuthuVagaiHelpTemplate">
     # var helptextClass = 'helptext-' + container; console.log(helptextClass); #
     # var audioVideoControlsId = 'audio-video-controls-' + part + '-' + container; console.log(audioVideoControlsId); #
@@ -240,6 +312,74 @@
     <div class="modal modal-center-vertical" id="#= videoModalDialogId #" tabindex="-1" role="dialog" aria-labelledby="modal-about-menyappu-label" aria-hidden="true" style="display: none;">
 
     </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <h3>எழுத்து வகைகள்</h3>
+            <ul>
+
+                <li>
+                    முதல் எழுத்து (Primary)
+                </li>
+                <li>
+                    சார்பெழுத்து (Secondary)
+                </li>
+            </ul>
+
+            <h3>முதல் எழுத்து (Primary) </h3>
+
+            <h4>உயிர் எழுத்து (Vowel) – 12</h4>
+            <div class="table-responsive">
+                <table class="table table-striped">
+
+                    <tbody>
+                        <tr>
+                            <td>அ</td>
+                            <td>ஆ</td>
+                            <td>இ</td>
+                            <td>ஈ</td>
+                            <td>உ</td>
+                            <td>ஊ</td>
+                            <td>எ</td>
+                            <td>ஏ</td>
+                            <td>ஐ</td>
+                            <td>ஒ</td>
+                            <td>ஓ</td>
+                            <td>ஒள</td>
+                        </tr>
+                </table>
+            </div>
+
+            <h4>மெய் எழுத்து (Consonant) – 18</h4>
+            <div class="table-responsive">
+                <table class="table table-striped">
+
+                    <tbody>
+                        <tr>
+                            <td>க்</td>
+                            <td>ங்</td>
+                            <td>ச்</td>
+                            <td>ஞ்</td>
+                            <td>ட்</td>
+                            <td>ண்</td>
+                            <td>த்</td>
+                            <td>ந்</td>
+                            <td>ப்</td>
+                            <td>ம்</td>
+                            <td>ய்</td>
+                            <td>ர்</td>
+                            <td>ல்</td>
+                            <td>வ்</td>
+                            <td>ழ்</td>
+                            <td>ள்</td>
+                            <td>ற்</td>
+                            <td>ன்</td>
+                        </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
     # var tableText = (container === 'main') ? 't7' : 't9'; #
     # var tableClass = "table theme-alt type-" + tableText; console.log(tableClass);#
     <div class="#= helptextClass #">

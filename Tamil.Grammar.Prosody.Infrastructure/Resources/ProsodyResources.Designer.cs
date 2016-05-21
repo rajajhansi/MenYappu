@@ -421,6 +421,15 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Introduction.
+        /// </summary>
+        public static string Introduction {
+            get {
+                return ResourceManager.GetString("Introduction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Kalippaa.
         /// </summary>
         public static string Kalippaa {
@@ -682,6 +691,15 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please answer all questions and then click the &quot;Finish&quot; button to see your score..
+        /// </summary>
+        public static string QuizInfoTip {
+            get {
+                return ResourceManager.GetString("QuizInfoTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Mr. Raja Mani.
         /// </summary>
         public static string RajaMani {
@@ -723,6 +741,15 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         public static string Sample {
             get {
                 return ResourceManager.GetString("Sample", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your score is: {1}/{2}.
+        /// </summary>
+        public static string Score {
+            get {
+                return ResourceManager.GetString("Score", resourceCulture);
             }
         }
         

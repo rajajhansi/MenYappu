@@ -8,8 +8,11 @@
     var previousQuestionButtonId = 'previousQuestion-';
     var nextQuestionButtonId = 'nextQuestion-';
     var finishQuestionButtonId = 'finishQuestion-';
+    var quizData;
     function init(partToQuiz, quizInfo) {
         part = partToQuiz;
+        quizData = quizInfo;
+        $("#tabstrip-1 > div.container-fluid").children(':last').addClass('hidden');
         $.each(quizInfo,function(index, value) {
             answers.push({ answer: value['a'], isAnswered: false });
         });
@@ -88,42 +91,71 @@
             }
         });
         $('#' + finishQuestionButtonId).on('click', function () {
+            $("#tabstrip-1 > div.container-fluid").children(':last').removeClass('hidden');
             evaluateAnswers();
         });
 
     }
+
+    function markCorrectAnswer(qindex, answerFilter, shouldIncrementCorrectAnswers) {
+        var answerElements = $('input[name="answer-' + qindex + '"]').siblings();
+        if (shouldIncrementCorrectAnswers) {
+            var sel = 'a > span.questionNumber:contains("' + qindex + '")';
+            $(sel).removeClass('answered').removeClass('incorrect');
+            $(sel).addClass('correct');
+            numberOfCorrectAnswers++;
+        }
+        answerElements.filter(answerFilter).children('.correctAnswer').removeClass('hidden');
+    }
+
+    function markIncorrectAnswer(qindex, answerFilter) {
+        var answerElements = $('input[name="answer-' + qindex + '"]').siblings();
+        var sel = 'a > span.questionNumber:contains("' + qindex + '")';
+        $(sel).removeClass('answered').removeClass('correct');
+        $(sel).addClass('incorrect');
+        answerElements.filter(answerFilter).children('.incorrectAnswer').removeClass('hidden');
+    }
     function evaluateAnswers() {
+        numberOfCorrectAnswers = numberOfIncorrectAnswers = 0;
         for (var qindex = 1; qindex <= totalNumberOfQuestions; qindex++) {
+            var answerElements = $('input[name="answer-' + qindex + '"]').siblings();
             // Clear all selections first
             $('input[name="answer-' + qindex + '"]').siblings().children().addClass('hidden');
             // get the selected answer element
             var el = $('input[name="answer-' + qindex + '"]').filter(':checked');
             var answer = '';
-            var correctAnswer = '';
+            var correctAnswer = (Array.isArray(answers[qindex - 1].answer))
+                ? answers[qindex - 1].answer.join(': ')
+                : answers[qindex - 1].answer;
             if (el.length > 1) {
                 $.each(el, function(index, value) {
-                        answer += (index < el.length - 1) ? ($(value).val().trim() + ', ') : ($(value).val().trim());
+                        answer += (index < el.length - 1) ? ($(value).val().trim() + ': ') : ($(value).val().trim());
                 });
-                correctAnswer = answers[qindex - 1].answer.join(', ');
             } else {
                 answer = el.val().trim();
-                correctAnswer = answers[qindex - 1].answer;
             }
-            var sel = 'a > span.questionNumber:contains("' + qindex  + '")';
+            var sel = 'a > span.questionNumber:contains("' + qindex + '")';
+            //var answerFilter = function () { return $(this).text().trim() === answer };
+            var multipleAnswersFilter = function () { return answer.split(": ").indexOf($(this).text().trim()) > -1 };
+            var multipleCorrectAnswersFilters = function () { return correctAnswer.split(": ").indexOf($(this).text().trim()) > -1 };
             if (answer === correctAnswer) {
-                $(sel).removeClass('answered').removeClass('incorrect');
-                $(sel).addClass('correct');
-                //el.next().append("<i class='correctAnswer glyph glyph-accept'></i>");
-                el.next().children('.correctAnswer').removeClass('hidden');
-                numberOfCorrectAnswers++;
+                markCorrectAnswer(qindex, multipleAnswersFilter, true);
+                //$(sel).removeClass('answered').removeClass('incorrect');
+                //$(sel).addClass('correct');
+                //answerElements.filter(multipleAnswersFilter).children('.correctAnswer').removeClass('hidden');
+                //numberOfCorrectAnswers++;
             } else {
-                $(sel).removeClass('answered').removeClass('correct');
-                $(sel).addClass('incorrect');
-                //el.next().append("<i class='incorrectAnswer glyph glyph-cancel'></i>");
-                el.next().children('.incorrectAnswer').removeClass('hidden')
-                numberOfIncorrectAnswers++;
+                markIncorrectAnswer(qindex, multipleAnswersFilter);
+                markCorrectAnswer(qindex, multipleCorrectAnswersFilters, false);
+                //$(sel).removeClass('answered').removeClass('correct');
+                //$(sel).addClass('incorrect');
+                //answerElements.filter(multipleAnswersFilter).children('.incorrectAnswer').removeClass('hidden');
+                //numberOfIncorrectAnswers++;
             }
         }
+        var score = ProsodyResourceManager.get("score");
+        score = score.replace("{1}", numberOfCorrectAnswers).replace("{2}", totalNumberOfQuestions);
+        $("#score").empty().append(score);
     }
     return {
         init: init,

@@ -423,4 +423,13 @@
   <data name="Previous" xml:space="preserve">
     <value>Prev</value>
   </data>
+  <data name="Introduction" xml:space="preserve">
+    <value>Introduction</value>
+  </data>
+  <data name="QuizInfoTip" xml:space="preserve">
+    <value>Please answer all questions and then click the "Finish" button to see your score.</value>
+  </data>
+  <data name="Score" xml:space="preserve">
+    <value>Your score is: {1}/{2}</value>
+  </data>
 </root>

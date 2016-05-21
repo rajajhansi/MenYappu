@@ -4,6 +4,8 @@
             'ta': 'தமிழ் (Tamil)'
     };
     var languageCookie = '__APPLICATION_LANGUAGE';
+    var seyyulPanelBar;
+    var seyyulResultPanelBar;
 
     function stringStartsWith(string, prefix) {
         return string.slice(0, prefix.length) === prefix;
@@ -109,6 +111,7 @@
             Utility.setHelpAudioVideo(helpTopic, videoUrl, 'main');
             Utility.setHelpAudioVideo(helpTopic, videoUrl, 'side');
         }
+        $("#btn-help").on('click', function() { toggleHelp(); return false; });
     }
     function setContextHelp(helpVariablesText, helpText) {
         $("#helpVariables").append(helpVariablesText);
@@ -142,12 +145,12 @@
 
 
 
-        var seyyulPanelBar = $("#seyyulbar").kendoPanelBar({
+        seyyulPanelBar = $("#seyyulbar").kendoPanelBar({
             expandMode: "single",
             select: onSelect
         }).data("kendoPanelBar");
         seyyulPanelBar.expand($(".k-first"), true);
-        var seyyulResultPanelBar = $("#seyyulResult").kendoPanelBar({
+        seyyulResultPanelBar = $("#seyyulResult").kendoPanelBar({
             expandMode: "single",
             select: onSelect
         }).data("kendoPanelBar");
@@ -165,18 +168,32 @@
         tabStrip.select(0);
     }
 
+    function expandSeyyulResultPanelBar() {
+        seyyulResultPanelBar.expand($(".k-first"), true);
+    }
+
+    function toggleHelp() {
+        $('#stacked-menu-toggler-right').trigger('click');
+    }
+
+    function toggleLeftNavBar() {
+        $('#stacked-menu-toggler-left').trigger('click');
+    }
     function initAdditionalInfo(part) {
         var quizTemplate = kendo.template($("#quizTemplate").html());
+        var quizResultTemplate = kendo.template($("#quizResultTemplate").html());
         var faqTemplate = kendo.template($("#faqTemplate").html());
         var input = '{"prosodyType": "' + part + '"' + '}';
         var additionalInfo = QaService.questions(input,
             function (data) {
                 console.log(data);
-                $("#tabstrip-1").html(quizTemplate({ part: part, data: data }));
-                $("#tabstrip-2").html(faqTemplate({ part: part, data: data }));
+                $("#tabstrip-1 > div.container-fluid").children(':first').html(quizTemplate({ part: part, data: data }));
+                $("#tabstrip-1 > div.container-fluid").children(':last').html(quizResultTemplate({ part: part, data: data }));
+                $("#tabstrip-2 > div.container-fluid").html(faqTemplate({ part: part, data: data }));
                 Utility.setFaq(part);
                 QuizManager.init(part, data);
             });
+        $("#btn-quiz").on('click', function() { expandSeyyulResultPanelBar(); return false; });
     }
     function loadResourceStrings(language)
     {
@@ -374,6 +391,7 @@
         makeDelay: makeDelay,
         initSeyyulbar: initSeyyulbar,
         initSeyyulResultbar: initSeyyulResultbar,
+        expandSeyyulResultPanelBar: expandSeyyulResultPanelBar,
         initAdditionalInfo: initAdditionalInfo,
         waitUntil: waitUntil,
         setCookie: setCookie,

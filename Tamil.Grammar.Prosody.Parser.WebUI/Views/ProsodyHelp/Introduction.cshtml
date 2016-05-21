@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "எழுத்து";
+}
+<div id="mainHelp" class="p-md">
+
+</div>
+@{ Html.RenderPartial("_CommonKendoTemplates"); }
+<script>
+    $(document).ready(function () {
+        Utility.setHelp('introduction', 'https://www.youtube.com/embed/AH4bCeBXFm4?start=212');
+    });
+</script>

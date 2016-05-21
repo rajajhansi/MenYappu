@@ -2,8 +2,13 @@ Bugs:
 தொடிற்சுடின் அல்லது காமநோய் போல
 விடிற்சுடல் ஆற்றுமோ தீ  (Index out of bounds in CheckThodai)
 
+aikaarakkurukkam exception where ai in the beginning is considered as kuril
 பேதைமையுள் எல்லாம் பேதைமை காதன்மை
-கையல்ல தன்கட் செயல் 831
+கையல்ல தன்கட் செயல் 832
+
+Changed to:
+பேதை மயுளெல்லாம் பேதைமை காதன்மை
+கையல்ல தன்கட் செயல்
 
 aukaarakkuRukkam not calculating the asai for kouvai correctly
 தாம்வேண்டின் நல்குவர் காதலர் யாம்வேண்டும்
