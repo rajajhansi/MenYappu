@@ -294,6 +294,7 @@
     <Content Include="audio\seer.mp3" />
     <Content Include="audio\thalai.mp3" />
     <Content Include="audio\thodai.mp3" />
+    <Content Include="audio\venpaa_conversations_part 2.mp3" />
     <Content Include="audio\venpaa_conversations_part1.mp3" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
