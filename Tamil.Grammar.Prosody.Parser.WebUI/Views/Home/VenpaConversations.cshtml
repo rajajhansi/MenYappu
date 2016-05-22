@@ -34,5 +34,6 @@
             var venpaaConverstationsTemplate = kendo.template($("#venpaaConversationsTemplate").html());
             $('#part' + i).append(venpaaConverstationsTemplate({ part: i }));
         }
-    })
+        Utility.wireDropdownTooltipAndPopoverHandlers();
+    });
 </script>
