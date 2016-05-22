@@ -240,6 +240,14 @@
     </div>
 </script>
 
+<script type="text/x-kendo-template" id="venpaaConversationsTemplate">
+    # var audioId = "aud-venpaa_conversations_part" + part; var audioFile = "/audio/venpaa_conversations_part" + part + ".mp3"; #
+    <audio id="#= audioId #" controls="controls" preload="auto">
+        <source src="#= audioFile #" controls>
+        Your browser isn't invited for super fun audio time.
+    </audio>
+</script>
+
 <script type="text/x-kendo-template" id="audioVideoHelpTemplate">
     # var audioId = "aud-" + part + '-' + container; var audioFile = "/audio/" + part + ".mp3"; #
     <audio id="#= audioId #" preload="auto">
