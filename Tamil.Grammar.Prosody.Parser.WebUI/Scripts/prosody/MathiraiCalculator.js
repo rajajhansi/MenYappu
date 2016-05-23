@@ -13,9 +13,9 @@
                 inputLines: 1
             }));
         // set the context help
-        var mathiraiHelpTemplate = kendo.template($("#mathiraiHelpTemplate").html());
-        Utility.setContextHelp(mathiraiHelpTemplate({ container: 'side'}));
-        Utility.setHelpAudioVideo('mathirai', 'https://www.youtube.com/embed/AH4bCeBXFm4?start=396', 'side');
+        //var mathiraiHelpTemplate = kendo.template($("#mathiraiHelpTemplate").html());
+        Utility.setHelp('mathirai', 'https://www.youtube.com/embed/AH4bCeBXFm4?start=396');
+
 
         var additionalInfoTemplate = kendo.template($("#additionalInfoTemplate").html());
         $("#additionalInfo").append(additionalInfoTemplate({}));
