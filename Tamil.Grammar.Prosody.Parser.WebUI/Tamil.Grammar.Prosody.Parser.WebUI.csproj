@@ -831,6 +831,8 @@
     <Content Include="Views\ProsodyHelp\Venpaavinam.cshtml" />
     <Content Include="Views\Games\OsaiMatcher.cshtml" />
     <Content Include="Views\ProsodyHelp\Introduction.cshtml" />
+    <Content Include="Views\ProsodyHelp\VetrumaiUrubugal.cshtml" />
+    <Content Include="Views\ProsodyHelp\PartsOfSpeech.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Gma.DataStructures.StringSearch\Gma.DataStructures.StringSearch.csproj">

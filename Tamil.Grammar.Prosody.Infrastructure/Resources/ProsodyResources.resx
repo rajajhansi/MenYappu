@@ -432,4 +432,13 @@
   <data name="Score" xml:space="preserve">
     <value>Your score is: {1}/{2}</value>
   </data>
+  <data name="PartsOfSpeech" xml:space="preserve">
+    <value>Parts of Speech</value>
+  </data>
+  <data name="SolIlakkanam" xml:space="preserve">
+    <value>Sol Ilakkanam</value>
+  </data>
+  <data name="VetrumaiUrubugal" xml:space="preserve">
+    <value>Vetrumai Urubugal</value>
+  </data>
 </root>

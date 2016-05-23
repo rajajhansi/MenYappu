@@ -664,6 +664,15 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Parts of Speech.
+        /// </summary>
+        public static string PartsOfSpeech {
+            get {
+                return ResourceManager.GetString("PartsOfSpeech", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Prev.
         /// </summary>
         public static string Previous {
@@ -817,6 +826,15 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sol Ilakkanam.
+        /// </summary>
+        public static string SolIlakkanam {
+            get {
+                return ResourceManager.GetString("SolIlakkanam", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sound.
         /// </summary>
         public static string Sound {
@@ -957,6 +975,15 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         public static string Venpaavinam {
             get {
                 return ResourceManager.GetString("Venpaavinam", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vetrumai Urubugal.
+        /// </summary>
+        public static string VetrumaiUrubugal {
+            get {
+                return ResourceManager.GetString("VetrumaiUrubugal", resourceCulture);
             }
         }
         

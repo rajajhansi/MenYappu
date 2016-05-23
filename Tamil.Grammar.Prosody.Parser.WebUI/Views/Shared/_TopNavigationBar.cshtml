@@ -9,14 +9,23 @@
         <a class="navbar-brand no-outline" href="/">#= menYappu #</a>
     </div>
 
-    # var prosody = ProsodyResourceManager.get("prosody"); var introduction = ProsodyResourceManager.get("introduction"); #
-    # var letter = ProsodyResourceManager.get("letter"); var metreme = ProsodyResourceManager.get("metreme"); #
-    # var metricalFeet = ProsodyResourceManager.get("metricalFeet");  var linkage = ProsodyResourceManager.get("linkage"); #
-    # var metricalLine = ProsodyResourceManager.get("metricalLine");  var ornamentation = ProsodyResourceManager.get("ornamentation"); #
-    # var sound = ProsodyResourceManager.get("sound"); #
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
             <li class="dropdown">
+                # var solIlakkanam = ProsodyResourceManager.get("solIlakkanam"); var vetrumaiUrubugal = ProsodyResourceManager.get("vetrumaiUrubugal"); #
+                # var partsOfSpeech = ProsodyResourceManager.get("partsOfSpeech"); #
+                <a href="\#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">#= solIlakkanam # <i class="glyph glyph-chevron-down-2"></i></a>
+                <ul class="dropdown-menu nosel" role="menu">
+                    <li><a href="/ProsodyHelp/VetrumaiUrubugal">#= vetrumaiUrubugal #</a></li>
+                    <li><a href="/ProsodyHelp/PartsOfSpeech">#= partsOfSpeech #</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                # var prosody = ProsodyResourceManager.get("prosody"); var introduction = ProsodyResourceManager.get("introduction"); #
+                # var letter = ProsodyResourceManager.get("letter"); var metreme = ProsodyResourceManager.get("metreme"); #
+                # var metricalFeet = ProsodyResourceManager.get("metricalFeet");  var linkage = ProsodyResourceManager.get("linkage"); #
+                # var metricalLine = ProsodyResourceManager.get("metricalLine");  var ornamentation = ProsodyResourceManager.get("ornamentation"); #
+                # var sound = ProsodyResourceManager.get("sound"); #
                 <a href="colors.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">#= prosody # <i class="glyph glyph-chevron-down-2"></i></a>
                 <ul class="dropdown-menu nosel" role="menu">
                     <li><a href="/ProsodyHelp/Introduction">#= introduction #</a></li>

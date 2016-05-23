@@ -83,5 +83,15 @@ namespace Tamil.Grammar.Prosody.Parser.WebUI.Controllers
         {
             return View();
         }
+
+        public ActionResult VetrumaiUrubugal()
+        {
+            return View();
+        }
+
+        public ActionResult PartsOfSpeech()
+        {
+            return View();
+        }
     }
 }
