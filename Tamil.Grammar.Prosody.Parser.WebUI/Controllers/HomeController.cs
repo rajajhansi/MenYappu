@@ -10,14 +10,14 @@ namespace Tamil.Parody.Parser.WebUI.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
+            ViewBag.Message = "An introduction to MenYappu";
 
             return View();
         }
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your app description page.";
+            ViewBag.Message = "About MenYappu";
 
             return View();
         }
@@ -39,6 +39,6 @@ namespace Tamil.Parody.Parser.WebUI.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
-        }      
+        }
     }
 }

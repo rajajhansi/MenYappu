@@ -1,0 +1,539 @@
+﻿@{
+    ViewBag.Title = "மென்யாப்பு";
+}
+
+<div id="poemComposerGame">
+
+</div>
+
+<script type="text/x-kendo-template" id="poemComposerInputTemplate">
+    # var inputTheVerse = ProsodyResourceManager.get("inputTheVerse"); var parse = ProsodyResourceManager.get("parse"); #
+    # var clear = ProsodyResourceManager.get("clear"); var doNotParseShortUBeforeInitialVowels = ProsodyResourceManager.get("doNotParseShortUBeforeInitialVowels"); #
+    # var eliminateVilaankaayMetricalFeet = ProsodyResourceManager.get("eliminateVilaankaayMetricalFeet"); var compareWithVenpaaRules = ProsodyResourceManager.get("compareWithVenpaaRules"); #
+    <ul class="kendo-panelbars-custom" id="seyyulbar">
+        <li>
+            <h4 class="main-title">
+                #= inputTheVerse #
+                <span class="main-title-icon glyph glyph-chevron-down"></span>
+            </h4>
+            <ul>
+                <li id="seyyul" class="k-state-active">
+                    <form id="prosodyForm" class="form-horizontal" action="/api/Prosody" method="POST">
+                        <div>
+                            <textarea class="panelbar-textarea" id="ProsodyText" rows="6"></textarea>
+                        </div>
+                        <div class="control-group">
+                            <div class="controls group-checkboxes-control">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="ShouldParseKutriyalukaram" name="ShouldParseKutriyalukaram" />
+                                        <span class="uiTran">#= doNotParseShortUBeforeInitialVowels #</span>
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="ShouldParseVilaangaaySeer" name="ShouldParseVilaangaaySeer" />
+                                        <span class="uiTran">#= eliminateVilaankaayMetricalFeet #</span>
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="ShouldCompareVenpaRules" name="ShouldCompareVenpaRules" />
+                                        <span class="uiTran">#= compareWithVenpaaRules #</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="controls">
+                                <button type="submit" class="btn btn-primary">#= parse #</button>
+                                <button type="reset" class="btn btn-default">#= clear #</button>
+                            </div>
+                        </div>
+                    </form>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    # var parsedResults = ProsodyResourceManager.get("parsedResults"); var parse = ProsodyResourceManager.get("parse"); #
+    # var letter = ProsodyResourceManager.get("letter"); var metremeAndMetricalFeet = ProsodyResourceManager.get("metremeAndMetricalFeet"); #
+    # var linkage = ProsodyResourceManager.get("linkage"); var metricalLine = ProsodyResourceManager.get("metricalLine"); #
+    # var alliteration = ProsodyResourceManager.get("alliteration"); var rhyme = ProsodyResourceManager.get("rhyme"); #
+    # var endRhyme = ProsodyResourceManager.get("endRhyme"); var venpaaRulesComparison = ProsodyResourceManager.get("venpaaRulesComparison"); #
+    <ul class="kendo-panelbars-custom" id="seyyulResult">
+        <li>
+            <h4 class="main-title">
+                #= parsedResults #
+                <span class="main-title-icon glyph glyph-chevron-down"></span>
+            </h4>
+
+            <div id="tabstrip" class="menyappu-content-tabstrip">
+                <ul>
+                    <li class="k-state-active">
+                        #= letter #
+                    </li>
+                    <li>
+                        #= metremeAndMetricalFeet #
+                    </li>
+                    <li>
+                        #= linkage #
+                    </li>
+                    <li>
+                        #= metricalLine #
+                    </li>
+                    <li>
+                        #= alliteration #
+                    </li>
+                    <li>
+                        #= rhyme #
+                    </li>
+                    <li>
+                        #= endRhyme #
+                    </li>
+                    <li>
+                        #= venpaaRulesComparison #
+                    </li>
+                </ul>
+                <div>
+                    #= letter #
+                </div>
+                <div>
+                    #= metremeAndMetricalFeet #
+                </div>
+                <div>
+                    #= linkage #
+                </div>
+                <div>
+                    #= metricalLine #
+                </div>
+                <div>
+                    #= alliteration #
+                </div>
+                <div>
+                    #= rhyme #
+                </div>
+                <div>
+                    #= endRhyme #
+                </div>
+                <div>
+                    #= venpaaRulesComparison #
+                </div>
+            </div>
+        </li>
+    </ul>
+
+</script>
+<script type="text/x-kendo-template" id="ezhuthuTemplate">
+    <h3 class="k-widget k-header">எழுத்துகள் எண்ணிக்கை: #= uyirEzhuthugal + meyEzhuthugal + uyirMeyEzhuthugal + aydhaEzhuthu #</h3>
+    <br />
+    உயிரெழுத்துக்கள்: #= uyirEzhuthugal #
+    <br />
+    <br />
+    மெய்யெழுத்துக்கள்: #= meyEzhuthugal #
+    <br />
+    <br />
+    உயிர்மெய்யெழுத்துக்கள்: #= uyirMeyEzhuthugal #
+    <br />
+    <br />
+    ஆய்த எழுத்து: #= aydhaEzhuthu #
+    <br />
+    <br />
+    குறில் எழுத்துக்கள்: #= kurilEzhuthugal #
+    <br />
+    <br />
+    நெடில் எழுத்துக்கள்: #= nedilEzhuthugal #
+    <br />
+    <br />
+    <h3 class="k-widget k-header">மாத்திரை எண்ணிக்கை: #= totalMathiraiCount #</h3>
+    <br />
+    # var mathiraiInSeer = ""; #
+    # for (var l=0; l < mathiraiCount.length; l++) { #
+    # $.each(mathiraiCount[l], function(mathiraiKey, mathiraiValue) { #
+    # mathiraiInSeer = mathiraiInSeer + '<ruby><span class="uiTrant">' + mathiraiKey + '</span><rt>' + mathiraiValue + '</rt></ruby>  '; #
+    # }) #
+    # mathiraiInSeer += '<br />'; #
+    # } #
+    #= mathiraiInSeer #
+</script>
+
+<script type="text/x-kendo-template" id="seerTemplate">
+    <h3 class="k-widget k-header">#= paaVagai #</h3>
+    <br />
+    <table border="0" cellspacing="15">
+        <tbody>
+
+            # $.each(parseTree, function(adiKey, adiValue) { #
+            # var paaAsaiInAdi = ""; var asigalInAdi = "";	var vaippaduInAdi = ""; #
+            # $.each(adiValue, function(seerKey, seerValue) { #
+            # paaAsaiInAdi = paaAsaiInAdi + '<td>' #
+            # asigalInAdi = asigalInAdi + '<td>'#
+            # vaippaduInAdi = vaippaduInAdi + '<td>'#
+            # $.each(seerValue, function(asaiKey, asaiValue) { #
+            # $.each(asaiValue, function(key, value) { #
+            # if(key != "meta" && key != "smeta") { #
+            # if(new RegExp("^நேர்").test(key)) {  #
+            # paaAsaiInAdi = paaAsaiInAdi + '<span class="nerasai">' + value + '</span>' #
+            # asigalInAdi = asigalInAdi + '<span class="nerasai">' + key #
+                # } else if(new RegExp("^நிரை").test(key)) { #
+                # paaAsaiInAdi = paaAsaiInAdi + '<span class="niryasai">' + value + '</span>' #
+                # asigalInAdi = asigalInAdi + '<span class="niryasai">' + key #
+                    # } else if( key == "பு") { #
+                    # var spanClass = new RegExp("^நேர்").test(venLastSyllable) ? "nerasai" : "niryasai"; #
+                    # paaAsaiInAdi = paaAsaiInAdi + '<span class="' + spanClass + '">' + value + '</span>' #
+                    # } #
+                    # } else { #
+                    # if(key == "meta") { #
+                    # paaAsaiInAdi = paaAsaiInAdi + '</td>' #
+        # asigalInAdi = asigalInAdi + '</td>'  #
+        # vaippaduInAdi = vaippaduInAdi + value + '</td>' #
+        # } #
+        # }	#
+        # }) #
+        # }) #
+        # }) #
+        # console.log("\r\n" + paaAsaiInAdi); console.log("\r\n" + asigalInAdi); console.log("\r\n" + vaippaduInAdi); #
+        <tr>
+            #= paaAsaiInAdi #
+        </tr>
+        <tr>
+            #= asigalInAdi #
+        </tr>
+        <tr>
+            #= vaippaduInAdi #
+        </tr>
+        #}) #
+        </tbody>
+    </table>
+</script>
+
+<script type="text/x-kendo-template" id="thalaiTemplate">
+    <br />
+    <table border=0 cellspacing=10>
+        <tr>
+            <th>சீர்கள்</th>
+            <th>வாய்ப்பாடு - அசை&nbsp;</th>
+            <th>தளை</th>
+        </tr>
+        # for (var i = 0; i < wordBond.length; i++) { #
+        <tr>
+            <td> <span class="talaiseer"> #= wordBond[i]["word1"] # - #= wordBond[i]["word2"] # </span></td>
+            <td> <span class="talaiasai"> #= wordBond[i]["class1"] # - #= wordBond[i]["class2"] # </span></td>
+            <td> <span class="talainame"> #= wordBond[i]["bond"] # </span></td>
+        </tr>
+        # } #
+    </table>
+</script>
+
+<script type="text/x-kendo-template" id="adiTemplate">
+    <h2 class="k-widget k-header">அடிகள் எண்ணிக்கை: #= adigal.length #</h2>
+    <br />
+    # for (var i = 0; i < adigal.length; i++) { #
+    #= adigal[i] # |
+    <span class="adi   "> #= adiVagaigal[i] # </span>
+    <br />
+    <br />
+    # } #
+</script>
+
+<script type="text/x-kendo-template" id="monaiTemplate">
+    <h2 class="k-widget k-header">சீர் மோனை</h2>
+
+    # for (var i = 0; i < adigal.length; i++) { #
+    <br />
+    அடி #= i + 1 # |  #= adigal[i] #
+    <br />
+    # if(seerMonaiWithinAdi[i][1][0] == "இல்லை") { #
+    மோனை #= seerMonaiWithinAdi[i][1][0] #
+    <br />
+    #} else { #
+    # var allMonais = ''; #
+    # for(var s = 0; s < seerMonaiWithinAdi[i][2].length; s++) { #
+    # console.log("|" + seerMonaiWithinAdi[i][2][s] + "|") #
+    # if( Utility.stringStartsWith(seerMonaiWithinAdi[i][2][s], "~")) { #
+    # allMonais += '<span class="todaiword">' + seerMonaiWithinAdi[i][2][s].substring(1) + '</span>' #
+    # } else if(!isNaN(parseInt(seerMonaiWithinAdi[i][2][s]))) { #
+    # allMonais += '<span class="todaiindex">' + seerMonaiWithinAdi[i][2][s] + '</span>' #
+    # } else { #
+    # allMonais += '<span>' + seerMonaiWithinAdi[i][2][s] + '</span>  ' #
+    # } #
+    # } #
+    #= allMonais #
+    |
+    <span class="todaipattern">#=seerMonaiWithinAdi[i][1][0]#  மோனை </span>
+    # } #
+    <br />
+    # } #
+    <h2 class="k-widget k-header">அடி மோனை</h2>
+    <br />
+    # var output = ""; for (var i = 0; i < matchingAdiMonai.length; i++) { #
+    # var monaiCount = 0 #
+    # $.each(matchingAdiMonai[i], function(key, value) { #
+    # output = output + ((parseInt(key,10) + 1 ) + ' ' + value + '  '); monaiCount++; #
+    # }) #
+    # if(monaiCount > 1) { #
+    #= output #
+    # } #
+    # output = "" #
+    # } #
+    <br />
+</script>
+
+<script type="text/x-kendo-template" id="ethukaiTemplate">
+    <h2 class="k-widget k-header">சீர் எதுகை</h2>
+
+    # for (var i = 0; i < adigal.length; i++) { #
+    <br />
+    அடி #= i + 1 # |  #= adigal[i] #
+    <br />
+    # if(seerEthukaiWithinAdi[i][1][0] == "இல்லை") { #
+    எதுகை #= seerEthukaiWithinAdi[i][1][0] #
+    <br />
+    #} else { #
+    # for(var s = 0; s < seerEthukaiWithinAdi[i][2].length; s++) { #
+    # if( Utility.stringStartsWith(seerEthukaiWithinAdi[i][2][s], "~")) { #
+    <span class="todaiword"> #=seerEthukaiWithinAdi[i][2][s].substring(1)# </span>
+    # } else if(!isNaN(parseInt(seerEthukaiWithinAdi[i][2][s]))) { #
+    <span class="todaiindex"> #=seerEthukaiWithinAdi[i][2][s]# </span>
+    # } else { #
+    <span> #=seerEthukaiWithinAdi[i][2][s]# </span>
+    # } #
+    # } #
+    |
+    <span class="todaipattern"> #= seerEthukaiWithinAdi[i][1][0] #  எதுகை </span>
+    # } #
+    <br />
+    # } #
+    <h2 class="k-widget k-header">அடி எதுகை</h2>
+    <br />
+    # var output = ""; for (var i = 0; i < matchingAdiEthukai.length; i++) { #
+    # var ethukaiCount = 0 #
+    # $.each(matchingAdiEthukai[i], function(key, value) { #
+    # output = output + ((parseInt(key,10) + 1 ) + ' ' + value + '  '); ethukaiCount++; #
+    # }) #
+    # if(ethukaiCount > 1) { #
+    #= output #
+    # } #
+    # output = "" #
+    # } #
+    <br />
+</script>
+
+<script type="text/x-kendo-template" id="iyaipuTemplate">
+    <h2 class="k-widget k-header">சீர் இயைபு</h2>
+
+    # for (var i = 0; i < adigal.length; i++) { #
+    <br />
+    அடி #= i + 1 # |  #= adigal[i] #
+    <br />
+    # if(seerIyaipuWithinAdi[i][1][0] == "இல்லை") { #
+    இயைபு #= seerIyaipuWithinAdi[i][1][0] #
+    <br />
+    #} else { #
+    # for(var s = 0; s < seerIyaipuWithinAdi[i][2].length; s++) { #
+    # if( Utility.stringStartsWith(seerIyaipuWithinAdi[i][2][s], "~")) { #
+    <span class="todaiword"> #=seerIyaipuWithinAdi[i][2][s].substring(1)# </span>
+    # } else if(!isNaN(parseInt(seerIyaipuWithinAdi[i][2][s]))) { #
+    <span class="todaiindex"> #=seerIyaipuWithinAdi[i][2][s]# </span>
+    # } else { #
+    <span> #=seerIyaipuWithinAdi[i][2][s]# </span>
+    # } #
+    # } #
+    |
+    <span class="todaipattern"> #= seerIyaipuWithinAdi[i][1][0] #  இயைபு </span>
+    # } #
+    <br />
+    # } #
+    <h2 class="k-widget k-header">அடி இயைபு</h2>
+    <br />
+    # var output = ""; for (var i = 0; i < matchingAdiIyaipu.length; i++) { #
+    # var iyaipuCount = 0 #
+    # $.each(matchingAdiIyaipu[i], function(key, value) { #
+    # output = output + ((parseInt(key,10) + 1 ) + ' ' + value + '  '); iyaipuCount++; #
+    # }) #
+    # if(iyaipuCount > 1) { #
+    #= output #
+    # } #
+    # output = "" #
+    # } #
+    <br />
+</script>
+
+<script type="text/x-kendo-template" id="vidhiOppeeduTemplate">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th><b>விதி</b></th>
+                <th><b>பொருத்தம்</b></th>
+            </tr>
+        </thead>
+        <tbody>
+            # for(var prop in venpaError) { #
+            <tr>
+                <td>#=venpaError[prop][0]#</td>
+                <td>
+                    # if(venpaError[prop].length < 2) { #
+                    <div class="talainame">பொருந்துகிறது</div>
+                    #} else { #
+                    <div class="nerasai"> #=venpaError[prop][1]#</div>
+                    # } #
+                </td>
+            </tr>
+            # } #
+        </tbody>
+    </table>
+</script>
+
+<script>
+
+
+    $(document).ready(function () {
+
+        var poemComposerTemplate = kendo.template($("#poemComposerInputTemplate").html());
+        $("#poemComposerGame").append(poemComposerTemplate({}));
+        var TabNames = {
+            Letter: 0,
+            Metreme: 1,
+            Linkage: 2,
+            MetricalLine: 3,
+            Alliteration: 4,
+            Rhyme: 5,
+            EndRhyme: 6,
+            VenpaRulesComparison: 7
+        };
+        // event handler for select
+        var onSelect = function (e) {
+            // access the selected item via e.item (HTMLElement)
+            var item = e.sender.select();
+
+            if (item.hasClass("k-state-active")) {
+                e.sender.collapse(item);
+            } else {
+                e.sender.expand(item);
+            }
+        };
+
+        var tabStrip = $("#tabstrip").kendoTabStrip({
+            animation: {
+                open: {
+                    effects: "fadeIn"
+                }
+            }
+        }).data("kendoTabStrip");
+
+        var seyyulPanelBar = $("#seyyulbar").kendoPanelBar({
+            expandMode: "single",
+            select: onSelect
+        }).data("kendoPanelBar");
+
+        var seyyulResultPanelBar = $("#seyyulResult").kendoPanelBar({
+            expandMode: "single",
+            select: onSelect
+        }).data("kendoPanelBar");
+
+        //var item = panelBar.select();
+        seyyulPanelBar.expand($(".k-first"), true);
+
+        $("#ShouldCompareVenpaRules").change(function () {
+            toggleTab(TabNames.VenpaRulesComparison, $(this).is(':checked'));
+            //if ($(this).is(':checked')) {
+            //    showTab(TabNames.VenpaRulesComparison);
+            //} else {
+            //    hideTab(TabNames.VenpaRulesComparison);
+            //}
+        });
+
+        function toggleTab(tabNum, shouldShow) {
+            var tabstrip = $("#tabstrip").data("kendoTabStrip");
+            var tabstripContent = $("#tabstrip-" + (tabNum + 1));
+            var currentTab = tabstrip.select();
+            var displayStyle = (shouldShow) ? "inline-block" : "none";
+            var opacityStyle = (shouldShow) ? "1" : "0";
+            $(tabstrip.items()[tabNum]).css('display', displayStyle);
+            tabstripContent.css('opacity', opacityStyle);
+
+            if (!shouldShow && tabNum === $(currentTab).index()) {
+                tabstrip.select(tabNum - 1);
+            }
+        }
+
+        $("#prosodyForm").submit(function () {
+            var shouldCompareVenpaRules = $("#ShouldCompareVenpaRules").is(':checked');
+            var data = '{"prosodyText" : "' + $("#ProsodyText").val() + '"' +
+                ', "ShouldParseKutriyalukaram" : "' + $("#ShouldParseKutriyalukaram").is(':checked') + '"' +
+                ', "ShouldParseVilaangaaySeer" : "' + $("#ShouldParseVilaangaaySeer").is(':checked') + '"' +
+                ', "ShouldCompareVenpaRules" : "' + shouldCompareVenpaRules + '"' +
+                '}';
+            $.ajax({
+                url: '/api/Prosody',
+                data: data,
+                contentType: 'application/json; charset=utf8',
+                type: 'POST',
+                async: false,
+                success: function (data) {
+                    seyyulResultPanelBar.expand($(".k-first"), true);
+                    tabStrip.select(0);
+
+                    var ezhuthuTemplate = kendo.template($("#ezhuthuTemplate").html());
+
+                    $("#tabstrip-" + (TabNames.Letter + 1)).html(ezhuthuTemplate({
+                        uyirEzhuthugal: data["letterCount"]["@TamilLanguageConstants.Vowel"],
+                        meyEzhuthugal: data["letterCount"]["@TamilLanguageConstants.Consonant"],
+                        uyirMeyEzhuthugal: data["letterCount"]["@TamilLanguageConstants.ConsonantVowel"],
+                        aydhaEzhuthu: data["letterCount"]["@TamilLanguageConstants.Aytham"],
+                        kurilEzhuthugal: data["letterCount"]["@TamilLanguageConstants.Kuril"],
+                        nedilEzhuthugal: data["letterCount"]["@TamilLanguageConstants.Nedil"],
+                        mathiraiCount: data["mathiraiCount"],
+                        totalMathiraiCount: data["totalMathiraiCount"]
+                    }));
+
+                    var seerTemplate = kendo.template($("#seerTemplate").html());
+                    $("#tabstrip-" + (TabNames.Metreme + 1)).html(seerTemplate({
+                        paaVagai: data["metreType"],
+                        parseTree: data["parseTree"],
+                        venLastSyllable: data["venLastSyllable"]
+                    }));
+
+                    var thalaiTemplate = kendo.template($("#thalaiTemplate").html());
+                    $("#tabstrip-" + (TabNames.Linkage + 1)).html(thalaiTemplate({
+                        wordBond: data["wordBond"]
+                    }));
+                    var adiTemplate = kendo.template($("#adiTemplate").html());
+                    $("#tabstrip-" + (TabNames.MetricalLine + 1)).html(adiTemplate({
+                        adigal: data["lines"],
+                        adiVagaigal: data["lineClass"]
+                    }));
+                    var monaiTemplate = kendo.template($("#monaiTemplate").html());
+                    $("#tabstrip-" + (TabNames.Alliteration + 1)).html(monaiTemplate({
+                        adigal: data["lines"],
+                        seerMonaiWithinAdi: data["seerMonaiWithinAdi"],
+                        matchingAdiMonai: data["matchingAdiMonai"]
+                    }));
+                    var ethukaiTemplate = kendo.template($("#ethukaiTemplate").html());
+                    $("#tabstrip-" + (TabNames.Rhyme + 1)).html(ethukaiTemplate({
+                        adigal: data["lines"],
+                        seerEthukaiWithinAdi: data["seerEthukaiWithinAdi"],
+                        matchingAdiEthukai: data["matchingAdiEthukai"]
+                    }));
+                    var iyaipuTemplate = kendo.template($("#iyaipuTemplate").html());
+                    $("#tabstrip-" + (TabNames.EndRhyme + 1)).html(iyaipuTemplate({
+                        adigal: data["lines"],
+                        seerIyaipuWithinAdi: data["seerIyaipuWithinAdi"],
+                        matchingAdiIyaipu: data["matchingAdiIyaipu"]
+                    }));
+                    var vidhiOppeeduTemplate = kendo.template($("#vidhiOppeeduTemplate").html());
+                    $("#tabstrip-" + (TabNames.VenpaRulesComparison + 1)).html(vidhiOppeeduTemplate({
+                        venpaError: data["venpaError"]
+                    }));
+                    toggleTab(TabNames.VenpaRulesComparison, shouldCompareVenpaRules);
+                },
+                error: function (data) {
+                    alert('error');
+                }
+            });
+            return false;
+        });
+        Utility.wireDropdownTooltipAndPopoverHandlers();
+    });
+
+</script>
+
+
