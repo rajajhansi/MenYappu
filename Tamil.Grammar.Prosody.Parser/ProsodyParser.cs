@@ -548,49 +548,81 @@ namespace RjamSoft.Tamil.Grammar.Parser
             return (MetreType ?? "எந்த பா வகையும் பொருந்தவில்லை");
         }
 
-        public bool CheckMonai(string FirstWord, string SecondWord)
+        private static readonly Dictionary<string, List<ThodaiRule>> ThodaiRules = new Dictionary<string, List<ThodaiRule>>
         {
-            Dictionary<int, List<string>> MonaiVowels = new Dictionary<int, List<string>>
+            { "Ethukai", new List<ThodaiRule>
                 {
-                    {1, new List<string> {"a", "A", "Y", "W"}},
-                    {2, new List<string> {"i", "I", "e", "E"}},
-                    {3, new List<string> {"u","U","o","O"}}
-                };
-            Dictionary<int, List<string>> MonaiConsonants = new Dictionary<int, List<string>>
+                    new ThodaiRule { RuleNumber = 1, RuleExplanations = new Dictionary<bool, string>
+                    {
+                        {true, "இரண்டு சொற்களிலும் உள்ள முதல் எழுத்துகளான '{0}'-இன் ஒலியளவும் '{1}'-இன் ஒலியளவும் ஒத்துப் போகின்றன." },
+                        {false, "இரண்டு சொற்களிலும் உள்ள முதல் எழுத்துகளான '{0}'-இன் ஒலியளவும் '{1}'-இன் ஒலியளவும் ஒத்துப் போகவில்லை." }
+                    }},
+                    new ThodaiRule { RuleNumber = 2, RuleExplanations = new Dictionary<bool, string>
+                    {
+                        {true, "இரண்டு சொற்களிலும் உள்ள இரண்டாம் எழுத்துகளான '{0}'-உம் '{1}'-உம் ஒன்றி வந்திருக்கின்றன." },
+                        {false, "இரண்டு சொற்களிலும் உள்ள இரண்டாம் எழுத்துகளான '{0}'-உம் '{1}'-உம் ஒன்றி வரவில்லை." }
+                    }}
+                }
+            },
+            { "Monai", new List<ThodaiRule>
                 {
-                    {1, new List<string>{"J","n"}},
-                    {2, new List<string>{"m","v"}},
-                    {3, new List<string>{"t","c"}}
-                };
+                    new ThodaiRule { RuleNumber = 1, RuleExplanations = new Dictionary<bool, string>
+                    {
+                        {true, "இரண்டு சொற்களிலும் உள்ள முதல் எழுத்துகளான '{0}'-உம் '{1}'-உம் ஒன்றி வந்திருக்கின்றன." },
+                        {false, "இரண்டு சொற்களிலும் உள்ள முதல் எழுத்துகளான '{0}'-உம் '{1}'-உம் ஒன்றி வரவில்லை." }
+                    }},
+                }
+            },
+            { "Iyaipu", new List<ThodaiRule>
+                {
+                    new ThodaiRule { RuleNumber = 1, RuleExplanations = new Dictionary<bool, string>
+                    {
+                        {true, "இரண்டு சொற்களிலும் உள்ள கடைசி எழுத்துகளான '{0}'-உம் '{1}'-உம் ஒன்றி வந்திருக்கின்றன." },
+                        {false, "இரண்டு சொற்களிலும் உள்ள கடைசி எழுத்துகளான '{0}'-உம் '{1}'-உம் ஒன்றி வரவில்லை." }
+                    }},
+                }
+            }
+        };
 
-            var MonaiFirstLetter = false;
-            var MonaiSecondLetter = false;
+        public ThodaiResult DoesEthukaiExist(string FirstWord, string SecondWord)
+        {
+            bool EthukaiLetterCheck = false;
+            List<string> LongVowels = new List<string> {"A", "I", "U", "E", "O", "W", "Y"};
+            List<string> ShortVowels = new List<string> {"a", "i", "u", "e", "o"};
 
-            if(FirstWord.Substring(0,1) == SecondWord.Substring(0,1))
+            string FirstWordInitialLetter = FirstWord.Substring(1, 1);
+            string SecondWordInitialLetter = SecondWord.Substring(1, 1);
+
+            string FirstWordSecondLetter = FirstWord.Substring(2, 2);
+            string SecondWordSecondLetter = (SecondWord.Length > 2)
+                ? SecondWord.Substring(2, 2)
+                : SecondWord.Substring(0, 2);
+
+            bool InLongVowels = (LongVowels.Find(l => l == FirstWordInitialLetter) == FirstWordInitialLetter) &&
+                                ((LongVowels.Find(l => l == SecondWordInitialLetter) == SecondWordInitialLetter));
+            bool InShortVowels = (ShortVowels.Find(l => l == FirstWordInitialLetter) == FirstWordInitialLetter) &&
+                                 ((ShortVowels.Find(l => l == SecondWordInitialLetter) == SecondWordInitialLetter));
+            bool VowelLengthCheck = InLongVowels || InShortVowels;
+
+            if (FirstWordSecondLetter.Substring(0, 1) == "_" || SecondWordSecondLetter.Substring(0, 1) == "_")
             {
-                MonaiFirstLetter = true;
+                EthukaiLetterCheck = (FirstWordSecondLetter == SecondWordSecondLetter);
             }
             else
             {
-                foreach (var monaiConsonant in MonaiConsonants)
-                {
-                    if (monaiConsonant.Value.IndexOf(FirstWord.Substring(0, 1)) >= 0 && monaiConsonant.Value.IndexOf(SecondWord.Substring(0, 1)) >= 0)
-                    {
-                        MonaiFirstLetter = true;
-                    }
-                }
+                EthukaiLetterCheck = (FirstWordSecondLetter.Substring(0, 1) == SecondWordSecondLetter.Substring(0, 1));
             }
-            if(MonaiFirstLetter)
+
+
+            return new ThodaiResult
             {
-                foreach (var monaiVowel in MonaiVowels)
+                DoesThodaiExist = (VowelLengthCheck && EthukaiLetterCheck),
+                Explanations = new Dictionary<string, bool>()
                 {
-                    if (monaiVowel.Value.IndexOf(FirstWord.Substring(1, 1)) >= 0 && monaiVowel.Value.IndexOf(SecondWord.Substring(1, 1)) >= 0)
-                    {
-                        MonaiSecondLetter = true;
-                    }
+                    { string.Format(ThodaiRules["Ethukai"][0].RuleExplanations[VowelLengthCheck], FirstWord.ToLatinString().TamilSubstr(0, 1), SecondWord.ToLatinString().TamilSubstr(0, 1)), VowelLengthCheck },
+                    { string.Format(ThodaiRules["Ethukai"][1].RuleExplanations[EthukaiLetterCheck], FirstWord.ToLatinString().TamilSubstr(1, 1), SecondWord.ToLatinString().TamilSubstr(1, 1)), EthukaiLetterCheck }
                 }
-            }
-            return MonaiSecondLetter;
+            };
         }
 
         public bool CheckEthukai(string FirstWord, string SecondWord)
@@ -622,6 +654,76 @@ namespace RjamSoft.Tamil.Grammar.Parser
             return (VowelLengthCheck && EthukaiLetterCheck);
         }
 
+        public ThodaiResult DoesMonaiExist(string FirstWord, string SecondWord)
+        {
+            var doesMonaiExist = CheckMonai(FirstWord, SecondWord);
+            return new ThodaiResult
+            {
+                DoesThodaiExist = doesMonaiExist,
+                Explanations = new Dictionary<string, bool>
+                {
+                    { string.Format(ThodaiRules["Monai"][0].RuleExplanations[doesMonaiExist], FirstWord.ToLatinString().TamilSubstr(0, 1), SecondWord.ToLatinString().TamilSubstr(0, 1)), doesMonaiExist }
+                }
+            };
+        }
+
+        public bool CheckMonai(string FirstWord, string SecondWord)
+        {
+            Dictionary<int, List<string>> MonaiVowels = new Dictionary<int, List<string>>
+                {
+                    {1, new List<string> {"a", "A", "Y", "W"}},
+                    {2, new List<string> {"i", "I", "e", "E"}},
+                    {3, new List<string> {"u","U","o","O"}}
+                };
+            Dictionary<int, List<string>> MonaiConsonants = new Dictionary<int, List<string>>
+                {
+                    {1, new List<string>{"J","n"}},
+                    {2, new List<string>{"m","v"}},
+                    {3, new List<string>{"t","c"}}
+                };
+
+            var MonaiFirstLetter = false;
+            var MonaiSecondLetter = false;
+
+            if (FirstWord.Substring(0, 1) == SecondWord.Substring(0, 1))
+            {
+                MonaiFirstLetter = true;
+            }
+            else
+            {
+                foreach (var monaiConsonant in MonaiConsonants)
+                {
+                    if (monaiConsonant.Value.IndexOf(FirstWord.Substring(0, 1)) >= 0 && monaiConsonant.Value.IndexOf(SecondWord.Substring(0, 1)) >= 0)
+                    {
+                        MonaiFirstLetter = true;
+                    }
+                }
+            }
+            if (MonaiFirstLetter)
+            {
+                foreach (var monaiVowel in MonaiVowels)
+                {
+                    if (monaiVowel.Value.IndexOf(FirstWord.Substring(1, 1)) >= 0 && monaiVowel.Value.IndexOf(SecondWord.Substring(1, 1)) >= 0)
+                    {
+                        MonaiSecondLetter = true;
+                    }
+                }
+            }
+            return MonaiSecondLetter;
+        }
+
+        public ThodaiResult DoesIyaipuExist(string FirstWord, string SecondWord)
+        {
+            var doesIyaipuExist = CheckIyaipu(FirstWord, SecondWord);
+            return new ThodaiResult
+            {
+                DoesThodaiExist = doesIyaipuExist,
+                Explanations = new Dictionary<string, bool>
+                {
+                    { string.Format(ThodaiRules["Iyaipu"][0].RuleExplanations[doesIyaipuExist], FirstWord.ToLatinString().TamilSubstr(FirstWord.TamilLength()-1, 1), SecondWord.ToLatinString().TamilSubstr(SecondWord.TamilLength()-1, 1)), doesIyaipuExist }
+                }
+            };
+        }
         public bool CheckIyaipu(string FirstWord, string SecondWord)
         {
             return (
@@ -1362,7 +1464,7 @@ namespace RjamSoft.Tamil.Grammar.Parser
     public class ThodaiResult
     {
         public bool DoesThodaiExist { get; set; }
-        public string Explanation { get; set; }
+        public Dictionary<string, bool> Explanations { get; set; }
     }
 
     public class ThodaigalText
@@ -1394,4 +1496,17 @@ namespace RjamSoft.Tamil.Grammar.Parser
     {
         public string Language { get; set; }
     }
+
+    public class ThodaiRule
+    {
+        public int RuleNumber { get; set; }
+        public Dictionary<bool, string> RuleExplanations { get; set; }
+
+        public ThodaiRule()
+        {
+            RuleNumber = 0;
+            RuleExplanations = new Dictionary<bool, string>();
+        }
+    }
+
 }

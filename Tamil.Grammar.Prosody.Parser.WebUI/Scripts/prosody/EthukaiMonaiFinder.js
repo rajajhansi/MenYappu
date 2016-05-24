@@ -1,8 +1,7 @@
 ﻿var EthukaiMonaiFinder = (function() {
     function init() {
         // set the context help
-        var thodaiHelpTemplate = kendo.template($("#thodaiHelpTemplate").html());
-        Utility.setContextHelp(thodaiHelpTemplate({ container: 'side' }));
+        Utility.setHelp('thodai', null);
         // event handler for select
         Utility.initSeyyulbar();
 
@@ -16,9 +15,9 @@
         $("#result")
             .append(resultTemplate({
                 partInfos: [
-                            { part: "monai", partHeader: "மோனை வகைகள்" },
-                            { part: "ethukai", partHeader: "எதுகை வகைகள்" },
-                            { part: "iyaipu", partHeader: "இயைபு வகைகள்" }
+                    { part: "monai", partHeader: "மோனை வகைகள்" },
+                    { part: "ethukai", partHeader: "எதுகை வகைகள்" },
+                    { part: "iyaipu", partHeader: "இயைபு வகைகள்" }
                 ]
             }));
         Utility.wireDropdownTooltipAndPopoverHandlers();
@@ -33,13 +32,19 @@
             var thodais = ["monai", "ethukai", "iyaipu"];
             var allThodaisExist = true;
             for (var thodaiIndex = 0; thodaiIndex < 3; thodaiIndex++) {
+                var explanationString = '';
+
+                $.each(data[thodaiIndex]["explanations"], function (key, value) {
+                    var rightOrWrongCssClass = value ? "sari" : "thavaru";
+                    var glyph = '<i class="glyph glyph-' + (value ? "checkmark correctAnswer" : "cancel incorrectAnswer") + '"></i>';
+                    explanationString += ('<div class="'  + rightOrWrongCssClass +'">' + glyph + key + '</div>');
+                });
+                //explanationString += '';
                 if (data[thodaiIndex]["doesThodaiExist"]) {
-                    Utility.showCorrect(thodais[thodaiIndex],
-                        '<div class="sari">' + data[thodaiIndex]["explanation"] + '</div>');
+                    Utility.showCorrect(thodais[thodaiIndex], explanationString);
                 } else {
                     allThodaisExist = false;
-                    Utility.showIncorrect(thodais[thodaiIndex],
-                        '<div class="thavaru">' + data[thodaiIndex]["explanation"] + '</div>');
+                    Utility.showIncorrect(thodais[thodaiIndex], explanationString);
                 }
             }
             Utility.showResult();

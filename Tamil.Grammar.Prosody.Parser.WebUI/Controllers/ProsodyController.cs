@@ -51,7 +51,7 @@ namespace Tamil.Parody.Parser.WebUI.Controllers
         };
 
         private readonly Dictionary<int, Func<string, string, bool>> _thodaiCheckFuncDictionary;
-
+        private readonly Dictionary<int, Func<string, string, ThodaiResult>> _thodaiCheckExistsFuncDictionary;
         #region Helper Methods
         private IEnumerable<string> GetThodaiWords(Func<string, string, bool> checkThodaiFunc, int funcIndex)
         {
@@ -74,6 +74,12 @@ namespace Tamil.Parody.Parser.WebUI.Controllers
             _tamilAgarathi = tamilAgarathi;
             _sharedResourceManager = sharedResourceManager;
             _prosodyParser = prosodyParser;
+            _thodaiCheckExistsFuncDictionary = new Dictionary<int, Func<string, string, ThodaiResult>>
+            {
+                {Monai, _prosodyParser.DoesMonaiExist},
+                {Ethukai, _prosodyParser.DoesEthukaiExist},
+                {Iyaipu, _prosodyParser.DoesIyaipuExist}
+            };
             _thodaiFunctionsAndMessagesDictionary =
                 new Dictionary<int, ThodaiFunctionsAndMessages>
                 {
@@ -159,19 +165,20 @@ namespace Tamil.Parody.Parser.WebUI.Controllers
             {
                 var firstWord = thodaiPairsText.ThodaiPairs[thodaiIndex].InputText?.ToLatinString();
                 var secondWord = thodaiPairsText.ThodaiPairs[thodaiIndex].ThodaiText?.ToLatinString();
-                var thodaiResult = new ThodaiResult();
+
                 var letterInFirstWordIndex = _thodaiFunctionsAndMessagesDictionary[thodaiIndex].ThodaiIndexCalculatorFunc(firstWord);
                 var letterInSecondWordIndex = _thodaiFunctionsAndMessagesDictionary[thodaiIndex].ThodaiIndexCalculatorFunc(secondWord);
                 var letterInFirstWord = firstWord.TamilSubstr(letterInFirstWordIndex, 1);
                 var letterInSecondWord = secondWord.TamilSubstr(letterInSecondWordIndex, 1);
-                thodaiResult.DoesThodaiExist = _thodaiFunctionsAndMessagesDictionary[thodaiIndex].ThodaiCheckFunc(firstWord, secondWord);
-                thodaiResult.Explanation =
-                    (thodaiResult.DoesThodaiExist) ?
-                    string.Format(_thodaiFunctionsAndMessagesDictionary[thodaiIndex].ExplanationMessages[thodaiResult.DoesThodaiExist],
-                        letterInFirstWord) :
-                    string.Format(_thodaiFunctionsAndMessagesDictionary[thodaiIndex].ExplanationMessages[thodaiResult.DoesThodaiExist],
-                        letterInFirstWord, letterInSecondWord);
-
+                var thodaiResult = _thodaiCheckExistsFuncDictionary[thodaiIndex](firstWord, secondWord);
+                //thodaiResult.DoesThodaiExist = _thodaiFunctionsAndMessagesDictionary[thodaiIndex].ThodaiCheckFunc(firstWord, secondWord);
+                //thodaiResult.Explanations = new List<string> {
+                //    (thodaiResult.DoesThodaiExist) ?
+                //    string.Format(_thodaiFunctionsAndMessagesDictionary[thodaiIndex].ExplanationMessages[thodaiResult.DoesThodaiExist],
+                //        letterInFirstWord) :
+                //    string.Format(_thodaiFunctionsAndMessagesDictionary[thodaiIndex].ExplanationMessages[thodaiResult.DoesThodaiExist],
+                //        letterInFirstWord, letterInSecondWord)
+                //};
                 thodaiResults.Add(thodaiResult);
             }
             var response = Request.CreateResponse(HttpStatusCode.OK, thodaiResults);
