@@ -12,13 +12,13 @@
     }
 
     function get(key) {
-        var language = CookieService.getCookie('__APPLICATION_LANGUAGE');
+        var language = CookieService.getCookie('__APPLICATION_LANGUAGE') || "en";
         if (!$.isEmptyObject(currentLanguageResources)) {
             return currentLanguageResources[language][key];
         }
         if ($.isEmptyObject(currentLanguageResources)) {
             //console.log('Loading strings from ' + currentLanguage);
-            var language = CookieService.getCookie('__APPLICATION_LANGUAGE');
+            var language = CookieService.getCookie('__APPLICATION_LANGUAGE') || "en";
             load(language);
         }
         return currentLanguageResources[language][key];
