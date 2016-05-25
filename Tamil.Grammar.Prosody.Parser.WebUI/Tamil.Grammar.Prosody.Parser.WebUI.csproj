@@ -421,6 +421,7 @@
     <Content Include="Landing\img\games\letterTypeFinderGame.png" />
     <Content Include="Landing\img\games\mathiraiFinderGame.png" />
     <Content Include="Landing\img\games\osaiMatcherGame.png" />
+    <Content Include="Landing\img\games\quiz.png" />
     <Content Include="Landing\img\games\seerDividerGame.png" />
     <Content Include="Landing\img\games\thalaiFinderGame.png" />
     <Content Include="Landing\img\games\thodaiFinderGame.png" />

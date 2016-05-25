@@ -450,7 +450,7 @@
   <data name="MadewithLoveAndPassion" xml:space="preserve">
     <value>Made with Love and Passion for Tamil</value>
   </data>
-  <data name="MadewithLoveAndPassionForTamil" xml:space="preserve">
+  <data name="MadewithLoveAndPassionDescription" xml:space="preserve">
     <value>We made this learning portal with love and passion for our language "Tamil"</value>
   </data>
   <data name="MenyappuAnEffort" xml:space="preserve">
@@ -465,11 +465,11 @@
   <data name="StartLearning" xml:space="preserve">
     <value>Start learning!</value>
   </data>
-  <data name="UnderstadingPoemsDescription" xml:space="preserve">
-    <value>Understanding grammar helps Tamils to understand and appreciate Tamil literature!</value>
-  </data>
   <data name="UnderstandingPoems" xml:space="preserve">
     <value>Understand Poems</value>
+  </data>
+  <data name="UnderstandingPoemsDescription" xml:space="preserve">
+    <value>Understanding grammar helps Tamils to understand and appreciate Tamil literature!</value>
   </data>
   <data name="UptoDate" xml:space="preserve">
     <value>Up to Date</value>

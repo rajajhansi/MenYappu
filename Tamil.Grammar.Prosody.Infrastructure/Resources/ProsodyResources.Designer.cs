@@ -585,9 +585,9 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         /// <summary>
         ///   Looks up a localized string similar to We made this learning portal with love and passion for our language &quot;Tamil&quot;.
         /// </summary>
-        public static string MadewithLoveAndPassionForTamil {
+        public static string MadewithLoveAndPassionDescription {
             get {
-                return ResourceManager.GetString("MadewithLoveAndPassionForTamil", resourceCulture);
+                return ResourceManager.GetString("MadewithLoveAndPassionDescription", resourceCulture);
             }
         }
         
@@ -1033,20 +1033,20 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Understanding grammar helps Tamils to understand and appreciate Tamil literature!.
-        /// </summary>
-        public static string UnderstadingPoemsDescription {
-            get {
-                return ResourceManager.GetString("UnderstadingPoemsDescription", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Understand Poems.
         /// </summary>
         public static string UnderstandingPoems {
             get {
                 return ResourceManager.GetString("UnderstandingPoems", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Understanding grammar helps Tamils to understand and appreciate Tamil literature!.
+        /// </summary>
+        public static string UnderstandingPoemsDescription {
+            get {
+                return ResourceManager.GetString("UnderstandingPoemsDescription", resourceCulture);
             }
         }
         

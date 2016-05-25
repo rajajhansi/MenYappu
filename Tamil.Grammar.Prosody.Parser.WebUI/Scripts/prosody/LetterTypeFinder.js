@@ -9,6 +9,7 @@
     var letterCssClasses = { 'கு': 'kuril', 'நெ': 'nedil', 'ஒ': 'otru', 'ஆ': 'aytham' };
 
     function init() {
+        Utility.toggleGamesMenu();
         var ezhuthuVagaiInputTemplate = kendo.template($("#ezhuthuVagaiInputTemplate").html());
         $("#letterTypeFinderGame").append(ezhuthuVagaiInputTemplate({}));
         var word = ProsodyResourceManager.get("word");

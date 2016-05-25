@@ -8,7 +8,7 @@
     "use strict"; // Start of use strict
 
     // jQuery for page scrolling feature - requires jQuery Easing plugin
-    $('a.page-scroll').bind('click', function(event) {
+    $('body').on('click', '.page-scroll', function(event) {
         var $anchor = $(this);
         $('html, body').stop().animate({
             scrollTop: ($($anchor.attr('href')).offset().top - 50)
@@ -42,20 +42,6 @@
         }
     })
 
-    // Initialize WOW.js Scrolling Animations
-    new WOW().init();
 
-    $('#carous-ss').owlCarousel({
-        items:1,
-        autoPlay: 3000,
-        nav: true,
-        navText: [
-            '<i class="fa fa-chevron-left fa-3x wow bounceIn" style="visibility: visible; animation-name: bounceIn;"></i>',
-            '<i class="fa fa-chevron-right fa-3x wow bounceIn" style="visibility: visible; animation-name: bounceIn;"></i>'
-        ],
-        margin:10,
-        stagePadding:0,
-        smartSpeed:450
-    });
 
 })(jQuery); // End of use strict

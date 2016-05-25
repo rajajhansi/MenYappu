@@ -179,6 +179,10 @@
     function toggleLeftNavBar() {
         $('#stacked-menu-toggler-left').trigger('click');
     }
+
+    function toggleGamesMenu() {
+        $("#gamesMenu").trigger("click");
+    }
     function initAdditionalInfo(part) {
         var quizTemplate = kendo.template($("#quizTemplate").html());
         var quizResultTemplate = kendo.template($("#quizResultTemplate").html());
@@ -333,12 +337,19 @@
         });
     };
 
+    function setLocalizedStrings() {
+        $("[data-localize]").each(function (index, elem) {
+            $(elem).text(ProsodyResourceManager.get($(elem).attr('data-localize')));
+        });
+    }
     function wireDropdownTooltipAndPopoverHandlers() {
         Utility.setLanguage();
+        setLocalizedStrings();
         $('#language + ul li').on('click', function () {
             var language = $(this)[0].childNodes[0].getAttribute('data-value');
             Utility.setCookie('__APPLICATION_LANGUAGE', language);
-            location.reload();
+            setLocalizedStrings();
+            //location.reload();
         });
 
         $('.dropdown-menu li a').on('click', function () {
@@ -400,6 +411,7 @@
         setLanguage: setLanguage,
         setFaq: setFaq,
         setHelpAudioVideo: setHelpAudioVideo,
-        wireDropdownTooltipAndPopoverHandlers: wireDropdownTooltipAndPopoverHandlers
+        wireDropdownTooltipAndPopoverHandlers: wireDropdownTooltipAndPopoverHandlers,
+        toggleGamesMenu: toggleGamesMenu
     };
 })();

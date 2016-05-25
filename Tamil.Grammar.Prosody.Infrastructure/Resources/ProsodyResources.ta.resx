@@ -465,7 +465,7 @@
   <data name="MadewithLoveAndPassion" xml:space="preserve">
     <value>தமிழின் மேலுள்ள தணியாத ஆர்வத்தால் அமைக்கப்பட்டது</value>
   </data>
-  <data name="MadewithLoveAndPassionForTamil" xml:space="preserve">
+  <data name="MadewithLoveAndPassionDescription" xml:space="preserve">
     <value>இந்தத் தமிழ் இலக்கண வலைத்தளம் தமிழின் மேலுள்ள தணியாத ஆர்வத்தால் எங்களால் அமைக்கப்பட்டது.</value>
   </data>
   <data name="MenyappuAnEffort" xml:space="preserve">
@@ -480,11 +480,11 @@
   <data name="StartLearning" xml:space="preserve">
     <value>கற்றலைத் தொடங்குக!</value>
   </data>
-  <data name="UnderstadingPoemsDescription" xml:space="preserve">
-    <value>தமிழ் இலக்கணத்தைப் புரிந்து கொள்வது தமிழ் இலக்கியங்களைப் புரிந்து ரசிக்க உதவுகிறது!</value>
-  </data>
   <data name="UnderstandingPoems" xml:space="preserve">
     <value>பாக்களைப் புரிந்து கொள்ள</value>
+  </data>
+  <data name="UnderstandingPoemsDescription" xml:space="preserve">
+    <value>தமிழ் இலக்கணத்தைப் புரிந்து கொள்வது தமிழ் இலக்கியங்களைப் புரிந்து ரசிக்க உதவுகிறது!</value>
   </data>
   <data name="UptoDate" xml:space="preserve">
     <value>இன்று வரை</value>
