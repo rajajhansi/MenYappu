@@ -64,7 +64,7 @@
         </nav>
 
     </div>
-
+    @{ Html.RenderPartial("_CommonKendoTemplates"); }
     <div class="container-wrap alt" id="container-wrapper-with-panels">
         <div class="left-panelbar">
 
@@ -84,53 +84,7 @@
             Html.RenderPartial("_LeftNavigationBar");
             Html.RenderPartial("_RightPanelBar");
         }
-        <script type="text/x-kendo-template" id="aboutMenYappuTemplate">
-            # var menYappu = ProsodyResourceManager.get("menYappu"); var aboutMenYappuDetails = ProsodyResourceManager.get("aboutMenYappuDetails"); #
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <span class="modal-title" id="modal-sample-label">
-                            <b>#= menYappu #</b>
-                        </span>
-                    </div>
-                    <div class="modal-body">
-                        #= aboutMenYappuDetails #
-                    </div>
-                    <br />
-                    <div>
-                        # var task = ProsodyResourceManager.get("task"); var executor = ProsodyResourceManager.get("executor"); #
-                        # var softwareDevelopment = ProsodyResourceManager.get("softwareDevelopment"); var design = ProsodyResourceManager.get("design"); #
-                        # var inspirationAndMotivation = ProsodyResourceManager.get("inspirationAndMotivation"); var suggestionAndReview = ProsodyResourceManager.get("suggestionAndReview"); #
-                        # var rajaMani = ProsodyResourceManager.get("rajaMani"); var bogdanUrs = ProsodyResourceManager.get("bogdanUrs"); #
-                        # var vinodRajan = ProsodyResourceManager.get("vinodRajan"); var kandasamyPalanisamy = ProsodyResourceManager.get("kandasamyPalanisamy"); #
-                        # var close = ProsodyResourceManager.get("close"); #
-                        <table class="table">
-                            <thead>
-                                <tr><th>#= task #</th><th>#= executor #</th></tr>
-                            </thead>
-                            <tbody>
-                                <tr><td>#= softwareDevelopment #</td><td>#= rajaMani #</td></tr>
-                                <tr><td>#= design #</td><td>#= bogdanUrs #</td></tr>
-                                <tr><td>#= inspirationAndMotivation #</td><td>#= vinodRajan #</td></tr>
-                                <tr><td>#= suggestionAndReview #</td><td>#= kandasamyPalanisamy #</td></tr>
-                            </tbody>
-                        </table>
-                        <hr />
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">
-                            #= close #
-                        </button>
-                    </div>
-                </div>
-            </div>
 
-        </script>
-        <div class="modal modal-center-vertical" id="modal-about-menyappu"
-             tabindex="-1" role="dialog"
-             aria-labelledby="modal-about-menyappu-label" aria-hidden="true">
-
-        </div>
         <!-- Le javascript
         ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
@@ -198,7 +152,7 @@
             $(".stacked-menus").panelSubmenus();
 
             $.highlightCurrentPageInMenu();
-
+            Utility.wireDropdownTooltipAndPopoverHandlers();
         </script>
     </div>
 </body>

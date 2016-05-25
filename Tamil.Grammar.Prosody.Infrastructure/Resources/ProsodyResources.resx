@@ -441,4 +441,61 @@
   <data name="VetrumaiUrubugal" xml:space="preserve">
     <value>Vetrumai Urubugal</value>
   </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="ContributeToMenyappu" xml:space="preserve">
+    <value>Ready to contribute content to MenYappu? That's great! Send us an email and we will get back to you as soon as possible!</value>
+  </data>
+  <data name="FindOutMore" xml:space="preserve">
+    <value>Find out more</value>
+  </data>
+  <data name="GameForKidsAndAdults" xml:space="preserve">
+    <value>Games for Kids and Adults</value>
+  </data>
+  <data name="GamesForKidsAndAdultsDescription" xml:space="preserve">
+    <value>Grammar games are designed with a goal to incrementally learn and advance to the next level in Tamil grammar.</value>
+  </data>
+  <data name="ImproveKnowledge" xml:space="preserve">
+    <value>Find out cool stuff about the longest surviving classical language in the world and boost your knowledge!</value>
+  </data>
+  <data name="LetsGetInTouch" xml:space="preserve">
+    <value>Let's Get In Touch!</value>
+  </data>
+  <data name="MadewithLoveAndPassion" xml:space="preserve">
+    <value>Made with Love and Passion for Tamil</value>
+  </data>
+  <data name="MadewithLoveAndPassionForTamil" xml:space="preserve">
+    <value>We made this learning portal with love and passion for our language "Tamil"</value>
+  </data>
+  <data name="MenyappuAnEffort" xml:space="preserve">
+    <value>MenYappu, an effort to make learning Tamil grammar interesting and intuitive!</value>
+  </data>
+  <data name="MenyappuHasAll" xml:space="preserve">
+    <value>MenYappu has everything you need to get your foundation in Tamil grammar in a short time! All of the games, audio and video instructions on Tamil grammar are open source, free to download, and easy to use. No strings attached!</value>
+  </data>
+  <data name="ServicesInMenyappu" xml:space="preserve">
+    <value>Services in MenYappu</value>
+  </data>
+  <data name="StartLearning" xml:space="preserve">
+    <value>Start learning!</value>
+  </data>
+  <data name="UnderstadingPoemsDescription" xml:space="preserve">
+    <value>Understanding grammar helps Tamils to understand and appreciate Tamil literature!</value>
+  </data>
+  <data name="UnderstandingPoems" xml:space="preserve">
+    <value>Understand Poems</value>
+  </data>
+  <data name="UptoDate" xml:space="preserve">
+    <value>Up to Date</value>
+  </data>
+  <data name="UptoDateDescription" xml:space="preserve">
+    <value>We update the content of this portal whenever we see a new way of providing an interactive tutorial.</value>
+  </data>
+  <data name="WeGotWhatYouNeed" xml:space="preserve">
+    <value>We've got what you need!</value>
+  </data>
+  <data name="YourFavoriteTamilPortal" xml:space="preserve">
+    <value>Your favorite Tamil grammar learning portal!</value>
+  </data>
 </root>

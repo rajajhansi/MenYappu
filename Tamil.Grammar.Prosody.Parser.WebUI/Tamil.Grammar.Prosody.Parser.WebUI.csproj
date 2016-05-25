@@ -415,6 +415,15 @@
     <Content Include="Images\orderedList7.png" />
     <Content Include="Images\orderedList8.png" />
     <Content Include="Images\orderedList9.png" />
+    <Content Include="Landing\img\games\adiMeasurerGame.png" />
+    <Content Include="Landing\img\games\asaiDividerGame.png" />
+    <Content Include="Landing\img\games\ethukaiMonaiFinderGame.png" />
+    <Content Include="Landing\img\games\letterTypeFinderGame.png" />
+    <Content Include="Landing\img\games\mathiraiFinderGame.png" />
+    <Content Include="Landing\img\games\osaiMatcherGame.png" />
+    <Content Include="Landing\img\games\seerDividerGame.png" />
+    <Content Include="Landing\img\games\thalaiFinderGame.png" />
+    <Content Include="Landing\img\games\thodaiFinderGame.png" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="Scripts\ajax\ajaxBase.js" />

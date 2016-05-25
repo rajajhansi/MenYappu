@@ -196,6 +196,24 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Contact.
+        /// </summary>
+        public static string Contact {
+            get {
+                return ResourceManager.GetString("Contact", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ready to contribute content to MenYappu? That&apos;s great! Send us an email and we will get back to you as soon as possible!.
+        /// </summary>
+        public static string ContributeToMenyappu {
+            get {
+                return ResourceManager.GetString("ContributeToMenyappu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Correct.
         /// </summary>
         public static string Correct {
@@ -340,6 +358,15 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Find out more.
+        /// </summary>
+        public static string FindOutMore {
+            get {
+                return ResourceManager.GetString("FindOutMore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Finish.
         /// </summary>
         public static string Finish {
@@ -349,11 +376,29 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Games for Kids and Adults.
+        /// </summary>
+        public static string GameForKidsAndAdults {
+            get {
+                return ResourceManager.GetString("GameForKidsAndAdults", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Games.
         /// </summary>
         public static string Games {
             get {
                 return ResourceManager.GetString("Games", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Grammar games are designed with a goal to incrementally learn and advance to the next level in Tamil grammar..
+        /// </summary>
+        public static string GamesForKidsAndAdultsDescription {
+            get {
+                return ResourceManager.GetString("GamesForKidsAndAdultsDescription", resourceCulture);
             }
         }
         
@@ -381,6 +426,15 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         public static string HowToSeeTheResult {
             get {
                 return ResourceManager.GetString("HowToSeeTheResult", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Find out cool stuff about the longest surviving classical language in the world and boost your knowledge!.
+        /// </summary>
+        public static string ImproveKnowledge {
+            get {
+                return ResourceManager.GetString("ImproveKnowledge", resourceCulture);
             }
         }
         
@@ -457,6 +511,15 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Let&apos;s Get In Touch!.
+        /// </summary>
+        public static string LetsGetInTouch {
+            get {
+                return ResourceManager.GetString("LetsGetInTouch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Letter.
         /// </summary>
         public static string Letter {
@@ -511,6 +574,24 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Made with Love and Passion for Tamil.
+        /// </summary>
+        public static string MadewithLoveAndPassion {
+            get {
+                return ResourceManager.GetString("MadewithLoveAndPassion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to We made this learning portal with love and passion for our language &quot;Tamil&quot;.
+        /// </summary>
+        public static string MadewithLoveAndPassionForTamil {
+            get {
+                return ResourceManager.GetString("MadewithLoveAndPassionForTamil", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Mathirai Calculator.
         /// </summary>
         public static string MathiraiCalculator {
@@ -534,6 +615,24 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         public static string MenYappu {
             get {
                 return ResourceManager.GetString("MenYappu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MenYappu, an effort to make learning Tamil grammar interesting and intuitive!.
+        /// </summary>
+        public static string MenyappuAnEffort {
+            get {
+                return ResourceManager.GetString("MenyappuAnEffort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MenYappu has everything you need to get your foundation in Tamil grammar in a short time! All of the games, audio and video instructions on Tamil grammar are open source, free to download, and easy to use. No strings attached!.
+        /// </summary>
+        public static string MenyappuHasAll {
+            get {
+                return ResourceManager.GetString("MenyappuHasAll", resourceCulture);
             }
         }
         
@@ -808,6 +907,15 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Services in MenYappu.
+        /// </summary>
+        public static string ServicesInMenyappu {
+            get {
+                return ResourceManager.GetString("ServicesInMenyappu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Settings.
         /// </summary>
         public static string Settings {
@@ -880,6 +988,15 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Start learning!.
+        /// </summary>
+        public static string StartLearning {
+            get {
+                return ResourceManager.GetString("StartLearning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Suggestion/Review.
         /// </summary>
         public static string SuggestionAndReview {
@@ -912,6 +1029,42 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         public static string ThirukkuralAnalysis {
             get {
                 return ResourceManager.GetString("ThirukkuralAnalysis", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Understanding grammar helps Tamils to understand and appreciate Tamil literature!.
+        /// </summary>
+        public static string UnderstadingPoemsDescription {
+            get {
+                return ResourceManager.GetString("UnderstadingPoemsDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Understand Poems.
+        /// </summary>
+        public static string UnderstandingPoems {
+            get {
+                return ResourceManager.GetString("UnderstandingPoems", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Up to Date.
+        /// </summary>
+        public static string UptoDate {
+            get {
+                return ResourceManager.GetString("UptoDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to We update the content of this portal whenever we see a new way of providing an interactive tutorial..
+        /// </summary>
+        public static string UptoDateDescription {
+            get {
+                return ResourceManager.GetString("UptoDateDescription", resourceCulture);
             }
         }
         
@@ -1006,6 +1159,15 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to We&apos;ve got what you need!.
+        /// </summary>
+        public static string WeGotWhatYouNeed {
+            get {
+                return ResourceManager.GetString("WeGotWhatYouNeed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Word.
         /// </summary>
         public static string Word {
@@ -1029,6 +1191,15 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         public static string WriteAPaa {
             get {
                 return ResourceManager.GetString("WriteAPaa", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your favorite Tamil grammar learning portal!.
+        /// </summary>
+        public static string YourFavoriteTamilPortal {
+            get {
+                return ResourceManager.GetString("YourFavoriteTamilPortal", resourceCulture);
             }
         }
     }

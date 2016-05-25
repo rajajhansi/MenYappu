@@ -280,7 +280,7 @@
     <value>உதவிக்கு இந்தப் பொத்தானை அழுத்தவும்.</value>
   </data>
   <data name="Close" xml:space="preserve">
-    <value>மூடு</value>
+    <value>மூடுக</value>
   </data>
   <data name="CorrectDurationCount" xml:space="preserve">
     <value>சரியான மாத்திரை எண்ணிக்கை</value>
@@ -440,5 +440,62 @@
   </data>
   <data name="VetrumaiUrubugal" xml:space="preserve">
     <value>வேற்றுமை உருபுகள்</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>தொடர்பு</value>
+  </data>
+  <data name="ContributeToMenyappu" xml:space="preserve">
+    <value>இந்த வலைத்தளத்திற்குப் பங்களிக்க விடயமிருக்கிறதா? அருமை! எங்களுக்கு மின் மடல் அனுப்பினால் நாங்கள் விரைவில் உங்களைத் தொடர்பு கொள்ளுவோம்.</value>
+  </data>
+  <data name="FindOutMore" xml:space="preserve">
+    <value>மேலும் விபரங்கள் அறிய</value>
+  </data>
+  <data name="GameForKidsAndAdults" xml:space="preserve">
+    <value>மாணவர்களுக்கும் பெரியவர்களுக்குமான விளையாட்டுகள்</value>
+  </data>
+  <data name="GamesForKidsAndAdultsDescription" xml:space="preserve">
+    <value>இலக்கண விளையாட்டுகள் படிப்படியாகக் கற்று உயர்நிலையை எட்டும் வகையில் அமைக்கப்பட்டுள்ளது.</value>
+  </data>
+  <data name="ImproveKnowledge" xml:space="preserve">
+    <value>உலகின் மிகத் தொன்மையான செம்மொழியான தமிழ் மொழியின் வியத்தகும் விடயங்களைப் பற்றி அறிந்து கொண்டு உங்கள் அறிவுத்திறனை மேம்படுத்துக!</value>
+  </data>
+  <data name="LetsGetInTouch" xml:space="preserve">
+    <value>தொடர்பு கொள்ளுங்கள்</value>
+  </data>
+  <data name="MadewithLoveAndPassion" xml:space="preserve">
+    <value>தமிழின் மேலுள்ள தணியாத ஆர்வத்தால் அமைக்கப்பட்டது</value>
+  </data>
+  <data name="MadewithLoveAndPassionForTamil" xml:space="preserve">
+    <value>இந்தத் தமிழ் இலக்கண வலைத்தளம் தமிழின் மேலுள்ள தணியாத ஆர்வத்தால் எங்களால் அமைக்கப்பட்டது.</value>
+  </data>
+  <data name="MenyappuAnEffort" xml:space="preserve">
+    <value>மென்யாப்பு, இது தமிழ் இலக்கணத்தை ஆர்வமாகவும் புரியும் வகையிலும் கற்றுக்கொடுக்கும் ஒரு முயற்சி!</value>
+  </data>
+  <data name="MenyappuHasAll" xml:space="preserve">
+    <value>குறுகிய காலத்தில் தமிழ் இலக்கணத்தில் நல்ல அடிப்படைத் திறன் பெறத்தேவையான் அனைத்தும் மென்யாப்பு-வில் இருக்கிறது! இங்குள்ள எல்லா விளையாட்டுகளும், ஒலிப்பதிவுகளும், நிகழ் படங்களும் கட்டற்ற அமைப்பிலும், இலவசமாகத் தரவிறக்கம் செய்யும் வகையிலும், சுலபமாகப் பயன்படுத்தும் வகையிலும் அமைக்கப்பட்டிருக்கிறது. வேறு எந்த நோக்கமும் இல்லை!</value>
+  </data>
+  <data name="ServicesInMenyappu" xml:space="preserve">
+    <value>மென்யாப்பு வழங்கும் சேவைகள்</value>
+  </data>
+  <data name="StartLearning" xml:space="preserve">
+    <value>கற்றலைத் தொடங்குக!</value>
+  </data>
+  <data name="UnderstadingPoemsDescription" xml:space="preserve">
+    <value>தமிழ் இலக்கணத்தைப் புரிந்து கொள்வது தமிழ் இலக்கியங்களைப் புரிந்து ரசிக்க உதவுகிறது!</value>
+  </data>
+  <data name="UnderstandingPoems" xml:space="preserve">
+    <value>பாக்களைப் புரிந்து கொள்ள</value>
+  </data>
+  <data name="UptoDate" xml:space="preserve">
+    <value>இன்று வரை</value>
+  </data>
+  <data name="UptoDateDescription" xml:space="preserve">
+    <value>நாங்கள் இத்தளத்தில் உள்ள விடயங்களை அவ்வப்போது புதுமையாக மாற்றியமைத்துக் கொண்டே இருக்கிறோம். நன்றாகப் புரியும் வகையில் கற்பிக்கும் புது உத்திகளைக் கண்டால் உடனே அவற்றை இங்கே செயல்படுத்துகிறோம்.</value>
+  </data>
+  <data name="WeGotWhatYouNeed" xml:space="preserve">
+    <value>உங்களுக்குத் தேவையான விடயங்கள் இங்கிருக்கின்றன!</value>
+  </data>
+  <data name="YourFavoriteTamilPortal" xml:space="preserve">
+    <value>உங்களுக்குப் பிடித்தமான தமிழ் இலக்கணம் கற்கும் வலைத்தளம்</value>
   </data>
 </root>
