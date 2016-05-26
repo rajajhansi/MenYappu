@@ -606,4 +606,10 @@
   <data name="Words" xml:space="preserve">
     <value>சொற்கள்</value>
   </data>
+  <data name="Videos" xml:space="preserve">
+    <value>நிகழ்படங்கள்</value>
+  </data>
+  <data name="VideosInfo" xml:space="preserve">
+    <value>நாங்கள் தமிழ் இலக்கணத்தைக் கற்பிக்கும் எளிமையான நிகழ்படங்களையும் ஆராய்ச்சிக் கட்டுரை வழங்கல் நிகழ்படங்களையும் இத்தளத்தில் கொடுத்துள்ளோம்.</value>
+  </data>
 </root>

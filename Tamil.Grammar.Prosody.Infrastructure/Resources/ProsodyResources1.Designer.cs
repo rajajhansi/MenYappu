@@ -1465,6 +1465,24 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Videos.
+        /// </summary>
+        public static string Videos {
+            get {
+                return ResourceManager.GetString("Videos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to We have very provided videos that teach you Tamil grammar  easily as well as research paper presentation videos in this site..
+        /// </summary>
+        public static string VideosInfo {
+            get {
+                return ResourceManager.GetString("VideosInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Mr. Vinod Rajan.
         /// </summary>
         public static string VinodRajan {
