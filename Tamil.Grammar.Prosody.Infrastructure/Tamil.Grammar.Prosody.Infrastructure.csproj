@@ -49,7 +49,7 @@
     <Compile Include="Impl\DistributedCachingService.cs" />
     <Compile Include="Impl\SharedResourceManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Resources\ProsodyResources.Designer.cs">
+    <Compile Include="Resources\ProsodyResources1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ProsodyResources.resx</DependentUpon>
@@ -63,8 +63,8 @@
       <LastGenOutput>ProsodyResources.en-US.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\ProsodyResources.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>ProsodyResources.Designer.cs</LastGenOutput>
+      <LastGenOutput>ProsodyResources1.Designer.cs</LastGenOutput>
+      <Generator>PublicResxFileCodeGenerator</Generator>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

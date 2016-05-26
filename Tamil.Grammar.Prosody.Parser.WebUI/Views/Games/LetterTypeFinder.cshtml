@@ -7,8 +7,8 @@
 <script type="text/x-kendo-template" id="ezhuthuVagaiInputTemplate">
     <ul class="kendo-panelbars-custom" id="seyyulbar">
         <li>
-            <h4 class="main-title">
-                #= ProsodyResourceManager.get("inputWord") #
+            <h4 class="main-title" data-localize="inputWord">
+                <span class="ltext"></span>
                 <span class="main-title-icon glyph glyph-chevron-down"></span>
             </h4>
             <ul>
@@ -20,11 +20,11 @@
                             </div>
 
                             <div class="col-md-8 hidden" id="ezhuthuTypeSelector">
-                                <h4 class="game-section-title text-center">
-                                    #= ProsodyResourceManager.get("letterTypes") #
+                                <h4 class="game-section-title text-center" data-localize="letterTypes">
+                                    <span class="ltext"></span>
                                 </h4>
-                                <div id="ezhuthuCalculator" class="text-center text-t5 visible">
-                                    <span>#= ProsodyResourceManager.get("count") #:</span>
+                                <div id="ezhuthuCalculator" class="text-center text-t5 visible" data-localize="count">
+                                    <span class="ltext"></span><span>:</span>
                                     <span id="ezhuthuCount"></span>
                                 </div>
                                 <div id="ezhuthuTypes" class="type-t7">
@@ -53,8 +53,8 @@
         <td>
             <!--<p class="form-group-label">எழுத்து வகைகள்</p>-->
             <div class="dropdown">
-                <button id="#= ezhuthuVagaiId #" class="btn btn-dropdown dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
-                    #= ProsodyResourceManager.get("selectALetterType") #<span class="caret"></span>
+                <button id="#= ezhuthuVagaiId #" class="btn btn-dropdown dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false" data-localize="selectALetterType">
+                    <span class="ltext"></span><span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="#= ezhuthuVagaiId #">
                     # $.each(LetterTypeFinder.letterTypes, function(letterTypeKey, letterTypeValue) { #

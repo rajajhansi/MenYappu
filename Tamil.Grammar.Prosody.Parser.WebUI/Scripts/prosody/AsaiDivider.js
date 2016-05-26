@@ -4,8 +4,8 @@
         var inputTemplate = kendo.template($("#inputTemplate").html());
         $("#input")
             .append(inputTemplate({
-                inputTitle: "சீர்",
-                inputInfotip: "சீர் (அ) சொல்லிலுள்ள அசைகளை ‘/’ என்ற குறியீடால் பிரிக்கவும். எ.கா. மனி/தம். இந்தச் சொல்லை ”மனி” / “தம்” என்று அசை பிரிக்கலாம்.",
+                inputTitle: "metricalFeet",
+                inputInfotip: "metricalFootInfoTip",
                 inputLines: 1
             }));
         // set the context help

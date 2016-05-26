@@ -1,23 +1,23 @@
 ﻿<script type="text/x-kendo-template" id="inputTemplate">
     # var help = ProsodyResourceManager.get("help"); var quiz = ProsodyResourceManager.get("quiz"); #
-    <div class="text-t5">
-        #= inputTitle #
+    <div class="text-t5" data-localize="#= inputTitle #">
+        <span class="ltext"></span>
     </div>
     <div class="m-b-lg">
-        <button class="btn btn-primary btn-with-glyph pull-right" id="btn-quiz"><i class="glyph glyph-show-results "></i>#= quiz #</button>
-        <button class="btn btn-primary btn-with-glyph pull-right" id="btn-help"><i class="glyph glyph-help "></i>#= help #</button>
+        <button class="btn btn-primary btn-with-glyph pull-right" id="btn-quiz"  data-localize="quiz"><i class="glyph glyph-show-results "></i><span class="ltext"></span></button>
+        <button class="btn btn-primary btn-with-glyph pull-right" id="btn-help"  data-localize="help"><i class="glyph glyph-help "></i><span class="ltext"></span></button>
     </div>
     <div class="infotip">
-        <span class="text-t9">#= inputInfotip #</span>
+        <span class="text-t9" data-localize="#= inputInfotip #"><span class="ltext"></span></span>
     </div>
     <textarea class="panelbar-textarea" id="ProsodyText" rows="#= inputLines #" minlength="2"></textarea>
     # var sample = ProsodyResourceManager.get("sample"); var checkAnswer = ProsodyResourceManager.get("checkAnswer"); #
     # var clear = ProsodyResourceManager.get("clear"); #
     <div class="control-group">
         <div class="controls">
-            <button class="btn btn-primary btn-with-glyph" id="example"><i class="glyph glyph-import "></i>#= sample #</button>
-            <button type="reset" class="btn btn-default">#= clear #</button>
-            <button type="submit" class="btn btn-primary btn-with-glyph" id="checkResult"><i class="glyph glyph-message"></i>#= checkAnswer #</button>
+            <button class="btn btn-primary btn-with-glyph" id="example"  data-localize="sample"><i class="glyph glyph-import "></i><span class="ltext"></span></button>
+            <button type="reset" class="btn btn-default" data-localize="clear"><span class="ltext"></span></button>
+            <button type="submit" class="btn btn-primary btn-with-glyph" id="checkResult" data-localize="checkAnswer"><i class="glyph glyph-message"></i><span class="ltext"></span></button>
         </div>
     </div>
 
@@ -26,24 +26,24 @@
 <script type="text/x-kendo-template" id="additionalInfoTemplate">
     <ul class="kendo-panelbars-custom" id="seyyulResult">
         <li>
-            <h4 class="main-title">
-                #= ProsodyResourceManager.get("additionalInformation") #
+            <h4 class="main-title" data-localize="additionalInformation">
+                <span class="ltext"></span>
                 <span class="main-title-icon glyph glyph-chevron-down"></span>
             </h4>
 
             <div id="tabstrip" class="menyappu-content-tabstrip">
                 <ul>
-                    <li class="k-state-active">
-                        #= ProsodyResourceManager.get("quiz") #
+                    <li class="k-state-active" data-localize="quiz">
+                        <span class="ltext"></span>
                     </li>
-                    <li>
-                        #= ProsodyResourceManager.get("faq") #
+                    <li data-localize="faq">
+                        <span class="ltext"></span>
                     </li>
                 </ul>
                 <div>
                     <div class="container-fluid">
-                        <div class="col-md-12">
-                        #= ProsodyResourceManager.get("comingSoon") #
+                        <div class="col-md-12" data-localize="comingSoon">
+                            <span class="ltext"></span>
                         </div>
                         <div class="col-md-12">
                             Results tab
@@ -52,8 +52,8 @@
                 </div>
                 <div>
                     <div class="container-fluid">
-                        <div class="col-md-12">
-                            #= ProsodyResourceManager.get("faq") #
+                        <div class="col-md-12" data-localize="faq">
+                            <span class="ltext"></span>
                         </div>
                     </div>
 
@@ -65,7 +65,7 @@
 
 <script type="text/x-kendo-template" id="quizTemplate">
     <div class="infotip">
-        <span class="text-t9">#= ProsodyResourceManager.get("quizInfoTip") #</span>
+        <span class="text-t9" data-localize="quizInfoTip"><span class="ltext"></span></span>
     </div>
     # $.each(data, function(index, value) { #
     <a href="\#"><span class="questionNumber unanswered text-t5">#= index + 1 #</span></a>
@@ -73,9 +73,9 @@
     <br />
     <br />
     # var previousQuestionButtonId = 'previousQuestion-' + part; var nextQuestionButtonId = 'nextQuestion-' + part; var finishQuestionButtonId = 'finishQuestion-' + part #
-    <button id="#= previousQuestionButtonId #" class="btn btn-primary btn-with-glyph"><i class="glyph glyph-previous"></i>#= ProsodyResourceManager.get("previous") #</button>
-    <button id="#= nextQuestionButtonId #" class="btn btn-primary btn-with-glyph"><i class="glyph glyph-next"></i>#= ProsodyResourceManager.get("next") #</button>
-    <button id="#= finishQuestionButtonId #" class="btn btn-primary btn-with-glyph"><i class="glyph glyph-accept"></i>#= ProsodyResourceManager.get("finish") #</button>
+    <button id="#= previousQuestionButtonId #" class="btn btn-primary btn-with-glyph" data-localize="previous"><i class="glyph glyph-previous"></i><span class="ltext"></span></button>
+    <button id="#= nextQuestionButtonId #" class="btn btn-primary btn-with-glyph" data-localize="next"><i class="glyph glyph-next"></i><span class="ltext"></span></button>
+    <button id="#= finishQuestionButtonId #" class="btn btn-primary btn-with-glyph" data-localize="finish"><i class="glyph glyph-accept"></i><span class="ltext"></span>#= ProsodyResourceManager.get("") #</button>
     <br />
     # $.each(data, function(index, value) { #
     <div id="#= 'q-' + (index + 1) #" class="hidden">
@@ -103,7 +103,7 @@
 </script>
 
 <script type="text/x-kendo-template" id="quizResultTemplate">
-    <div class="text-t3 text-center">#= ProsodyResourceManager.get("result") #</div>
+    <div class="text-t3 text-center" data-localize="result"><span class="ltext"></span></div>
     <br/>
     <div id="score" class="text-t5 text-right"></div>
     <br/>
@@ -140,8 +140,8 @@
 
 <script type="text/x-kendo-template" id="faqTemplate">
     # var expandAllButtonId = 'expandAllFaq-' + part; var collapseAllButtonId = 'collapseAllFaq-' + part; #
-    <button id="#= expandAllButtonId #" class="btn btn-primary btn-with-glyph"><i class="glyph glyph-expand"></i>#= ProsodyResourceManager.get("expandAll") #</button>
-    <button id="#= collapseAllButtonId #" class="btn btn-primary btn-with-glyph"><i class="glyph glyph-collapse"></i>#= ProsodyResourceManager.get("collapseAll") #</button>
+    <button id="#= expandAllButtonId #" class="btn btn-primary btn-with-glyph" data-localize="expandAll"><i class="glyph glyph-expand"></i><span class="ltext"></span></button>
+    <button id="#= collapseAllButtonId #" class="btn btn-primary btn-with-glyph" data-localize="collapseAll"><i class="glyph glyph-collapse"></i><span class="ltext"></span></button>
     <a class="btn btn-lightweight no-outline navigation-btn">Question1</a>
     <ul role="navigation" id="sidenav-small" class="nav side-navigation side-navigation-small theme-default">
         <button type="button" class="close" data-dismiss="side-navigation" aria-label="close">
@@ -167,31 +167,31 @@
     <div class="flip-container_click">
         <div class="flipper">
             <div class="front">
-                <h4 class="game-section-title text-center">
-                    #= result #
+                <h4 class="game-section-title text-center"  data-localize="result">
+                    <span class="ltext"></span>
                 </h4>
-                <div class="type-t5">
-                    #= howToSeeTheResult #
+                <div class="type-t5" data-localize="howToSeeTheResult">
+                    <span class="ltext"></span>
                 </div>
             </div>
             <div class="back">
-                <h4 class="game-section-title text-center">
-                    #= result #
+                <h4 class="game-section-title text-center" data-localize="result">
+                    <span class="ltext"></span>
                 </h4>
                 # var correct =  ProsodyResourceManager.get("correct"); var incorrect = ProsodyResourceManager.get("incorrect"); #
                 # var explanation = ProsodyResourceManager.get("explanation"); var excellent = ProsodyResourceManager.get("excellent"); #
                 <div class="type-t3 text-center">
-                    <button id="#= partCorrect #" class="right btn btn-success btn-with-glyph" aria-hidden="true" data-toggle="tooltip" data-placement="right"><i class="glyph glyph-checkmark"></i>#= correct #</button>
-                    <button id="#= partIncorrect #" class="wrong btn btn-warning btn-with-glyph" aria-hidden="true" data-toggle="tooltip" data-placement="right">
+                    <button id="#= partCorrect #" class="right btn btn-success btn-with-glyph" aria-hidden="true" data-toggle="tooltip" data-placement="right" data-localize="correct"><i class="glyph glyph-checkmark"></i><span class="ltext"></span></button>
+                    <button id="#= partIncorrect #" class="wrong btn btn-warning btn-with-glyph" aria-hidden="true" data-toggle="tooltip" data-placement="right" data-loalize="incorrect">
                         <i class="glyph glyph-cancel"></i>
-                        #= incorrect #
+                        <span class="ltext"></span>
                     </button>
                     <a role="button" id="#= partExplanation #"
                        class="btn btn-primary btn-with-glyph"
                        tabindex="0"
                        data-toggle="popover"
                        data-trigger="focus"
-                       data-content="#= excellent #"><i class="glyph glyph-message"></i>#= explanation #</a>
+                       data-content="#= excellent #" data-localize="explanation"><i class="glyph glyph-message"></i><span class="ltext"></span></a>
                 </div>
             </div>
         </div>
@@ -203,16 +203,16 @@
     <div class="flip-container_click">
         <div class="flipper">
             <div class="front">
-                <h4 class="game-section-title text-center">
-                    #= result #
+                <h4 class="game-section-title text-center" data-localize="result">
+                    <span class="ltext"></span>
                 </h4>
-                <div class="type-t5">
-                    #= howToSeeTheResult #
+                <div class="type-t5" data-localize="howToSeeTheResult">
+                    <span class="ltext"></span>
                 </div>
             </div>
             <div class="back">
-                <h4 class="game-section-title text-center">
-                    #= result #
+                <h4 class="game-section-title text-center" data-localize="result">
+                    <span class="ltext"></span>
                 </h4>
                 # partInfos.forEach(function(partInfo) { #
                 # var partCorrect = partInfo.part + "-correct"; var partIncorrect = partInfo.part + "-incorrect"; var partExplanation = partInfo.part + "-explanation" #
@@ -222,17 +222,17 @@
                 # var correct =  ProsodyResourceManager.get("correct"); var incorrect = ProsodyResourceManager.get("incorrect"); #
                 # var explanation = ProsodyResourceManager.get("explanation"); var excellent = ProsodyResourceManager.get("excellent"); #
                 <div class="type-t3 text-center">
-                    <button id="#= partCorrect #" class="right btn btn-success btn-with-glyph" aria-hidden="true" data-toggle="tooltip" data-placement="right"><i class="glyph glyph-checkmark"></i>#= correct #</button>
-                    <button id="#= partIncorrect #" class="wrong btn btn-warning btn-with-glyph" aria-hidden="true" data-toggle="tooltip" data-placement="right">
+                    <button id="#= partCorrect #" class="right btn btn-success btn-with-glyph" aria-hidden="true" data-toggle="tooltip" data-placement="right" data-localize="correct"><i class="glyph glyph-checkmark"></i><span class="ltext"></span></button>
+                    <button id="#= partIncorrect #" class="wrong btn btn-warning btn-with-glyph" aria-hidden="true" data-toggle="tooltip" data-placement="right" data-localize="incorrect">
                         <i class="glyph glyph-cancel"></i>
-                        #= incorrect #
+                        <span class="ltext"></span>
                     </button>
                     <a role="button" id="#= partExplanation #"
                        class="btn btn-primary btn-with-glyph"
                        tabindex="0"
                        data-toggle="popover"
                        data-trigger="focus"
-                       data-content="#= excellent #"><i class="glyph glyph-message"></i>#= explanation #</a>
+                       data-content="#= excellent #" data-localize="explanation"><i class="glyph glyph-message"></i><span class="ltext"></span></a>
                 </div>
                 # }); #
             </div>
@@ -253,12 +253,12 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <span class="modal-title" id="modal-sample-label">
-                    <b>#= menYappu #</b>
+                <span class="modal-title" id="modal-sample-label" data-localize="menYappu">
+                    <b><span class="ltext"></span></b>
                 </span>
             </div>
-            <div class="modal-body">
-                #= aboutMenYappuDetails #
+            <div class="modal-body" data-localize="aboutMenYappuDetails">
+                <span class="ltext"></span>
             </div>
             <br />
             <div>
@@ -270,20 +270,20 @@
                 # var close = ProsodyResourceManager.get("close"); #
                 <table class="table">
                     <thead>
-                        <tr><th>#= task #</th><th>#= executor #</th></tr>
+                        <tr><th>#= task #</th><th data-localize=""executor><span class="ltext"></span></th></tr>
                     </thead>
                     <tbody>
-                        <tr><td>#= softwareDevelopment #</td><td>#= rajaMani #</td></tr>
-                        <tr><td>#= design #</td><td>#= bogdanUrs #</td></tr>
-                        <tr><td>#= inspirationAndMotivation #</td><td>#= vinodRajan #</td></tr>
-                        <tr><td>#= suggestionAndReview #</td><td>#= kandasamyPalanisamy #</td></tr>
+                        <tr><td data-localize="softwareDevelopment"><span class="ltext"> </span></td><td data-localize="rajaMani"><span class="ltext"></span></td></tr>
+                        <tr><td data-localize="design"><span class="ltext"> </span></td><td data-localize="bogdanUrs"><span class="ltext"> </span></td></tr>
+                        <tr><td data-localize="inspirationAndMotivation"><span class="ltext"> </span></td><td data-localize="vinodRajan"><span class="ltext"> </span></td></tr>
+                        <tr><td data-localize="suggestionAndReview"><span class="ltext"> </span></td><td data-localize="kandasamyPalanisamy"><span class="ltext"> </span></td></tr>
                     </tbody>
                 </table>
                 <hr />
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">
-                    #= close #
+                <button type="button" class="btn btn-primary" data-dismiss="modal" data-localize="close">
+                    <span class="ltext"></span>
                 </button>
             </div>
         </div>
@@ -305,8 +305,8 @@
     # var audio = ProsodyResourceManager.get("audio"); var video = ProsodyResourceManager.get("video"); #
     # var audioButtonId = "play-audio-" + part + '-' + container; var videoButtonId = "play-video-" + part + '-' + container; #
     # var modalVideoId = "\#modal-video-" + part + '-' + container; #
-    <button id="#= audioButtonId #" class="btn btn-primary btn-with-glyph"><i class="glyph glyph-play"></i>#= audio #</button>
-    <button id="#= videoButtonId #" class="btn btn-primary btn-with-glyph" data-toggle="modal" data-target="#= modalVideoId #"><i class="glyph glyph-video"></i>#= video #</button>
+    <button id="#= audioButtonId #" class="btn btn-primary btn-with-glyph" data-localize="audio"><i class="glyph glyph-play" ></i><span class="ltext"></span></button>
+    <button id="#= videoButtonId #" class="btn btn-primary btn-with-glyph" data-toggle="modal" data-target="#= modalVideoId #" data-localize="video"><i class="glyph glyph-video"></i><span class="ltext"></span></button>
 </script>
 
 <script type="text/x-kendo-template" id="modalVideoHelpTemplate">
@@ -314,16 +314,16 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="modal-sample-label">
-                    #= menYappu #
+                <h4 class="modal-title" id="modal-sample-label" data-localize="menYappu">
+                    <span class="ltext"></span>
                 </h4>
             </div>
             <div class="modal-body text-center">
                 <iframe width="420" height="315" src="#= videoUrl #" frameborder="0" allowfullscreen></iframe>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">
-                    #= close #
+                <button type="button" class="btn btn-primary" data-dismiss="modal" data-localize="close">
+                    <span class="ltext"></span>
                 </button>
             </div>
         </div>

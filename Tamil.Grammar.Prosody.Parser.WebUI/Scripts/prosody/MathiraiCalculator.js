@@ -8,8 +8,8 @@
         var inputTemplate = kendo.template($("#inputTemplate").html());
         $("#input")
             .append(inputTemplate({
-                inputTitle: wordOrSentence,
-                inputInfotip: mathiraiCalculatorInfoTip,
+                inputTitle: "wordOrSentence",
+                inputInfotip: "mathiraiCalculatorInfoTip",
                 inputLines: 1
             }));
         // set the context help

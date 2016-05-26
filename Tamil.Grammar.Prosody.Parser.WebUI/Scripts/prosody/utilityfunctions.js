@@ -339,7 +339,11 @@
 
     function setLocalizedStrings() {
         $("[data-localize]").each(function (index, elem) {
-            $(elem).text(ProsodyResourceManager.get($(elem).attr('data-localize')));
+            var localizedText = ProsodyResourceManager.get($(elem).attr('data-localize'));
+            $(elem).find('.ltext').text(localizedText);
+            if ($(elem).is("a")) {
+                $(elem).attr('title', localizedText).attr('data-original-title', localizedText);
+            }
         });
     }
     function wireDropdownTooltipAndPopoverHandlers() {

@@ -448,6 +448,15 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Input only one Metrical Foot.
+        /// </summary>
+        public static string InputOnlyOneMetricalFoot {
+            get {
+                return ResourceManager.GetString("InputOnlyOneMetricalFoot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Input Verse.
         /// </summary>
         public static string InputTheVerse {
@@ -655,6 +664,24 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Metreme Type.
+        /// </summary>
+        public static string MetremeType {
+            get {
+                return ResourceManager.GetString("MetremeType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Metreme Types.
+        /// </summary>
+        public static string MetremeTypes {
+            get {
+                return ResourceManager.GetString("MetremeTypes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to MetricalFeet.
         /// </summary>
         public static string MetricalFeet {
@@ -669,6 +696,15 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         public static string MetricalFootFinder {
             get {
                 return ResourceManager.GetString("MetricalFootFinder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Split the metremes using ‘/’ symbol. For e.g.,  you can syllable the word &quot;மனிதம்&quot; like ”மனி” / “தம்”..
+        /// </summary>
+        public static string MetricalFootInfoTip {
+            get {
+                return ResourceManager.GetString("MetricalFootInfoTip", resourceCulture);
             }
         }
         
@@ -876,6 +912,15 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         public static string SelectALetterType {
             get {
                 return ResourceManager.GetString("SelectALetterType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select a Mereme Type.
+        /// </summary>
+        public static string SelectAMetremeType {
+            get {
+                return ResourceManager.GetString("SelectAMetremeType", resourceCulture);
             }
         }
         

@@ -498,4 +498,19 @@
   <data name="YourFavoriteTamilPortal" xml:space="preserve">
     <value>Your favorite Tamil grammar learning portal!</value>
   </data>
+  <data name="InputOnlyOneMetricalFoot" xml:space="preserve">
+    <value>Input only one Metrical Foot</value>
+  </data>
+  <data name="MetremeType" xml:space="preserve">
+    <value>Metreme Type</value>
+  </data>
+  <data name="MetremeTypes" xml:space="preserve">
+    <value>Metreme Types</value>
+  </data>
+  <data name="MetricalFootInfoTip" xml:space="preserve">
+    <value>Split the metremes using ‘/’ symbol. For e.g.,  you can syllable the word "மனிதம்" like ”மனி” / “தம்”.</value>
+  </data>
+  <data name="SelectAMetremeType" xml:space="preserve">
+    <value>Select a Mereme Type</value>
+  </data>
 </root>

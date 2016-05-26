@@ -311,10 +311,12 @@ aside {
   }
   .navbar-default .navbar-header .navbar-brand:hover,
   .navbar-default .navbar-header .navbar-brand:focus {
+    background-color: #006abe;
     color: white;
   }
   .navbar-default .nav > li > a:hover,
   .navbar-default .nav > li > a:focus:hover {
+    background-color: #006abe;
     color: white;
   }
   .navbar-default.affix {
@@ -323,7 +325,6 @@ aside {
   }
   .navbar-default.affix .navbar-header .navbar-brand {
     color: #0078D7;
-    font-size: 14px;
   }
   .navbar-default.affix .navbar-header .navbar-brand:hover,
   .navbar-default.affix .navbar-header .navbar-brand:focus {
@@ -335,7 +336,8 @@ aside {
   }
   .navbar-default.affix .nav > li > a:hover,
   .navbar-default.affix .nav > li > a:focus:hover {
-    color: #0078D7;
+    background-color: #0078D7;
+    color: white;
   }
 }
 header {
@@ -665,7 +667,7 @@ body {
 }
 .owl-prev:hover,
 .owl-next:hover {
-  color: #0078D7;
+  color: floralwhite;
 }
 .grabbing {
   cursor: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAO0lEQVQ4y2NgGHbgPxTjY+PWDAP42PgM+k8IwNRQZAg+A/5TYsB/UgBFBtDM/0QZQkxawGsI3QygLwAAbjZlqS88cqkAAAAASUVORK5CYII=') 8 8, move;

@@ -7,8 +7,8 @@
 <script type="text/x-kendo-template" id="mathiraiInputTemplate">
     <ul class="kendo-panelbars-custom" id="seyyulbar">
         <li>
-            <h4 class="main-title">
-                #= ProsodyResourceManager.get("inputWord") #
+            <h4 class="main-title" data-localize="inputWord">
+                <span class="ltext"></span>
                 <span class="main-title-icon glyph glyph-chevron-down"></span>
             </h4>
             <ul>
@@ -19,15 +19,15 @@
 
                             </div>
                             <div class="col-md-8" id="additionalInput">
-                                <div class="text-t5 text-center m-b-lg">
-                                    #= ProsodyResourceManager.get("durationCount") #
+                                <div class="text-t5 text-center m-b-lg" data-localize="durationCount">
+                                    <span class="ltext"></span>
                                 </div>
                                 <div class="infotip">
-                                    <span class="text-t9">#= ProsodyResourceManager.get("enterDurationCountAndCheckResult") #</span>
+                                    <span class="text-t9" data-localize="enterDurationCountAndCheckResult"><span class="ltext"></span></span>
                                 </div>
                                 <textarea class="panelbar-textarea" id="MathiraiCount" rows="1" minlength="1"></textarea>
                                 <div id="rightMathiraiCount" class="type-t5 hidden">
-                                    <h4 class="game-section-title">#= ProsodyResourceManager.get("correctDurationCount") #</h4>
+                                    <h4 class="game-section-title" data-localize="correctDurationCount"><span class="ltext"></span></h4>
                                     <span class="cspan" id="CalculatedMathiraiCount"></span>
                                 </div>
 

@@ -498,4 +498,19 @@
   <data name="YourFavoriteTamilPortal" xml:space="preserve">
     <value>உங்களுக்குப் பிடித்தமான தமிழ் இலக்கணம் கற்கும் வலைத்தளம்</value>
   </data>
+  <data name="InputOnlyOneMetricalFoot" xml:space="preserve">
+    <value>ஒரேயொரு சீரை உள்ளிடவும்</value>
+  </data>
+  <data name="MetremeType" xml:space="preserve">
+    <value>அசை  வகை</value>
+  </data>
+  <data name="MetremeTypes" xml:space="preserve">
+    <value>அசை  வகைகள்</value>
+  </data>
+  <data name="MetricalFootInfoTip" xml:space="preserve">
+    <value>சீர் (அ) சொல்லிலுள்ள அசைகளை ‘/’ என்ற குறியீடால் பிரிக்கவும். எ.கா. மனி/தம். இந்தச் சொல்லை ”மனி” / “தம்” என்று அசை பிரிக்கலாம்.</value>
+  </data>
+  <data name="SelectAMetremeType" xml:space="preserve">
+    <value>அசை வகையைத் தேர்ந்தெடு</value>
+  </data>
 </root>

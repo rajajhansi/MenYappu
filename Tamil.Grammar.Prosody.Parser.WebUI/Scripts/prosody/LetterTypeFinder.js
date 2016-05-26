@@ -18,8 +18,8 @@
         var inputTemplate = kendo.template($("#inputTemplate").html());
         $("#input")
             .append(inputTemplate({
-                inputTitle: word,
-                inputInfotip: letterTypeFinderInfoTip,
+                inputTitle: "word",
+                inputInfotip: "letterTypeFinderInfoTip",
                 inputLines: 1
             }));
         //  Wire parsley js for validation
