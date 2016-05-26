@@ -26,6 +26,7 @@
         finishQuestionButtonId += part;
         wireQuestionStepsEventHandlers(part);
         setupNavigationButtons();
+        Utility.setLocalizedStrings();
     }
 
     function totalNumberOfAnsweredQuestions() {

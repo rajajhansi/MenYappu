@@ -344,6 +344,9 @@
             if ($(elem).is("a")) {
                 $(elem).attr('title', localizedText).attr('data-original-title', localizedText);
             }
+            if ($(elem).is('button')) {
+                $(elem).find('.ltext').text(localizedText);
+            }
         });
     }
     function wireDropdownTooltipAndPopoverHandlers() {
@@ -413,6 +416,7 @@
         getCookie: getCookie,
         checkCookie: checkCookie,
         setLanguage: setLanguage,
+        setLocalizedStrings: setLocalizedStrings,
         setFaq: setFaq,
         setHelpAudioVideo: setHelpAudioVideo,
         wireDropdownTooltipAndPopoverHandlers: wireDropdownTooltipAndPopoverHandlers,
