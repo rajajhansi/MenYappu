@@ -108,7 +108,7 @@
         # var improveKnowledge = ProsodyResourceManager.get("improveKnowledge"); var findOutMore = ProsodyResourceManager.get("findOutMore"); #
         <div class="header-content">
             <div class="header-content-inner">
-                <h1><span class="boxed" data-localize="yourFavoriteTamilPortal"></span></h1>
+                <h1><span class="boxed" data-localize="yourFavoriteTamilPortal"><span class="ltext"></span></span></h1>
                 <hr>
                 <p class="text-white"><span class="boxed" data-localize="improveKnowledge"><span class="ltext"></span></span></p>
                 <a href="\#about" class="btn btn-primary btn-xl page-scroll" data-localize="findOutMore"><span class="ltext"></span></a>
@@ -141,14 +141,14 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <a href="\#about2" class="btn btn-default btn-xl page-scroll" data-localize="startLearning"><span class="ltext"></span></a>
                     </div>
                 </div>
             </div>
 
         </script>
-        
+
         <script type="text/x-kendo-template" id="videosAboutSection">
             # var weGotWhatYouNeed = ProsodyResourceManager.get("weGotWhatYouNeed"); var menyappuHasAll = ProsodyResourceManager.get("menyappuHasAll");#
             # var startLearning = ProsodyResourceManager.get("startLearning"); #
@@ -158,7 +158,7 @@
                         <h2 class="section-heading" data-localize="weGotWhatYouNeed"><span class="ltext"></span></h2>
                         <hr class="light">
                         <p class="text-faded" data-localize="menyappuHasAll"></p>
-                        
+
                         <div>
                             <div class="owl-carousel owl-theme vid-carousel" id="vid-carousel">
                                 <div class="item-video"><a data-merge="3" class="owl-video" href="https://www.youtube.com/watch?v=fC_guUOUSWg"></a></div>
@@ -172,8 +172,8 @@
                     </div>
                 </div>
             </div>
-        </script>    
-        
+        </script>
+
     <script type="text/x-kendo-template" id="about2Section">
         # var menyappuAnEffort = ProsodyResourceManager.get("menyappuAnEffort"); #
         <div class="container">
@@ -387,7 +387,6 @@
                             </div>
                         </a>
                     </div>
-                    
                     <div class="col-lg-4 col-sm-6">
                         <a href="/Games/Quiz" class="portfolio-box">
                             <img src="/Landing/img/games/quiz.png" class="img-responsive" alt="">
@@ -407,7 +406,7 @@
             </div>
         </section>
     </script>
-    
+
     <script type="text-x-kendo-template" id="contactTemplate">
         <section id="landingContact">
             # var letsGetInTouch = ProsodyResourceManager.get("letsGetInTouch"); var contributeToMenyappu = ProsodyResourceManager.get("contributeToMenyappu"); #
@@ -441,7 +440,7 @@
     </header>
     <section class="bg-primary" id="about"></section>
     <section id="services"></section>
-    <section class="bg-primary" id="videosAbout"></section>    
+    <section class="bg-primary" id="videosAbout"></section>
     <section id="contact"></section>
 
         <!--The Owl Slider -->
@@ -486,7 +485,7 @@
                         stagePadding: 0,
                         smartSpeed: 450
                     });
-                    
+
                     $('#vid-carousel').owlCarousel({
                         items:1,
                         loop:true,

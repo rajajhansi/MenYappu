@@ -4,8 +4,8 @@
 
 <ul class="kendo-panelbars-custom" id="seyyulbar">
     <li>
-        <h4 class="main-title">
-            அடியை உள்ளிடவும் (குறைந்தது 1 சீர் அவசியம்)
+        <h4 class="main-title" data-localize="inputMetricalLine">
+            <span class="ltext"></span>
             <span class="main-title-icon glyph glyph-chevron-down"></span>
         </h4>
         <ul>
@@ -15,15 +15,15 @@
                         <div class="col-md-8" id="input">
                          </div>
                         <div class="col-md-8 hidden" id="adiSelector">
-                            <h4 class="game-section-title text-center">
-                                அடி வகை
+                            <h4 class="game-section-title text-center" data-localize="metricalLineTypes">
+                                <span class="ltext"></span>
                             </h4>
 
                             <div id="adiType" class="type-t7 text-center">
-                                <p class="form-group-label">அடி வகை</p>
+                                <p class="form-group-label" data-localize="metricalLineType"><span class="ltext"></span></p>
                                 <div class="dropdown">
                                     <button id="adi-dropdown" class="btn btn-dropdown dropdown-toggle" type="button" data-toggle="dropdown"
-                                            aria-haspopup="true" role="button" aria-expanded="false">அடி வகையைத் தேர்ந்தெடு<span class="caret"></span>
+                                            aria-haspopup="true" role="button" aria-expanded="false" data-localize="selectAMetricalLineType"><span class="ltext"></span><span class="caret"></span>
                                     </button>
                                     <ul class="dropdown-menu" role="menu" aria-labelledby="adi-dropdown">
                                         <li><a href="#">தனிச்சொல்</a></li>
@@ -47,7 +47,7 @@
 </ul>
 
 <script type="text/x-kendo-template" id="adiTemplate">
-    <span class="type-t5">அடிகள் எண்ணிக்கை: #= adigal.length #</span>
+    <span class="type-t5" data-localize="countOfMetricalLines"><span class="ltext"></span>: #= adigal.length #</span>
     <br />
     <table border=0 cellspacing=10>
         <tr>
@@ -61,6 +61,7 @@
         </tr>
         # } #
     </table>
+
 </script>
 @{ Html.RenderPartial("_CommonKendoTemplates"); }
 

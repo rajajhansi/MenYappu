@@ -513,4 +513,97 @@
   <data name="SelectAMetremeType" xml:space="preserve">
     <value>அசை வகையைத் தேர்ந்தெடு</value>
   </data>
+  <data name="AlliterationType" xml:space="preserve">
+    <value>மோனை வகை</value>
+  </data>
+  <data name="AlliterationWord" xml:space="preserve">
+    <value>மோனைச் சொல்</value>
+  </data>
+  <data name="CountOfMetricalLines" xml:space="preserve">
+    <value>அடிகள் எண்ணிக்கை</value>
+  </data>
+  <data name="EndRhymeType" xml:space="preserve">
+    <value>இயைபு வகை</value>
+  </data>
+  <data name="EndRhymeWord" xml:space="preserve">
+    <value>இயைபுச் சொல்</value>
+  </data>
+  <data name="FirstWord" xml:space="preserve">
+    <value>முதலாவது சொல்</value>
+  </data>
+  <data name="InputMetricalLine" xml:space="preserve">
+    <value>அடியை உள்ளிடவும் (குறைந்தது 1 சீர் அவசியம்)</value>
+  </data>
+  <data name="InputSentence" xml:space="preserve">
+    <value>வாக்கியத்தை உள்ளிடவும் (குறைந்தது 2 சீர்கள் அவசியம்)</value>
+  </data>
+  <data name="LinkageType" xml:space="preserve">
+    <value>தளை வகை</value>
+  </data>
+  <data name="LinkageTypeInfoTip" xml:space="preserve">
+    <value>இரு சீர்களை மட்டும் உள்ளிடவும் (அ) கீழேயுள்ள “மாதிரி” பொத்தானை அழுத்தவும்.</value>
+  </data>
+  <data name="LinkageTypes" xml:space="preserve">
+    <value>தளை வகைகள்</value>
+  </data>
+  <data name="MetricalFootType" xml:space="preserve">
+    <value>சீர் வகை</value>
+  </data>
+  <data name="MetricalFootTypes" xml:space="preserve">
+    <value>சீர் வகைகள்</value>
+  </data>
+  <data name="MetricalLineInfoTip" xml:space="preserve">
+    <value>ஒரு அடியை உள்ளிடவும். அந்த அடியில் குறைந்தது ஒரு சீராவது உள்ளிடவும்.</value>
+  </data>
+  <data name="MetricalLines" xml:space="preserve">
+    <value>அடிகள்</value>
+  </data>
+  <data name="MetricalLineType" xml:space="preserve">
+    <value>அடி வகை</value>
+  </data>
+  <data name="MetricalLineTypes" xml:space="preserve">
+    <value>அடி வகைகள்</value>
+  </data>
+  <data name="OrnamentationInfoTip" xml:space="preserve">
+    <value>குறைந்தது ஒரு அடியை உள்ளிடவும். அந்த அடியில் குறைந்தது இரு சீர்களை உள்ளிடவும்.</value>
+  </data>
+  <data name="OrnamentationType" xml:space="preserve">
+    <value>தொடை வகை</value>
+  </data>
+  <data name="OrnamentationTypes" xml:space="preserve">
+    <value>தொடை வகைகள்</value>
+  </data>
+  <data name="RhymeType" xml:space="preserve">
+    <value>எதுகை வகை</value>
+  </data>
+  <data name="RhymeWord" xml:space="preserve">
+    <value>எதுகைச் சொல்</value>
+  </data>
+  <data name="SecondWord" xml:space="preserve">
+    <value>இரண்டாவது சொல்</value>
+  </data>
+  <data name="SelectALinkageType" xml:space="preserve">
+    <value>தளை வகையைத் தேர்ந்தெடு</value>
+  </data>
+  <data name="SelectAMetricalFootType" xml:space="preserve">
+    <value>சீர் வகையைத் தேர்ந்தெடு</value>
+  </data>
+  <data name="SelectAMetricalLineType" xml:space="preserve">
+    <value>அடி வகையைத் தேர்ந்தெடு</value>
+  </data>
+  <data name="SelectAnAlliterationType" xml:space="preserve">
+    <value>மோனை வகையைத் தேர்ந்தெடு</value>
+  </data>
+  <data name="SelectAnEndRhymeType" xml:space="preserve">
+    <value>இயைபு வகையைத் தேர்ந்தெடு</value>
+  </data>
+  <data name="SelectARhymeType" xml:space="preserve">
+    <value>எதுகை வகையைத் தேர்ந்தெடு</value>
+  </data>
+  <data name="Sentence" xml:space="preserve">
+    <value>வாக்கியம்</value>
+  </data>
+  <data name="Words" xml:space="preserve">
+    <value>சொற்கள்</value>
+  </data>
 </root>

@@ -4,8 +4,8 @@
 
 <ul class="kendo-panelbars-custom" id="seyyulbar">
     <li>
-        <h4 class="main-title">
-            சொல்லை உள்ளிடவும்
+        <h4 class="main-title" data-localize="inputWord">
+            <span class="ltext"></span>
             <span class="main-title-icon glyph glyph-chevron-down"></span>
         </h4>
         <ul>
@@ -13,43 +13,47 @@
                 <form id="prosodyForm" class="form-horizontal" action="/api/Prosody/MathiraiCount" method="POST">
                     <div class="row">
                         <div class="col-md-8">
-                            <h4 class="game-section-title">
-                                <b>சொற்கள்</b>
+                            <h4 class="game-section-title" data-localize="words">
+                                <b>
+                                    <span class="ltext"></span>
+                                </b>
                             </h4>
-                            <h4 class="game-section-title">
-                                முதலாவது சொல்
+                            <h4 class="game-section-title" data-localize="firstWord">
+                                <span class="ltext"></span>
                             </h4>
                             <input type="text" id="monaiInputText" class="panelbar-text form-control"/>
-                            <h4 class="game-section-title">
-                                முதலாவது சொல்
+                            <h4 class="game-section-title" data-localize="firstWord">
+                                <span class="ltext"></span>
                             </h4>
                             <input type="text" id="ethukaiInputText" class="panelbar-text form-control"/>
-                            <h4 class="game-section-title">
-                                முதலாவது சொல்
+                            <h4 class="game-section-title" data-localize="firstWord">
+                                <span class="ltext"></span>
                             </h4>
                             <input type="text" id="iyaipuInputText" class="panelbar-text form-control"/>
                         </div>
                         <div class="col-md-8 hidden" id="thodaiSelector">
-                            <h4 class="game-section-title">
-                                <b>சொற்கள்</b>
+                            <h4 class="game-section-title" data-localize="words">
+                                <b>
+                                    <span class="ltext"></span>
+                                </b>
                             </h4>
-                            <h4 class="game-section-title">
-                                மோனைச் சொல்
+                            <h4 class="game-section-title" data-localize="alliterationWord">
+                                <span class="ltext"></span>
                             </h4>
                             <input type="text" id="monaiText" class="panelbar-text form-control" />
-                            <h4 class="game-section-title">
-                                எதுகைச் சொல்
+                            <h4 class="game-section-title" data-localize="rhymeWord">
+                                <span class="ltext"></span>
                             </h4>
                             <input type="text" id="ethukaiText" class="panelbar-text form-control"/>
-                            <h4 class="game-section-title">
-                                இயைபுச் சொல்
+                            <h4 class="game-section-title" data-localize="endRhymeWord">
+                                <span class="ltext"></span>
                             </h4>
                             <input type="text" id="iyaipuText" class="panelbar-text form-control"/>
 
                             <div class="control-group">
                                 <div class="controls">
-                                    <button class="btn btn-primary btn-with-glyph" id="example"><i class="glyph glyph-import"></i>மாதிரி</button>
-                                    <button type="submit" class="btn btn-primary btn-with-glyph"><i class="glyph glyph-arrow-right"></i>சரி பார்த்திடு</button>
+                                    <button class="btn btn-primary btn-with-glyph" id="example" data-localize="sample"><i class="glyph glyph-import"></i><span class="ltext"></span></button>
+                                    <button type="submit" class="btn btn-primary btn-with-glyph" data-localize="checkAnswer"><i class="glyph glyph-arrow-right"></i><span class="ltext"></span></button>
                                 </div>
                             </div>
                         </div>

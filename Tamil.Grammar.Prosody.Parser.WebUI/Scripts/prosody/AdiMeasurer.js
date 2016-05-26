@@ -4,8 +4,8 @@
         var inputTemplate = kendo.template($("#inputTemplate").html());
         $("#input")
             .append(inputTemplate({
-                inputTitle: "அடி",
-                inputInfotip: "ஒரு அடியை உள்ளிடவும். அந்த அடியில் குறைந்தது ஒரு சீராவது உள்ளிடவும்.",
+                inputTitle: "metricalLine",
+                inputInfotip: "metricalLineInfoTip",
                 inputLines: 2
             }));
         // set the context help

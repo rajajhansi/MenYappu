@@ -97,6 +97,24 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Alliteration Type.
+        /// </summary>
+        public static string AlliterationType {
+            get {
+                return ResourceManager.GetString("AlliterationType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Alliteration word.
+        /// </summary>
+        public static string AlliterationWord {
+            get {
+                return ResourceManager.GetString("AlliterationWord", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Asiriyappaa.
         /// </summary>
         public static string Asiriyappaa {
@@ -241,6 +259,15 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Count of Metrical Lines.
+        /// </summary>
+        public static string CountOfMetricalLines {
+            get {
+                return ResourceManager.GetString("CountOfMetricalLines", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Design.
         /// </summary>
         public static string Design {
@@ -291,6 +318,24 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         public static string EndRhyme {
             get {
                 return ResourceManager.GetString("EndRhyme", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to End Rhyme Type.
+        /// </summary>
+        public static string EndRhymeType {
+            get {
+                return ResourceManager.GetString("EndRhymeType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to End Rhyme word.
+        /// </summary>
+        public static string EndRhymeWord {
+            get {
+                return ResourceManager.GetString("EndRhymeWord", resourceCulture);
             }
         }
         
@@ -376,6 +421,15 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to First word.
+        /// </summary>
+        public static string FirstWord {
+            get {
+                return ResourceManager.GetString("FirstWord", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Games for Kids and Adults.
         /// </summary>
         public static string GameForKidsAndAdults {
@@ -448,11 +502,29 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Input Metrical Line (requires atleast 2 Metrical Feet).
+        /// </summary>
+        public static string InputMetricalLine {
+            get {
+                return ResourceManager.GetString("InputMetricalLine", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Input only one Metrical Foot.
         /// </summary>
         public static string InputOnlyOneMetricalFoot {
             get {
                 return ResourceManager.GetString("InputOnlyOneMetricalFoot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Input a sentece (requires at least 2 Metrical Feet).
+        /// </summary>
+        public static string InputSentence {
+            get {
+                return ResourceManager.GetString("InputSentence", resourceCulture);
             }
         }
         
@@ -583,6 +655,33 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Linkage Type.
+        /// </summary>
+        public static string LinkageType {
+            get {
+                return ResourceManager.GetString("LinkageType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Input only 2 Metrical Feet (or) click on &quot;Sample&quot; button below..
+        /// </summary>
+        public static string LinkageTypeInfoTip {
+            get {
+                return ResourceManager.GetString("LinkageTypeInfoTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Linkage Types.
+        /// </summary>
+        public static string LinkageTypes {
+            get {
+                return ResourceManager.GetString("LinkageTypes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Made with Love and Passion for Tamil.
         /// </summary>
         public static string MadewithLoveAndPassion {
@@ -709,6 +808,24 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Metrical Foot Type.
+        /// </summary>
+        public static string MetricalFootType {
+            get {
+                return ResourceManager.GetString("MetricalFootType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Metrical Foot Types.
+        /// </summary>
+        public static string MetricalFootTypes {
+            get {
+                return ResourceManager.GetString("MetricalFootTypes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Metrical Line.
         /// </summary>
         public static string MetricalLine {
@@ -718,11 +835,47 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Input Metrical Line (requires atleast 1 Metrical Foot in that Metrical Line).
+        /// </summary>
+        public static string MetricalLineInfoTip {
+            get {
+                return ResourceManager.GetString("MetricalLineInfoTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Metrical Line Measurer.
         /// </summary>
         public static string MetricalLineMeasurer {
             get {
                 return ResourceManager.GetString("MetricalLineMeasurer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Metrical Lines.
+        /// </summary>
+        public static string MetricalLines {
+            get {
+                return ResourceManager.GetString("MetricalLines", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Metrical Line Type.
+        /// </summary>
+        public static string MetricalLineType {
+            get {
+                return ResourceManager.GetString("MetricalLineType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Metrical Line Types.
+        /// </summary>
+        public static string MetricalLineTypes {
+            get {
+                return ResourceManager.GetString("MetricalLineTypes", resourceCulture);
             }
         }
         
@@ -750,6 +903,33 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         public static string OrnamentationFinder {
             get {
                 return ResourceManager.GetString("OrnamentationFinder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Input at least 1 Metrical Line (requires atleast 2 Metrical Feet in that Metrical Line).
+        /// </summary>
+        public static string OrnamentationInfoTip {
+            get {
+                return ResourceManager.GetString("OrnamentationInfoTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ornamentation Type.
+        /// </summary>
+        public static string OrnamentationType {
+            get {
+                return ResourceManager.GetString("OrnamentationType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ornamentation Types.
+        /// </summary>
+        public static string OrnamentationTypes {
+            get {
+                return ResourceManager.GetString("OrnamentationTypes", resourceCulture);
             }
         }
         
@@ -880,6 +1060,24 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Rhyme Type.
+        /// </summary>
+        public static string RhymeType {
+            get {
+                return ResourceManager.GetString("RhymeType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rhyme word.
+        /// </summary>
+        public static string RhymeWord {
+            get {
+                return ResourceManager.GetString("RhymeWord", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sample.
         /// </summary>
         public static string Sample {
@@ -907,11 +1105,29 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Second word.
+        /// </summary>
+        public static string SecondWord {
+            get {
+                return ResourceManager.GetString("SecondWord", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select Letter Type.
         /// </summary>
         public static string SelectALetterType {
             get {
                 return ResourceManager.GetString("SelectALetterType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select a Linkage Type.
+        /// </summary>
+        public static string SelectALinkageType {
+            get {
+                return ResourceManager.GetString("SelectALinkageType", resourceCulture);
             }
         }
         
@@ -925,11 +1141,56 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select a Metrical Foot Type.
+        /// </summary>
+        public static string SelectAMetricalFootType {
+            get {
+                return ResourceManager.GetString("SelectAMetricalFootType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select a Metrical Line Type.
+        /// </summary>
+        public static string SelectAMetricalLineType {
+            get {
+                return ResourceManager.GetString("SelectAMetricalLineType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select an Alliteration Type.
+        /// </summary>
+        public static string SelectAnAlliterationType {
+            get {
+                return ResourceManager.GetString("SelectAnAlliterationType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select an End Rhyme Type.
+        /// </summary>
+        public static string SelectAnEndRhymeType {
+            get {
+                return ResourceManager.GetString("SelectAnEndRhymeType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select a Paa with Selected Sound.
         /// </summary>
         public static string SelectAPaaWithSound {
             get {
                 return ResourceManager.GetString("SelectAPaaWithSound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select a Rhyme Type.
+        /// </summary>
+        public static string SelectARhymeType {
+            get {
+                return ResourceManager.GetString("SelectARhymeType", resourceCulture);
             }
         }
         
@@ -948,6 +1209,15 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         public static string SelectASoundDefinition {
             get {
                 return ResourceManager.GetString("SelectASoundDefinition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sentence.
+        /// </summary>
+        public static string Sentence {
+            get {
+                return ResourceManager.GetString("Sentence", resourceCulture);
             }
         }
         
@@ -1227,6 +1497,15 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         public static string WordOrSentence {
             get {
                 return ResourceManager.GetString("WordOrSentence", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Words.
+        /// </summary>
+        public static string Words {
+            get {
+                return ResourceManager.GetString("Words", resourceCulture);
             }
         }
         

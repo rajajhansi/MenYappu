@@ -6,7 +6,7 @@
             <i class="glyph glyph-hamburger"></i>
         </button>
 
-        <a class="navbar-brand no-outline" href="/">#= menYappu #</a>
+        <a class="navbar-brand no-outline" href="/" data-localize="menYappu"><span class="ltext"></span></a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -14,10 +14,10 @@
             <li class="dropdown">
                 # var solIlakkanam = ProsodyResourceManager.get("solIlakkanam"); var vetrumaiUrubugal = ProsodyResourceManager.get("vetrumaiUrubugal"); #
                 # var partsOfSpeech = ProsodyResourceManager.get("partsOfSpeech"); #
-                <a href="\#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">#= solIlakkanam # <i class="glyph glyph-chevron-down-2"></i></a>
+                <a href="\#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" data-localize="solIlakkanam"> <span class="ltext"></span> <i class="glyph glyph-chevron-down-2"></i></a>
                 <ul class="dropdown-menu nosel" role="menu">
-                    <li><a href="/ProsodyHelp/VetrumaiUrubugal">#= vetrumaiUrubugal #</a></li>
-                    <li><a href="/ProsodyHelp/PartsOfSpeech">#= partsOfSpeech #</a></li>
+                    <li data-localize="vetrumaiUrubugal"><a href="/ProsodyHelp/VetrumaiUrubugal"><span class="ltext"></span></a></li>
+                    <li data-localize="partsOfSpeech"><a href="/ProsodyHelp/PartsOfSpeech"><span class="ltext"></span></a></li>
                 </ul>
             </li>
             <li class="dropdown">
@@ -28,39 +28,39 @@
                 # var sound = ProsodyResourceManager.get("sound"); #
                 <a href="colors.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">#= prosody # <i class="glyph glyph-chevron-down-2"></i></a>
                 <ul class="dropdown-menu nosel" role="menu">
-                    <li><a href="/ProsodyHelp/Introduction">#= introduction #</a></li>
+                    <li data-localize="introduction"><a href="/ProsodyHelp/Introduction"><span class="ltext"></span></a></li>
                     <li class="divider"></li>
-                    <li><a href="/ProsodyHelp/Letter">#= letter #</a></li>
-                    <li><a href="/ProsodyHelp/Metreme">#= metreme #</a></li>
-                    <li><a href="/ProsodyHelp/MetricalFeet">#= metricalFeet #</a></li>
-                    <li><a href="/ProsodyHelp/Linkage">#= linkage #</a></li>
-                    <li><a href="/ProsodyHelp/MetricalLine">#= metricalLine #</a></li>
-                    <li><a href="/ProsodyHelp/Ornamentation">#= ornamentation #</a></li>
-                    <li><a href="/ProsodyHelp/Sound">#= sound #</a></li>
+                    <li data-localize="letter"><a href="/ProsodyHelp/Letter"><span class="ltext"></span></a></li>
+                    <li data-localize="metreme"><a href="/ProsodyHelp/Metreme"><span class="ltext"></span></a></li>
+                    <li data-localize="metricalFeet"><a href="/ProsodyHelp/MetricalFeet"><span class="ltext"></span></a></li>
+                    <li data-localize="linkage"><a href="/ProsodyHelp/Linkage"><span class="ltext"></span></a></li>
+                    <li data-localize="metricalLine"><a href="/ProsodyHelp/MetricalLine"><span class="ltext"></span></a></li>
+                    <li data-localize="ornamentation"><a href="/ProsodyHelp/Ornamentation"><span class="ltext"></span></a></li>
+                    <li data-localize="sound"><a href="/ProsodyHelp/Sound"><span class="ltext"></span></a></li>
                 </ul>
             </li>
             # var paaTypes = ProsodyResourceManager.get("paaTypes"); #
             # var venpaa = ProsodyResourceManager.get("venpaa"); var asiriyappaa = ProsodyResourceManager.get("asiriyappaa"); #
             # var kalippaa = ProsodyResourceManager.get("kalippaa");  var vanjippaa = ProsodyResourceManager.get("vanjippaa"); #
             <li class="dropdown hidden">
-                <a href="\#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">#= paaTypes #<i class="glyph glyph-chevron-down-2"></i></a>
+                <a href="\#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" data-localize="paaTypes"><span class="ltext"></span><i class="glyph glyph-chevron-down-2"></i></a>
                 <ul class="dropdown-menu nosel" role="menu">
-                    <li><a href="/ProsodyHelp/Venpaa">#= venpaa #</a></li>
-                    <li><a href="/ProsodyHelp/Asiriyappaa">#= asiriyappaa #</a></li>
-                    <li><a href="/ProsodyHelp/Kalippaa">#= kalippaa #</a></li>
-                    <li><a href="/ProsodyHelp/Vanjippaa">#= vanjippaa #</a></li>
+                    <li data-localize="venpaa"><a href="/ProsodyHelp/Venpaa"><span class="ltext"></span></a></li>
+                    <li data-localize="asiriyappaa"><a href="/ProsodyHelp/Asiriyappaa"><span class="ltext"></span></a></li>
+                    <li data-localize="kalippaa"><a href="/ProsodyHelp/Kalippaa"><span class="ltext"></span></a></li>
+                    <li data-localize="vanjippaa"><a href="/ProsodyHelp/Vanjippaa"><span class="ltext"></span></a></li>
                 </ul>
             </li>
             # var paaCategories = ProsodyResourceManager.get("paaCategories"); #
             # var venpaavinam = ProsodyResourceManager.get("venpaavinam");  var asiriyappaavinam = ProsodyResourceManager.get("asiriyappaavinam"); #
             # var kalippaavinam = ProsodyResourceManager.get("kalippaavinam");  var vanjippaavinam = ProsodyResourceManager.get("vanjippaavinam"); #
             <li class="dropdown hidden">
-                <a href="\#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">#= paaCategories # <i class="glyph glyph-chevron-down-2"></i></a>
+                <a href="\#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" data-localize="paaCategories"><span class="ltext"></span><i class="glyph glyph-chevron-down-2"></i></a>
                 <ul class="dropdown-menu nosel" role="menu">
-                    <li><a href="/ProsodyHelp/Venpaavinam">#= venpaavinam #</a></li>
-                    <li><a href="/ProsodyHelp/Asiriyappaavinam">#= asiriyappaavinam #</a></li>
-                    <li><a href="/ProsodyHelp/Kalippaavinam">#= kalippaavinam #</a></li>
-                    <li><a href="/ProsodyHelp/Vanjippaavinam">#= vanjippaavinam #</a></li>
+                    <li data-localize="venpaavinam"><a href="/ProsodyHelp/Venpaavinam"><span class="ltext"></span></a></li>
+                    <li data-localize="asiriyappaavinam"><a href="/ProsodyHelp/Asiriyappaavinam"><span class="ltext"></span></a></li>
+                    <li data-localize="kalippaavinam"><a href="/ProsodyHelp/Kalippaavinam"><span class="ltext"></span></a></li>
+                    <li data-localize="vanjippaavinam"><a href="/ProsodyHelp/Vanjippaavinam"><span class="ltext"></span></a></li>
                 </ul>
             </li>
         </ul>
