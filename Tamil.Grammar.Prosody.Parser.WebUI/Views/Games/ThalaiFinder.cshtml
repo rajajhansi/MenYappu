@@ -4,8 +4,8 @@
 
 <ul class="kendo-panelbars-custom" id="seyyulbar">
     <li>
-        <h4 class="main-title">
-            வாக்கியத்தை உள்ளிடவும் (குறைந்தது 2 சீர்கள் அவசியம்)
+        <h4 class="main-title" data-localize="inputSentence">
+            <span class="ltext"></span>
             <span class="main-title-icon glyph glyph-chevron-down"></span>
         </h4>
         <ul>
@@ -15,16 +15,20 @@
                         <div class="col-md-8"id="input" >
 
                         </div>
-                        <div class="col-md-8 hidden" id="thalaiSelector">
-                            <h4 class="game-section-title text-center">
-                                தளை வகை
+                        <div class="col-md-8 hidden" id="thalaiSelector" >
+                            <h4 class="game-section-title text-center"data-localize="linkageTypes">
+                                <span class="ltext"></span>
                             </h4>
 
                             <div id="thalaiType" class="type-t7 text-center">
-                                <p class="form-group-label">தளை வகை</p>
+                                <p class="form-group-label" data-localize="linkageTypes">
+                                    <span class="ltext"></span>
+                                </p>
                                 <div class="dropdown">
                                     <button id="thalai-dropdown" class="btn btn-dropdown dropdown-toggle" type="button" data-toggle="dropdown"
-                                            aria-haspopup="true" role="button" aria-expanded="false">தளை வகையைத் தேர்ந்தெடு<span class="caret"></span>
+                                            aria-haspopup="true" role="button" aria-expanded="false" data-localize="selectALinkageType">
+                                        <span class="ltext"></span>
+                                        <span class="caret"></span>
                                     </button>
                                     <ul class="dropdown-menu" role="menu" aria-labelledby="thalai-dropdown">
                                         <li><a href="#">நேரொன்றாசிரியத்தளை</a></li>

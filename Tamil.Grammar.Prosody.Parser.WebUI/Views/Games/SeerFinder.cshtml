@@ -4,8 +4,8 @@
 
 <ul class="kendo-panelbars-custom" id="seyyulbar">
     <li>
-        <h4 class="main-title">
-            ஒரேயொரு சீரை உள்ளிடவும்
+        <h4 class="main-title" data-localize="inputOnlyOneMetricalFoot" >
+            <span class="ltext"></span>
             <span class="main-title-icon glyph glyph-chevron-down"></span>
         </h4>
         <ul>
@@ -16,11 +16,12 @@
 
                         </div>
                         <div class="col-md-6 hidden" id="asaiSelector">
-                            <h4 class="game-section-title text-center">
-                                அசை வகைகள்
+                            <h4 class="game-section-title text-center" data-localize="metremeTypes">
+                                <span class="ltext"></span>
                             </h4>
-                            <div id="asaiCalculator" class="text-center text-t5">
-                                <span>எண்ணிக்கை:</span>
+                            <div id="asaiCalculator" class="text-center text-t5" data-localize="count">
+                                <span class="ltext"></span>
+                                <span>:</span>
                                 <span id="AsaiCount"></span>
                             </div>
                             <div id="asaiTypes" class="type-t7 text-center">
@@ -40,10 +41,12 @@
 
 <script type="text/x-kendo-template" id="asaiTemplate">
     # var asaiId = 'asai-dropdown-' + asaiIndex; #
-    <p class="form-group-label">அசை வகை</p>
+    <p class="form-group-label" data-localize="metremeType">
+        <span class="ltext"></span>
+    </p>
     <div class="dropdown">
-        <button id="#= asaiId #" class="btn btn-dropdown dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
-            அசை வகையைத் தேர்ந்தெடு<span class="caret"></span>
+        <button id="#= asaiId #" class="btn btn-dropdown dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false" data-localize="selectAMetremeType">
+            <span class="ltext"></span><span class="caret"></span>
         </button>
         <ul class="dropdown-menu" role="menu" aria-labelledby="#= asaiId #">
             <li><a href="\\#">நேர்</a></li>
@@ -53,10 +56,10 @@
 </script>
 
 <script type="text/x-kendo-template" id="seerTemplate">
-    <p class="form-group-label">சீர் வகை</p>
+    <p class="form-group-label" data-localize="metricalFootType"><span class="ltext"></span></p>
     <div class="dropdown">
-        <button id="seer-dropdown" class="btn btn-dropdown dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
-            சீர் வகையைத் தேர்ந்தெடு<span class="caret"></span>
+        <button id="seer-dropdown" class="btn btn-dropdown dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false" data-localize="selectAMetricalFootType">
+            <span class="ltext"></span><span class="caret"></span>
         </button>
         <ul class="dropdown-menu" role="menu" aria-labelledby="seer-dropdown">
             # if (asaiCount === 1) { #

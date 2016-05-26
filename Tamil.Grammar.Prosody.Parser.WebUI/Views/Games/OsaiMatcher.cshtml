@@ -7,8 +7,8 @@
 <script type="text/x-kendo-template" id="osaiVagaiInputTemplate">
     <ul class="kendo-panelbars-custom" id="seyyulbar">
         <li>
-            <h4 class="main-title">
-                #= ProsodyResourceManager.get("soundMatcher") #
+            <h4 class="main-title" data-localize="soundMatcher">
+                <span class="ltext"></span>
                 <span class="main-title-icon glyph glyph-chevron-down"></span>
             </h4>
             <ul>
@@ -16,12 +16,12 @@
                     <form id="prosodyForm" data-parsley-validate="" class="form-horizontal" action="/api/Prosody/MathiraiCount" method="POST">
                         <div class="row row-md">
                             <div class="col-md-8" id="input">
-                                <h4 class="game-section-title">
-                                    #= ProsodyResourceManager.get("soundTypes") #
+                                <h4 class="game-section-title" data-localize="soundTypes">
+                                    <span class="ltext"></span>
                                 </h4>
                                 # var inputInfotip = ProsodyResourceManager.get("soundMatcherInfoTip"); #
-                                <div class="infotip">
-                                    <span class="text-t9">#= inputInfotip #</span>
+                                <div class="infotip" data-localize="soundMatcherInfoTip">
+                                    <span class="text-t9"><span class="ltext"></span></span>
                                 </div>
                                 <div id="osaiTypes" class="type-t7">
 
@@ -29,22 +29,22 @@
                                 # var sample = ProsodyResourceManager.get("sample"); var checkAnswer = ProsodyResourceManager.get("checkAnswer"); #
                                 <div class="control-group">
                                     <div class="controls">
-                                        <button class="btn btn-primary btn-with-glyph" id="example"><i class="glyph glyph-import "></i>#= sample #</button>
-                                        <button type="submit" class="btn btn-primary btn-with-glyph" id="checkResult"><i class="glyph glyph-message"></i>#= checkAnswer #</button>
+                                        <button class="btn btn-primary btn-with-glyph" id="example" data-localize="sample"><i class="glyph glyph-import "></i><span class="ltext"></span></button>
+                                        <button type="submit" class="btn btn-primary btn-with-glyph" id="checkResult" data-localize="checkAnswer"><i class="glyph glyph-message"></i><span class="ltext"></span></button>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="col-md-8" id="osaiDefinitionSelector">
-                                <h4 class="game-section-title">
-                                    #= ProsodyResourceManager.get("soundDefinition") #
+                                <h4 class="game-section-title" data-localize="soundDefinition">
+                                    <span class="ltext"></span>
                                 </h4>
 
                                 <div id="osaiDefinition" class="type-t7">
 
                                 </div>
-                                <h4 class="game-section-title">
-                                    #= ProsodyResourceManager.get("paaSound") #
+                                <h4 class="game-section-title" data-localize="paaSound">
+                                    <span class="ltext"></span>
                                 </h4>
 
                                 <div id="osaiInPaa" class="type-t7">

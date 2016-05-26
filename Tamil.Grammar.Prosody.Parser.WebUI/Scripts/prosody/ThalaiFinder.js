@@ -4,8 +4,8 @@
         var inputTemplate = kendo.template($("#inputTemplate").html());
         $("#input")
             .append(inputTemplate({
-                inputTitle: "வாக்கியம்",
-                inputInfotip: "இரு சீர்களை மட்டும் உள்ளிடவும் (அ) கீழேயுள்ள “மாதிரி” பொத்தானை அழுத்தவும்.",
+                inputTitle: "sentence",
+                inputInfotip: "linkageTypeInfoTip",
                 inputLines: 1
             }));
         // set the context help

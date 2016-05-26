@@ -483,8 +483,41 @@
   <data name="YourFavoriteTamilPortal" xml:space="preserve">
     <value>Your favorite Tamil grammar learning portal!</value>
   </data>
+  <data name="AlliterationType" xml:space="preserve">
+    <value>Alliteration Type</value>
+  </data>
+  <data name="AlliterationWord" xml:space="preserve">
+    <value>Alliteration word</value>
+  </data>
+  <data name="CountOfMetricalLines" xml:space="preserve">
+    <value>Count of Metrical Lines</value>
+  </data>
+  <data name="EndRhymeType" xml:space="preserve">
+    <value>End Rhyme Type</value>
+  </data>
+  <data name="EndRhymeWord" xml:space="preserve">
+    <value>End Rhyme word</value>
+  </data>
+  <data name="FirstWord" xml:space="preserve">
+    <value>First word</value>
+  </data>
+  <data name="InputMetricalLine" xml:space="preserve">
+    <value>Input Metrical Line (requires atleast 2 Metrical Feet)</value>
+  </data>
   <data name="InputOnlyOneMetricalFoot" xml:space="preserve">
     <value>Input only one Metrical Foot</value>
+  </data>
+  <data name="InputSentence" xml:space="preserve">
+    <value>Input a sentece (requires at least 2 Metrical Feet)</value>
+  </data>
+  <data name="LinkageType" xml:space="preserve">
+    <value>Linkage Type</value>
+  </data>
+  <data name="LinkageTypeInfoTip" xml:space="preserve">
+    <value>Input only 2 Metrical Feet (or) click on "Sample" button below.</value>
+  </data>
+  <data name="LinkageTypes" xml:space="preserve">
+    <value>Linkage Types</value>
   </data>
   <data name="MetremeType" xml:space="preserve">
     <value>Metreme Type</value>
@@ -495,7 +528,67 @@
   <data name="MetricalFootInfoTip" xml:space="preserve">
     <value>Split the metremes using ‘/’ symbol. For e.g.,  you can syllable the word "மனிதம்" like ”மனி” / “தம்”.</value>
   </data>
+  <data name="MetricalFootType" xml:space="preserve">
+    <value>Metrical Foot Type</value>
+  </data>
+  <data name="MetricalFootTypes" xml:space="preserve">
+    <value>Metrical Foot Types</value>
+  </data>
+  <data name="MetricalLineInfoTip" xml:space="preserve">
+    <value>Input Metrical Line (requires atleast 1 Metrical Foot in that Metrical Line)</value>
+  </data>
+  <data name="MetricalLines" xml:space="preserve">
+    <value>Metrical Lines</value>
+  </data>
+  <data name="MetricalLineType" xml:space="preserve">
+    <value>Metrical Line Type</value>
+  </data>
+  <data name="MetricalLineTypes" xml:space="preserve">
+    <value>Metrical Line Types</value>
+  </data>
+  <data name="OrnamentationInfoTip" xml:space="preserve">
+    <value>Input at least 1 Metrical Line (requires atleast 2 Metrical Feet in that Metrical Line)</value>
+  </data>
+  <data name="OrnamentationType" xml:space="preserve">
+    <value>Ornamentation Type</value>
+  </data>
+  <data name="OrnamentationTypes" xml:space="preserve">
+    <value>Ornamentation Types</value>
+  </data>
+  <data name="RhymeType" xml:space="preserve">
+    <value>Rhyme Type</value>
+  </data>
+  <data name="RhymeWord" xml:space="preserve">
+    <value>Rhyme word</value>
+  </data>
+  <data name="SecondWord" xml:space="preserve">
+    <value>Second word</value>
+  </data>
+  <data name="SelectALinkageType" xml:space="preserve">
+    <value>Select a Linkage Type</value>
+  </data>
   <data name="SelectAMetremeType" xml:space="preserve">
     <value>Select a Mereme Type</value>
+  </data>
+  <data name="SelectAMetricalFootType" xml:space="preserve">
+    <value>Select a Metrical Foot Type</value>
+  </data>
+  <data name="SelectAMetricalLineType" xml:space="preserve">
+    <value>Select a Metrical Line Type</value>
+  </data>
+  <data name="SelectAnAlliterationType" xml:space="preserve">
+    <value>Select an Alliteration Type</value>
+  </data>
+  <data name="SelectAnEndRhymeType" xml:space="preserve">
+    <value>Select an End Rhyme Type</value>
+  </data>
+  <data name="SelectARhymeType" xml:space="preserve">
+    <value>Select a Rhyme Type</value>
+  </data>
+  <data name="Sentence" xml:space="preserve">
+    <value>Sentence</value>
+  </data>
+  <data name="Words" xml:space="preserve">
+    <value>Words</value>
   </data>
 </root>
