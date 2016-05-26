@@ -80,10 +80,13 @@
                     <a class="page-scroll" href="/ProsodyHelp/Introduction" data-localize="prosody"><span class="ltext"></span></a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="\#landingContact" data-localize="contact"><span class="ltext"></span></a>
+                    <a class="page-scroll" href="\#videosAbout" data-localize="videosAbout"><span class="ltext">Videos</span></a>
                 </li>
                 <li>
-                    <form class="navbar-form navbar-right" role="search">
+                    <a class="page-scroll" href="\#contact" data-localize="contact"><span class="ltext">Contact</span></a>
+                </li>
+                <li class="language-form-wrapper">
+                    <form class="navbar-form navbar-right language-form" role="search">
                         <div class="dropdown">
                             <button id="language" class="btn btn-dropdown dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
                                 <span class="caret"></span>
@@ -138,12 +141,39 @@
                                 </div>
                             </div>
                         </div>
+                        
                         <a href="\#about2" class="btn btn-default btn-xl page-scroll" data-localize="startLearning"><span class="ltext"></span></a>
                     </div>
                 </div>
             </div>
 
         </script>
+        
+        <script type="text/x-kendo-template" id="videosAboutSection">
+            # var weGotWhatYouNeed = ProsodyResourceManager.get("weGotWhatYouNeed"); var menyappuHasAll = ProsodyResourceManager.get("menyappuHasAll");#
+            # var startLearning = ProsodyResourceManager.get("startLearning"); #
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2 class="section-heading" data-localize="weGotWhatYouNeed"><span class="ltext"></span></h2>
+                        <hr class="light">
+                        <p class="text-faded" data-localize="menyappuHasAll"></p>
+                        
+                        <div>
+                            <div class="owl-carousel owl-theme vid-carousel" id="vid-carousel">
+                                <div class="item-video"><a data-merge="3" class="owl-video" href="https://www.youtube.com/watch?v=fC_guUOUSWg"></a></div>
+                                <div class="item-video"><a data-merge="1" class="owl-video" href="https://www.youtube.com/watch?v=AH4bCeBXFm4"></a></div>
+                                <div class="item-video"><a data-merge="1" class="owl-video" href="https://www.youtube.com/watch?v=k3Ad5SMGwUo"></a></div>
+                                <div class="item-video"><a data-merge="1" class="owl-video" href="https://www.youtube.com/watch?v=a0ueXiAs6i4"></a></div>
+                            </div>
+                        </div>
+                        <br/>
+                        <a href="\#about2" class="btn btn-default btn-xl page-scroll" data-localize="startLearning"><span class="ltext"></span></a>
+                    </div>
+                </div>
+            </div>
+        </script>    
+        
     <script type="text/x-kendo-template" id="about2Section">
         # var menyappuAnEffort = ProsodyResourceManager.get("menyappuAnEffort"); #
         <div class="container">
@@ -357,8 +387,7 @@
                             </div>
                         </a>
                     </div>
-                </div>
-                <div class="row">
+                    
                     <div class="col-lg-4 col-sm-6">
                         <a href="/Games/Quiz" class="portfolio-box">
                             <img src="/Landing/img/games/quiz.png" class="img-responsive" alt="">
@@ -377,7 +406,9 @@
                 </div>
             </div>
         </section>
-
+    </script>
+    
+    <script type="text-x-kendo-template" id="contactTemplate">
         <section id="landingContact">
             # var letsGetInTouch = ProsodyResourceManager.get("letsGetInTouch"); var contributeToMenyappu = ProsodyResourceManager.get("contributeToMenyappu"); #
             <div class="container">
@@ -409,7 +440,9 @@
         <div id="landingHeader"></div>
     </header>
     <section class="bg-primary" id="about"></section>
-    <div id="services"></div>
+    <section id="services"></section>
+    <section class="bg-primary" id="videosAbout"></section>    
+    <section id="contact"></section>
 
         <!--The Owl Slider -->
         <script src="/Landing/js/owl.carousel.min.js">
@@ -433,6 +466,10 @@
                     $("#about2Header").append(menyappuAnEffort);
                     var servicesTemplate = kendo.template($("#servicesTemplate").html());
                     $("#services").append(servicesTemplate({}));
+                    var videosAboutSection = kendo.template($("#videosAboutSection").html());
+                    $("#videosAbout").append(videosAboutSection({}));
+                    var contactTemplate = kendo.template($("#contactTemplate").html());
+                    $("#contact").append(contactTemplate({}));
                     Utility.wireDropdownTooltipAndPopoverHandlers();
                     // Initialize WOW.js Scrolling Animations
                     new WOW().init();
@@ -448,6 +485,23 @@
                         margin: 10,
                         stagePadding: 0,
                         smartSpeed: 450
+                    });
+                    
+                    $('#vid-carousel').owlCarousel({
+                        items:1,
+                        loop:true,
+                        margin:10,
+                        video:true,
+                        lazyLoad:true,
+                        center:true,
+                        responsive:{
+                            480:{
+                                items:2
+                            },
+                            600:{
+                                items:4
+                            }
+                        }
                     });
                 });
         </script>
