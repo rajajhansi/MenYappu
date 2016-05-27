@@ -1474,7 +1474,7 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to We have very provided videos that teach you Tamil grammar  easily as well as research paper presentation videos in this site..
+        ///   Looks up a localized string similar to We have provided tutorial as well as simple research paper presentation videos that will easily teach you Tamil grammar in this site..
         /// </summary>
         public static string VideosInfo {
             get {
