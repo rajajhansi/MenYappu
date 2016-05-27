@@ -330,6 +330,8 @@
     <Content Include="Content\icons\ms-icon-70x70.png" />
     <Content Include="Content\kendo\2016.1\kendo.common.css" />
     <Content Include="Content\kendo\2016.1\kendo.default.css" />
+    <Content Include="Content\menyappu_logo\fonts\menyappu.svg" />
+    <Content Include="Content\menyappu_logo\menyappu.css" />
     <Content Include="Content\prosody.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
@@ -689,6 +691,9 @@
     </Content>
     <Content Include="App_Data\thirukkuralathikaarams.json" />
     <Content Include="App_Data\qa.json" />
+    <Content Include="Content\menyappu_logo\fonts\menyappu.eot" />
+    <Content Include="Content\menyappu_logo\fonts\menyappu.ttf" />
+    <Content Include="Content\menyappu_logo\fonts\menyappu.woff" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

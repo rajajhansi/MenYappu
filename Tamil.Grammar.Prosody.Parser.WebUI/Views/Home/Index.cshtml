@@ -15,6 +15,7 @@
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/Landing/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/Content/menyappu_logo/menyappu.css"  />
     @Styles.Render("~/Content/prosody")
 
     @Scripts.Render("~/bundles/jquery")
@@ -51,7 +52,7 @@
 
 </head>
 <body id="page-top">
-    <script type="text/x-kendo-template" id="landingTopNavTemplate">
+<script type="text/x-kendo-template" id="landingTopNavTemplate">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="\#bs-example-navbar-collapse-1">
@@ -61,9 +62,11 @@
                 <span class="icon-bar"></span>
             </button>
             # var menYappu = ProsodyResourceManager.get("menYappu"); #
-            <a class="navbar-brand page-scroll" href="/" data-localize="menYappu"><span class="ltext"></span></a>
+            <a class="navbar-brand page-scroll wow bounceIn" href="/" data-localize="menYappu">
+                <span class="icon-Menyappu_logo p-x-2" style="margin-right: 5px; vertical-align: middle; font-size: 24px;"></span>
+                <span class="ltext" style="vertical-align: middle;"></span></a>
         </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Collect the nav links, forms, and other content for togglin -->
         # var aboutMenYappu = ProsodyResourceManager.get("aboutMenYappu"); #
         # var games = ProsodyResourceManager.get("games"); #
         # var prosody = ProsodyResourceManager.get("prosody"); var contact = ProsodyResourceManager.get("contact"); #
@@ -108,9 +111,9 @@
         # var improveKnowledge = ProsodyResourceManager.get("improveKnowledge"); var findOutMore = ProsodyResourceManager.get("findOutMore"); #
         <div class="header-content">
             <div class="header-content-inner">
-                <h1><span class="boxed" data-localize="yourFavoriteTamilPortal"><span class="ltext"></span></span></h1>
+                <h1  class="boxed"><span data-localize="yourFavoriteTamilPortal"><span class="ltext"></span></span></h1>
                 <hr>
-                <p class="text-white"><span class="boxed" data-localize="improveKnowledge"><span class="ltext"></span></span></p>
+                <p class="text-white boxed"><span  data-localize="improveKnowledge"><span class="ltext"></span></span></p>
                 <a href="\#about" class="btn btn-primary btn-xl page-scroll" data-localize="findOutMore"><span class="ltext"></span></a>
             </div>
         </div>
@@ -161,10 +164,10 @@
 
                         <div>
                             <div class="owl-carousel owl-theme vid-carousel" id="vid-carousel">
-                                <div class="item-video"><a data-merge="3" class="owl-video" href="https://www.youtube.com/watch?v=fC_guUOUSWg"></a></div>
-                                <div class="item-video"><a data-merge="1" class="owl-video" href="https://www.youtube.com/watch?v=AH4bCeBXFm4"></a></div>
-                                <div class="item-video"><a data-merge="1" class="owl-video" href="https://www.youtube.com/watch?v=k3Ad5SMGwUo"></a></div>
-                                <div class="item-video"><a data-merge="1" class="owl-video" href="https://www.youtube.com/watch?v=a0ueXiAs6i4"></a></div>
+                                <div class="item-video"><a data-merge="" class="owl-video" href="https://www.youtube.com/watch?v=fC_guUOUSWg"></a></div>
+                                <div class="item-video"><a data-merge="" class="owl-video" href="https://www.youtube.com/watch?v=AH4bCeBXFm4"></a></div>
+                                <div class="item-video"><a data-merge="" class="owl-video" href="https://www.youtube.com/watch?v=k3Ad5SMGwUo"></a></div>
+                                <div class="item-video"><a data-merge="" class="owl-video" href="https://www.youtube.com/watch?v=a0ueXiAs6i4"></a></div>
                             </div>
                         </div>
                         <br/>
@@ -452,58 +455,72 @@
         <script src="/Landing/js/wow.min.js"></script>
         <!-- Custom Theme JavaScript -->
         <script src="/Landing/js/creative.js"></script>
-        <script>
-            $(document)
-                .ready(function() {
-                    var landingTopNavTemplate = kendo.template($("#landingTopNavTemplate").html());
-                    $("#landingTopNav").append(landingTopNavTemplate({}));
-                    var landingHeaderTemplate = kendo.template($("#landingHeaderTemplate").html());
-                    $("#landingHeader").append(landingHeaderTemplate({}));
-                    var aboutSection = kendo.template($("#aboutSection").html());
-                    $("#about").append(aboutSection({}));
-                    var menyappuAnEffort = ProsodyResourceManager.get("menyappuAnEffort");
-                    $("#about2Header").append(menyappuAnEffort);
-                    var servicesTemplate = kendo.template($("#servicesTemplate").html());
-                    $("#services").append(servicesTemplate({}));
-                    var videosAboutSection = kendo.template($("#videosAboutSection").html());
-                    $("#videosAbout").append(videosAboutSection({}));
-                    var contactTemplate = kendo.template($("#contactTemplate").html());
-                    $("#contact").append(contactTemplate({}));
-                    Utility.wireDropdownTooltipAndPopoverHandlers();
-                    // Initialize WOW.js Scrolling Animations
-                    new WOW().init();
+<script>
+    $(document)
+        .ready(function() {
+            var landingTopNavTemplate = kendo.template($("#landingTopNavTemplate").html());
+            $("#landingTopNav").append(landingTopNavTemplate({}));
+            var landingHeaderTemplate = kendo.template($("#landingHeaderTemplate").html());
+            $("#landingHeader").append(landingHeaderTemplate({}));
+            var aboutSection = kendo.template($("#aboutSection").html());
+            $("#about").append(aboutSection({}));
+            var menyappuAnEffort = ProsodyResourceManager.get("menyappuAnEffort");
+            $("#about2Header").append(menyappuAnEffort);
+            var servicesTemplate = kendo.template($("#servicesTemplate").html());
+            $("#services").append(servicesTemplate({}));
+            var videosAboutSection = kendo.template($("#videosAboutSection").html());
+            $("#videosAbout").append(videosAboutSection({}));
+            var contactTemplate = kendo.template($("#contactTemplate").html());
+            $("#contact").append(contactTemplate({}));
+            Utility.wireDropdownTooltipAndPopoverHandlers();
+            // Initialize WOW.js Scrolling Animations
+            new WOW().init();
 
-                    $('#carous-ss').owlCarousel({
-                        items: 1,
-                        autoPlay: 3000,
-                        nav: true,
-                        navText: [
-                            '<i class="fa fa-chevron-left fa-3x wow bounceIn" style="visibility: visible; animation-name: bounceIn;"></i>',
-                            '<i class="fa fa-chevron-right fa-3x wow bounceIn" style="visibility: visible; animation-name: bounceIn;"></i>'
-                        ],
-                        margin: 10,
-                        stagePadding: 0,
-                        smartSpeed: 450
-                    });
-
-                    $('#vid-carousel').owlCarousel({
-                        items:1,
-                        loop:true,
-                        margin:10,
-                        video:true,
-                        lazyLoad:true,
-                        center:true,
-                        responsive:{
-                            480:{
-                                items:2
-                            },
-                            600:{
-                                items:4
-                            }
-                        }
-                    });
+            $('#carous-ss')
+                .owlCarousel({
+                    items: 1,
+                    autoPlay: 3000,
+                    nav: true,
+                    navText: [
+                        '<i class="fa fa-chevron-left fa-3x wow bounceIn" style="visibility: visible; animation-name: bounceIn;"></i>',
+                        '<i class="fa fa-chevron-right fa-3x wow bounceIn" style="visibility: visible; animation-name: bounceIn;"></i>'
+                    ],
+                    margin: 10,
+                    stagePadding: 0,
+                    smartSpeed: 450
                 });
-        </script>
+
+            $('#vid-carousel')
+                .owlCarousel({
+                    items: 1,
+                    loop: true,
+                    //margin:10,
+                    video: true,
+                    lazyLoad: true,
+                    center: true
+                    //responsive:{
+                    //    480:{
+                    //        items:2
+                    //    },
+                    //    600:{
+                    //        items:4
+                    //    }
+                    //}
+                });
+        });
+</script>
+<!-- Overriding some video player styles -->
+<style>
+    .owl-carousel .item-video {
+        height: 500px;
+    }
+    .owl-carousel .owl-video-wrapper {
+        background: #026;
+    }
+    .vid-carousel .owl-dots {
+        background: #026;
+    }
+</style>
 </body>
 </html>
 
