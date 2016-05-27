@@ -262,7 +262,7 @@
     <value>Word</value>
   </data>
   <data name="AboutMenYappuDetails" xml:space="preserve">
-    <value>MenYappu is a website that has all the services essential for poem writers like spell checker/corrector, prosody games, poem composer and poem analyzer integrated and presented in a very simple, intuitive user interface. Since the services are also exposed as web services, mobile phone users can write an app in their preferred platforms like Apple IOS, Android or Windows Mobile usiing these web services and consume them.</value>
+    <value>MenYappu is a website that has all the services essential for poem writers like prosody games, poem composer and poem analyzer integrated and presented in a very simple, intuitive user interface. Since the services are also exposed as web services, mobile phone users can write an app in their preferred platforms like Apple IOS, Android or Windows Mobile usiing these web services and consume them.</value>
   </data>
   <data name="Asiriyappaa" xml:space="preserve">
     <value>Asiriyappaa</value>
@@ -611,5 +611,18 @@
   </data>
   <data name="VideosInfo" xml:space="preserve">
     <value>We have provided tutorial as well as simple research paper presentation videos that will easily teach you Tamil grammar in this site.</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="AddressDetail" xml:space="preserve">
+    <value>5675 Kimberly St., 
+San Jose, CA 95129</value>
+  </data>
+  <data name="Game" xml:space="preserve">
+    <value>Game</value>
+  </data>
+  <data name="PlayThisGame" xml:space="preserve">
+    <value>To make sure that you have understood the concepts of this part of prosody, why don't you play the game and the quiz related to this prosody part?</value>
   </data>
 </root>

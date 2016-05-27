@@ -4,8 +4,8 @@
         <span class="ltext"></span>
     </div>
     <div class="m-b-lg">
-        <button class="btn btn-primary btn-with-glyph pull-right" id="btn-quiz"  data-localize="quiz"><i class="glyph glyph-show-results "></i><span class="ltext"></span></button>
-        <button class="btn btn-primary btn-with-glyph pull-right" id="btn-help"  data-localize="help"><i class="glyph glyph-help "></i><span class="ltext"></span></button>
+        <button class="btn btn-primary btn-with-glyph pull-right" id="btn-quiz" data-localize="quiz"><i class="glyph glyph-show-results "></i><span class="ltext"></span></button>
+        <button class="btn btn-primary btn-with-glyph pull-right" id="btn-help" data-localize="help"><i class="glyph glyph-help "></i><span class="ltext"></span></button>
     </div>
     <div class="infotip">
         <span class="text-t9" data-localize="#= inputInfotip #"><span class="ltext"></span></span>
@@ -15,7 +15,7 @@
     # var clear = ProsodyResourceManager.get("clear"); #
     <div class="control-group">
         <div class="controls">
-            <button class="btn btn-primary btn-with-glyph" id="example"  data-localize="sample"><i class="glyph glyph-import "></i><span class="ltext"></span></button>
+            <button class="btn btn-primary btn-with-glyph" id="example" data-localize="sample"><i class="glyph glyph-import "></i><span class="ltext"></span></button>
             <button type="reset" class="btn btn-default" data-localize="clear"><span class="ltext"></span></button>
             <button type="submit" class="btn btn-primary btn-with-glyph" id="checkResult" data-localize="checkAnswer"><i class="glyph glyph-message"></i><span class="ltext"></span></button>
         </div>
@@ -104,9 +104,9 @@
 
 <script type="text/x-kendo-template" id="quizResultTemplate">
     <div class="text-t3 text-center" data-localize="result"><span class="ltext"></span></div>
-    <br/>
+    <br />
     <div id="score" class="text-t5 text-right"></div>
-    <br/>
+    <br />
     # $.each(data, function(index, value) { #
     <a href="\#"><span class="questionNumber unanswered text-t5">#= index + 1 #</span></a>
     # }); #
@@ -114,7 +114,7 @@
     <br />
 
     # $.each(data, function(index, value) { #
-    <div id="#= 'q-' + (index + 1) #" >
+    <div id="#= 'q-' + (index + 1) #">
         <br />
         <a href="\#"><span class="questionNumber unanswered text-t5">#= index + 1 #</span></a>#= value['q'] #
         # console.log(data.length); console.log(data[index]['t']); console.log(data[index]['c']); #
@@ -167,7 +167,7 @@
     <div class="flip-container_click">
         <div class="flipper">
             <div class="front">
-                <h4 class="game-section-title text-center"  data-localize="result">
+                <h4 class="game-section-title text-center" data-localize="result">
                     <span class="ltext"></span>
                 </h4>
                 <div class="type-t5" data-localize="howToSeeTheResult">
@@ -270,7 +270,7 @@
                 # var close = ProsodyResourceManager.get("close"); #
                 <table class="table">
                     <thead>
-                        <tr><th>#= task #</th><th data-localize=""executor><span class="ltext"></span></th></tr>
+                        <tr><th data-localize="task"><span class="ltext"></span></th><th data-localize="executor"><span class="ltext"></span></th></tr>
                     </thead>
                     <tbody>
                         <tr><td data-localize="softwareDevelopment"><span class="ltext"> </span></td><td data-localize="rajaMani"><span class="ltext"></span></td></tr>
@@ -305,7 +305,7 @@
     # var audio = ProsodyResourceManager.get("audio"); var video = ProsodyResourceManager.get("video"); #
     # var audioButtonId = "play-audio-" + part + '-' + container; var videoButtonId = "play-video-" + part + '-' + container; #
     # var modalVideoId = "\#modal-video-" + part + '-' + container; #
-    <button id="#= audioButtonId #" class="btn btn-primary btn-with-glyph" data-localize="audio"><i class="glyph glyph-play" ></i><span class="ltext"></span></button>
+    <button id="#= audioButtonId #" class="btn btn-primary btn-with-glyph" data-localize="audio"><i class="glyph glyph-play"></i><span class="ltext"></span></button>
     <button id="#= videoButtonId #" class="btn btn-primary btn-with-glyph" data-toggle="modal" data-target="#= modalVideoId #" data-localize="video"><i class="glyph glyph-video"></i><span class="ltext"></span></button>
 </script>
 
@@ -347,6 +347,15 @@
 
 <!-- Help Templates-->
 <script type="text/x-kendo-template" id="introductionHelpTemplate">
+    # var helptextClass = 'helptext-' + container; console.log(helptextClass); #
+    # var audioVideoControlsId = 'audio-video-controls-' + part + '-' + container; console.log(audioVideoControlsId); #
+    <div class="m-l-xxs" id="#= audioVideoControlsId #"></div>
+    <br />
+    <br />
+    # var videoModalDialogId = 'modal-video-' + part + '-' + container; #
+    <div class="modal modal-center-vertical" id="#= videoModalDialogId #" tabindex="-1" role="dialog" aria-labelledby="modal-about-menyappu-label" aria-hidden="true" style="display: none;">
+
+    </div>
     <h2>அறிமுகம்</h2>
     <div class="container-fluid">
         <div class="row">
@@ -358,12 +367,99 @@
                 <br /> யாப்பு, பாட்டு, தூக்கு, தொடர்பு, கவி, செய்யுள் – ஒரு பொருட் சொற்கள்
 
         </div>
+        <div class="row">
+            <div class="m-t-xs">
+                <span class="text-t3" id="eerasai">யாப்பின் உறுப்புகள்:</span>
+                <table class="table table-striped text-t7 m-t-sm">
+                    <thead>
+                        <tr>
+                            <th class="text-t3">உறுப்பு</th>
+                            <th class="text-t3">உதவி</th>
+                            <th class="text-t3">விளையாட்டு</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="thema">
+                            <td class="col-md-4 text-t4" data-localize="letter"><span class="ltext"></span></td>
+                            <td class="col-md-4">
+                                <a href="/ProsodyHelp/Letter" id="help-letter" class="btn btn-primary btn-with-glyph" data-localize="help"><i class="glyph glyph-help"></i><span class="ltext"></span></a>
+                            </td>
+                            <td>
+                                <a href="/Games/LetterTypeFinder" class="btn btn-primary btn-with-glyph" id="example" data-localize="letterTypeFinder"><i class="glyph glyph-import "></i><span class="ltext"></span></a>
+                            </td>
+                        </tr>
+                        <tr class="pulima">
+                            <td class="col-md-4 text-t4" data-localize="metreme"><span class="ltext"></span></td>
+                            <td class="col-md-4">
+                                <a href="/ProsodyHelp/Metreme" id="help-letter" class="btn btn-primary btn-with-glyph" data-localize="help"><i class="glyph glyph-help"></i><span class="ltext"></span></a>
+                            </td>
+                            <td>
+                                <a href="/Games/AsaiDivider" class="btn btn-primary btn-with-glyph" id="example" data-localize="syllableDivider"><i class="glyph glyph-import "></i><span class="ltext"></span></a>
+                            </td>
+                        </tr>
+                        <tr class="koovilam">
+                            <td class="col-md-4 text-t4" data-localize="metricalFeet"><span class="ltext"></span></td>
+                            <td class="col-md-4">
+                                <a href="/ProsodyHelp/MetricalFeet" id="help-letter" class="btn btn-primary btn-with-glyph" data-localize="help"><i class="glyph glyph-help"></i><span class="ltext"></span></a>
+                            </td>
+                            <td>
+                                <a href="/Games/SeerFinder" class="btn btn-primary btn-with-glyph" id="example" data-localize="metricalFootFinder"><i class="glyph glyph-import "></i><span class="ltext"></span></a>
+                            </td>
+                        </tr>
+                        <tr class="karuvilam">
+                            <td class="col-md-4 text-t4" data-localize="linkage"><span class="ltext"></span></td>
+                            <td class="col-md-4">
+                                <a href="/ProsodyHelp/Linkage" id="help-letter" class="btn btn-primary btn-with-glyph" data-localize="help"><i class="glyph glyph-help"></i><span class="ltext"></span></a>
+                            </td>
+                            <td>
+                                <a href="/Games/ThalaiFinder" class="btn btn-primary btn-with-glyph" id="example" data-localize="linkageFinder"><i class="glyph glyph-import "></i><span class="ltext"></span></a>
+                            </td>
+                        </tr>
+                        <tr class="thema">
+                            <td class="col-md-4 text-t4" data-localize="metricalLine"><span class="ltext"></span></td>
+                            <td class="col-md-4">
+                                <a href="/ProsodyHelp/MetricalLine" id="help-letter" class="btn btn-primary btn-with-glyph" data-localize="help"><i class="glyph glyph-help"></i><span class="ltext"></span></a>
+                            </td>
+                            <td>
+                                <a href="/Games/AdiMeasurer" class="btn btn-primary btn-with-glyph" id="example" data-localize="metricalLineMeasurer"><i class="glyph glyph-import "></i><span class="ltext"></span></a>
+                            </td>
+                        </tr>
+                        <tr class="pulima">
+                            <td class="col-md-4 text-t4" data-localize="ornamentation"><span class="ltext"></span></td>
+                            <td class="col-md-4">
+                                <a href="/ProsodyHelp/Ornamentation" id="help-letter" class="btn btn-primary btn-with-glyph" data-localize="help"><i class="glyph glyph-help"></i><span class="ltext"></span></a>
+                            </td>
+                            <td>
+                                <a href="/Games/ThodaiFinder" class="btn btn-primary btn-with-glyph" id="example" data-localize="ornamentationFinder"><i class="glyph glyph-import "></i><span class="ltext"></span></a>
+                            </td>
+                        </tr>
+                        <tr class="koovilam">
+                            <td class="col-md-4 text-t4" data-localize="sound"><span class="ltext"></span></td>
+                            <td class="col-md-4">
+                                <a href="/ProsodyHelp/Sound" id="help-letter" class="btn btn-primary btn-with-glyph" data-localize="help"><i class="glyph glyph-help"></i><span class="ltext"></span></a>
+                            </td>
+                            <td>
+                                <a href="/Games/OsaiMatcher" class="btn btn-primary btn-with-glyph" id="example" data-localize="soundMatcher"><i class="glyph glyph-import "></i><span class="ltext"></span></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
+
 </script>
+
 <script type="text/x-kendo-template" id="ezhuthuVagaiHelpTemplate">
     # var helptextClass = 'helptext-' + container; console.log(helptextClass); #
     # var audioVideoControlsId = 'audio-video-controls-' + part + '-' + container; console.log(audioVideoControlsId); #
     <div class="m-l-xxs" id="#= audioVideoControlsId #"></div>
+    <div class="infotip m-l-xxs" data-localize="playThisGame">
+        <span class="ltext"></span>
+    </div>
+    <div class="m-l-xxs">
+        <a href="/Games/LetterTypeFinder" class="btn btn-primary btn-with-glyph" id="example" data-localize="letterTypeFinder"><i class="glyph glyph-import "></i><span class="ltext"></span></a>
+    </div>
     <br />
     <br />
     # var videoModalDialogId = 'modal-video-' + part + '-' + container; #
@@ -641,6 +737,13 @@
 
     # var audioVideoControlsId = 'audio-video-controls-mathirai-' + container; console.log(audioVideoControlsId); #
     <div id="#= audioVideoControlsId #"></div>
+    <div class="m-l-xxs" id="#= audioVideoControlsId #"></div>
+    <div class="infotip m-l-xxs" data-localize="playThisGame">
+        <span class="ltext"></span>
+    </div>
+    <div class="m-l-xxs">
+        <a href="/Games/MathiraiCalculator" class="btn btn-primary btn-with-glyph" id="example" data-localize="mathiraiCalculator"><i class="glyph glyph-import "></i><span class="ltext"></span></a>
+    </div>
     <br />
     <br />
     # var videoModalDialogId = 'modal-video-mathirai-' + container; #
@@ -683,6 +786,12 @@
     # var tableClass = "table  type-" + tableText; console.log(tableClass);#
     # var audioVideoControlsId = 'audio-video-controls-asai-' + container; console.log(audioVideoControlsId); #
     <div class="m-l-xxs" id="#= audioVideoControlsId #"></div>
+    <div class="infotip m-l-xxs" data-localize="playThisGame">
+        <span class="ltext"></span>
+    </div>
+    <div class="m-l-xxs">
+        <a href="/Games/AsaiDivider" class="btn btn-primary btn-with-glyph" id="example" data-localize="syllableDivider"><i class="glyph glyph-import "></i><span class="ltext"></span></a>
+    </div>
     <br />
     <br />
     # var videoModalDialogId = 'modal-video-asai-' + container; #
@@ -772,7 +881,13 @@
 <script type="text/x-kendo-template" id="seerHelpTemplate">
     # var helptextClass = 'helptext-' + container; console.log(helptextClass); #
     # var audioVideoControlsId = 'audio-video-controls-seer-' + container; console.log(audioVideoControlsId); #
-    <div id="#= audioVideoControlsId #"></div>
+    <div class="m-l-xxs" id="#= audioVideoControlsId #"></div>
+    <div class="infotip m-l-xxs" data-localize="playThisGame">
+        <span class="ltext"></span>
+    </div>
+    <div class="m-l-xxs">
+        <a href="/Games/SeerFinder" class="btn btn-primary btn-with-glyph" id="example" data-localize="metricalFootFinder"><i class="glyph glyph-import "></i><span class="ltext"></span></a>
+    </div>
     <br />
     <br />
     # var videoModalDialogId = 'modal-video-seer-' + container; #
@@ -949,7 +1064,13 @@
 <script type="text/x-kendo-template" id="thalaiHelpTemplate">
     # var helptextClass = 'helptext-' + container; console.log(helptextClass); #
     # var audioVideoControlsId = 'audio-video-controls-thalai-' + container; console.log(audioVideoControlsId); #
-    <div id="#= audioVideoControlsId #"></div>
+    <div class="m-l-xxs" id="#= audioVideoControlsId #"></div>
+    <div class="infotip m-l-xxs" data-localize="playThisGame">
+        <span class="ltext"></span>
+    </div>
+    <div class="m-l-xxs">
+        <a href="/Games/ThalaiFinder" class="btn btn-primary btn-with-glyph" id="example" data-localize="linkageFinder"><i class="glyph glyph-import "></i><span class="ltext"></span></a>
+    </div>
     <br />
     <br />
     # var videoModalDialogId = 'modal-video-thalai-' + container; #
@@ -1018,10 +1139,89 @@
 
 </script>
 
+<script type="text/x-kendo-template" id="adiHelpTemplate">
+    # var helptextClass = 'helptext-' + container; console.log(helptextClass); #
+    # var audioVideoControlsId = 'audio-video-controls-adi-' + container; console.log(audioVideoControlsId); #
+    <div class="m-l-xxs" id="#= audioVideoControlsId #"></div>
+    <div class="infotip m-l-xxs" data-localize="playThisGame">
+        <span class="ltext"></span>
+    </div>
+    <div class="m-l-xxs">
+        <a href="/Games/AdiMeasurer" class="btn btn-primary btn-with-glyph" id="example" data-localize="metricalLineMeasurer"><i class="glyph glyph-import "></i><span class="ltext"></span></a>
+    </div>
+    <br />
+    <br />
+    # var videoModalDialogId = 'modal-video-adi-' + container; #
+    <div class="modal modal-center-vertical" id="#= videoModalDialogId #" tabindex="-1" role="dialog" aria-labelledby="modal-about-menyappu-label" aria-hidden="true" style="display: none;">
+
+    </div>
+    # var tableText = (container === 'main') ? 't7' : 't9'; #
+    # var tableClass = "table  type-" + tableText; console.log(tableClass);#
+    <div class="#= helptextClass #">
+        <span class="type-t6">அடி (Metrical line)</span>
+        <br />
+        சீர்கள் இணைந்து அடி ஆகும்.  செய்யுளில் இடம்பெறும் ஒரு வரியை அடி எனலாம். அடியில் வரும் சீர்களின் எண்ணிக்கைக்கு ஏற்ப அடிகள் பல வகைப்படும்.
+        <br />
+    </div>
+    <br />
+    <div class="#= helptextClass #">
+        <span class="type-t6">அடி வகை</span>
+    </div>
+    <table class="#= tableClass #">
+        <thead>
+            <tr>
+                <th>அடிகள் எண்ணிக்கை</th>
+                <th>அடி வகை</th>
+                <th>காட்டு</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="naal">
+                <td class="col-md-4">ஒரு சீர் உள்ள அடி</td>
+                <td class="col-md-4">தனிச்சொல்</td>
+                <td>மனிதம்</td>
+            </tr>
+            <tr class="malar">
+                <td>இரண்டு சீர்கள் உள்ள அடி</td>
+                <td>குறளடி</td>
+                <td>சுருங்கியது உலகமும்</td>
+            </tr>
+            <tr class="kaasu">
+                <td>மூன்று சீர்கள் உள்ள அடி</td>
+                <td>சிந்தடி</td>
+                <td>ஊரணியாய்த் தந்த கவி</td>
+            </tr>
+            <tr class="pirappu">
+                <td>நான்கு சீர்கள் உள்ள அடி</td>
+                <td>அளவடி</td>
+                <td>பாரதி தன்கவியால் பாரதில் தீந்தமிழை</td>
+            </tr>
+            <tr class="naal">
+                <td>ஐந்து சீர்கள் உள்ள அடி</td>
+                <td>நெடிலடி</td>
+                <td>பாரதி தன்கவியால் பாரதில் தீந்தமிழை ஊரணியாய்</td>
+            </tr>
+            <tr class="malar">
+                <td>ஆறு (அ) ஆறுக்கும் மேற்பட்ட சீர்கள் உள்ள அடி</td>
+                <td>கழிநெடிலடி</td>
+                <td>பாரதி தன்கவியால் பாரதில் தீந்தமிழை ஊரணியாய்த் தந்த</td>
+            </tr>
+        </tbody>
+    </table>
+
+</script>
+
 <script type="text/x-kendo-template" id="thodaiHelpTemplate">
     # var helptextClass = 'helptext-' + container; console.log(helptextClass); #
     # var tableText = (container === 'main') ? 't7' : 't9'; #
     # var tableClass = "table  type-" + tableText; console.log(tableClass);#
+    <div class="infotip m-l-xxs" data-localize="playThisGame">
+        <span class="ltext"></span>
+    </div>
+    <div class="m-l-xxs">
+        <a href="/Games/ThodaiFinder" class="btn btn-primary btn-with-glyph" id="example" data-localize="ornamentationFinder"><i class="glyph glyph-import "></i><span class="ltext"></span></a>
+    </div>
+    <br/>
     <div class="#= helptextClass #">
         <span class="type-t6" id="thodai">தொடை (Ornament/Ornamentation)</span>
         <br />
@@ -1249,76 +1449,16 @@
 
 </script>
 
-<script type="text/x-kendo-template" id="adiHelpTemplate">
-    # var helptextClass = 'helptext-' + container; console.log(helptextClass); #
-    # var audioVideoControlsId = 'audio-video-controls-adi-' + container; console.log(audioVideoControlsId); #
-    <div id="#= audioVideoControlsId #"></div>
-    <br />
-    <br />
-    # var videoModalDialogId = 'modal-video-adi-' + container; #
-    <div class="modal modal-center-vertical" id="#= videoModalDialogId #" tabindex="-1" role="dialog" aria-labelledby="modal-about-menyappu-label" aria-hidden="true" style="display: none;">
-
-    </div>
-    # var tableText = (container === 'main') ? 't7' : 't9'; #
-    # var tableClass = "table  type-" + tableText; console.log(tableClass);#
-    <div class="#= helptextClass #">
-        <span class="type-t6">அடி (Metrical line)</span>
-        <br />
-        சீர்கள் இணைந்து அடி ஆகும்.  செய்யுளில் இடம்பெறும் ஒரு வரியை அடி எனலாம். அடியில் வரும் சீர்களின் எண்ணிக்கைக்கு ஏற்ப அடிகள் பல வகைப்படும்.
-        <br />
-    </div>
-    <br />
-    <div class="#= helptextClass #">
-        <span class="type-t6">அடி வகை</span>
-    </div>
-    <table class="#= tableClass #">
-        <thead>
-            <tr>
-                <th>அடிகள் எண்ணிக்கை</th>
-                <th>அடி வகை</th>
-                <th>காட்டு</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="naal">
-                <td class="col-md-4">ஒரு சீர் உள்ள அடி</td>
-                <td class="col-md-4">தனிச்சொல்</td>
-                <td>மனிதம்</td>
-            </tr>
-            <tr class="malar">
-                <td>இரண்டு சீர்கள் உள்ள அடி</td>
-                <td>குறளடி</td>
-                <td>சுருங்கியது உலகமும்</td>
-            </tr>
-            <tr class="kaasu">
-                <td>மூன்று சீர்கள் உள்ள அடி</td>
-                <td>சிந்தடி</td>
-                <td>ஊரணியாய்த் தந்த கவி</td>
-            </tr>
-            <tr class="pirappu">
-                <td>நான்கு சீர்கள் உள்ள அடி</td>
-                <td>அளவடி</td>
-                <td>பாரதி தன்கவியால் பாரதில் தீந்தமிழை</td>
-            </tr>
-            <tr class="naal">
-                <td>ஐந்து சீர்கள் உள்ள அடி</td>
-                <td>நெடிலடி</td>
-                <td>பாரதி தன்கவியால் பாரதில் தீந்தமிழை ஊரணியாய்</td>
-            </tr>
-            <tr class="malar">
-                <td>ஆறு (அ) ஆறுக்கும் மேற்பட்ட சீர்கள் உள்ள அடி</td>
-                <td>கழிநெடிலடி</td>
-                <td>பாரதி தன்கவியால் பாரதில் தீந்தமிழை ஊரணியாய்த் தந்த</td>
-            </tr>
-        </tbody>
-    </table>
-
-</script>
-
 <script type="text/x-kendo-template" id="osaiHelpTemplate">
     # var helptextClass = 'helptext-' + container; console.log(helptextClass); #
     # var audioVideoControlsId = 'audio-video-controls-osai-' + container; console.log(audioVideoControlsId); #
-    <div id="#= audioVideoControlsId #"></div>
+    <div class="m-l-xxs" id="#= audioVideoControlsId #"></div>
+    <div class="infotip m-l-xxs" data-localize="playThisGame">
+        <span class="ltext"></span>
+    </div>
+    <div class="m-l-xxs">
+        <a href="/Games/OsaiMatcher" class="btn btn-primary btn-with-glyph" id="example" data-localize="soundMatcher"><i class="glyph glyph-import "></i><span class="ltext"></span></a>
+    </div>
     <br />
     <br />
     # var videoModalDialogId = 'modal-video-osai-' + container; #

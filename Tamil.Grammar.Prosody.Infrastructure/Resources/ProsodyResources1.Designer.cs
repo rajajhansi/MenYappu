@@ -70,7 +70,7 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to MenYappu is a website that has all the services essential for poem writers like spell checker/corrector, prosody games, poem composer and poem analyzer integrated and presented in a very simple, intuitive user interface. Since the services are also exposed as web services, mobile phone users can write an app in their preferred platforms like Apple IOS, Android or Windows Mobile usiing these web services and consume them..
+        ///   Looks up a localized string similar to MenYappu is a website that has all the services essential for poem writers like prosody games, poem composer and poem analyzer integrated and presented in a very simple, intuitive user interface. Since the services are also exposed as web services, mobile phone users can write an app in their preferred platforms like Apple IOS, Android or Windows Mobile usiing these web services and consume them..
         /// </summary>
         public static string AboutMenYappuDetails {
             get {
@@ -84,6 +84,25 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         public static string AdditionalInformation {
             get {
                 return ResourceManager.GetString("AdditionalInformation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Address.
+        /// </summary>
+        public static string Address {
+            get {
+                return ResourceManager.GetString("Address", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 5675 Kimberly St., 
+        ///San Jose, CA 95129.
+        /// </summary>
+        public static string AddressDetail {
+            get {
+                return ResourceManager.GetString("AddressDetail", resourceCulture);
             }
         }
         
@@ -426,6 +445,15 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         public static string FirstWord {
             get {
                 return ResourceManager.GetString("FirstWord", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Game.
+        /// </summary>
+        public static string Game {
+            get {
+                return ResourceManager.GetString("Game", resourceCulture);
             }
         }
         
@@ -984,6 +1012,15 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         public static string PartsOfSpeech {
             get {
                 return ResourceManager.GetString("PartsOfSpeech", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To make sure that you have understood the concepts of this part of prosody, why don&apos;t you play the game and the quiz related to this prosody part?.
+        /// </summary>
+        public static string PlayThisGame {
+            get {
+                return ResourceManager.GetString("PlayThisGame", resourceCulture);
             }
         }
         

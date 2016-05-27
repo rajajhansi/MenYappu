@@ -111,7 +111,8 @@
             Utility.setHelpAudioVideo(helpTopic, videoUrl, 'main');
             Utility.setHelpAudioVideo(helpTopic, videoUrl, 'side');
         }
-        $("#btn-help").on('click', function() { toggleHelp(); return false; });
+        $("#btn-help").on('click', function () { toggleHelp(); return false; });
+        setLocalizedStrings();
     }
     function setContextHelp(helpVariablesText, helpText) {
         $("#helpVariables").append(helpVariablesText);
