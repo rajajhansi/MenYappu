@@ -21,7 +21,6 @@
         $("#additionalInfo").append(additionalInfoTemplate({}));
         Utility.initSeyyulResultbar();
         Utility.initSeyyulbar();
-        Utility.initSeyyulbar();
         Utility.initAdditionalInfo('mathirai');
 
         Utility.hideResult();

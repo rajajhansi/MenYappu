@@ -10,7 +10,11 @@
             }));
         // set the context help
         Utility.setHelp('seer', 'https://www.youtube.com/embed/a0ueXiAs6i4?start=62');
+        var additionalInfoTemplate = kendo.template($("#additionalInfoTemplate").html());
+        $("#additionalInfo").append(additionalInfoTemplate({}));
+        Utility.initSeyyulResultbar();
         Utility.initSeyyulbar();
+        Utility.initAdditionalInfo('seer');
 
         Utility.hideResult();
         Utility.setupExample('/api/prosody/Seergal', 'seer');

@@ -15,18 +15,17 @@
         $("#additionalInfo").append(additionalInfoTemplate({}));
         Utility.initSeyyulResultbar();
         Utility.initSeyyulbar();
-        Utility.initSeyyulbar();
+        Utility.initAdditionalInfo('asai');
 
-        var asaiFaqTemplate = kendo.template($("#faqTemplate").html());
-        var input = '{"prosodyType": "' + 'asai' + '"' + '}';
-        var additionalInfo = QaService.questions(input,
-            function (data) {
-                console.log(data);
-                $("#tabstrip-2").html(asaiFaqTemplate({ part: 'asai', data: data }));
-                Utility.setFaq('asai');
-            });
+        //var asaiFaqTemplate = kendo.template($("#faqTemplate").html());
+        //var input = '{"prosodyType": "' + 'asai' + '"' + '}';
+        //var additionalInfo = QaService.questions(input,
+        //    function (data) {
+        //        console.log(data);
+        //        $("#tabstrip-2").html(asaiFaqTemplate({ part: 'asai', data: data }));
+        //        Utility.setFaq('asai');
+        //    });
         // event handler for select
-        Utility.initSeyyulbar();
         Utility.hideResult();
         Utility.setupExample('/api/prosody/Seergal', 'seer');
         $("#asaiTypes").on('click', '.dropdown-menu li a', function () {
