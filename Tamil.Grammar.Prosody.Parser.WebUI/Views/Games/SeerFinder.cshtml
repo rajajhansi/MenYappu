@@ -63,10 +63,17 @@
         </button>
         <ul class="dropdown-menu" role="menu" aria-labelledby="seer-dropdown">
             # if (asaiCount === 1) { #
+            # if (lastSeer) { #
             <li><a href="\\#">நாள்</a></li>
             <li><a href="\\#">மலர்</a></li>
             <li><a href="\\#">காசு</a></li>
             <li><a href="\\#">பிறப்பு</a></li>
+            # } else { #
+            <li><a href="\\#">மா</a></li>
+            <li><a href="\\#">விளம்</a></li>
+            <li><a href="\\#">நேர்பு</a></li>
+            <li><a href="\\#">நிரைபு</a></li>
+            # } #
             # } #
             # if (asaiCount === 2) { #
             <li><a href="\\#">தேமா</a></li>

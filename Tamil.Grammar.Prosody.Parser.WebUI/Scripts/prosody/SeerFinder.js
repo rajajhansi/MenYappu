@@ -49,7 +49,8 @@
         }
         var seerTemplate = kendo.template($("#seerTemplate").html());
         var seer = seerTemplate({
-            asaiCount: numSyllables
+            asaiCount: numSyllables,
+            lastSeer: false
         });
 
         $("#asaiTypes").append(seer);
