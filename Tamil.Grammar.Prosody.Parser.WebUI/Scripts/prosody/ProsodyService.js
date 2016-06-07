@@ -18,6 +18,10 @@
         ServiceBase.invokeRestService(serviceUrls["thalaiFinder"], data, 'POST', callback);
     }
 
+    function thalaiFinderUsingPromise(data) {
+        return ServiceBase.invokeRestServiceUsingPromise(serviceUrls["thalaiFinder"], data, 'POST');
+    }
+
     function adiMeasurer(data, callback) {
         ServiceBase.invokeRestService(serviceUrls["adiMeasurer"], data, 'POST', callback);
     }
@@ -37,6 +41,7 @@
     return {
         mathiraiCount: mathiraiCount,
         thalaiFinder: thalaiFinder,
+        thalaiFinderUsingPromise: thalaiFinderUsingPromise,
         adiMeasurer: adiMeasurer,
         thodaiChecker: thodaiChecker,
         thodaiFinder: thodaiFinder,

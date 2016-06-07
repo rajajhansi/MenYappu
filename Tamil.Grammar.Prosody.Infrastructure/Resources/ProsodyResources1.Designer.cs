@@ -79,6 +79,15 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Correct Answer.
+        /// </summary>
+        public static string ActualResult {
+            get {
+                return ResourceManager.GetString("ActualResult", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Additional Information.
         /// </summary>
         public static string AdditionalInformation {
@@ -1579,6 +1588,15 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         public static string YourFavoriteTamilPortal {
             get {
                 return ResourceManager.GetString("YourFavoriteTamilPortal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your Answer.
+        /// </summary>
+        public static string YourResult {
+            get {
+                return ResourceManager.GetString("YourResult", resourceCulture);
             }
         }
     }

@@ -55,6 +55,9 @@
 </script>
 
 <script type="text/x-kendo-template" id="seerTemplate">
+    # if(resultType) { #
+    <div class="text-t4">#= resultType #</div>
+    # } #
     # if(paaVagai) { #
     <h3 class="k-widget k-header">#= paaVagai #</h3>
     <br />
@@ -72,14 +75,14 @@
             # $.each(asaiValue, function(key, value) { #
             # if(key != "meta" && key != "smeta") { #
             # if(new RegExp("^நேர்").test(key)) {  #
-            # paaAsaiInAdi = paaAsaiInAdi + '<span class="nerasai">' + value + '</span>' #
-            # asigalInAdi = asigalInAdi + '<span class="nerasai">' + key #
+            # paaAsaiInAdi = paaAsaiInAdi + '<span class="nerasai">' + value + '/</span>' #
+            # asigalInAdi = asigalInAdi + '<span class="nerasai">' + key + '/</span>' #
                 # } else if(new RegExp("^நிரை").test(key)) { #
-                # paaAsaiInAdi = paaAsaiInAdi + '<span class="niryasai">' + value + '</span>' #
-                # asigalInAdi = asigalInAdi + '<span class="niryasai">' + key #
+                # paaAsaiInAdi = paaAsaiInAdi + '<span class="niryasai">' + value + '/</span>' #
+                # asigalInAdi = asigalInAdi + '<span class="niryasai">' + key + '/</span>' #
                     # } else if( key == "பு") { #
                     # var spanClass = new RegExp("^நேர்").test(venLastSyllable) ? "nerasai" : "niryasai"; #
-                    # paaAsaiInAdi = paaAsaiInAdi + '<span class="' + spanClass + '">' + value + '</span>' #
+                    # paaAsaiInAdi = paaAsaiInAdi + '<span class="' + spanClass + '">' + value + '/</span>' #
                     # } #
                     # } else { #
                     # if(key == "meta") { #
@@ -94,16 +97,19 @@
         # console.log("\r\n" + paaAsaiInAdi); console.log("\r\n" + asigalInAdi); console.log("\r\n" + vaippaduInAdi); #
         <tr>
             #= paaAsaiInAdi #
-        </tr>
-        <tr>
             #= asigalInAdi #
         </tr>
-        <tr>
-            #= vaippaduInAdi #
-        </tr>
+        @*<tr>
+        #= asigalInAdi #
+    </tr>
+    <tr>
+        #= vaippaduInAdi #
+    </tr>*@
         #}) #
         </tbody>
     </table>
+
+
 
 </script>
 @{ Html.RenderPartial("_CommonKendoTemplates"); }
@@ -120,9 +126,10 @@
         $("#ProsodyText").blur(AsaiDivider.showInputAndResult);
 
         $("#prosodyForm").submit(function () {
-            Utility.hideResult();
-            var data = '{"inputText" : "' + $("#ProsodyText").val() + '"' + '}';
-            ProsodyService.thalaiFinder(data, AsaiDivider.showOutputWithResult);
+            //Utility.hideResult();
+            //var data = '{"inputText" : "' + $("#ProsodyText").val() + '"' + '}';
+            //ProsodyService.thalaiFinder(data, AsaiDivider.showOutputWithResult);
+            AsaiDivider.checkAnswer();
             return false;
         });
     });

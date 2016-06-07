@@ -1,5 +1,8 @@
-﻿var AsaiDivider = (function() {
+﻿var AsaiDivider = (function () {
+    var userResult;
+    var actualResult;
     function init() {
+        userResult = actualResult = null;
         // render the inputTemplate
         var inputTemplate = kendo.template($("#inputTemplate").html());
         $("#input")
@@ -47,7 +50,10 @@
         }
         Utility.enableElement("checkResult");
         Utility.clearResult();
-        var numSyllables = ($("#ProsodyText").val().match(/\//g) || []).length;
+        // Remove the trailing '/' if the user has added one
+        var prosodyText = $("#ProsodyText").val();
+        prosodyText = prosodyText.replace(/\/+$/, "");
+        var numSyllables = (prosodyText.match(/\//g) || []).length;
         numSyllables++;
         $("#AsaiCount").html(numSyllables);
         Utility.showElement("asaiCalculator");
@@ -62,18 +68,39 @@
         }
     }
 
-    function showOutputWithResult(data) {
-        if (data) {
-            var seerTemplate = kendo.template($("#seerTemplate").html());
-            var seerExplanation = seerTemplate({
-                paaVagai: null,
-                parseTree: data["parseTree"],
-                wordBond: data["wordBond"],
-                venLastSyllable: ""
-            });
+    function checkAnswer() {
+        Utility.hideResult();
+        var prosodyText = $("#ProsodyText").val();
+        prosodyText = prosodyText.replace(/\/+$/, "");
+        var userData = '{"inputText" : "' + prosodyText + '"' + '}';
 
+        // clean up all asai markers and calculate the actual result
+        var actualText = prosodyText.replace(/\/+/g, "");
+        var actualData = '{"inputText" : "' + actualText + '"' + '}';
+        var userRequest = ProsodyService.thalaiFinderUsingPromise(userData);
+        var actualRequest = ProsodyService.thalaiFinderUsingPromise(actualData);
+        $.when(userRequest, actualRequest).
+            done(function (userResponse, actualResponse) {
+                $.customUnblockUI();
+                setUserResult(userResponse[0]); // $.when returns an array of 3 elements: [data, statusText, jqXHR]
+                setActualResult(actualResponse[0]);
+                showOutputWithResult();
+            });
+    }
+    function setUserResult(data) {
+        userResult = data;
+    }
+
+    function setActualResult(data) {
+        actualResult = data;
+    }
+
+    function showOutputWithResult() {
+
+        if (userResult && actualResult) {
             var isAnyAsaiWrong = false;
             var index = 0;
+            var data = userResult;
             $.each(data["parseTree"]["aTi-1"]["cI_r-1"],
                 function(seerKey, seerValue) {
                     $.each(seerValue,
@@ -86,11 +113,22 @@
                         });
                     index++;
                 });
+
+            var seerTemplate = kendo.template($("#seerTemplate").html());
+            var correctSeerExplanation = seerTemplate({
+                resultType: null,
+                paaVagai: null,
+                parseTree: actualResult["parseTree"],
+                wordBond: actualResult["wordBond"],
+                venLastSyllable: ""
+            });
+
+
             if (isAnyAsaiWrong) {
-                $("#asai-correct").attr('data-original-title', seerExplanation);
-                Utility.showIncorrect("asai", seerExplanation);
+                $("#asai-correct").attr('data-original-title', correctSeerExplanation);
+                Utility.showIncorrect("asai", correctSeerExplanation);
             } else {
-                Utility.showCorrect("asai", seerExplanation);
+                Utility.showCorrect("asai", correctSeerExplanation);
             }
             Utility.showResult();
         } else {
@@ -100,6 +138,7 @@
 
     return {
         init: init,
+        checkAnswer: checkAnswer,
         showInputAndResult: showInputAndResult,
         showOutputWithResult: showOutputWithResult
     };

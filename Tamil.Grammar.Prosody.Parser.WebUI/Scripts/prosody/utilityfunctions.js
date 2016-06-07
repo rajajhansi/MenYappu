@@ -48,6 +48,11 @@
     function showExplanation(thodai, thodaiExplanation) {
         $("#" + thodai + "-explanation").attr('data-content', thodaiExplanation);
         showElement(thodai + "-explanation");
+        $('#explanation').empty();
+        //var explanation = ProsodyResourceManager.get('explanation');
+        //$('.back').append('<div id="explanation" class="text-center m-t-sm"> <div class="text-t4">' + explanation + '</div>' + thodaiExplanation + '</div>');
+        $('#explanation').append(thodaiExplanation);
+        showElement('explanation');
     }
 
     function hideResult() {

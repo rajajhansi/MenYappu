@@ -161,6 +161,7 @@
         # }); #
     </ul>
 </script>
+
 <script type="text/x-kendo-template" id="resultTemplate">
     # var partCorrect = part + "-correct"; var partIncorrect = part + "-incorrect"; var partExplanation = part + "-explanation"; #
     # var result = ProsodyResourceManager.get("result"); var howToSeeTheResult = ProsodyResourceManager.get("howToSeeTheResult"); #
@@ -178,20 +179,30 @@
                 <h4 class="game-section-title text-center" data-localize="result">
                     <span class="ltext"></span>
                 </h4>
+                <div class="text-t4 text-center" data-localize="yourResult"><span class="ltext"></span>
                 # var correct =  ProsodyResourceManager.get("correct"); var incorrect = ProsodyResourceManager.get("incorrect"); #
                 # var explanation = ProsodyResourceManager.get("explanation"); var excellent = ProsodyResourceManager.get("excellent"); #
-                <div class="type-t3 text-center">
-                    <button id="#= partCorrect #" class="right btn btn-success btn-with-glyph" aria-hidden="true" data-toggle="tooltip" data-placement="right" data-localize="correct"><i class="glyph glyph-checkmark"></i><span class="ltext"></span></button>
-                    <button id="#= partIncorrect #" class="wrong btn btn-warning btn-with-glyph" aria-hidden="true" data-toggle="tooltip" data-placement="right" data-localize="incorrect">
+                <span class="type-t3 text-center">
+                    <a id="#= partCorrect #" class="right btn btn-success btn-with-glyph" aria-hidden="true" data-toggle="tooltip" data-placement="right" data-localize="correct"><i class="glyph glyph-checkmark"></i><span class="ltext"></span></a>
+                    <a id="#= partIncorrect #" class="wrong btn btn-warning btn-with-glyph" aria-hidden="true" data-toggle="tooltip" data-placement="right" data-localize="incorrect">
                         <i class="glyph glyph-cancel"></i>
                         <span class="ltext"></span>
-                    </button>
+                    </a>
+                    <!--
                     <a role="button" id="#= partExplanation #"
-                       class="btn btn-primary btn-with-glyph"
+                       class="btn btn-primary btn-with-glyph hidden"
                        tabindex="0"
                        data-toggle="popover"
                        data-trigger="focus"
                        data-content="#= excellent #" data-localize="explanation"><i class="glyph glyph-message"></i><span class="ltext"></span></a>
+                        -->
+                    </span>
+                </div>
+
+                <div class="text-center m-t-sm">
+                    <div class="text-t4" data-localize="explanation"> <span class="ltext"></span></div>
+                    <div class="text-t4" data-localize="actualResult"> <span class="ltext"></span></div>
+                    <div id="explanation"></div>
                 </div>
             </div>
         </div>

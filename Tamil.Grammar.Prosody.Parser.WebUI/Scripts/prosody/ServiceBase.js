@@ -34,8 +34,25 @@
         });
     }
 
+    function invokeRestServiceUsingPromise(url, data, type) {
+        $.customBlockUI();
+        return $.ajax({
+            url: url,
+            data: data,
+            contentType: 'application/json; charset=utf8',
+            type: type
+        }).done(function (data) {
+            return data;
+        }).fail(function (data) {
+            return null;
+        }).always(function (data) {
+            $.customUnblockUI();
+            return data;
+        });
+    }
     return {
         invokeRestServiceSync: invokeRestServiceSync,
-        invokeRestService: invokeRestService
+        invokeRestService: invokeRestService,
+        invokeRestServiceUsingPromise: invokeRestServiceUsingPromise
     }
 })();

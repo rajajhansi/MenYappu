@@ -625,4 +625,10 @@
   <data name="PlayThisGame" xml:space="preserve">
     <value>இந்த உறுப்பினை நன்றாகப் புரிந்து கொண்டுள்ளீர்களா எனத் தெரிந்து கொள்ள இதற்குத் தொடர்புடைய விளையாட்டையும் அந்தப் பக்கத்தில் இருக்கும் வினாடி வினாவையும் விளையாண்டு பார்த்தால் என்ன?</value>
   </data>
+  <data name="ActualResult" xml:space="preserve">
+    <value>சரியான விடை</value>
+  </data>
+  <data name="YourResult" xml:space="preserve">
+    <value>உங்கள் விடை</value>
+  </data>
 </root>
