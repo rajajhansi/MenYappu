@@ -35,21 +35,26 @@
     }
 
     function showOutputWithResult(data) {
-        var mathiraiTemplate = kendo.template($("#detailedMathiraiTemplate").html());
-        var mathiraiExplanation = mathiraiTemplate({
-            mathiraiCount: data["mathiraiCount"],
-            detailedMathiraiCount: data["detailedMathiraiCount"],
-            totalMathiraiCount: data["totalMathiraiCount"]
-        });
+        if (data) {
+            var mathiraiTemplate = kendo.template($("#detailedMathiraiTemplate").html());
+            var mathiraiExplanation = mathiraiTemplate({
+                mathiraiCount: data["mathiraiCount"],
+                detailedMathiraiCount: data["detailedMathiraiCount"],
+                totalMathiraiCount: data["totalMathiraiCount"]
+            });
 
-        $("#CalculatedMathiraiCount").html(data["totalMathiraiCount"]);
-        if (parseFloat($("#MathiraiCount").val()) !== data["totalMathiraiCount"]) {
-            Utility.showElement("rightMathiraiCount");
-            Utility.showIncorrect("mathirai", mathiraiExplanation);
+            $("#CalculatedMathiraiCount").html(data["totalMathiraiCount"]);
+            if (parseFloat($("#MathiraiCount").val()) !== data["totalMathiraiCount"]) {
+                Utility.showElement("rightMathiraiCount");
+                Utility.showIncorrect("mathirai", mathiraiExplanation);
+            } else {
+                Utility.showCorrect("mathirai", mathiraiExplanation);
+            }
+            Utility.showResult();
         } else {
-            Utility.showCorrect("mathirai", mathiraiExplanation);
+            toastr.error(ProsodyResourceManager.get('cantParseYourInput'));
         }
-        Utility.showResult();
+        Utility.setLocalizedStrings();
     }
 
     return {

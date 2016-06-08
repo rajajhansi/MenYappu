@@ -631,4 +631,7 @@
   <data name="YourResult" xml:space="preserve">
     <value>உங்கள் விடை</value>
   </data>
+  <data name="CantParseYourInput" xml:space="preserve">
+    <value>மன்னிக்கவும். மென்யாப்பினால் நீங்கள் உள்ளிட்டதைச் சரி பார்க்க இயலவில்லை.</value>
+  </data>
 </root>

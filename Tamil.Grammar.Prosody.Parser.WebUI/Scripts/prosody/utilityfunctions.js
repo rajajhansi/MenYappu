@@ -96,7 +96,7 @@
                     clearResult();
                 },
                 error: function (data) {
-                    alert('error' + data);
+                    toastr.error('error' + data);
                 }
             });
             return false;

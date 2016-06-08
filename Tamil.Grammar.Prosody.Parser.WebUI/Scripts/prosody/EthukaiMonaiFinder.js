@@ -14,17 +14,18 @@
         var resultTemplate = kendo.template($("#multiResultsTemplate").html());
         $("#result")
             .append(resultTemplate({
+                shouldShowExplanationAsPopOver: true,
                 partInfos: [
-                    { part: "monai", partHeader: "மோனை வகைகள்" },
-                    { part: "ethukai", partHeader: "எதுகை வகைகள்" },
-                    { part: "iyaipu", partHeader: "இயைபு வகைகள்" }
+                    { part: "monai", partHeader: "மோனை" },
+                    { part: "ethukai", partHeader: "எதுகை" },
+                    { part: "iyaipu", partHeader: "இயைபு" }
                 ]
             }));
         Utility.wireDropdownTooltipAndPopoverHandlers();
     }
 
     function showInputAndResult() {
-
+        Utility.setLocalizedStrings();
     }
 
     function showOutputWithResult(data) {
@@ -54,8 +55,9 @@
                 toastr.error("எதுகை, மோனை, இயைபு விளக்கத்தை வலப்புறமுள்ள ”உதவி” பகுதியில் படிக்கவும்");
             }
         } else {
-            alert('error');
+            toastr.error(ProsodyResourceManager.get('cantParseYourInput'));
         }
+        Utility.setLocalizedStrings();
     }
 
     return {

@@ -26,9 +26,10 @@
         var resultTemplate = kendo.template($("#multiResultsTemplate").html());
         $("#result")
             .append(resultTemplate({
+                shouldShowExplanationAsPopOver: true,
                 partInfos: [
-                            { part: "asai", partHeader: "அசை வகைகள்" },
-                            { part: "seer", partHeader: "சீர் வகைகள்" }
+                            { part: "asai", partHeader: "அசை வகை" },
+                            { part: "seer", partHeader: "சீர் வகை" }
                 ]
             }));
         Utility.wireDropdownTooltipAndPopoverHandlers();
@@ -55,6 +56,7 @@
 
         $("#asaiTypes").append(seer);
         Utility.showElement("asaiSelector");
+        Utility.setLocalizedStrings();
     }
 
     function showOutputWithResult(data) {
@@ -101,8 +103,9 @@
             }
             Utility.showResult();
         } else {
-            alert('error');
+            toastr.error(ProsodyResourceManager.get('cantParseYourInput'));
         }
+        Utility.setLocalizedStrings();
     }
 
     return {

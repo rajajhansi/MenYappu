@@ -27,7 +27,7 @@
     }
 
     function showInputAndResult() {
-
+        Utility.setLocalizedStrings();
     }
 
     function showOutputWithResult(data) {
@@ -47,8 +47,9 @@
             }
             Utility.showResult();
         } else {
-            alert('error');
+            toastr.error(ProsodyResourceManager.get('cantParseYourInput'));
         }
+        Utility.setLocalizedStrings();
     }
 
     return {

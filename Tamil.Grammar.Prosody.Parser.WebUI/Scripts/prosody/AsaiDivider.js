@@ -66,6 +66,7 @@
             $("#asaiTypes").append(asai);
             Utility.showElement("asaiSelector");
         }
+        Utility.setLocalizedStrings();
     }
 
     function checkAnswer() {
@@ -96,7 +97,6 @@
     }
 
     function showOutputWithResult() {
-
         if (userResult && actualResult) {
             var isAnyAsaiWrong = false;
             var index = 0;
@@ -132,8 +132,9 @@
             }
             Utility.showResult();
         } else {
-            alert('error');
+            toastr.error(ProsodyResourceManager.get('cantParseYourInput'));
         }
+        Utility.setLocalizedStrings();
     }
 
     return {

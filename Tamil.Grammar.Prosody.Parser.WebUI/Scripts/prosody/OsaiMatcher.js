@@ -42,7 +42,8 @@
         }
         Utility.enableElement("checkResult");
         Utility.clearResult();
-    };
+        Utility.setLocalizedStrings();
+    }
 
     var showOutputWithResult = function(data) {
         if (data) {
@@ -66,8 +67,9 @@
             Utility.showResult();
         }
         else {
-            alert('error');
+            toastr.error(ProsodyResourceManager.get('cantParseYourInput'));
         }
+        Utility.setLocalizedStrings();
     }
     return {
         soundTypes: soundTypes,

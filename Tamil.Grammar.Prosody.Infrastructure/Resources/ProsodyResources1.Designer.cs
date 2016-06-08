@@ -179,6 +179,15 @@ namespace RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sorry, MenYappu can&apos;t process your input..
+        /// </summary>
+        public static string CantParseYourInput {
+            get {
+                return ResourceManager.GetString("CantParseYourInput", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Check Answer.
         /// </summary>
         public static string CheckAnswer {

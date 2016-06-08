@@ -29,6 +29,11 @@
                             <div id="asaiTypes" class="type-t7 text-center">
 
                             </div>
+                            <div class="control-group text-center">
+                                <div class="controls">
+                                    <button type="submit" class="btn btn-primary btn-with-glyph" data-localize="checkAnswer"><i class="glyph glyph-arrow-right"></i><span class="ltext"></span></button>
+                                </div>
+                            </div>
                         </div>
                         <div class="col-md-8 hidden" id="result">
                         </div>
@@ -62,24 +67,28 @@
     <h3 class="k-widget k-header">#= paaVagai #</h3>
     <br />
     # } #
-    <table border="0" cellspacing="15">
-        <tbody>
-
+    <table border="0" cellspacing="15" class="text-left">
+        <tr>
+            <th>சீர்</th>
+            <th>அசைகள்</th>
+        </tr>
             # $.each(parseTree, function(adiKey, adiValue) { #
-            # var paaAsaiInAdi = ""; var asigalInAdi = "";	var vaippaduInAdi = ""; #
+            # var paaAsaiInAdi = ""; var asaigalInAdi = "";	var vaippaduInAdi = ""; #
             # $.each(adiValue, function(seerKey, seerValue) { #
+            # if(seerKey !== 'smeta') { #
             # paaAsaiInAdi = paaAsaiInAdi + '<td>' #
-            # asigalInAdi = asigalInAdi + '<td>'#
+            # asaigalInAdi = asaigalInAdi + '<td>'#
             # vaippaduInAdi = vaippaduInAdi + '<td>'#
+            # } #
             # $.each(seerValue, function(asaiKey, asaiValue) { #
             # $.each(asaiValue, function(key, value) { #
             # if(key != "meta" && key != "smeta") { #
             # if(new RegExp("^நேர்").test(key)) {  #
             # paaAsaiInAdi = paaAsaiInAdi + '<span class="nerasai">' + value + '/</span>' #
-            # asigalInAdi = asigalInAdi + '<span class="nerasai">' + key + '/</span>' #
+            # asaigalInAdi = asaigalInAdi + '<span class="nerasai">' + key + '/</span>' #
                 # } else if(new RegExp("^நிரை").test(key)) { #
                 # paaAsaiInAdi = paaAsaiInAdi + '<span class="niryasai">' + value + '/</span>' #
-                # asigalInAdi = asigalInAdi + '<span class="niryasai">' + key + '/</span>' #
+                # asaigalInAdi = asaigalInAdi + '<span class="niryasai">' + key + '/</span>' #
                     # } else if( key == "பு") { #
                     # var spanClass = new RegExp("^நேர்").test(venLastSyllable) ? "nerasai" : "niryasai"; #
                     # paaAsaiInAdi = paaAsaiInAdi + '<span class="' + spanClass + '">' + value + '/</span>' #
@@ -87,26 +96,19 @@
                     # } else { #
                     # if(key == "meta") { #
                     # paaAsaiInAdi = paaAsaiInAdi + '</td>' #
-        # asigalInAdi = asigalInAdi + '</td>'  #
+        # asaigalInAdi = asaigalInAdi + '</td>'  #
         # vaippaduInAdi = vaippaduInAdi + value + '</td>' #
         # } #
         # }	#
         # }) #
         # }) #
         # }) #
-        # console.log("\r\n" + paaAsaiInAdi); console.log("\r\n" + asigalInAdi); console.log("\r\n" + vaippaduInAdi); #
+        #  console.log("\r\n" + paaAsaiInAdi); console.log("\r\n" + asaigalInAdi); console.log("\r\n" + vaippaduInAdi); #
         <tr>
             #= paaAsaiInAdi #
-            #= asigalInAdi #
+            #= asaigalInAdi #
         </tr>
-        @*<tr>
-        #= asigalInAdi #
-    </tr>
-    <tr>
-        #= vaippaduInAdi #
-    </tr>*@
         #}) #
-        </tbody>
     </table>
 
 

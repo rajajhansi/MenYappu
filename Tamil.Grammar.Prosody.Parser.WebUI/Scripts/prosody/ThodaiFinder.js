@@ -23,17 +23,18 @@
         var resultTemplate = kendo.template($("#multiResultsTemplate").html());
         $("#result")
             .append(resultTemplate({
+                shouldShowExplanationAsPopOver: true,
                 partInfos: [
-                            { part: "monai", partHeader: "மோனை வகைகள்" },
-                            { part: "ethukai", partHeader: "எதுகை வகைகள்" },
-                            { part: "iyaipu", partHeader: "இயைபு வகைகள்" }
+                            { part: "monai", partHeader: "மோனை வகை" },
+                            { part: "ethukai", partHeader: "எதுகை வகை" },
+                            { part: "iyaipu", partHeader: "இயைபு வகை" }
                 ]
             }));
         Utility.wireDropdownTooltipAndPopoverHandlers();
     }
 
     function showInputAndResult() {
-
+        Utility.setLocalizedStrings();
     }
 
     function showOutputWithResult(data) {
@@ -81,8 +82,9 @@
             }
             Utility.showResult();
         } else {
-            alert('error');
+            toastr.error(ProsodyResourceManager.get('cantParseYourInput'));
         }
+        Utility.setLocalizedStrings();
     }
 
     return {

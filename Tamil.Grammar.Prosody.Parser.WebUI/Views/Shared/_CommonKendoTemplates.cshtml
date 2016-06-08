@@ -168,40 +168,41 @@
     <div class="flip-container_click">
         <div class="flipper">
             <div class="front">
-                <h4 class="game-section-title text-center" data-localize="result">
+                <div class="text-t4 text-center" data-localize="result">
                     <span class="ltext"></span>
-                </h4>
+                </div>
                 <div class="type-t5" data-localize="howToSeeTheResult">
                     <span class="ltext"></span>
                 </div>
             </div>
             <div class="back">
-                <h4 class="game-section-title text-center" data-localize="result">
+                <div class="text-t4 text-center" data-localize="result">
                     <span class="ltext"></span>
-                </h4>
-                <div class="text-t4 text-center" data-localize="yourResult"><span class="ltext"></span>
-                # var correct =  ProsodyResourceManager.get("correct"); var incorrect = ProsodyResourceManager.get("incorrect"); #
-                # var explanation = ProsodyResourceManager.get("explanation"); var excellent = ProsodyResourceManager.get("excellent"); #
-                <span class="type-t3 text-center">
-                    <a id="#= partCorrect #" class="right btn btn-success btn-with-glyph" aria-hidden="true" data-toggle="tooltip" data-placement="right" data-localize="correct"><i class="glyph glyph-checkmark"></i><span class="ltext"></span></a>
-                    <a id="#= partIncorrect #" class="wrong btn btn-warning btn-with-glyph" aria-hidden="true" data-toggle="tooltip" data-placement="right" data-localize="incorrect">
-                        <i class="glyph glyph-cancel"></i>
-                        <span class="ltext"></span>
-                    </a>
-                    <!--
-                    <a role="button" id="#= partExplanation #"
-                       class="btn btn-primary btn-with-glyph hidden"
-                       tabindex="0"
-                       data-toggle="popover"
-                       data-trigger="focus"
-                       data-content="#= excellent #" data-localize="explanation"><i class="glyph glyph-message"></i><span class="ltext"></span></a>
-                        -->
+                </div>
+                <div class="text-t5 text-center" data-localize="yourResult">
+                    <span class="ltext"></span>
+                    # var correct =  ProsodyResourceManager.get("correct"); var incorrect = ProsodyResourceManager.get("incorrect"); #
+                    # var explanation = ProsodyResourceManager.get("explanation"); var excellent = ProsodyResourceManager.get("excellent"); #
+                    <span class="type-t3 text-center">
+                        <a id="#= partCorrect #" class="right btn btn-success btn-with-glyph" aria-hidden="true" data-toggle="tooltip" data-placement="right" data-localize="correct"><i class="glyph glyph-checkmark"></i><span class="ltext"></span></a>
+                        <a id="#= partIncorrect #" class="wrong btn btn-warning btn-with-glyph" aria-hidden="true" data-toggle="tooltip" data-placement="right" data-localize="incorrect">
+                            <i class="glyph glyph-cancel"></i>
+                            <span class="ltext"></span>
+                        </a>
+                        <!--
+                        <a role="button" id="#= partExplanation #"
+                           class="btn btn-primary btn-with-glyph hidden"
+                           tabindex="0"
+                           data-toggle="popover"
+                           data-trigger="focus"
+                           data-content="#= excellent #" data-localize="explanation"><i class="glyph glyph-message"></i><span class="ltext"></span></a>
+                            -->
                     </span>
                 </div>
 
                 <div class="text-center m-t-sm">
-                    <div class="text-t4" data-localize="explanation"> <span class="ltext"></span></div>
-                    <div class="text-t4" data-localize="actualResult"> <span class="ltext"></span></div>
+                    <div class="text-t5" data-localize="explanation"> <span class="ltext"></span></div>
+                    <div class="text-t5" data-localize="actualResult"> <span class="ltext"></span></div>
                     <div id="explanation"></div>
                 </div>
             </div>
@@ -227,25 +228,38 @@
                 </h4>
                 # partInfos.forEach(function(partInfo) { #
                 # var partCorrect = partInfo.part + "-correct"; var partIncorrect = partInfo.part + "-incorrect"; var partExplanation = partInfo.part + "-explanation" #
-                # if(partInfo.partHeader) { #
-                <p class="form-group-label text-center">#= partInfo.partHeader #</p>
-                # } #
+
                 # var correct =  ProsodyResourceManager.get("correct"); var incorrect = ProsodyResourceManager.get("incorrect"); #
                 # var explanation = ProsodyResourceManager.get("explanation"); var excellent = ProsodyResourceManager.get("excellent"); #
-                <div class="type-t3 text-center">
-                    <button id="#= partCorrect #" class="right btn btn-success btn-with-glyph" aria-hidden="true" data-toggle="tooltip" data-placement="right" data-localize="correct"><i class="glyph glyph-checkmark"></i><span class="ltext"></span></button>
-                    <button id="#= partIncorrect #" class="wrong btn btn-warning btn-with-glyph" aria-hidden="true" data-toggle="tooltip" data-placement="right" data-localize="incorrect">
-                        <i class="glyph glyph-cancel"></i>
-                        <span class="ltext"></span>
-                    </button>
-                    <a role="button" id="#= partExplanation #"
-                       class="btn btn-primary btn-with-glyph"
-                       tabindex="0"
-                       data-toggle="popover"
-                       data-trigger="focus"
-                       data-content="#= excellent #" data-localize="explanation"><i class="glyph glyph-message"></i><span class="ltext"></span></a>
+                <div class="text-t5 text-center" data-localize="yourResult">
+                    # if(partInfo.partHeader) { #
+                    <span>#= partInfo.partHeader #: </span>
+                    # } #
+                    <span class="ltext"></span>
+                    <span class="type-t3 text-center">
+                        <a id="#= partCorrect #" class="right btn btn-success btn-with-glyph" aria-hidden="true" data-toggle="tooltip" data-placement="right" data-localize="correct"><i class="glyph glyph-checkmark"></i><span class="ltext"></span></a>
+                        <a id="#= partIncorrect #" class="wrong btn btn-warning btn-with-glyph" aria-hidden="true" data-toggle="tooltip" data-placement="right" data-localize="incorrect">
+                            <i class="glyph glyph-cancel"></i>
+                            <span class="ltext"></span>
+                        </a>
+                        # if(shouldShowExplanationAsPopOver) {#
+                        <a role="button" id="#= partExplanation #"
+                            class="btn btn-primary btn-with-glyph"
+                            tabindex="0"
+                            data-toggle="popover"
+                            data-trigger="focus"
+                            data-content="#= excellent #" data-localize="explanation"><i class="glyph glyph-message"></i><span class="ltext"></span></a>
+                        # } #
+                    </span>
                 </div>
                 # }); #
+                # if(!shouldShowExplanationAsPopOver) { #
+                <div class="text-center m-t-sm">
+                    <div class="text-t4" data-localize="explanation"> <span class="ltext"></span></div>
+                    <div class="text-t4" data-localize="actualResult"> <span class="ltext"></span></div>
+                    <div id="explanation"></div>
+                </div>
+                # } #
             </div>
         </div>
     </div>
@@ -1232,7 +1246,7 @@
     <div class="m-l-xxs">
         <a href="/Games/ThodaiFinder" class="btn btn-primary btn-with-glyph" id="example" data-localize="ornamentationFinder"><i class="glyph glyph-import "></i><span class="ltext"></span></a>
     </div>
-    <br/>
+    <br />
     <div class="#= helptextClass #">
         <span class="type-t6" id="thodai">தொடை (Ornament/Ornamentation)</span>
         <br />

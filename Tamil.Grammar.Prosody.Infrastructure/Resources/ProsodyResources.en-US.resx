@@ -616,4 +616,7 @@ San Jose, CA 95129</value>
   <data name="YourResult" xml:space="preserve">
     <value>Your Answer</value>
   </data>
+  <data name="CantParseYourInput" xml:space="preserve">
+    <value>Sorry, MenYappu can't process your input.</value>
+  </data>
 </root>

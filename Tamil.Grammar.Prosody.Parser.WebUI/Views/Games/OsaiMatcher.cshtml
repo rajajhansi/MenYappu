@@ -23,7 +23,7 @@
                                 <div class="infotip" data-localize="soundMatcherInfoTip">
                                     <span class="text-t9"><span class="ltext"></span></span>
                                 </div>
-                                <div id="osaiTypes" class="type-t7">
+                                <div id="osaiTypes" class="m-t-xs type-t7">
 
                                 </div>
                                 # var sample = ProsodyResourceManager.get("sample"); var checkAnswer = ProsodyResourceManager.get("checkAnswer"); #
@@ -35,20 +35,25 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-8" id="osaiDefinitionSelector">
-                                <h4 class="game-section-title" data-localize="soundDefinition">
+                            <div class="col-md-8 text-center" id="osaiDefinitionSelector">
+                                <h4 class="game-section-title text-center" data-localize="soundDefinition">
                                     <span class="ltext"></span>
                                 </h4>
 
-                                <div id="osaiDefinition" class="type-t7">
+                                <div id="osaiDefinition" class="type-t7 text-center">
 
                                 </div>
-                                <h4 class="game-section-title" data-localize="paaSound">
+                                <h4 class="game-section-title text-center" data-localize="paaSound">
                                     <span class="ltext"></span>
                                 </h4>
 
-                                <div id="osaiInPaa" class="type-t7">
+                                <div id="osaiInPaa" class="type-t7 text-center">
 
+                                </div>
+                                <div class="control-group text-center">
+                                    <div class="controls">
+                                        <button type="submit" class="btn btn-primary btn-with-glyph" data-localize="checkAnswer"><i class="glyph glyph-arrow-right"></i><span class="ltext"></span></button>
+                                    </div>
                                 </div>
                             </div>
 
@@ -62,41 +67,37 @@
     </ul>
 </script>
 <script type="text/x-kendo-template" id="osaiSelectorTemplate">
-        # var shouldShowKey = (typeof key !== "undefined") && (key !== null) #;
-        # var selectionMessage = shouldShowKey ? OsaiMatcher.selectionMessages["key"] : OsaiMatcher.selectionMessages[explanationOrPaa]; #
-        # console.log(shouldShowKey, OsaiMatcher.selectionMessages); console.log(!shouldShowKey ? explanationOrPaa + selectionMessage : "N/A"); #
-        # var osaiVagaiId = 'osaiVagai-dropdown-' + (shouldShowKey ? "key" : explanationOrPaa); console.log(osaiVagaiId); #
-        # var length = 0; var val = ''; var listOfValues = [];#
-        # $.each(OsaiMatcher.soundTypes, function(soundTypeKey, soundTypeValue) { #
-            # val = shouldShowKey ? soundTypeKey : soundTypeValue[explanationOrPaa]; length = (val.length  > length) ? val.length : length; #
-            # listOfValues.push(val); #
-        # }); #
-        # length += 10; selectionMessage = _.pad(selectionMessage, length, '-'); console.log(length); console.log(selectionMessage);#
-        <tr>
-            <td>
-                <!--<p class="form-group-label">எழுத்து வகைகள்</p>-->
-                <div class="dropdown">
-                    <button id="#= osaiVagaiId #" class="btn btn-dropdown dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
-                        #= selectionMessage #<span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" role="menu" aria-labelledby="#= osaiVagaiId #">
-                        # $.each(listOfValues, function(index, value) { #
-                        <li><a href="\\#">#= _.padEnd(value, length, ' ')  #</a></li>
-                        # }); #
-                    </ul>
-                </div>
-            </td>
-        </tr>
+    # var shouldShowKey = (typeof key !== "undefined") && (key !== null); #
+    # var selectionMessage = shouldShowKey ? OsaiMatcher.selectionMessages["key"] : OsaiMatcher.selectionMessages[explanationOrPaa]; #
+    # console.log(shouldShowKey, OsaiMatcher.selectionMessages); console.log(!shouldShowKey ? explanationOrPaa + selectionMessage : "N/A"); #
+    # var osaiVagaiId = 'osaiVagai-dropdown-' + (shouldShowKey ? "key" : explanationOrPaa); console.log(osaiVagaiId); #
+    # var length = 0; var val = ''; var listOfValues = []; #
+    # $.each(OsaiMatcher.soundTypes, function(soundTypeKey, soundTypeValue) { #
+    # val = shouldShowKey ? soundTypeKey : soundTypeValue[explanationOrPaa]; length = (val.length  > length) ? val.length : length; #
+    # listOfValues.push(val); #
+    # }); #
+    # length += 10; selectionMessage = _.pad(selectionMessage, length, '-'); console.log(length); console.log(selectionMessage); #
+
+    <div class="dropdown">
+        <button id="#= osaiVagaiId #" class="btn btn-dropdown dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+            #= selectionMessage #<span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="#= osaiVagaiId #">
+            # $.each(listOfValues, function(index, value) { #
+            <li><a href="\\#">#= _.padEnd(value, length, ' ')  #</a></li>
+            # }); #
+        </ul>
+    </div>
 </script>
 
 <script type="text/x-kendo-template" id="osaiTemplate">
     # var tableText = (container === 'main') ? 't7' : 't9'; #
-    # var tableClass = "table theme-alt type-" + tableText; console.log(tableClass);#
-    <table class="#= tableClass #">
+    # var tableClass = "table type-" + tableText; console.log(tableClass);#
+    <table class="#= tableClass # text-left">
         <thead>
             <tr>
-                <th>ஓசை</th>
-                <th>விளக்கம்</th>
+                <th class="col-md-4">ஓசை</th>
+                <th class="col-md-6">விளக்கம்</th>
                 <th>
                     பா
                 </th>
@@ -105,7 +106,7 @@
         <tbody>
             <tr class="naal">
                 <td class="col-md-4">#= key #</td>
-                <td class="col-md-4">#= definition #</td>
+                <td class="col-md-6">#= definition #</td>
                 <td>#= paa #</td>
             </tr>
         </tbody>
@@ -118,31 +119,31 @@
 
 <script src="/Scripts/prosody/OsaiMatcher.js"></script>
 <script>
-        $(document).ready(function () {
-            OsaiMatcher.init();
-            var osaiSelectorTemplate = kendo.template($("#osaiSelectorTemplate").html());
-            $("#osaiTypes").append(osaiSelectorTemplate({ key: "key" }));
-            $("#osaiDefinition").append(osaiSelectorTemplate({ key: null, explanationOrPaa: "definition" }));
-            $("#osaiInPaa").append(osaiSelectorTemplate({ key: null, explanationOrPaa: "paa" }));
-            OsaiMatcher.showInputAndResult();
+    $(document).ready(function () {
+        OsaiMatcher.init();
+        var osaiSelectorTemplate = kendo.template($("#osaiSelectorTemplate").html());
+        $("#osaiTypes").append(osaiSelectorTemplate({ key: "key", explanationOrPaa: null }));
+        $("#osaiDefinition").append(osaiSelectorTemplate({ key: null, explanationOrPaa: "definition" }));
+        $("#osaiInPaa").append(osaiSelectorTemplate({ key: null, explanationOrPaa: "paa" }));
+        OsaiMatcher.showInputAndResult();
 
 
-            $("#osaiVagai-dropdown-definition").blur(OsaiMatcher.showInputAndResult);
-            $("#prosodyForm").submit(function () {
-                Utility.hideResult();
-                var osai = $("#osaiVagai-dropdown-key").text().trim();
-                var osaiExplanationIncorrect = $("#osaiVagai-dropdown-definition").text().trim() !==
-                    OsaiMatcher.soundTypes[osai].definition;
-                var osaiInPaaIncorrect = $("#osaiVagai-dropdown-paa").text().trim() !==
-                    OsaiMatcher.soundTypes[osai].paa;
-                var osaiExplanationOrPaaIncorrect = osaiExplanationIncorrect || osaiInPaaIncorrect;
-                OsaiMatcher.showOutputWithResult({
-                    container: 'side',
-                    key: osai,
-                    definition: OsaiMatcher.soundTypes[osai].definition,
-                    paa: OsaiMatcher.soundTypes[osai].paa,
-                    osaiExplanationOrPaaIncorrect: osaiExplanationOrPaaIncorrect
-                });
+        $("#osaiVagai-dropdown-definition").blur(OsaiMatcher.showInputAndResult);
+        $("#prosodyForm").submit(function () {
+            Utility.hideResult();
+            var osai = $("#osaiVagai-dropdown-key").text().trim();
+            var osaiExplanationIncorrect = $("#osaiVagai-dropdown-definition").text().trim() !==
+                OsaiMatcher.soundTypes[osai].definition;
+            var osaiInPaaIncorrect = $("#osaiVagai-dropdown-paa").text().trim() !==
+                OsaiMatcher.soundTypes[osai].paa;
+            var osaiExplanationOrPaaIncorrect = osaiExplanationIncorrect || osaiInPaaIncorrect;
+            OsaiMatcher.showOutputWithResult({
+                container: 'side',
+                key: osai,
+                definition: OsaiMatcher.soundTypes[osai].definition,
+                paa: OsaiMatcher.soundTypes[osai].paa,
+                osaiExplanationOrPaaIncorrect: osaiExplanationOrPaaIncorrect
             });
         });
-    </script>
+    });
+</script>
