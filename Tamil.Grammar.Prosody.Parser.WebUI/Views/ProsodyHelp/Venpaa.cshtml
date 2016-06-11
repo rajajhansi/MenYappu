@@ -1,3 +1,12 @@
-﻿<div>
-    <h1>Under Construction</h1>
+﻿@{
+    ViewBag.Title = "வெண்பா ";
+}
+<div id="mainHelp" class="p-md">
+
 </div>
+@{ Html.RenderPartial("_CommonKendoTemplates"); }
+<script>
+    $(document).ready(function () {
+        Utility.setHelp('venpaa', 'https://www.youtube.com/embed/a0ueXiAs6i4?start=62');
+    });
+</script>

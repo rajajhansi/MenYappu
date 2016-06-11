@@ -296,6 +296,7 @@
     <Content Include="audio\seer.mp3" />
     <Content Include="audio\thalai.mp3" />
     <Content Include="audio\thodai.mp3" />
+    <Content Include="audio\venpaa.mp3" />
     <Content Include="audio\venpaa_conversations_part2.mp3" />
     <Content Include="audio\venpaa_conversations_part1.mp3" />
     <Content Include="audio\venpaa_conversations_part3.mp3" />
@@ -721,6 +722,7 @@
     <Content Include="Content\menyappu_logo\fonts\menyappu.ttf" />
     <Content Include="Content\menyappu_logo\fonts\menyappu.woff" />
     <Content Include="Content\icons\manifest.json" />
+    <Content Include="App_Data\Venpaakkal.json" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

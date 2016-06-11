@@ -18,8 +18,9 @@
     @Scripts.Render("~/Scripts/kendojs")
     @Scripts.Render("~/Scripts/toastrjs")
     @Scripts.Render("~/Scripts/blockuijs")
+    @Scripts.Render("~/Scripts/customUi")
     @Scripts.Render("~/Scripts/parsleyjs")
-
+    <script src="/Scripts/lodash.js"></script>
     <script src="/Scripts/prosody/CookieService.js"></script>
     <script src="/Scripts/prosody/ProsodyResourceManager.js"></script>
     <script src="/Scripts/prosody/utilityfunctions.js"></script>
@@ -93,9 +94,8 @@
 
         @RenderSection("scripts", required: false)
         <script src="/Scripts/parsley/i18n/ta.js"></script>
-        @Scripts.Render("~/Scripts/customUi")
         @Scripts.Render("~/Scripts/ajaxHelpers")
-        <script src="/Scripts/lodash.js"></script>
+
 
 
         <script>

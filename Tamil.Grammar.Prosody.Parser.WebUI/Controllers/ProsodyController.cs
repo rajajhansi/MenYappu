@@ -131,7 +131,7 @@ namespace Tamil.Parody.Parser.WebUI.Controllers
             if (!string.IsNullOrEmpty(tamilpaa?.ProsodyText))
             {
                 var prosodyParser = new ProsodyParser(tamilpaa.ProsodyText, tamilpaa.ShouldParseKutriyalukaram,
-                    tamilpaa.ShouldParseVilaangaaySeer);
+                    tamilpaa.ShouldParseVilaangaaySeer, tamilpaa.ShouldCompareVenpaRules);
                 var prosodyPart = prosodyParser.Parse();
                 response = Request.CreateResponse(HttpStatusCode.Created, prosodyPart);
                 response.Headers.Location = new Uri(Request.RequestUri, $"prosody /{prosodyPart.MetreType}");
@@ -300,6 +300,13 @@ namespace Tamil.Parody.Parser.WebUI.Controllers
         public HttpResponseMessage Adigal()
         {
             return ReadJsonFile(@"~/App_Data/Adigal.json");
+        }
+
+        [Route("Venpaakkal")]
+        [HttpPost]
+        public HttpResponseMessage Venpaakkal()
+        {
+            return ReadJsonFile(@"~/App_Data/Venpaakkal.json");
         }
     }
 }

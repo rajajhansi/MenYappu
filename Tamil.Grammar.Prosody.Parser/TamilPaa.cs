@@ -11,6 +11,6 @@ namespace Tamil.Grammar.Prosody.Parser
         public string ProsodyText { get; set; }
         public bool ShouldParseKutriyalukaram { get; set; }
         public bool ShouldParseVilaangaaySeer { get; set; }
-
+        public bool ShouldCompareVenpaRules { get; set; }
     }
 }

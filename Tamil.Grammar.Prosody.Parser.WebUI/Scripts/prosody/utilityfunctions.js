@@ -82,7 +82,7 @@
         }
     }
 
-    function setupExample(apiUrl, attr) {
+    function setupExample(apiUrl, attr, index) {
         $("#example").on('click', function () {
             $.ajax({
                 url: apiUrl,
@@ -90,7 +90,8 @@
                 type: 'POST',
                 async: false,
                 success: function (data) {
-                    var exampleText = data[Utility.getRandomNumber(0, data.length)][attr];
+                    var exampleIndex = (_.isUndefined(index) ? Utility.getRandomNumber(0, data.length) : index);
+                    var exampleText = data[exampleIndex][attr];
                     exampleText = (_.isArray(exampleText)) ? exampleText.join('\n') : exampleText;
                     $("#ProsodyText").val(exampleText).blur();
                     clearResult();
@@ -106,6 +107,38 @@
     function renderHelpVariablesTemplate(part, container) {
         return kendo.Template.compile($("#helpVariablesTemplate").html())({ part: part, container: container });
     }
+    function wireSubmitToAnotherForm(e, elem) {
+        var associatedHiddenFieldId = $(elem).data("value");
+        var hiddenValue = $('#' + associatedHiddenFieldId).val();
+        console.log(hiddenValue);
+        // construct a hidden form with hidden input fields and fire the submit
+        var form = '';
+        form += '<input type="hidden" name="ProsodyText" value="' + hiddenValue + '"/>';
+        form += '<input type="hidden" name="ShouldParseKutriyalukaram" value="true"/>';
+        form += '<input type="hidden" name="ShouldParseVilaangaaySeer" value="true"/>';
+        form += '<input type="hidden" name="ShouldCompareVenpaRules" value="true"/>';
+
+        var formElement = '<form action="/Poem/Index" method="POST">' + form + '</form>';
+        $(formElement).submit();
+        //var data = "ProsodyText=" + hiddenValue + '&' +
+        //    "ShouldParseKutriyalukaram=" + true + '&' +
+        //    "ShouldParseVilaangaaySeer=" + true + '&' +
+        //    "ShouldCompareVenpaRules=";
+        //$.ajax({
+        //    url: '/Poem/Index',
+        //    contentType: 'application/json; charset=utf8',
+        //    type: 'POST',
+        //    async: false,
+        //    data: JSON.stringify(data),
+        //    dataType: 'json'
+        //});
+        //$('#venpaaHelpForm').submit(function (e) {
+        //    $.post('/Poem/Index', data);
+        //    e.preventDefault();
+        //});
+        //$('#venpaaHelpForm').submit();
+        return false;
+    }
     function setHelp(helpTopic, videoUrl) {
         // set the context help
         var helpVariablesTemplate = kendo.template($("#helpVariablesTemplate").html());
@@ -117,6 +150,7 @@
             Utility.setHelpAudioVideo(helpTopic, videoUrl, 'side');
         }
         $("#btn-help").on('click', function () { toggleHelp(); return false; });
+        $(".parsePaa").on('click', function(e) { wireSubmitToAnotherForm(e, this); });
         setLocalizedStrings();
     }
     function setContextHelp(helpVariablesText, helpText) {

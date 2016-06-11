@@ -44,6 +44,7 @@
         }).done(function (data) {
             return data;
         }).fail(function (data) {
+            console.log("ERROR!" + data);
             return null;
         }).always(function (data) {
             $.customUnblockUI();

@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Http;
 using System.Web.Mvc;
+using Newtonsoft.Json;
 
 namespace Tamil.Grammar.Prosody.Parser.WebUI.Controllers
 {
@@ -11,7 +13,14 @@ namespace Tamil.Grammar.Prosody.Parser.WebUI.Controllers
         // GET: Poem
         public ActionResult Index()
         {
-            return View();
+            var tamilpaa = new TamilPaa();
+            return View(tamilpaa);
+        }
+
+        [System.Web.Mvc.HttpPost]
+        public ActionResult Index(TamilPaa tamilpaa)
+        {
+            return View(tamilpaa);
         }
     }
 }

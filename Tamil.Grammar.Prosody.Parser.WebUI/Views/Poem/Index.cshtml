@@ -1,9 +1,15 @@
-﻿@{
+﻿@model Tamil.Grammar.Prosody.Parser.TamilPaa
+@{
     ViewBag.Title = "மென்யாப்பு";
 }
 
 <div id="poemComposerGame">
-
+    @{
+        if (!string.IsNullOrEmpty(Model?.ProsodyText))
+        {
+            <input type="hidden" value="@Model.ProsodyText" />
+        }
+    }
 </div>
 
 <script type="text/x-kendo-template" id="poemComposerInputTemplate">
@@ -456,6 +462,12 @@
             }
         }
 
+        function htmlDecode(value) {
+            return $('<div/>').html(value).text();
+        }
+        //var prosodyText = '';
+        Utility.setHelp('venpaa', 'https://www.youtube.com/embed/a0ueXiAs6i4?start=62');
+
         $("#prosodyForm").submit(function () {
             var shouldCompareVenpaRules = $("#ShouldCompareVenpaRules").is(':checked');
             var data = '{"prosodyText" : "' + $("#ProsodyText").val() + '"' +
@@ -525,6 +537,7 @@
                         venpaError: data["venpaError"]
                     }));
                     toggleTab(TabNames.VenpaRulesComparison, shouldCompareVenpaRules);
+                    tabStrip.select(TabNames.Metreme);
                 },
                 error: function (data) {
                     alert('error');
@@ -533,6 +546,20 @@
             return false;
         });
         Utility.wireDropdownTooltipAndPopoverHandlers();
+        @{
+            if (!string.IsNullOrEmpty(Model?.ProsodyText))
+            {
+                <text>
+                console.log("@Model.ProsodyText");
+                var prosodyText = eval(htmlDecode("@Model.ProsodyText"));
+                $("#ProsodyText").val(prosodyText.join('\r\n'));
+                $("#ShouldParseKutriyalukaram").attr('checked', ('@Model.ShouldParseKutriyalukaram' === 'True'));
+                $("#ShouldParseVilaangaaySeer").attr('checked', ('@Model.ShouldParseVilaangaaySeer' === 'True'));
+                $("#ShouldCompareVenpaRules").attr('checked', ('@Model.ShouldCompareVenpaRules' === 'True'));
+                $("#prosodyForm").submit();
+                </text>
+            }
+        }
     });
 
 </script>
