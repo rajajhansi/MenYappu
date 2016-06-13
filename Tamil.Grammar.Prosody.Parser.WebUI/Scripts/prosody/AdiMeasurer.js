@@ -11,7 +11,11 @@
         // set the context help
         Utility.setHelp('adi', 'https://www.youtube.com/embed/k3Ad5SMGwUo?start=570');
         // event handler for select
+        var additionalInfoTemplate = kendo.template($("#additionalInfoTemplate").html());
+        $("#additionalInfo").append(additionalInfoTemplate({}));
+        Utility.initSeyyulResultbar();
         Utility.initSeyyulbar();
+        Utility.initAdditionalInfo('adi');
 
         Utility.hideResult();
         var resultTemplate = kendo.template($("#resultTemplate").html());
