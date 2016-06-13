@@ -11,7 +11,11 @@
         // set the context help
         Utility.setHelp('thalai', 'https://www.youtube.com/embed/k3Ad5SMGwUo?start=75');
         // event handler for select
+        var additionalInfoTemplate = kendo.template($("#additionalInfoTemplate").html());
+        $("#additionalInfo").append(additionalInfoTemplate({}));
+        Utility.initSeyyulResultbar();
         Utility.initSeyyulbar();
+        Utility.initAdditionalInfo('thalai');
 
         Utility.hideResult();
         $("#ProsodyText").blur(function () {
