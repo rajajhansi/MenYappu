@@ -9,7 +9,7 @@
                 inputLines: 2
             }));
         // set the context help
-        Utility.setHelp('thodai', null);
+        Utility.setHelp('thodai', 'https://www.youtube.com/embed/k3Ad5SMGwUo?start=570');
 
         // event handler for select
         Utility.initSeyyulbar();

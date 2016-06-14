@@ -244,11 +244,11 @@
                         </a>
                         # if(shouldShowExplanationAsPopOver) {#
                         <a role="button" id="#= partExplanation #"
-                            class="btn btn-primary btn-with-glyph"
-                            tabindex="0"
-                            data-toggle="popover"
-                            data-trigger="focus"
-                            data-content="#= excellent #" data-localize="explanation"><i class="glyph glyph-message"></i><span class="ltext"></span></a>
+                           class="btn btn-primary btn-with-glyph"
+                           tabindex="0"
+                           data-toggle="popover"
+                           data-trigger="focus"
+                           data-content="#= excellent #" data-localize="explanation"><i class="glyph glyph-message"></i><span class="ltext"></span></a>
                         # } #
                     </span>
                 </div>
@@ -1238,6 +1238,8 @@
 
 <script type="text/x-kendo-template" id="thodaiHelpTemplate">
     # var helptextClass = 'helptext-' + container; console.log(helptextClass); #
+    # var audioVideoControlsId = 'audio-video-controls-thodai-' + container; console.log(audioVideoControlsId); #
+    <div class="m-l-xxs" id="#= audioVideoControlsId #"></div>
     # var tableText = (container === 'main') ? 't7' : 't9'; #
     # var tableClass = "table  type-" + tableText; console.log(tableClass);#
     <div class="infotip m-l-xxs" data-localize="playThisGame">
@@ -1247,15 +1249,44 @@
         <a href="/Games/ThodaiFinder" class="btn btn-primary btn-with-glyph" id="example" data-localize="ornamentationFinder"><i class="glyph glyph-import "></i><span class="ltext"></span></a>
     </div>
     <br />
+    <br />
+    # var videoModalDialogId = 'modal-video-thodai-' + container; #
+    <div class="modal modal-center-vertical" id="#= videoModalDialogId #" tabindex="-1" role="dialog" aria-labelledby="modal-about-menyappu-label" aria-hidden="true" style="display: none;">
+
+    </div>
     <div class="#= helptextClass #">
         <span class="type-t6" id="thodai">தொடை (Ornament/Ornamentation)</span>
         <br />
-        தொடுக்கப்படுவது தொடை எனப்படும்.
+        தொடுக்கப்படுவது தொடை எனப்படும். பாக்களின் ஓசைக்கும் இனிமைக்கும் சிறப்புக்கும் தொடை இன்றியமையாதது.
     </div>
     <div class="#= helptextClass #">
         <span class="type-t6" id="thodaivagai">தொடை வகை</span>
+        <br />
+        தொடை இரண்டு வகைப்படும்
+        <br />
     </div>
     <br />
+    <table class="#= tableClass #">
+        <tbody>
+            <tr>
+                <td>1.	முதற்றொடை<a href="\#mudhattrodai"><i class="glyph glyph-go"></i></a></td>
+            </tr>
+            <tr>
+                <td>2.	உறழ்ச்சித்தொடை – ஓர் அடியிலுள்ள சீர்களில் வருவது<a href="\#urazhchithodai"><i class="glyph glyph-go"></i></a></td>
+            </tr>
+            <tr>
+                <td>3.  பிற தொடைகள்<a href="\#pirathodaigal"><i class="glyph glyph-go"></i></a></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="#= helptextClass #">
+        <span class="type-t6" id="mudhattrodai">முதற்றொடை</span>
+        <br />
+        அடிகளில் வரும் தொடை முதற்றொடை ஆகும். முதற்றொடை ஐந்து வகைப்படும்.
+    </div>
+    <div class="#= helptextClass #">
+        <span class="type-t6" id="thodaivagai">முதற்றொடை வகை</span>
+    </div>
     <table class="#= tableClass #">
         <tbody>
             <tr>
@@ -1273,23 +1304,20 @@
             <tr>
                 <td>5. அளபெடை(Overlengthening)<a href="\#alapedai"><i class="glyph glyph-go"></i></a></td>
             </tr>
-            <tr>
-                <td>6. இரட்டைத் தொடை(Repetition)<a href="\#irattaithodai"><i class="glyph glyph-go"></i></a></td>
-            </tr>
-            <tr>
-                <td>7. அந்தாதித் தொடை (Metrical Sequence)<a href="\#anthathithodai"><i class="glyph glyph-go"></i></a></td>
-            </tr>
-            <tr>
-                <td>8. செந்தொடை(Blank)<a href="\#senthodai"><i class="glyph glyph-go"></i></a></td>
-            </tr>
         </tbody>
     </table>
     <br />
+
     <div class="#= helptextClass #">
-        முதல் ஐந்து தொடைகளில் (மோனை, எதுகை, இயைபு, முரண், அளபெடை) ஒவ்வொன்றும் எட்டு வகைப்படும்.
+        <span class="type-t6" id="urazhchithodai">உறழ்ச்சித்தொடை </span>
+        <br />
+        ஓர் அடியிலுள்ள சீர்களில் வரும் தொடை உறழ்ச்சித்தொடை ஆகும். உறழ்ச்சித்தொடை பதினோரு (11) வகைப்படும். முதற்றொடை ஐந்தும் (5)
+        (மோனை, எதுகை, இயைபு, முரண், அளபெடை) பதினோரு (11) உறழ்ச்சித்தொடைகளோடு சேர்ந்து ஐம்பத்து ஐந்து (55) வகைகளாக வரும்.
+        உறழ்ச்சித்தொடையைப் பார்க்கும்பொழுது ஒரு அடியிலுள்ள நான்கு (4) சீர்களை மட்டுமே பார்க்க வேண்டும். மோனை, எதுகை, முரண், அளபெடைத்
+        தொடைகளை ஓர் அடியிலுள்ள முதல் சீரிலிருந்து நான்காவது சீர் வரை பார்க்கவேண்டும்
     </div>
     <div class="#= helptextClass #">
-        <span class="type-t6" id="thodaivagai">அவை:</span>
+        <span class="type-t6" id="thodaivagai">உறழ்ச்சித்தொடை வகை</span>
     </div>
     <table class="#= tableClass #">
         <thead>
@@ -1347,7 +1375,7 @@
     </table>
     <br />
     <div class="#= helptextClass #">
-        <span class="type-t6" id="monai">மோனை (Alliteration)<a href="\#thodai"><i class="glyph glyph-up"></i></a></span>
+        <span class="type-t6" id="monai">மோனை (Alliteration)<a href="\#mudhattrodai"><i class="glyph glyph-up"></i></a></span>
     </div>
     <div class="#= helptextClass #">
         ஒரு அடியிலுள்ள சீர்களுக்குள் முதல் எழுத்து ஒன்றி வருவது மோனை எனப்படும்.
@@ -1355,7 +1383,7 @@
     </div>
     <br />
     <div class="#= helptextClass #">
-        <span class="type-t6" id="ethukai">எதுகை (Alliteration)<a href="\#thodai"><i class="glyph glyph-up"></i></a></span>
+        <span class="type-t6" id="ethukai">எதுகை (Alliteration)<a href="\#mudhattrodai"><i class="glyph glyph-up"></i></a></span>
     </div>
     <div class="#= helptextClass #">
         ஒரு அடியிலுள்ள சீர்களுக்குள் இரண்டாம் எழுத்து ஒன்றி வருவது எதுகை எனப்படும்.  அது மட்டுமன்றி முதல் எழுத்துகள் ஒரே மாத்திரையளவில் அமைந்திருக்க வேண்டும்.
@@ -1363,11 +1391,12 @@
     </div>
     <br />
     <div class="#= helptextClass #">
-        <span class="type-t6" id="iyaipu">இயைபு (End- Rhyme)<a href="\#thodai"><i class="glyph glyph-up"></i></a></span>
+        <span class="type-t6" id="iyaipu">இயைபு (End- Rhyme)<a href="\#mudhattrodai"><i class="glyph glyph-up"></i></a></span>
     </div>
     <div class="#= helptextClass #">
         இறுதியில் உள்ள எழுத்தாவது சொல்லாவது ஒன்றி வருவது இயைபு.
-        அடிதோறும் இப்படி ஒன்றி வந்தால் “அடி இயைபு” எனப்படும்.
+        அடிதோறும் இப்படி ஒன்றி வந்தால் “அடி இயைபு” எனப்படும். இயைபுத்தொடையைப் பார்க்கும்பொழுது
+        ஒரு அடியிலுள்ள நாலாவது சீரிலிருந்து முதல் சீர் வரை பார்க்க வேண்டும்.
     </div>
     <table class="#= tableClass #">
         <thead>
@@ -1425,7 +1454,7 @@
     </table>
     <br />
     <div class="#= helptextClass #">
-        <span class="type-t6" id="muran">முரண்(Antithesis/Oxymoron)<a href="\#thodai"><i class="glyph glyph-up"></i></a></span>
+        <span class="type-t6" id="muran">முரண்(Antithesis/Oxymoron)<a href="\#mudhattrodai"><i class="glyph glyph-up"></i></a></span>
     </div>
     <div class="#= helptextClass #">
         முரண் என்பது விரோதம் அல்லது மாறுபாடு.
@@ -1441,7 +1470,7 @@
     </div>
     <br />
     <div class="#= helptextClass #">
-        <span class="type-t6" id="alapedai">அளபெடை(Overlengthening)<a href="\#thodai"><i class="glyph glyph-up"></i></a></span>
+        <span class="type-t6" id="alapedai">அளபெடை(Overlengthening)<a href="\#mudhattrodai"><i class="glyph glyph-up"></i></a></span>
     </div>
     <div class="#= helptextClass #">
         உயிரளபெடையோ ஒற்றளபெடையோ தொடர்ந்து வருவது அளபெடைத்தொடை.
@@ -1449,7 +1478,29 @@
     </div>
     <br />
     <div class="#= helptextClass #">
-        <span class="type-t6" id="irattaithodai">இரட்டைத் தொடை(Repetition)<a href="\#thodai"><i class="glyph glyph-up"></i></a></span>
+        <span class="type-t6" id="pirathodaigal">பிறதொடைகள் </span>
+        <br />
+        பிறதொடைகள் மூன்று (3) வகைப்படும்.
+    </div>
+    <div class="#= helptextClass #">
+        <span class="type-t6" id="thodaivagai">உறழ்ச்சித்தொடை வகை</span>
+    </div>
+    <table class="#= tableClass #">
+        <tbody>
+            <tr>
+                <td>1. இரட்டைத் தொடை(Repetition)<a href="\#irattaithodai"><i class="glyph glyph-go"></i></a></td>
+            </tr>
+            <tr>
+                <td>2. அந்தாதித் தொடை (Metrical Sequence)<a href="\#anthathithodai"><i class="glyph glyph-go"></i></a></td>
+            </tr>
+            <tr>
+                <td>3. செந்தொடை(Blank)<a href="\#senthodai"><i class="glyph glyph-go"></i></a></td>
+            </tr>
+        </tbody>
+    </table>
+    <br />
+    <div class="#= helptextClass #">
+        <span class="type-t6" id="irattaithodai">இரட்டைத் தொடை(Repetition)<a href="\#pirathodaigal"><i class="glyph glyph-up"></i></a></span>
     </div>
     <div class="#= helptextClass #">
         ஓரடி முழுவதும் வந்த சொல்லே திரும்பத் திரும்ப வரும்படி தொடுப்பது இரட்டைத் தொடை.
@@ -1457,7 +1508,7 @@
     </div>
     <br />
     <div class="#= helptextClass #">
-        <span class="type-t6" id="anthathithodai">அந்தாதித் தொடை (Metrical Sequence)<a href="\#thodai"><i class="glyph glyph-up"></i></a></span>
+        <span class="type-t6" id="anthathithodai">அந்தாதித் தொடை (Metrical Sequence)<a href="\#pirathodaigal"><i class="glyph glyph-up"></i></a></span>
     </div>
     <div class="#= helptextClass #">
         அடிதோறும், ஓரடியின் இறுதியிலுள்ள எழுத்தோ அசையோ அடியோ அடுத்த அடியின் முதலில் தொடர்ந்து வரும்படி தொடுப்பது அந்தாதித்தொடை.
@@ -1465,13 +1516,13 @@
     </div>
     <br />
     <div class="#= helptextClass #">
-        <span class="type-t6" id="senthodai">செந்தொடை (Blank)<a href="\#thodai"><i class="glyph glyph-up"></i></a></span>
+        <span class="type-t6" id="senthodai">செந்தொடை (Blank)<a href="\#pirathodaigal"><i class="glyph glyph-up"></i></a></span>
     </div>
     <div class="#= helptextClass #">
         எந்தத் தொடையும் இல்லாமல் வருவது செந்தொடை.
         <br />
     </div>
-
+    <br />
 </script>
 
 <script type="text/x-kendo-template" id="osaiHelpTemplate">
@@ -1598,156 +1649,158 @@
         <span class="type-t6">வெண்பா ஓசை நயத்துக்காக</span>
     </div>
     <form id="venpaaHelpForm" method="POST">
-    <table class="#= tableClass #">
-        <thead>
-            <tr>
-                <th>எண் </th>
-                <th>சிறப்பு விதி (அ) இலக்கணம் (கட்டாயமில்லை)</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="naal">
-                <td class="col-md-1">1.</td>
-                <td class="col-md-4">அடிக்குள் மோனையும் (1-ம் சீரும் 3-ம் சீரும் மோனையில் அமைதல் சிறப்பு) அடிகளுக்குள் எதுகையும் பயின்று வருதல் வேண்டும்</td>
-            </tr>
-            <tr class="malar">
-                <td>2.</td>
-                <td>விளாங்காய்ச்சீர்களைத் தவிர்க்க வேண்டும். விளாங்காய்ச்சீரென்பது காய்ச்சீருக்குள் நடுவில் வரும் நிரையசை குறிநெடிலாய் அமைந்திருக்கும் சீராகும்.</td>
-            </tr>
-        </tbody>
-    </table>
-    <div class="#= helptextClass #">
-        <span class="type-t6">வெண்பா வகைகள்</span>
-        <br />
-        அடியளவை வைத்து வெண்பாக்களை 5 வகையாகப் பிரிக்கலாம்.
-        <br />
-    </div>
-    <table class="#= tableClass # table-striped">
-        <thead>
-            <tr>
-                <th>அடிகள் எண்ணிக்கை</th>
-                <th>வெண்பா வகை</th>
-                <th>காட்டு</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="naal">
-                <td class="col-md-2">ஈரடிகளில் அமைந்த வெண்பா</td>
-                <td class="col-md-4">குறள் வெண்பா</td>
-                <td>
-                    <span class="venpaa-type0"></span>
-                    <div class="m-t-xs">
-                        <button type="button" class="parsePaa btn btn-primary" data-localize="parse" data-value="venpaa-type0"><span class="ltext"></span></button>
-                    </div>
-                    <input type="hidden" id="venpaa-type0" value="" />
-                </td>
-            </tr>
-            <tr class="malar">
-                <td>மூவடிகளில் அமைந்த வெண்பா</td>
-                <td>சிந்தியல் வெண்பா</td>
-                <td>
-                    <span class="venpaa-type1"></span>
-                    <div class="m-t-xs">
-                        <button type="button" class="parsePaa btn btn-primary" data-localize="parse" data-value="venpaa-type1"><span class="ltext"></span></button>
-                    </div>
-                    <input type="hidden" id="venpaa-type1" value="" />
-                </td>
-            </tr>
-            <tr class="kaasu">
-                <td>நான்கடிகளில் அமைந்த வெண்பா</td>
-                <td>அளவியல் வெண்பா</td>
-                <td>
-                    <span class="venpaa-type2"></span>
-                    <div class="m-t-xs">
-                        <button type="button" class="parsePaa btn btn-primary" data-localize="parse" data-value="venpaa-type2"><span class="ltext"></span></button>
-                    </div>
-                    <input type="hidden" id="venpaa-type2" value="" />
-                </td>
-            </tr>
-            <tr class="pirappu">
-                <td>நான்கிலிருந்து பன்னிரண்டடி வரையில் அமைந்த வெண்பா</td>
-                <td>பஃறொடை வெண்பா </td>
-                <td>
-                    <span class="venpaa-type3"></span>
-                    <div class="m-t-xs">
-                        <button type="button" class="parsePaa btn btn-primary" data-localize="parse" data-value="venpaa-type3"><span class="ltext"></span></button>
-                    </div>
-                    <input type="hidden" id="venpaa-type3" value="" />
-                </td>
-            </tr>
-            <tr class="naal">
-                <td>பதின்மூன்றிலிருந்து எத்தனை அடி வரையிலானாலும் அமைந்த வெண்பா</td>
-                <td>கலி வெண்பா </td>
-                <td>
-                    <span class="venpaa-type4"></span>
-                    <div class="m-t-xs">
-                        <button type="button" class="parsePaa btn btn-primary" data-localize="parse" data-value="venpaa-type4"><span class="ltext"></span></button>
-                    </div>
-                    <input type="hidden" id="venpaa-type4" value="" />
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <div class="#= helptextClass #">
-        <br />
-        குறள் வெண்பாவைத் தவிர மீதமுள்ள அனைத்து வெண்பாக்களையும் நேரிசை, இன்னிசை என இரு வகையாகப் பிரிக்கலாம்.
-        <br />
-    </div>
+        <table class="#= tableClass #">
+            <thead>
+                <tr>
+                    <th>எண் </th>
+                    <th>சிறப்பு விதி (அ) இலக்கணம் (கட்டாயமில்லை)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="naal">
+                    <td class="col-md-1">1.</td>
+                    <td class="col-md-4">அடிக்குள் மோனையும் (1-ம் சீரும் 3-ம் சீரும் மோனையில் அமைதல் சிறப்பு) அடிகளுக்குள் எதுகையும் பயின்று வருதல் வேண்டும்</td>
+                </tr>
+                <tr class="malar">
+                    <td>2.</td>
+                    <td>விளாங்காய்ச்சீர்களைத் தவிர்க்க வேண்டும். விளாங்காய்ச்சீரென்பது காய்ச்சீருக்குள் நடுவில் வரும் நிரையசை குறிநெடிலாய் அமைந்திருக்கும் சீராகும்.</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="#= helptextClass #">
+            <span class="type-t6">வெண்பா வகைகள்</span>
+            <br />
+            அடியளவை வைத்து வெண்பாக்களை 5 வகையாகப் பிரிக்கலாம்.
+            <br />
+        </div>
+        <table class="#= tableClass # table-striped">
+            <thead>
+                <tr>
+                    <th>அடிகள் எண்ணிக்கை</th>
+                    <th>வெண்பா வகை</th>
+                    <th>காட்டு</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="naal">
+                    <td class="col-md-2">ஈரடிகளில் அமைந்த வெண்பா</td>
+                    <td class="col-md-4">குறள் வெண்பா</td>
+                    <td>
+                        <span class="venpaa-type0"></span>
+                        <div class="m-t-xs">
+                            <button type="button" class="parsePaa btn btn-primary" data-localize="parse" data-value="venpaa-type0"><span class="ltext"></span></button>
+                        </div>
+                        <input type="hidden" id="venpaa-type0" value="" />
+                    </td>
+                </tr>
+                <tr class="malar">
+                    <td>மூவடிகளில் அமைந்த வெண்பா</td>
+                    <td>சிந்தியல் வெண்பா</td>
+                    <td>
+                        <span class="venpaa-type1"></span>
+                        <div class="m-t-xs">
+                            <button type="button" class="parsePaa btn btn-primary" data-localize="parse" data-value="venpaa-type1"><span class="ltext"></span></button>
+                        </div>
+                        <input type="hidden" id="venpaa-type1" value="" />
+                    </td>
+                </tr>
+                <tr class="kaasu">
+                    <td>நான்கடிகளில் அமைந்த வெண்பா</td>
+                    <td>அளவியல் வெண்பா</td>
+                    <td>
+                        <span class="venpaa-type2"></span>
+                        <div class="m-t-xs">
+                            <button type="button" class="parsePaa btn btn-primary" data-localize="parse" data-value="venpaa-type2"><span class="ltext"></span></button>
+                        </div>
+                        <input type="hidden" id="venpaa-type2" value="" />
+                    </td>
+                </tr>
+                <tr class="pirappu">
+                    <td>நான்கிலிருந்து பன்னிரண்டடி வரையில் அமைந்த வெண்பா</td>
+                    <td>பஃறொடை வெண்பா </td>
+                    <td>
+                        <span class="venpaa-type3"></span>
+                        <div class="m-t-xs">
+                            <button type="button" class="parsePaa btn btn-primary" data-localize="parse" data-value="venpaa-type3"><span class="ltext"></span></button>
+                        </div>
+                        <input type="hidden" id="venpaa-type3" value="" />
+                    </td>
+                </tr>
+                <tr class="naal">
+                    <td>பதின்மூன்றிலிருந்து எத்தனை அடி வரையிலானாலும் அமைந்த வெண்பா</td>
+                    <td>கலி வெண்பா </td>
+                    <td>
+                        <span class="venpaa-type4"></span>
+                        <div class="m-t-xs">
+                            <button type="button" class="parsePaa btn btn-primary" data-localize="parse" data-value="venpaa-type4"><span class="ltext"></span></button>
+                        </div>
+                        <input type="hidden" id="venpaa-type4" value="" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="#= helptextClass #">
+            <br />
+            குறள் வெண்பாவைத் தவிர மீதமுள்ள அனைத்து வெண்பாக்களையும் நேரிசை, இன்னிசை என இரு வகையாகப் பிரிக்கலாம்.
+            <br />
+        </div>
 
-    <table class="#= tableClass #">
-        <thead>
-            <tr>
-                <th>வெண்பா வகை </th>
-                <th>விதி (அ) இலக்கணம்</th>
-                <th>காட்டு</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="naal">
-                <td class="col-md-1">நேரிசை வெண்பா</td>
-                <td class="col-md-3">வெண்பாவின் பொது இலக்கணங்கள் அமைந்து,
-    நான்கடியில் அமைந்து, இரண்டாமடியின்  ஈற்றுச்சீர்
-    தனிச்சொல்லாயிருத்தல் மட்டுமன்றி
-    இரண்டாமடியிலுள்ள முதற்சீரின் எதுகையாகவும்
-    இருத்தல் வேண்டும். மூன்றடியில் அமைந்தால்
-    நேரிசைச் சிந்தியல் வெண்பா ஆகும்.
-</td>
-                <td class="col-md-4">
-                    <span class="venpaa-type5"></span>
-                    <div class="m-t-xs">
-                        <button type="button" class="parsePaa btn btn-primary" data-localize="parse" data-value="venpaa-type5"><span class="ltext"></span></button>
-                    </div>
-                    <input type="hidden" id="venpaa-type5" value="" />
-                </td>
-            </tr>
-            <tr class="malar">
-                <td>இன்னிசை வெண்பா</td>
-                <td>வெண்பாவின் பொது இலக்கணங்கள் அமைந்து
-    நேரிசை வெண்பாவுக்கு வேறுபட்டு நிற்கும்
-    நாலடியுள்ள எல்லா வெண்பாக்களும் இன்னிசை
-    வெண்பாக்கள் ஆகும். மூன்றடியில் அமைந்தால்
-    இன்னிசைச் சிந்தியல் வெண்பா ஆகும்.
-</td>
-                <td>
-                    <span class="venpaa-type6"></span>
-                    <div class="m-t-xs">
-                        <button type="button" class="parsePaa btn btn-primary" data-localize="parse" data-value="venpaa-type6"><span class="ltext"></span></button>
-                    </div>
-                    <input type="hidden" id="venpaa-type6" value="" />
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    # var venpaaExamplesRequest = ProsodyService.sampleForPartOfaPaaUsingPromise('Venpaakkal'); var venpaaExamples = {}; #
-    # $.when(venpaaExamplesRequest).done(function (venpaaExamplesResponse) { #
-    #  $.customUnblockUI(); #
-    #  venpaaExamples = venpaaExamplesResponse; #
-    # for(var venpaaType = ProsodyService.VenpaaTypes.Kural; venpaaType <= ProsodyService.VenpaaTypes.Innisai; venpaaType++) { #
-    # var classAndId = 'venpaa-type' + venpaaType;  #
-    # $('.' + classAndId).html(venpaaExamples[venpaaType]["venpaa"].join("<br />")); #
-    # var paa = JSON.stringify(venpaaExamples[venpaaType]["venpaa"]).replace(/"/g, "\'"); console.log(paa); #
-    # $('\#' + classAndId).val(paa); #
-    # } #
-    # }); #
+        <table class="#= tableClass #">
+            <thead>
+                <tr>
+                    <th>வெண்பா வகை </th>
+                    <th>விதி (அ) இலக்கணம்</th>
+                    <th>காட்டு</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="naal">
+                    <td class="col-md-1">நேரிசை வெண்பா</td>
+                    <td class="col-md-3">
+                        வெண்பாவின் பொது இலக்கணங்கள் அமைந்து,
+                        நான்கடியில் அமைந்து, இரண்டாமடியின்  ஈற்றுச்சீர்
+                        தனிச்சொல்லாயிருத்தல் மட்டுமன்றி
+                        இரண்டாமடியிலுள்ள முதற்சீரின் எதுகையாகவும்
+                        இருத்தல் வேண்டும். மூன்றடியில் அமைந்தால்
+                        நேரிசைச் சிந்தியல் வெண்பா ஆகும்.
+                    </td>
+                    <td class="col-md-4">
+                        <span class="venpaa-type5"></span>
+                        <div class="m-t-xs">
+                            <button type="button" class="parsePaa btn btn-primary" data-localize="parse" data-value="venpaa-type5"><span class="ltext"></span></button>
+                        </div>
+                        <input type="hidden" id="venpaa-type5" value="" />
+                    </td>
+                </tr>
+                <tr class="malar">
+                    <td>இன்னிசை வெண்பா</td>
+                    <td>
+                        வெண்பாவின் பொது இலக்கணங்கள் அமைந்து
+                        நேரிசை வெண்பாவுக்கு வேறுபட்டு நிற்கும்
+                        நாலடியுள்ள எல்லா வெண்பாக்களும் இன்னிசை
+                        வெண்பாக்கள் ஆகும். மூன்றடியில் அமைந்தால்
+                        இன்னிசைச் சிந்தியல் வெண்பா ஆகும்.
+                    </td>
+                    <td>
+                        <span class="venpaa-type6"></span>
+                        <div class="m-t-xs">
+                            <button type="button" class="parsePaa btn btn-primary" data-localize="parse" data-value="venpaa-type6"><span class="ltext"></span></button>
+                        </div>
+                        <input type="hidden" id="venpaa-type6" value="" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        # var venpaaExamplesRequest = ProsodyService.sampleForPartOfaPaaUsingPromise('Venpaakkal'); var venpaaExamples = {}; #
+        # $.when(venpaaExamplesRequest).done(function (venpaaExamplesResponse) { #
+        #  $.customUnblockUI(); #
+        #  venpaaExamples = venpaaExamplesResponse; #
+        # for(var venpaaType = ProsodyService.VenpaaTypes.Kural; venpaaType <= ProsodyService.VenpaaTypes.Innisai; venpaaType++) { #
+        # var classAndId = 'venpaa-type' + venpaaType;  #
+        # $('.' + classAndId).html(venpaaExamples[venpaaType]["venpaa"].join("<br />")); #
+        # var paa = JSON.stringify(venpaaExamples[venpaaType]["venpaa"]).replace(/"/g, "\'"); console.log(paa); #
+        # $('\#' + classAndId).val(paa); #
+        # } #
+        # }); #
     </form>
 </script>
