@@ -84,6 +84,32 @@
   }
 }
 
+.center-panelbar-contentwrap{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: $shame_bottompanelsize;
+  overflow: auto;
+}
+
+.bottom-panelbar{
+  @extend %panelbar-common-styles;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: $shame_bottompanelsize;
+}
+
+.bottom-panelbar-contentwrap{
+  position: absolute;
+  top: 44px;
+  left: 0;
+  right: 0;
+  overflow: auto;
+  bottom: 0;
+}
+
 .panel-collapsed-left {
   .left-panelbar {
     width: $shame_leftpanelsize_collapsed;
@@ -105,6 +131,15 @@
   }
   .center-panelbar {
     right: $shame_rightpanelsize_collapsed;
+  }
+}
+
+.panel-collapsed-bottom{
+  .center-panelbar-contentwrap{
+    bottom: 45px;
+  }
+  .bottom-panelbar{
+    height: 45px;
   }
 }
 
@@ -241,6 +276,11 @@ $alt-txt-col: #333;
     color: $alt-txt-col;
     @extend %alt-bg-styles;
     border-left: 1px solid $shame_bordercol;
+  }
+  .bottom-panelbar{
+    color: $alt-txt-col;
+    @extend %alt-bg-styles;
+    border-top: 1px solid $shame_bordercol;
   }
   .stacked-menus-toggler {
     &:hover{
