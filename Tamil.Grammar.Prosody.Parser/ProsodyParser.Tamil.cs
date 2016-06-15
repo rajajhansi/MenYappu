@@ -5,9 +5,9 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using RjamSoft.Tamil.Grammar.Prosody.Core;
-using Tamil.Grammar.Prosody.Parser;
+using RjamSoft.Tamil.Grammar.Prosody.Core.Parser;
 
-namespace RjamSoft.Tamil.Grammar.Parser
+namespace RjamSoft.Tamil.Grammar.Prosody.Parser
 {
     public partial class ProsodyParser
     {

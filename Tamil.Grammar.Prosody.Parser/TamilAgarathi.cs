@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Gma.DataStructures.StringSearch;
 
-namespace Tamil.Grammar.Prosody.Parser
+namespace RjamSoft.Tamil.Grammar.Prosody.Parser
 {
     public class TamilAgarathi : ITamilAgarathi
     {

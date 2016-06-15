@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using RjamSoft.Tamil.Grammar.Parser;
 using RjamSoft.Tamil.Grammar.Prosody.Core;
 
-namespace Tamil.Grammar.Prosody.Parser
+namespace RjamSoft.Tamil.Grammar.Prosody.Parser
 {
     public class ThodaiProcessor
     {

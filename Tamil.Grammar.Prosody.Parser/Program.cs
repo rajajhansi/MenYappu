@@ -2,10 +2,12 @@
 using System.Linq;
 using System.Text.RegularExpressions;
 using RjamSoft.Tamil.Grammar.Prosody.Core;
+using RjamSoft.Tamil.Grammar.Prosody.Core.Parser;
 
-namespace RjamSoft.Tamil.Grammar.Parser
+
+namespace RjamSoft.Tamil.Grammar.Prosody.Parser
 {
-   
+
     public class Program
     {
         public static Regex MyRegex = new Regex(
@@ -16,8 +18,8 @@ namespace RjamSoft.Tamil.Grammar.Parser
 
 
 
-        static int vowelCount = 0;                
-        
+        static int vowelCount = 0;
+
         public static void AnalyzeMeiEzuthukkal(string meiEzuthukkal)
         {
             foreach (var letter in meiEzuthukkal)
@@ -79,7 +81,7 @@ namespace RjamSoft.Tamil.Grammar.Parser
             //{
             //    if(word.Length > 0)
             //    {
-            //        mathiraiCountOfWords[Transliterator.Tamil2Latin(word)] = CalculateMathirai(word);                    
+            //        mathiraiCountOfWords[Transliterator.Tamil2Latin(word)] = CalculateMathirai(word);
             //    }
             //}
 
@@ -94,9 +96,9 @@ namespace RjamSoft.Tamil.Grammar.Parser
 
             var text = Transliterator.Tamil2Latin(InputText);
 
-            
 
-              
+
+
             foreach(var ugaraMeiEzuthuVagai in TamilLanguageConstants.UgaraMeiEzuthuVagaigal)
             {
                 AnalyzeMeiEzuthukkal(ugaraMeiEzuthuVagai);
@@ -104,11 +106,11 @@ namespace RjamSoft.Tamil.Grammar.Parser
             foreach (var uugaraMeiEzuthuVagai in TamilLanguageConstants.UugaraMeiEzuthuVagaigal)
             {
                 AnalyzeMeiEzuthukkal(uugaraMeiEzuthuVagai);
-            }            
-            
+            }
+
             int uyirEzuthuCount = kural.Count(k => k == TamilLanguageConstants.UyirEzuthukkal.Find(l => l == k));
             int uyirAndUyirMeyKurilEzuthuCount = kural.Count(k => k == TamilLanguageConstants.UyirMeyKurilEzuthukkal.Find(l => l == k));
-            int uyirAndUyriMeyNedilEzuthuCount = kural.Count(k => k == TamilLanguageConstants.UyirMeyNedilEzuthukkal.Find(l => l == k));            
+            int uyirAndUyriMeyNedilEzuthuCount = kural.Count(k => k == TamilLanguageConstants.UyirMeyNedilEzuthukkal.Find(l => l == k));
             int meyEzuthuCount = kural.Count(k => k == TamilLanguageConstants.MeyEzuthuPulli /* 0X0BCD - மெய்யெழுத்தில் வரும் புள்ளி. எ.கா, ’க்’ */);
             int aythaEzuthuCount = kural.Count(k => k == TamilLanguageConstants.AythaEzuthu);
             int agaraUyirMeyEzuthuCount = kural.Count(k => k == TamilLanguageConstants.AgaraUyirMeyEzuthukkal.Find(l => l == k));
@@ -119,7 +121,7 @@ namespace RjamSoft.Tamil.Grammar.Parser
             Console.WriteLine(
                 "Uyir Ezuthukkal = {0}\r\nMey Ezuthukkal = {1}\r\nUyir Mey Ezuthukkal = {2}\r\nAytha Ezhuthukkal = {3}\r\nGrantha Ezuthukkal = {4}\r\nKuril Ezuthukkal = {5}\r\nNedil Ezuthukkal = {6}",
                 uyirEzuthuCount, meyEzuthuCount, uyirMeyEzuthuCount, aythaEzuthuCount, granthaEzuthuCount, kurilEzuthuCount, nedilEzuthuCount);
-                                
+
         }
     }
 }

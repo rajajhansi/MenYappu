@@ -60,12 +60,9 @@
     <Compile Include="ITamilAgarathi.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ProsodyGrammarConstants.cs" />
     <Compile Include="ProsodyParser.cs" />
     <Compile Include="ProsodyParser.Tamil.cs" />
-    <Compile Include="ProsodyPart.cs" />
     <Compile Include="TamilAgarathi.cs" />
-    <Compile Include="TamilPaa.cs" />
     <Compile Include="ThodaiProcessor.cs" />
   </ItemGroup>
   <ItemGroup>

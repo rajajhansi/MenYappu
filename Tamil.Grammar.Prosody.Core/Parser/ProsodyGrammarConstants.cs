@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
-namespace RjamSoft.Tamil.Grammar.Parser
+namespace RjamSoft.Tamil.Grammar.Prosody.Core.Parser
 {
     // யாப்பிலக்கணம் - யாப்பிலக்கணத்தை பகுப்பதற்கு தேவையான நிலைகள்
     public class ProsodyGrammarConstants

@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Gma.DataStructures.StringSearch;
 using RjamSoft.Tamil.Grammar.Prosody.Core;
-using Tamil.Grammar.Prosody.Parser;
+using RjamSoft.Tamil.Grammar.Prosody.Parser;
 using Xunit;
 
 namespace RjamSoft.Tamil.Grammar.Parser.Tests

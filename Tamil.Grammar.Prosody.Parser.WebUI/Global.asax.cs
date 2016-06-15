@@ -15,7 +15,7 @@ using System.Web.Routing;
 using Autofac;
 using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
-using RjamSoft.Tamil.Grammar.Parser;
+using RjamSoft.Tamil.Grammar.Prosody.Parser;
 using RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Contract;
 using RjamSoft.Tamil.Grammar.Prosody.Infrastructure.Impl;
 using ServiceStack.Redis;
