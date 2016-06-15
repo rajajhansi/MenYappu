@@ -5,6 +5,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Text.RegularExpressions;
 using RjamSoft.Tamil.Grammar.Prosody.Core;
+using RjamSoft.Tamil.Grammar.Prosody.Core.Parser;
 using Tamil.Grammar.Prosody.Parser;
 
 namespace RjamSoft.Tamil.Grammar.Parser
@@ -1425,88 +1426,4 @@ namespace RjamSoft.Tamil.Grammar.Parser
             };
         }
     }
-
-    public class LineMeasure
-    {
-        public Dictionary<string, Dictionary<string, Dictionary<string, Dictionary<string, string>>>> ParseTree { get; set; }
-        public List<string> Lines { get; set; }
-        public List<string> LineClass { get; set; }
-    }
-
-    public class MetricLinkage
-    {
-        public Dictionary<string, Dictionary<string, Dictionary<string, Dictionary<string, string>>>> ParseTree { get; set; }
-        public List<Dictionary<string, string>> WordBond { get; set; }
-    }
-
-    public class ThodaiFinder
-    {
-        public List<string> Lines { get; set; }
-        public List<Dictionary<int, string>> MatchingAdiEthukai { get; set; }
-        public Dictionary<int, List<List<string>>> SeerEthukaiWithinAdi { get; set; }
-        public List<Dictionary<int, string>> MatchingAdiMonai { get; set; }
-        public Dictionary<int, List<List<string>>> SeerMonaiWithinAdi { get; set; }
-        public List<Dictionary<int, string>> MatchingAdiIyaipu { get; set; }
-        public Dictionary<int, List<List<string>>> SeerIyaipuWithinAdi { get; set; }
-    }
-
-    public class ProsodyText
-    {
-        public string InputText { get; set; }
-    }
-
-    public class ThodaiPair
-    {
-        public string InputText { get; set; }
-        public string ThodaiText { get; set; }
-    }
-
-    public class ThodaiResult
-    {
-        public bool DoesThodaiExist { get; set; }
-        public Dictionary<string, bool> Explanations { get; set; }
-    }
-
-    public class ThodaigalText
-    {
-        public ThodaiPair EthukaiPair { get; set; }
-        public ThodaiPair MonaiPair { get; set; }
-        public ThodaiPair IyaipuPair { get; set; }
-    }
-
-    public class ThodaiPairsText
-    {
-        public List<ThodaiPair> ThodaiPairs { get; set; }
-    }
-    public class MathiraiCounter
-    {
-        public List<Dictionary<string, double>> MathiraiCount { get; set; }
-        public List<Dictionary<string, Dictionary<string, LetterTypeWithMathirai>>> DetailedMathiraiCount { get; set; }
-        public double TotalMathiraiCount { get; set; }
-        public int TotalLetterCount { get; set; }
-    }
-
-    public class LetterTypeWithMathirai
-    {
-        public string LetterType { get; set; }
-        public double Mathirai { get; set; }
-    }
-
-    public class StringResource
-    {
-        public string Language { get; set; }
-    }
-
-    public class ThodaiRule
-    {
-        public int RuleNumber { get; set; }
-        public Dictionary<bool, string> RuleExplanations { get; set; }
-
-        public ThodaiRule()
-        {
-            RuleNumber = 0;
-            RuleExplanations = new Dictionary<bool, string>();
-        }
-    }
-
 }

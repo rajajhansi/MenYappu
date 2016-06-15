@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Tamil.Grammar.Prosody.Parser
+namespace RjamSoft.Tamil.Grammar.Prosody.Core.Parser
 {
     public class TamilPaa
     {

@@ -5,6 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using RjamSoft.Tamil.Grammar.Prosody.Core;
+using RjamSoft.Tamil.Grammar.Prosody.Core.Parser;
 using Tamil.Grammar.Prosody.Parser;
 
 namespace RjamSoft.Tamil.Grammar.Parser
