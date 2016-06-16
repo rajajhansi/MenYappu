@@ -14,18 +14,23 @@
             },
             right: function () {
                 return false;
+            },
+            bottom: function () {
+                return false;
             }
         };
 
         var defaults = {
             toggler: {
                 left: elem.find('#stacked-menu-toggler-left'),
-                right: elem.find('#stacked-menu-toggler-right')
+                right: elem.find('#stacked-menu-toggler-right'),
+                bottom: elem.find('#stacked-menu-toggler-bottom')
             },
             panels: {
                 left: elem.find('.left-panelbar'),
                 center: elem.find('.center-panelbar'),
-                right: elem.find('.right-panelbar')
+                right: elem.find('.right-panelbar'),
+                bottom: elem.find('.bottom-panelbar')
             },
             callbacks: {
                 beforeExpand: $.extend({}, _defaultCallbacks),
@@ -35,17 +40,26 @@
             },
             persistState: {
                 left: false,
-                right: false
+                right: false,
+                bottom: false
             },
             // INFO[burs]: initial state
             collapsed: {
                 left: true,
-                right: true
+                right: true,
+                bottom: true
             },
             collapsedText: {
                 left: '',
-                right: 'Help'
+                right: 'Help',
+                bottom: ''
             }
+        };
+
+        var collapsedClasses = {
+            left: 'panel-collapsed-left',
+            right: 'panel-collapsed-right',
+            bottom: 'panel-collapsed-bottom'
         };
 
         var config = $.extend(true, defaults, params);
@@ -65,10 +79,6 @@
             }
         });
 
-        var collapsedClasses = {
-            left: 'panel-collapsed-left',
-            right: 'panel-collapsed-right'
-        };
         var _onExpandActions = function (position, event, ctx) {
             config.callbacks.beforeExpand[position](event, elem, ctx);
             elem.removeClass(collapsedClasses[position]);

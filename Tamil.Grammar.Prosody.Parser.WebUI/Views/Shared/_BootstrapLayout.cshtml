@@ -75,7 +75,44 @@
         <!-- About us Dialog -->
 
         <div class="center-panelbar">
-            @RenderBody()
+            <div id="center-panelbar-innercontent" class="center-panelbar-contentwrap">
+                @RenderBody()
+            </div>
+
+            <div class="bottom-panelbar">
+                <div class="stacked-menus">
+                    <div class="clearfix">
+                        <div id="stacked-menu-toggler-bottom" class="stacked-menus-toggler" data-toggle="tooltip" data-placement="left" title="" data-original-title="" data-localize="clickThisButtonForHelp">
+                            <span class="stacked-menu-items-icon">
+                                <span class="ltext hidden"></span>
+                                <span class="glyph glyph-hamburger"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="bottom-panelbar-innercontent" class="bottom-panelbar-contentwrap">
+                    <div>
+                       <div>content goes here</div>
+                       <div>content goes here</div>
+                       <div>content goes here</div>
+                       <div>content goes here</div>
+                       <div>content goes here</div>
+                       <div>content goes here</div>
+                       <div>content goes here</div>
+                       <div>content goes here</div>
+                       <div>content goes here</div>
+                       <div>content goes here</div>
+                       <div>content goes here</div>
+                       <div>content goes here</div>
+                       <div>content goes here</div>
+                       <div>content goes here</div>
+                       <div>content goes here</div>
+                       <div>content goes here</div>
+                       <div>content goes here</div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="right-panelbar">
@@ -120,6 +157,9 @@
                         if (isCollapsedOnLoad['right']) {
                             container.find("#right-panelbar-innercontent").hide();
                         }
+                        if (isCollapsedOnLoad['bottom']) {
+                            container.find("#bottom-panelbar-innercontent").hide();
+                        }
                     },
                     collapsedText: {
                         'right': ProsodyResourceManager.get("help")
@@ -131,6 +171,9 @@
                             },
                             right: function (e, container) {
                                 container.find("#right-panelbar-innercontent").hide();
+                            },
+                            bottom: function(e, container) {
+                                container.find("#bottom-panelbar-innercontent").hide();
                             }
                         },
                         afterExpand: {
@@ -143,8 +186,12 @@
                             right: function (e, container, ctx) {
                                 setTimeout(function (param) {
                                     container.find("#right-panelbar-innercontent").fadeIn(100);
-                                },
-                                    100);
+                                }, 100);
+                            },
+                            bottom: function(e, container) {
+                                setTimeout(function (param) {
+                                    container.find("#bottom-panelbar-innercontent").fadeIn(100);
+                                }, 100);
                             }
                         }
                     }

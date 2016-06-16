@@ -11728,7 +11728,7 @@ button.toast-close-button {
   .flexbox-height-child.flexbox-height-child-main {
     flex: 1; }
 
-.left-panelbar, .right-panelbar {
+.left-panelbar, .right-panelbar, .bottom-panelbar {
   overflow: auto;
   position: absolute; }
 
@@ -11782,6 +11782,28 @@ button.toast-close-button {
   .center-panelbar .panel-text-on-collapsed {
     transform: rotate(90deg); }
 
+.center-panelbar-contentwrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 290px;
+  overflow: auto; }
+
+.bottom-panelbar {
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 290px; }
+
+.bottom-panelbar-contentwrap {
+  position: absolute;
+  top: 44px;
+  left: 0;
+  right: 0;
+  overflow: auto;
+  bottom: 0; }
+
 .panel-collapsed-left .left-panelbar {
   width: 44px;
   overflow-x: hidden; }
@@ -11795,6 +11817,12 @@ button.toast-close-button {
 
 .panel-collapsed-right .center-panelbar {
   right: 44px; }
+
+.panel-collapsed-bottom .center-panelbar-contentwrap {
+  bottom: 45px; }
+
+.panel-collapsed-bottom .bottom-panelbar {
+  height: 45px; }
 
 .stacked-menus-toggler, .stacked-menus-items {
   cursor: pointer; }
@@ -11872,7 +11900,7 @@ button.toast-close-button {
   font-size: 1.2em;
   padding-left: 4px; }
 
-.alt .left-panelbar, .alt .right-panelbar {
+.alt .left-panelbar, .alt .right-panelbar, .alt .bottom-panelbar {
   background-image: none;
   background-color: #E7FEFF; }
 
@@ -11883,6 +11911,10 @@ button.toast-close-button {
 .alt .right-panelbar {
   color: #333;
   border-left: 1px solid #dddddd; }
+
+.alt .bottom-panelbar {
+  color: #333;
+  border-top: 1px solid #dddddd; }
 
 .alt .stacked-menus-toggler:hover {
   color: #fff; }
@@ -11949,7 +11981,7 @@ button.toast-close-button {
     top: 10px;
     left: 10px; }
 
-.noselect, .left-panelbar, .right-panelbar, .kendo-panelbars-custom .main-title {
+.noselect, .left-panelbar, .right-panelbar, .bottom-panelbar, .kendo-panelbars-custom .main-title {
   -webkit-touch-callout: none;
   /* iOS Safari */
   -webkit-user-select: none;
@@ -11964,7 +11996,7 @@ button.toast-close-button {
   /* non-prefixed version, currently
 not supported by any browser */ }
 
-.fx-all, .left-panelbar, .right-panelbar, .center-panelbar, .stacked-menus-toggler, .stacked-menus-items {
+.fx-all, .left-panelbar, .right-panelbar, .bottom-panelbar, .center-panelbar, .stacked-menus-toggler, .stacked-menus-items {
   -moz-transition: all 0.1s ease-in-out;
   -o-transition: all 0.1s ease-in-out;
   -webkit-transition: all 0.1s ease-in-out;
